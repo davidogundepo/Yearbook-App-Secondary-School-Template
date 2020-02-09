@@ -50,13 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.5"
-  bloc_pattern:
-    dependency: "direct main"
+  bloc:
+    dependency: transitive
     description:
-      name: bloc_pattern
+      name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.1"
+    version: "2.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -267,11 +267,46 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.0"
+  flare_dart:
+    dependency: transitive
+    description:
+      name: flare_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.3.3"
+  flare_flutter:
+    dependency: transitive
+    description:
+      name: flare_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.8.3"
+  flare_loading:
+    dependency: transitive
+    description:
+      name: flare_loading
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  flare_splash_screen:
+    dependency: "direct main"
+    description:
+      name: flare_splash_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.4"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bloc:
+    dependency: "direct main"
+    description:
+      name: flutter_bloc
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   flutter_cache_manager:
     dependency: "direct main"
     description:
@@ -286,6 +321,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.5+1"
+  flutter_material_color_picker:
+    dependency: "direct main"
+    description:
+      name: flutter_material_color_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   flutter_offline:
     dependency: "direct main"
     description:
@@ -293,6 +335,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
+  flutter_statusbarcolor:
+    dependency: "direct main"
+    description:
+      name: flutter_statusbarcolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -527,6 +576,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.1"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0"
   pub_semver:
     dependency: transitive
     description:
@@ -561,7 +617,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.23.1"
+    version: "0.22.6"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -590,6 +646,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2+3"
+  shimmer:
+    dependency: "direct main"
+    description:
+      name: shimmer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
