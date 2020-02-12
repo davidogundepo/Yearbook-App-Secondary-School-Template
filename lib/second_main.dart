@@ -678,28 +678,35 @@ class _SubPageState extends State<SubPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Container(
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-            child: Text.rich(
-              TextSpan(
-                children: <TextSpan>[
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              splashColor: Colors.black45,
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                child: Text.rich(
                   TextSpan(
-                      text: 'Nickname\n',
-                      style: TextStyle(
-                        color: Colors.lightBlue,
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                      )
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Nickname\n',
+                          style: TextStyle(
+                            color: Colors.lightBlue,
+                            fontSize: 19,
+                            fontWeight: FontWeight.bold,
+                          )
+                      ),
+                      TextSpan(
+                          text: 'Dweezy',
+                          style: TextStyle(
+                            color: Colors.lightBlue,
+                            fontSize: 19,
+                            fontWeight: FontWeight.w300,
+                          )
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                      text: 'Dweezy',
-                      style: TextStyle(
-                        color: Colors.lightBlue,
-                        fontSize: 19,
-                        fontWeight: FontWeight.w300,
-                      )
-                  ),
-                ],
+                ),
               ),
             ),
           ),
@@ -832,27 +839,34 @@ class _SubPageState extends State<SubPage> {
                 ),
                 message: sC
             ),
-            Card(
-              elevation: 4,
-              shape: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
-                ),
-              ),
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: Colors.lightBlue[500].withOpacity(0.20),
+                onTap: () {},
+                child: Card(
+                  elevation: 4,
+                  shape: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
+                    ),
+                  ),
 
-              margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 16.0,
-                    top: 16.0,
-                    right: 16.0,
-                    bottom: 16.0),
+                  margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 16.0,
+                        top: 16.0,
+                        right: 16.0,
+                        bottom: 16.0),
 
-                child: Text('Stephen Curry'.toUpperCase(),
-                  style: TextStyle(
-                      color: Colors.lightBlue,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500
+                    child: Text('Stephen Curry'.toUpperCase(),
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -924,6 +938,4 @@ class _SubPageState extends State<SubPage> {
       ),
     );
   }
-
-
 }

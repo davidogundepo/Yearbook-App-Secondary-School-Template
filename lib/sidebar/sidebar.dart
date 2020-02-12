@@ -68,102 +68,133 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
           child: Row(
             children: <Widget>[
               Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  color: Color(0xFF262AAA),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 100,
-                      ),
-                      ListTile(
-                        title: Text(
-                          "HALLEL COLLEGE",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w800),
+                child: Card(
+                  elevation: 20,
+                  margin: EdgeInsets.all(0),
+                  child: Container(
+//                  elevation: 5,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    color: Colors.teal,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 100,
                         ),
-                        subtitle: Text(
-                          "SS3 Graduants",
-                          style: TextStyle(
-                            color: Color(0xFF1BB5FD),
-                            fontSize: 20,
+                        ListTile(
+                          title: Text(
+                            "HALLEL COLLEGE",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          subtitle: Text(
+                            "SS3 Graduants",
+                            style: TextStyle(
+                              color: Color(0xFF1BB5FD),
+                              fontSize: 20,
+                            ),
                           ),
                         ),
-                      ),
-                      Divider(
-                        height: 64,
-                        thickness: 0.5,
-                        color: Colors.white.withOpacity(0.3),
-                        indent: 32,
-                        endIndent: 32,
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.home,
-                        title: "Science Class Students",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
-                        },
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.human,
-                        title: "Social Science Class Students",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySecondPageClickedEvent);
-                        },
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.home,
-                        title: "Art Class Students",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
-                        },
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.home,
-                        title: "Graduants Class Teachers",
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.home,
-                        title: "Hallel Management Body",
-                      ),
-                      Divider(
-                        height: 64,
-                        thickness: 0.5,
-                        color: Colors.white.withOpacity(0.3),
-                        indent: 32,
-                        endIndent: 32,
-                      ),
-                      MenuItem(
-                        icon: MdiIcons.logout,
-                        title: "Exit from App",
-                      ),
-                    ],
+                        Divider(
+                          height: 64,
+                          thickness: 0.5,
+                          color: Colors.white.withOpacity(0.3),
+                          indent: 32,
+                          endIndent: 32,
+                        ),
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.home,
+                              title: "Science Class Students",
+//                                  onTap: () {
+//                                    onIconPressed();
+//                                    BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
+//                                  },
+                            ),
+                          ),
+                        ),
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySecondPageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.human,
+                              title: "Social Science Class Students",
+                            ),
+                          ),
+                        ),
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.home,
+                              title: "Art Class Students",
+                            ),
+                          ),
+                        ),
+                        MenuItem(
+                          icon: MdiIcons.home,
+                          title: "Graduants Class Teachers",
+                        ),
+                        MenuItem(
+                          icon: MdiIcons.home,
+                          title: "Hallel Management Body",
+                        ),
+                        Divider(
+                          height: 64,
+                          thickness: 0.5,
+                          color: Colors.white.withOpacity(0.3),
+                          indent: 32,
+                          endIndent: 32,
+                        ),
+                        MenuItem(
+                          icon: MdiIcons.logout,
+                          title: "Exit from App",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
               Align(
-                alignment: Alignment(0, -0.9),
+                alignment: Alignment(-0.4, -0.9),
                 child: GestureDetector(
                   onTap: () {
                     onIconPressed();
                   },
                   child: ClipPath(
                     clipper: CustomMenuClipper(),
-                    child: Container(
-                      width: 35,
-                      height: 110,
-                      color: Color(0xFF262AAA),
-                      alignment: Alignment.centerLeft,
-                      child: AnimatedIcon(
-                        progress: _animationController.view,
-                        icon: AnimatedIcons.menu_close,
-                        color: Color(0xFF1BB5FD),
-                        size: 25,
+                    child: Card(
+                      elevation: 20,
+                      margin: EdgeInsets.all(0),
+                      child: Container(
+                        width: 35,
+                        height: 110,
+                        color: Colors.teal,
+                        alignment: Alignment.centerLeft,
+                        child: AnimatedIcon(
+                          progress: _animationController.view,
+                          icon: AnimatedIcons.menu_close,
+                          color: Color(0xFF1BB5FD),
+                          size: 25,
+                        ),
                       ),
                     ),
                   ),
@@ -181,7 +212,7 @@ class CustomMenuClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Paint paint = Paint();
-    paint.color = Colors.white;
+    paint.color = Colors.transparent;
 
     final width = size.width;
     final height = size.height;

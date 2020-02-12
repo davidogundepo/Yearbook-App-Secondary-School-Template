@@ -31,7 +31,8 @@ class MenuItem extends StatelessWidget {
                 fontSize: 15,
                 color: Colors.white
               ),
-            )
+            ),
+
           ],
         ),
       ),

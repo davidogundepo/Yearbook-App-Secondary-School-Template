@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "878788914678",
+    "firebase_url": "https://flutterbook-y3s.firebaseio.com",
+    "project_id": "flutterbook-y3s",
+    "storage_bucket": "flutterbook-y3s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878788914678:android:55e8e3db2d9946ee5b2bd7",
+        "android_client_info": {
+          "package_name": "com.icdatinnovations.second_lfutter_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878788914678-r8fpe915npdnbl75ri53uk6o2c5c5625.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.icdatinnovations.second_lfutter_project",
+            "certificate_hash": "35a7de7f844c9b3817d4f98afe7048aeb8437cef"
+          }
+        },
+        {
+          "client_id": "878788914678-jfoted5gfoin0utto1r9q744ksrpkr2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKd_jNoSwVP6iDQ4EWD5gVN_wbcMIFikU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878788914678-jfoted5gfoin0utto1r9q744ksrpkr2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

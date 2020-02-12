@@ -1,8 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './sidebar/sidebar_layout.dart';
+import 'notifier/science_class_notifier.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MultiProvider(
+  providers: [
+    ChangeNotifierProvider(
+      builder: (context) => ScienceClassNotifier(),
+//      builder: (context) => ScienceClassNotifier(), create: (BuildContext context) {},
+//      create: (context) => ScienceClassNotifier(),
+    ),
+  ],
+    child: MyApp(),
+));
 
 class MyApp extends StatelessWidget {
   @override
