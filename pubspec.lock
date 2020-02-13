@@ -84,7 +84,7 @@ packages:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1+1"
+    version: "0.4.2"
   cache_image:
     dependency: "direct main"
     description:
@@ -140,7 +140,7 @@ packages:
       name: cloud_firestore_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0+2"
+    version: "0.1.0+3"
   collection:
     dependency: transitive
     description:
@@ -308,7 +308,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.0"
+    version: "0.8.1"
   flare_dart:
     dependency: transitive
     description:
@@ -322,14 +322,14 @@ packages:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.3"
+    version: "2.0.1"
   flare_loading:
     dependency: transitive
     description:
       name: flare_loading
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   flare_splash_screen:
     dependency: "direct main"
     description:
@@ -414,7 +414,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.7"
+    version: "0.3.8"
   html:
     dependency: transitive
     description:
@@ -631,7 +631,7 @@ packages:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.2"
+    version: "1.4.3"
   pubspec_parse:
     dependency: transitive
     description:
@@ -811,7 +811,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0+2"
+    version: "0.1.1"
   uuid:
     dependency: transitive
     description:
@@ -839,7 +839,7 @@ packages:
       name: webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.19+5"
+    version: "0.3.19+7"
   xml:
     dependency: transitive
     description:

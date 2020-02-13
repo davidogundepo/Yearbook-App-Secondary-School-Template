@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/api/science_class_api.dart';
 import 'package:second_lfutter_project/notifier/science_class_notifier.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import 'package:second_lfutter_project/second_main.dart';
@@ -26,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
+    getScienceClass(scienceClassNotifier);
     super.initState();
   }
 
@@ -75,6 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView.separated(
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
+                leading: Image.network(scienceClassNotifier.scienceClassList[index].image,
+                width: 120,
+                fit: BoxFit.fitWidth,
+                ),
                 title: Text(scienceClassNotifier.scienceClassList[index].name),
                 subtitle: Text(scienceClassNotifier.scienceClassList[index].twitter),
               );
