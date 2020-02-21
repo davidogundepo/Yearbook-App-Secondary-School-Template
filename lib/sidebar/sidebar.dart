@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:rxdart/rxdart.dart';
 import 'package:second_lfutter_project/bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
+
+//Future<bool> _onWillPop;
 
 class SideBar extends StatefulWidget {
 
@@ -15,6 +18,12 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<SideBar> {
+
+  int _currentNAVSelected = 0;
+
+  _onSelected(int index) {
+    setState(() => _currentNAVSelected = index);
+  }
 
   AnimationController _animationController;
   StreamController<bool> isSidebarOpenedStreamController;
@@ -80,22 +89,38 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         SizedBox(
                           height: 100,
                         ),
-                        ListTile(
-                          title: Text(
-                            "HALLEL COLLEGE",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w800),
-                          ),
-                          subtitle: Text(
-                            "SS3 Graduants",
-                            style: TextStyle(
-                              color: Color(0xFF1BB5FD),
-                              fontSize: 20,
+                        Container(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.lightBlueAccent,
+                              onTap: () {},
+                              child: ListTile(
+                                title: Text(
+                                  "HALLEL COLLEGE",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w800),
+                                ),
+                                subtitle: Text(
+                                  "SS3 Graduants",
+                                  style: TextStyle(
+                                    color: Color(0xFF1BB5FD),
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
+//                        Divider(
+//                          height: 64,
+//                          thickness: 0.5,
+//                          color: Colors.white.withOpacity(0.3),
+//                          indent: 32,
+//                          endIndent: 32,
+//                        ),
                         Divider(
                           height: 64,
                           thickness: 0.5,
@@ -104,28 +129,27 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           endIndent: 32,
                         ),
                         Material(
-                          color: Colors.transparent,
+                          color: _currentNAVSelected == 0 ? Colors.red : Colors.transparent,
                           child: InkWell(
                             splashColor: Colors.black45,
                             onTap: () {
+                              _onSelected(0);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
                             },
                             child: MenuItem(
                               icon: MdiIcons.home,
                               title: "Science Class Students",
-//                                  onTap: () {
-//                                    onIconPressed();
-//                                    BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
-//                                  },
+
                             ),
                           ),
                         ),
                         Material(
-                          color: Colors.transparent,
+                          color: _currentNAVSelected == 1 ? Colors.red : Colors.transparent,
                           child: InkWell(
                             splashColor: Colors.black45,
                             onTap: () {
+                              _onSelected(1);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySecondPageClickedEvent);
                             },
@@ -136,10 +160,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           ),
                         ),
                         Material(
-                          color: Colors.transparent,
+                          color: _currentNAVSelected == 2 ? Colors.red : Colors.transparent,
                           child: InkWell(
                             splashColor: Colors.black45,
                             onTap: () {
+                              _onSelected(2);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
                             },
@@ -149,13 +174,35 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             ),
                           ),
                         ),
-                        MenuItem(
-                          icon: MdiIcons.home,
-                          title: "Graduants Class Teachers",
+                        Material(
+                          color: _currentNAVSelected == 3 ? Colors.red : Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              _onSelected(3);
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.home,
+                              title: "Graduants Class Teachers",
+                            ),
+                          ),
                         ),
-                        MenuItem(
-                          icon: MdiIcons.home,
-                          title: "Hallel Management Body",
+                        Material(
+                          color: _currentNAVSelected == 4 ? Colors.red : Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              _onSelected(4);
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.home,
+                              title: "Management Body",
+                            ),
+                          ),
                         ),
                         Divider(
                           height: 64,
@@ -164,9 +211,19 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           indent: 32,
                           endIndent: 32,
                         ),
-                        MenuItem(
-                          icon: MdiIcons.logout,
-                          title: "Exit from App",
+                        Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.black45,
+                            onTap: () {
+                              _onWillPop();
+                              onIconPressed();
+                              },
+                            child: MenuItem(
+                              icon: MdiIcons.logout,
+                              title: "Exit from App",
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -206,6 +263,29 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
       },
     );
   }
+
+  Future<bool> _onWillPop() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Come on!'),
+        content: Text('Do you really really want to?'),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text('Oh No'),
+          ),
+          FlatButton(
+            onPressed: () => exit(0),
+            /*Navigator.of(context).pop(true)*/
+            child: Text('I Have To'),
+          ),
+        ],
+      ),
+    ) ??
+        false;
+  }
+
 }
 
 class CustomMenuClipper extends CustomClipper<Path> {

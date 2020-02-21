@@ -1,5 +1,4 @@
 
-
 class ScienceClass {
   String autobio;
   String bestmoment;
@@ -16,7 +15,7 @@ class ScienceClass {
   ScienceClass.fromMap(Map<String, dynamic> data) {
     id = data['id'];
     autobio = data['autobio'];
-    bestmoment = data['bestmoment'];
+    bestmoment = data['best_moment'];
     email = data['email'];
     facebook = data['facebook'];
     image = data['image'];

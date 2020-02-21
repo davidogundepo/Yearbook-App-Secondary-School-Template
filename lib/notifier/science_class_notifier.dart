@@ -18,7 +18,7 @@ class ScienceClassNotifier with ChangeNotifier {
   }
 
   set currentScienceClass(ScienceClass scienceClass) {
-    currentScienceClass = scienceClass;
+    _currentScienceClass = scienceClass;
     notifyListeners();
   }
 
