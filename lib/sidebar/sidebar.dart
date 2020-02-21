@@ -83,11 +83,17 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                   child: Container(
 //                  elevation: 5,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    color: Colors.teal,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [Colors.indigo, Colors.cyan]
+                      )
+                    ),
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 100,
+                          height: 50,
                         ),
                         Container(
                           child: Material(
@@ -95,111 +101,117 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             child: InkWell(
                               splashColor: Colors.lightBlueAccent,
                               onTap: () {},
-                              child: ListTile(
-                                title: Text(
-                                  "HALLEL COLLEGE",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                                subtitle: Text(
-                                  "SS3 Graduants",
-                                  style: TextStyle(
-                                    color: Color(0xFF1BB5FD),
-                                    fontSize: 20,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 80, top: 80),
+                                child: ListTile(
+                                  title: Text(
+                                    "HALLEL COLLEGE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                  subtitle: Text(
+                                    "SS3 Graduates",
+                                    style: TextStyle(
+                                      color: Color(0xFF1BB5FD),
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
+                              stops: [0.3, 1],
+                            ),
+//                              color: Colors.blue,
+                              borderRadius: new BorderRadius.circular(10)
+                          ),
                         ),
-//                        Divider(
-//                          height: 64,
-//                          thickness: 0.5,
-//                          color: Colors.white.withOpacity(0.3),
-//                          indent: 32,
-//                          endIndent: 32,
-//                        ),
                         Divider(
-                          height: 64,
+                          height: 30,
                           thickness: 0.5,
                           color: Colors.white.withOpacity(0.3),
                           indent: 32,
                           endIndent: 32,
                         ),
                         Material(
-                          color: _currentNAVSelected == 0 ? Colors.red : Colors.transparent,
+                          color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onSelected(0);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.home,
+                              icon: MdiIcons.matrix,
                               title: "Science Class Students",
 
                             ),
                           ),
                         ),
                         Material(
-                          color: _currentNAVSelected == 1 ? Colors.red : Colors.transparent,
+                          color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onSelected(1);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySecondPageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.human,
+                              icon: MdiIcons.chartBellCurve,
                               title: "Social Science Class Students",
                             ),
                           ),
                         ),
                         Material(
-                          color: _currentNAVSelected == 2 ? Colors.red : Colors.transparent,
+                          color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onSelected(2);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.home,
+                              icon: MdiIcons.draw,
                               title: "Art Class Students",
                             ),
                           ),
                         ),
                         Material(
-                          color: _currentNAVSelected == 3 ? Colors.red : Colors.transparent,
+                          color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onSelected(3);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.home,
-                              title: "Graduants Class Teachers",
+                              icon: MdiIcons.teach,
+                              title: "Graduates Class Teachers",
                             ),
                           ),
                         ),
                         Material(
-                          color: _currentNAVSelected == 4 ? Colors.red : Colors.transparent,
+                          color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onSelected(4);
                               onIconPressed();
                               BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.home,
+                              icon: MdiIcons.pillar,
                               title: "Management Body",
                             ),
                           ),
@@ -214,7 +226,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            splashColor: Colors.black45,
+                            splashColor: Colors.white,
                             onTap: () {
                               _onWillPop();
                               onIconPressed();
@@ -244,7 +256,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       child: Container(
                         width: 35,
                         height: 110,
-                        color: Colors.teal,
+                        color: Colors.indigo.shade500,
                         alignment: Alignment.centerLeft,
                         child: AnimatedIcon(
                           progress: _animationController.view,
