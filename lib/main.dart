@@ -7,7 +7,7 @@ import 'notifier/science_class_notifier.dart';
 void main() => runApp(MultiProvider(
   providers: [
     ChangeNotifierProvider(
-      builder: (context) => ScienceClassNotifier(),
+      create: (context) => ScienceClassNotifier(),
 //      builder: (context) => ScienceClassNotifier(), create: (BuildContext context) {},
 //      create: (context) => ScienceClassNotifier(),
     ),

@@ -43,7 +43,7 @@ dependencies:
   font_awesome_flutter: ^8.5.0
   local_auth: ^0.6.1
   cached_network_image: ^2.0.0
-  rxdart: ^0.22.1
+  rxdart: ^0.23.1
   package_info: ^0.4.0+13
   path_provider: ^1.6.0
   dio: ^3.0.8
@@ -65,16 +65,16 @@ dependencies:
   flutter_image_compress: ^0.6.5+1
   flare_splash_screen: ^2.0.1+2
   flutter_material_color_picker: ^1.0.5
-  flutter_bloc: ^2.1.1
+  flutter_bloc: ^3.2.0
   flutter_statusbarcolor: any
   shimmer: ^1.0.0
   firebase_core: ^0.4.3+3
   cloud_firestore: ^0.13.2+1
   firebase_auth: ^0.15.4
-  provider: ^3.2.0
+  provider: ^4.0.4
   dependency_validator: ^1.4.2
   fancy_alert_dialog: ^0.0.1
-
+  feature_discovery: ^0.8.0
 
 
 #  flutter_launch: ^0.1.2

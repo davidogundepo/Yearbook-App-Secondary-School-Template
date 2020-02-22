@@ -87,22 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ];
           },
-//        body: Center(
-//          child: Column(
-//            mainAxisAlignment: MainAxisAlignment.center,
-//            children: <Widget>[
-//              Text('Click button to move to SubPage'),
-//              RaisedButton(
-//                textColor: Colors.white,
-//                color: Colors.blue,
-//                child: Text('Go to SubPage'),
-//                onPressed: () {
-//                  navigateToSubPage(context);
-//                },
-//              )
-//            ],
-//          ),
-//        ),
+
           body: ListView.separated(
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(

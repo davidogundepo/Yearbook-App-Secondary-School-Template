@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -95,43 +96,64 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         SizedBox(
                           height: 50,
                         ),
-                        Container(
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.lightBlueAccent,
-                              onTap: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.only(bottom: 80, top: 80),
-                                child: ListTile(
-                                  title: Text(
-                                    "HALLEL COLLEGE",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w800),
-                                  ),
-                                  subtitle: Text(
-                                    "SS3 Graduates",
-                                    style: TextStyle(
-                                      color: Color(0xFF1BB5FD),
-                                      fontSize: 20,
+                        Stack(
+                          children: <Widget>[
+                            Opacity(
+                              opacity: 0.7,
+                              child: Container(
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    splashColor: Colors.lightBlueAccent,
+                                    onTap: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 80, top: 80),
+                                      child: ListTile(
+                                        title: Text(
+                                          "HALLEL COLLEGE",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        subtitle: Text(
+                                          "SS3 Graduates",
+                                          style: TextStyle(
+                                            color: Colors.indigo,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
+                                width: 400.0,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: new ExactAssetImage('assets/images/gsw.jpg'),
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
+                                    stops: [0.3, 1],
+
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.blueAccent,
+                                      blurRadius: 12,
+                                      offset: Offset(3, 12),
+                                    )
+                                  ],
+                                  borderRadius: new BorderRadius.circular(10),
+                                ),
+
+
                               ),
                             ),
-                          ),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
-                              stops: [0.3, 1],
-                            ),
-//                              color: Colors.blue,
-                              borderRadius: new BorderRadius.circular(10)
-                          ),
+                          ],
                         ),
                         Divider(
                           height: 30,
@@ -297,6 +319,47 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
     ) ??
         false;
   }
+
+}
+
+class CustomPILLCardShapePainter extends CustomPainter {
+
+  final double radius;
+  final Color startColor;
+  final Color endColor;
+
+  CustomPILLCardShapePainter(this.radius, this.startColor, this.endColor);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+   var radius = 24.0;
+
+   var david = Paint();
+   david.shader = ui.Gradient.linear(
+     Offset(0,0), Offset(size.width, size.height), [
+       HSLColor.fromColor(startColor).withLightness(0.8).toColor(),endColor
+   ]);
+
+   var jesus = Path()
+     ..moveTo(0, size.height)
+     ..lineTo(size.width - radius, size.height)
+     ..quadraticBezierTo(size.width, size.height, size.width, size.height - radius)
+     ..lineTo(size.width, radius)
+     ..quadraticBezierTo(size.width, 0, size.width - radius, 0)
+     ..lineTo(size.width - 1.5 * radius, 0)
+     ..quadraticBezierTo(-radius, 2 * radius, 0, size.height)
+     ..close();
+
+   canvas.drawPath(jesus, david);
+
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+
+    return true;
+  }
+
 
 }
 

@@ -20,21 +20,22 @@ class _MySecondPageState extends State<MySecondPage> {
   Future<bool> _onWillPop() {
     return showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Come on!'),
-        content: Text('Do you really really want to?'),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Oh No'),
+      builder: (context) =>
+          AlertDialog(
+            title: Text('Come on!'),
+            content: Text('Do you really really want to?'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('Oh No'),
+              ),
+              FlatButton(
+                onPressed: () => exit(0),
+                /*Navigator.of(context).pop(true)*/
+                child: Text('I Have To'),
+              ),
+            ],
           ),
-          FlatButton(
-            onPressed: () => exit(0),
-            /*Navigator.of(context).pop(true)*/
-            child: Text('I Have To'),
-          ),
-        ],
-      ),
     ) ??
         false;
   }
@@ -48,47 +49,104 @@ class _MySecondPageState extends State<MySecondPage> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-          body: NestedScrollView(
-            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        body: CustomPaint(
+          size: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height),
+          painter: BackGround(),
+          child: NestedScrollView(
+            headerSliverBuilder: (BuildContext context,
+                bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-              backgroundColor: Colors.pinkAccent,
-              expandedHeight: 200.0,
-              floating: false,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  title: Text("Second Page",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
+                  backgroundColor: Colors.pinkAccent,
+                  expandedHeight: 200.0,
+                  floating: false,
+                  pinned: true,
+                  flexibleSpace: FlexibleSpaceBar(
+                      centerTitle: true,
+                      title: Text("Second Page",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                          )),
+                      background: Image.network(
+                        "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                        fit: BoxFit.cover,
                       )),
-                  background: Image.network(
-                    "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    fit: BoxFit.cover,
-                  )),
-            ),
+                ),
               ];
             },
             body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Click button to move to SubPage Two'),
-              RaisedButton(
-                textColor: Colors.white,
-                color: Colors.blue,
-                child: Text('Go to SubPage Two'),
-                onPressed: () {
-                  navigateToSubPage(context);
-                },
-              )
-            ],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Click button to move to SubPage Two'),
+                  Opacity(
+                    opacity: 0.3,
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.blue,
+                      child: Text('Go to SubPage Two'),
+                      onPressed: () {
+                        navigateToSubPage(context);
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
-            ),
       ),
     );
+  }
+}
+
+  class BackGround extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+  Paint paint = new Paint();
+  paint.color = Colors.indigo;
+  paint.strokeWidth = 100;
+  paint.isAntiAlias = true;
+
+  Paint paint2 = new Paint();
+  paint2.color = Colors.indigoAccent;
+  paint2.strokeWidth = 100;
+  paint2.isAntiAlias = true;
+
+  canvas.drawLine(Offset(300, -120), Offset(size.width+60, size.width-280), paint2);
+  canvas.drawLine(Offset(200, -80), Offset(size.width+60, size.width-160), paint);
+  canvas.drawLine(Offset(100, -40), Offset(size.width+60, size.width-40), paint2);
+  canvas.drawLine(Offset(0, 0), Offset(size.width+60, size.width+80), paint);
+  canvas.drawLine(Offset(-100, 40), Offset(size.width+60, size.width+200), paint2);
+  canvas.drawLine(Offset(-200, 90), Offset(size.width+60, size.width+320), paint);
+  canvas.drawLine(Offset(-300, 140), Offset(size.width+60, size.width+440), paint2);
+  canvas.drawLine(Offset(-400, 190), Offset(size.width+60, size.width+560), paint);
+  canvas.drawLine(Offset(-500, 240), Offset(size.width+60, size.width+680), paint2);
+  canvas.drawLine(Offset(-600, 290), Offset(size.width+60, size.width+800), paint);
+
+//
+//  var color = Paint();
+//  color.color = Colors.green[800];
+//  color.style = PaintingStyle.fill;
+//
+//  var create = Path();
+//
+//  create.moveTo(0, size.height * 0.9167);
+//  create.quadraticBezierTo(size.width * 0.25, size.height * 0.875,
+//      size.width * 0.5, size.height * 0.9167);
+//  create.quadraticBezierTo(size.width * 0.75, size.height * 0.9584,
+//      size.width * 1.0, size.height * 0.9167);
+//  create.lineTo(size.width, size.height);
+//  create.lineTo(0, size.height);
+//
+//  canvas.drawPath(create, color);
+
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 
 }

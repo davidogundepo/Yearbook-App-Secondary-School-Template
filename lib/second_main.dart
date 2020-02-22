@@ -9,7 +9,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'api/science_class_api.dart';
 
 //const Color _colorOne = Color(0x33000000);
 //const Color _colorTwo = Color(0x24000000);
@@ -38,7 +37,7 @@ Map<int, Widget> userBIO;
 
 
 var _autobio;
-var _best_moment;
+var _bestmoment;
 var _email;
 var _facebook;
 var _image;
@@ -218,7 +217,7 @@ class _SubPageState extends State<SubPage>{
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
 
     _autobio = scienceClassNotifier.currentScienceClass.autobio;
-    _best_moment = scienceClassNotifier.currentScienceClass.bestmoment;
+    _bestmoment = scienceClassNotifier.currentScienceClass.bestmoment;
     _email = scienceClassNotifier.currentScienceClass.email;
     _facebook = scienceClassNotifier.currentScienceClass.facebook;
     _image = scienceClassNotifier.currentScienceClass.image;
@@ -510,7 +509,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: _best_moment,
+                              text: _bestmoment,
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
