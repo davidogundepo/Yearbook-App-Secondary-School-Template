@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:second_lfutter_project/bloc_navigation_bloc/navigation_bloc.dart';
 import 'package:second_lfutter_project/second_main.dart';
+import 'package:second_lfutter_project/notifier/science_class_notifier.dart';
+import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/api/science_class_api.dart';
 
 
 class MySecondPage extends StatefulWidget with NavigationStates{
@@ -16,6 +19,24 @@ class MySecondPage extends StatefulWidget with NavigationStates{
 }
 
 class _MySecondPageState extends State<MySecondPage> {
+
+  Widget _buildProductItem(BuildContext context, int index) {
+    ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
+    return Card(
+      child: InkWell(
+        onTap: () {
+          scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
+          navigateToSubPage(context);
+        },
+        child: Column(
+          children: <Widget>[
+            Image.network(scienceClassNotifier.scienceClassList[index].image),
+            Text(scienceClassNotifier.scienceClassList[index].name, style: TextStyle(color: Colors.deepPurple)),
+          ],
+        ),
+      ),
+    );
+  }
 
   Future<bool> _onWillPop() {
     return showDialog(
@@ -46,6 +67,8 @@ class _MySecondPageState extends State<MySecondPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
+
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
@@ -75,24 +98,14 @@ class _MySecondPageState extends State<MySecondPage> {
                 ),
               ];
             },
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Click button to move to SubPage Two'),
-                  Opacity(
-                    opacity: 0.3,
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('Go to SubPage Two'),
-                      onPressed: () {
-                        navigateToSubPage(context);
-                      },
-                    ),
-                  )
-                ],
-              ),
+            body: ListView.separated(
+              itemBuilder: _buildProductItem,
+              itemCount: scienceClassNotifier.scienceClassList.length,
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider(
+                  color: Colors.blue,
+                );
+              },
             ),
           ),
         ),

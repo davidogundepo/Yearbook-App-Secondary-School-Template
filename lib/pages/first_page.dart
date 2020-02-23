@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               SliverAppBar(
                 backgroundColor: Colors.pinkAccent,
                 expandedHeight: 200.0,
-                floating: false,
+                floating: true,
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
@@ -90,23 +90,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
           body: ListView.separated(
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  leading: Image.network(
-                    scienceClassNotifier.scienceClassList[index].image,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.fitWidth,
+                return Padding(
+                  padding: const EdgeInsets.only(left: 14.0),
+                  child: Container(
+                    child: ListTile(
+                      leading: Image.network(
+                       scienceClassNotifier.scienceClassList[index].image,
+                      width: 80,
+                      height: 200,
+                        fit: BoxFit.fill,
+                      ),
+                      title: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Text(scienceClassNotifier.scienceClassList[index].name),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Text(scienceClassNotifier.scienceClassList[index].twitter),
+                      ),
+                      onTap: (){
+                        scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder:  (BuildContext context){
+                            return SubPage();
+                          })
+                        );
+                      },
+                    ),
                   ),
-                  title: Text(scienceClassNotifier.scienceClassList[index].name),
-                  subtitle: Text(scienceClassNotifier.scienceClassList[index].twitter),
-                  onTap: (){
-                    scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder:  (BuildContext context){
-                        return SubPage();
-                      })
-                    );
-                  },
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
