@@ -75,6 +75,8 @@ dependencies:
   dependency_validator: ^1.4.2
   fancy_alert_dialog: ^0.0.1
   feature_discovery: ^0.8.0
+  wave: ^0.0.8
+
 
 
 #  flutter_launch: ^0.1.2

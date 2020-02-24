@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:second_lfutter_project/bloc_navigation_bloc/navigation_bloc.dart';
+import 'package:wave/config.dart';
+import 'package:wave/wave.dart';
 import '../sidebar/menu_item.dart';
 
 //Future<bool> _onWillPop;
@@ -85,11 +87,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 //                  elevation: 5,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [Colors.indigo, Colors.cyan]
-                      )
+                        gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [Colors.indigo, Colors.cyan]
+                        )
                     ),
                     child: Column(
                       children: <Widget>[
@@ -252,7 +254,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onWillPop();
                               onIconPressed();
-                              },
+                            },
                             child: MenuItem(
                               icon: MdiIcons.logout,
                               title: "Exit from App",
@@ -290,10 +292,32 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         );
+//        Container(
+//          child: WaveWidget(
+//            config: CustomConfig(
+//              gradients: [
+//                [Colors.white70, Colors.black45],
+//                [Colors.indigo, Colors.cyan],
+//              ],
+//
+//              durations: [15000, 20440],
+//              heightPercentages: [0.80, 0.83],
+//              blur: MaskFilter.blur(BlurStyle.solid, 3),
+//              gradientBegin: Alignment.bottomLeft,
+//              gradientEnd: Alignment.topRight,
+//            ),
+//            waveAmplitude: 0,
+////                          heightPercentange: [0.25, 0.26, 0.28, 0.31],
+//            size: Size(
+//              double.infinity,
+//              double.infinity,
+//            ),
+//          ),
+//        ),
       },
     );
   }
