@@ -26,16 +26,17 @@ class _MySecondPageState extends State<MySecondPage> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
+//        margin: new EdgeInsets.only( top: 30),
 //        width: 100,
 //        height: 100,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),color: Colors.cyanAccent.withAlpha(50),
+            borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
         ),
 
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-          splashColor: Colors.lightBlueAccent,
+          splashColor: Colors.blue,
             onTap: () {
               scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
               navigateToSubPage(context);
@@ -69,7 +70,7 @@ class _MySecondPageState extends State<MySecondPage> {
                           padding: const EdgeInsets.only(top: 30),
                           child: Text(
                               scienceClassNotifier.scienceClassList[index].name,
-                              style: TextStyle(color: Colors.deepPurple
+                              style: TextStyle(color: Colors.white
                               )
                           ),
                         ),
@@ -77,7 +78,7 @@ class _MySecondPageState extends State<MySecondPage> {
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(
                               scienceClassNotifier.scienceClassList[index].twitter,
-                              style: TextStyle(color: Colors.deepPurple
+                              style: TextStyle(color: Colors.white70
                               )
                           ),
                         ),
@@ -129,22 +130,24 @@ class _MySecondPageState extends State<MySecondPage> {
       child: Scaffold(
 //        backgroundColor: Colors.redAccent,
         body: Container(
+//          padding: new EdgeInsets.only( top: 30),
+          color: Colors.blue,
 //          padding: new EdgeInsets.symmetric(vertical: 20.0),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  stops: [0.4, 0.7],
-                  colors: [Colors.blueAccent, Colors.lightBlue]
-              ),
-
-          ),
+//          decoration: BoxDecoration(
+//            gradient: LinearGradient(
+//                  begin: Alignment.topRight,
+//                  end: Alignment.bottomLeft,
+//                  stops: [0.4, 0.7],
+//                  colors: [Colors.transparent, Colors.transparent]
+//              ),
+//
+//          ),
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
                 bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Colors.blueAccent,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -165,9 +168,8 @@ class _MySecondPageState extends State<MySecondPage> {
             body: Padding(
               padding: const EdgeInsets.only(left: 25, right: 10),
               child: Container(
-                margin: new EdgeInsets.only(top: 100.0, bottom: 30),
+                margin: new EdgeInsets.only( bottom: 15),
                 decoration: BoxDecoration(
-                  color: Colors.redAccent.withAlpha(50),
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: ListView.builder(
