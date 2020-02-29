@@ -1,64 +1,54 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:second_lfutter_project/notifier/science_class_notifier.dart';
+import '../notifier/management_body_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-
-//const Color _colorOne = Color(0x33000000);
-//const Color _colorTwo = Color(0x24000000);
-//const Color _colorThree = Color(0x1F000000);
 
 String dave = "David";
 String whatsApp = "+2348070920625";
 
 String callFIRST = "tel:+234";
 String smsFIRST = "sms:+234";
-//String whatsAppFIRST = "whatsapp://send?phone=$whatsApp";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
-//String mailTHIRD = "$dave";
 String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/olowote.oluwaseun";
 String urlInstagram = "https://www.instagram.com/";
 
-
-
-ScienceClassNotifier scienceClassNotifier;
-
+ManagementBodyNotifier managementBodyNotifier;
 
 Map<int, Widget> userBIO;
 
-
-
 var _autobio;
-var _bestmoment;
+var _staff_position;
+var _qualification;
+var _year_of_inception;
 var _email;
 var _facebook;
 var _image;
 var _instagram;
 var _name;
-var _nickname;
 var _phone;
 var _twitter;
 
-class SubPage extends StatefulWidget {
+class ManagementBodyDetailsPage extends StatefulWidget {
 
-  SubPage({Key key, this.title}) : super(key: key);
+  ManagementBodyDetailsPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _SubPageState createState() => _SubPageState();
+  _ManagementBodyDetailsPage createState() => _ManagementBodyDetailsPage();
 
 }
 
-class _SubPageState extends State<SubPage>{
+class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
 
   Future launchURL(String url) async{
     if(await canLaunch(url)) {
@@ -71,13 +61,13 @@ class _SubPageState extends State<SubPage>{
   @override
   Widget build(BuildContext context) {
 
-    scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: true);
+    managementBodyNotifier = Provider.of<ManagementBodyNotifier>(context, listen: true);
 
     return Scaffold(
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(scienceClassNotifier.currentScienceClass.name),
+//        title: Text(managementBodyNotifier.currentManagementBody.name),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
@@ -103,20 +93,26 @@ class _SubPageState extends State<SubPage>{
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Tooltip(
-                child: Card(
-                  elevation: 5,
-                  margin: EdgeInsets.all(10),
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child: Image.asset('assets/images/gsw.jpg',
-                    fit: BoxFit.fill,
-                    semanticLabel: 'Steph Curry',
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                child: Container(
+                  width: 400,
+                  height: 520,
+                  child: Card(
+                    elevation: 5,
+                    margin: EdgeInsets.all(10),
+                    semanticContainer: true,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: CachedNetworkImage(
+                      imageUrl: managementBodyNotifier.currentManagementBody.image,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                   ),
                 ),
-                message: scienceClassNotifier.currentScienceClass.name
+                message: managementBodyNotifier.currentManagementBody.name
             ),
             Material(
               color: Colors.transparent,
@@ -139,7 +135,7 @@ class _SubPageState extends State<SubPage>{
                         right: 16.0,
                         bottom: 16.0),
 
-                    child: Text(scienceClassNotifier.currentScienceClass.name.toUpperCase(),
+                    child: Text(managementBodyNotifier.currentManagementBody.name.toUpperCase(),
                       style: TextStyle(
                           color: Colors.lightBlue,
                           fontSize: 30,
@@ -212,20 +208,20 @@ class _SubPageState extends State<SubPage>{
 
   }
 
+  initState(){
+    ManagementBodyNotifier managementBodyNotifier = Provider.of<ManagementBodyNotifier>(context, listen: false);
 
-   initState(){
-    ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
-
-    _autobio = scienceClassNotifier.currentScienceClass.autobio;
-    _bestmoment = scienceClassNotifier.currentScienceClass.bestmoment;
-    _email = scienceClassNotifier.currentScienceClass.email;
-    _facebook = scienceClassNotifier.currentScienceClass.facebook;
-    _image = scienceClassNotifier.currentScienceClass.image;
-    _instagram = scienceClassNotifier.currentScienceClass.instagram;
-    _name = scienceClassNotifier.currentScienceClass.name;
-    _nickname = scienceClassNotifier.currentScienceClass.nickname;
-    _phone = scienceClassNotifier.currentScienceClass.phone;
-    _twitter = scienceClassNotifier.currentScienceClass.twitter;
+    _autobio = managementBodyNotifier.currentManagementBody.autobio;
+    _staff_position = managementBodyNotifier.currentManagementBody.staff_position;
+    _year_of_inception = managementBodyNotifier.currentManagementBody.year_of_inception;
+    _email = managementBodyNotifier.currentManagementBody.email;
+    _facebook = managementBodyNotifier.currentManagementBody.facebook;
+    _image = managementBodyNotifier.currentManagementBody.image;
+    _instagram = managementBodyNotifier.currentManagementBody.instagram;
+    _name = managementBodyNotifier.currentManagementBody.name;
+    _qualification = managementBodyNotifier.currentManagementBody.qualification;
+    _phone = managementBodyNotifier.currentManagementBody.phone;
+    _twitter = managementBodyNotifier.currentManagementBody.twitter;
 
 
     userBIO = <int, Widget>{
@@ -386,10 +382,10 @@ class _SubPageState extends State<SubPage>{
 //                        _controller = c;
 //                      },
 //                    );
-                  WebView(
-                    initialUrl: 'https://fb.com/olowote.oluwaseun',
-                    javascriptMode: JavascriptMode.unrestricted,
-                  );
+                    WebView(
+                      initialUrl: 'https://fb.com/olowote.oluwaseun',
+                      javascriptMode: JavascriptMode.unrestricted,
+                    );
 
 //                    _controller.loadUrl('https://fb.com/'+_facebook);
 //                  launchURL(urlFacebook);
@@ -418,7 +414,7 @@ class _SubPageState extends State<SubPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Nickname\n',
+                            text: 'Autobiography\n',
                             style: TextStyle(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -426,7 +422,7 @@ class _SubPageState extends State<SubPage>{
                             )
                         ),
                         TextSpan(
-                            text: _nickname,
+                            text: ' '+_autobio,
                             style: TextStyle(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -459,7 +455,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'AutoBio\n',
+                              text: 'Staff Position \n',
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -467,7 +463,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: _autobio,
+                              text: ' '+_staff_position,
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -501,7 +497,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Best Moment in Hallel\n',
+                              text: 'Qualification(s)\n',
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -509,7 +505,49 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: _bestmoment,
+                              text: ' '+_qualification,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Year of Inception\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_year_of_inception,
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -534,8 +572,6 @@ class _SubPageState extends State<SubPage>{
     };
     super.initState();
   }
-
-
 
   int sharedValue = 0;
 

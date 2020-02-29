@@ -6,12 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:second_lfutter_project/bloc_navigation_bloc/navigation_bloc.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
+import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
-
-//Future<bool> _onWillPop;
 
 class SideBar extends StatefulWidget {
 
@@ -84,7 +80,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                   elevation: 20,
                   margin: EdgeInsets.all(0),
                   child: Container(
-//                  elevation: 5,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -171,11 +166,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onSelected(0);
                               onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyHomePageClickedEvent);
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySciencePageClickedEvent);
                             },
                             child: MenuItem(
                               icon: MdiIcons.matrix,
-                              title: "Science Class Students",
+                              title: "Science Class Graduates",
 
                             ),
                           ),
@@ -187,11 +182,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onSelected(1);
                               onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySecondPageClickedEvent);
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySocialPageClickedEvent);
                             },
                             child: MenuItem(
                               icon: MdiIcons.chartBellCurve,
-                              title: "Social Science Class Students",
+                              title: "Social Science Class Graduates",
                             ),
                           ),
                         ),
@@ -202,11 +197,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onSelected(2);
                               onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyArtPageClickedEvent);
                             },
                             child: MenuItem(
                               icon: MdiIcons.draw,
-                              title: "Art Class Students",
+                              title: "Art Class Graduates",
                             ),
                           ),
                         ),
@@ -217,11 +212,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onSelected(3);
                               onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyClassPrefectsPageClickedEvent);
                             },
                             child: MenuItem(
-                              icon: MdiIcons.teach,
-                              title: "Graduates Class Teachers",
+                              icon: MdiIcons.accountGroup,
+                              title: "School Prefects",
                             ),
                           ),
                         ),
@@ -232,7 +227,22 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             onTap: () {
                               _onSelected(4);
                               onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyThirdPageClickedEvent);
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGraduatesClassTeachersPageClickedEvent);
+                            },
+                            child: MenuItem(
+                              icon: MdiIcons.teach,
+                              title: "Graduates Class Teachers",
+                            ),
+                          ),
+                        ),
+                        Material(
+                          color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                          child: InkWell(
+                            splashColor: Colors.white,
+                            onTap: () {
+                              _onSelected(5);
+                              onIconPressed();
+                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyPageClickedEvent);
                             },
                             child: MenuItem(
                               icon: MdiIcons.pillar,

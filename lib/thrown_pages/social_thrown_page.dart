@@ -3,32 +3,31 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:second_lfutter_project/bloc_navigation_bloc/navigation_bloc.dart';
-import 'package:second_lfutter_project/second_main.dart';
-import 'package:second_lfutter_project/notifier/science_class_notifier.dart';
+import '../api/social_class_api.dart';
+import '../bloc_navigation_bloc/navigation_bloc.dart';
+import '../notifier/social_class_notifier.dart';
 import 'package:provider/provider.dart';
-import 'package:second_lfutter_project/api/science_class_api.dart';
+import '../details_pages/social_details_page.dart';
+
+String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
 
-class MySecondPage extends StatefulWidget with NavigationStates{
-  MySecondPage({Key key, this.title}) : super(key: key);
+class MySocialPage extends StatefulWidget with NavigationStates{
+  MySocialPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MySecondPageState createState() => _MySecondPageState();
+  _MySocialPage createState() => _MySocialPage();
 }
 
-class _MySecondPageState extends State<MySecondPage> {
+class _MySocialPage extends State<MySocialPage> {
 
   Widget _buildProductItem(BuildContext context, int index) {
-    ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
+    SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
-//        margin: new EdgeInsets.only( top: 30),
-//        width: 100,
-//        height: 100,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
         ),
@@ -38,7 +37,7 @@ class _MySecondPageState extends State<MySecondPage> {
           child: InkWell(
           splashColor: Colors.blue,
             onTap: () {
-              scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
+              socialClassNotifier.currentSocialClass = socialClassNotifier.socialClassList[index];
               navigateToSubPage(context);
             },
 
@@ -52,14 +51,11 @@ class _MySecondPageState extends State<MySecondPage> {
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                       image: DecorationImage(
                         image: CachedNetworkImageProvider(
-                            scienceClassNotifier.scienceClassList[index].image
+                            socialClassNotifier.socialClassList[index].image
                         ),
                         fit: BoxFit.cover
                       )
                     ),
-//                child: Image.network(
-//                    scienceClassNotifier.scienceClassList[index].image
-//                ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 60),
@@ -69,7 +65,7 @@ class _MySecondPageState extends State<MySecondPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
                           child: Text(
-                              scienceClassNotifier.scienceClassList[index].name,
+                              socialClassNotifier.socialClassList[index].name,
                               style: TextStyle(color: Colors.white
                               )
                           ),
@@ -77,7 +73,7 @@ class _MySecondPageState extends State<MySecondPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(
-                              scienceClassNotifier.scienceClassList[index].twitter,
+                              '@'+socialClassNotifier.socialClassList[index].twitter,
                               style: TextStyle(color: Colors.white70
                               )
                           ),
@@ -118,30 +114,26 @@ class _MySecondPageState extends State<MySecondPage> {
   }
 
   Future navigateToSubPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SocialDetailsPage()));
+  }
+
+  @override
+  void initState() {
+    SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context, listen: false);
+    getSocialClass(socialClassNotifier);
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
+    SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context);
 
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-//        backgroundColor: Colors.redAccent,
         body: Container(
-//          padding: new EdgeInsets.only( top: 30),
           color: Colors.blue,
-//          padding: new EdgeInsets.symmetric(vertical: 20.0),
-//          decoration: BoxDecoration(
-//            gradient: LinearGradient(
-//                  begin: Alignment.topRight,
-//                  end: Alignment.bottomLeft,
-//                  stops: [0.4, 0.7],
-//                  colors: [Colors.transparent, Colors.transparent]
-//              ),
-//
-//          ),
+
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
                 bool innerBoxIsScrolled) {
@@ -153,15 +145,19 @@ class _MySecondPageState extends State<MySecondPage> {
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
-                      title: Text("Second Page",
+                      title: Text("Social Science Graduates",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16.0,
-                          )),
-                      background: Image.network(
-                        "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                          )
+                      ),
+                      background: CachedNetworkImage(
+                        imageUrl: imageURL,
                         fit: BoxFit.cover,
-                      )),
+                        placeholder: (context, url) => new CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => new Icon(Icons.error),
+                      )
+                  ),
                 ),
               ];
             },
@@ -174,12 +170,8 @@ class _MySecondPageState extends State<MySecondPage> {
                 ),
                 child: ListView.builder(
                   itemBuilder: _buildProductItem,
-                  itemCount: scienceClassNotifier.scienceClassList.length,
-//                  separatorBuilder: (BuildContext context, int index) {
-//                    return Divider(
-//                      color: Colors.blue,
-//                    );
-//                  },
+                  itemCount: socialClassNotifier.socialClassList.length,
+
                 ),
               ),
             ),
@@ -190,7 +182,7 @@ class _MySecondPageState extends State<MySecondPage> {
   }
 }
 
-  class BackGround extends CustomPainter{
+class BackGround extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
   Paint paint = new Paint();

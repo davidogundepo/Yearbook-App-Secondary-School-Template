@@ -2,7 +2,7 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
-import 'package:second_lfutter_project/model/ScienceClass.dart';
+import '../model/ScienceClass.dart';
 
 class ScienceClassNotifier with ChangeNotifier {
   List<ScienceClass> _scienceClassList = [];
