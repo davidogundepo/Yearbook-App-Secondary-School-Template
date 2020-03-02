@@ -153,12 +153,9 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                             fontSize: 16.0,
                           )
                       ),
-                      background: CachedNetworkImage(
-                        imageUrl: imageURL,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => new CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => new Icon(Icons.error),
-                      )
+                      background: Image.asset('assets/images/management_2.jpg',
+                      fit: BoxFit.cover
+                        ,)
                   ),
                 ),
               ];

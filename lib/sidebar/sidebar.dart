@@ -116,7 +116,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                         subtitle: Text(
                                           "SS3 Graduates",
                                           style: TextStyle(
-                                            color: Colors.black,
+                                            color: Colors.brown[200],
+                                            fontWeight: FontWeight.w500,
                                             fontSize: 20,
                                           ),
                                         ),

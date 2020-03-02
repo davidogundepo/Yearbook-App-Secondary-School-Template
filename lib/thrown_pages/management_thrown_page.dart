@@ -152,12 +152,8 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                             fontSize: 16.0,
                           )
                       ),
-                      background: CachedNetworkImage(
-                        imageUrl: imageURL,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => new CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => new Icon(Icons.error),
-                      )
+                      background: Image.asset('assets/images/proprietor.jpg',
+                      fit: BoxFit.cover,)
                   ),
                 ),
               ];
