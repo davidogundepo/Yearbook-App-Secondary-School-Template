@@ -3,6 +3,11 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/about_school.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/acronyms_meanings.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/who_we_are.dart';
 import '../api/social_class_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../notifier/social_class_notifier.dart';
@@ -74,7 +79,8 @@ class _MySocialPage extends State<MySocialPage> {
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(
                               '@'+socialClassNotifier.socialClassList[index].twitter,
-                              style: TextStyle(color: Colors.white70
+                              style: TextStyle(color: Colors.white70,
+                                fontStyle: FontStyle.italic
                               )
                           ),
                         ),
@@ -117,6 +123,19 @@ class _MySocialPage extends State<MySocialPage> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SocialDetailsPage()));
   }
 
+  Future navigateToAboutAppDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
+  }
+  Future navigateToAcronymsMeaningsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AcronymsMeanings()));
+  }
+  Future navigateToAboutSchoolDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutSchoolDetails()));
+  }
+  Future navigateToWhoWeArePage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
+  }
+
   @override
   void initState() {
     SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context, listen: false);
@@ -139,6 +158,62 @@ class _MySocialPage extends State<MySocialPage> {
                 bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
+                  actions: <Widget>[
+                    IconButton(
+                      icon: Icon(MdiIcons.bandage),
+                      onPressed: () {
+                        showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) => Container(
+                              height: 250,
+                              decoration: BoxDecoration(
+                                color: Colors.blue[300],
+                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  splashColor: Colors.black87,
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      ListTile(
+                                          leading: new Icon(MdiIcons.atom),
+                                          title: new Text('Who We Are'),
+                                          onTap: () {
+                                            navigateToWhoWeArePage(context);
+                                          }
+                                      ),
+                                      ListTile(
+                                        leading: new Icon(MdiIcons.chessQueen),
+                                        title: new Text('About Hallel College'),
+                                        onTap: () {
+                                          navigateToAboutSchoolDetailsPage(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
+                                          title: new Text('Acronym Meanings'),
+                                          onTap: () {
+                                            navigateToAcronymsMeaningsPage(context);
+                                          }
+                                      ),
+                                      ListTile(
+                                        leading: new Icon(MdiIcons.opacity),
+                                        title: new Text('About App'),
+                                        onTap: () {
+                                          navigateToAboutAppDetailsPage(context);
+                                        },
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ));
+                      },
+                    ),
+                  ],
                   backgroundColor: Colors.blueAccent,
                   expandedHeight: 200.0,
                   floating: false,

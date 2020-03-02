@@ -4,6 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/about_school.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/acronyms_meanings.dart';
+import 'package:second_lfutter_project/about_menu_details_pages/who_we_are.dart';
 import '../api/science_class_api.dart';
 import '../notifier/science_class_notifier.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
@@ -75,8 +79,9 @@ class _MySciencePage extends State<MySciencePage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
-                            scienceClassNotifier.scienceClassList[index].twitter,
-                            style: TextStyle(color: Colors.white70
+                            scienceClassNotifier.scienceClassList[index].twitter == scienceClassNotifier.scienceClassList[index].twitter ? '@'+scienceClassNotifier.scienceClassList[index].twitter : scienceClassNotifier.scienceClassList[index].twitter,
+                            style: TextStyle(color: Colors.white70,
+                                fontStyle: FontStyle.italic
                             )
                         ),
                       ),
@@ -116,6 +121,19 @@ class _MySciencePage extends State<MySciencePage> {
 
   Future navigateToSubPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage()));
+  }
+
+  Future navigateToAboutAppDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
+  }
+  Future navigateToAcronymsMeaningsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AcronymsMeanings()));
+  }
+  Future navigateToAboutSchoolDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutSchoolDetails()));
+  }
+  Future navigateToWhoWeArePage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
 
   @override

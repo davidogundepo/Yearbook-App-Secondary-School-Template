@@ -79,7 +79,8 @@ class _MyArtPage extends State<MyArtPage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
                             '@'+artClassNotifier.artClassList[index].twitter,
-                            style: TextStyle(color: Colors.white70
+                            style: TextStyle(color: Colors.white70,
+                              fontStyle: FontStyle.italic
                             )
                         ),
                       ),
