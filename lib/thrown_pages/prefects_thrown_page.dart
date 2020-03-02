@@ -37,7 +37,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
             splashColor: Colors.blue,
             onTap: () {
               classPrefectsNotifier.currentClassPrefects = classPrefectsNotifier.classPrefectsList[index];
-              navigateToSubPage(context);
+              navigateToClassPrefectDetailsPage(context);
             },
 
             child: Row(
@@ -111,7 +111,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
         false;
   }
 
-  Future navigateToSubPage(context) async {
+  Future navigateToClassPrefectDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => ClassPrefectDetailsPage()));
   }
 

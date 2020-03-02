@@ -37,7 +37,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
             splashColor: Colors.blue,
             onTap: () {
               managementBodyNotifier.currentManagementBody = managementBodyNotifier.managementBodyList[index];
-              navigateToSubPage(context);
+              navigateToManagementBodyDetailsPage(context);
             },
 
             child: Row(
@@ -113,7 +113,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
         false;
   }
 
-  Future navigateToSubPage(context) async {
+  Future navigateToManagementBodyDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => ManagementBodyDetailsPage()));
   }
 

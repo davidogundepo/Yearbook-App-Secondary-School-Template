@@ -38,7 +38,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
             splashColor: Colors.blue,
             onTap: () {
               graduatesClassTeachersNotifier.currentGraduatesClassTeachers = graduatesClassTeachersNotifier.graduatesClassTeachersList[index];
-              navigateToSubPage(context);
+              navigateToGraduatesClassTeachersDetailsPage(context);
             },
 
             child: Row(
@@ -114,7 +114,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
         false;
   }
 
-  Future navigateToSubPage(context) async {
+  Future navigateToGraduatesClassTeachersDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => GraduatesClassTeachersDetailsPage()));
   }
 

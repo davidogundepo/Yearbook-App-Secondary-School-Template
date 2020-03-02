@@ -3,8 +3,14 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import '../about_menu_details_pages/about_app.dart';
+import '../about_menu_details_pages/about_school.dart';
+import '../about_menu_details_pages/acronyms_meanings.dart';
+import '../about_menu_details_pages/who_we_are.dart';
 import '../api/art_class_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/art_details_page.dart';
@@ -37,7 +43,7 @@ class _MyArtPage extends State<MyArtPage> {
             splashColor: Colors.blue,
             onTap: () {
               artClassNotifier.currentArtClass = artClassNotifier.artClassList[index];
-              navigateToSubPage(context);
+              navigateToArtDetailsPage(context);
             },
 
             child: Row(
@@ -111,8 +117,20 @@ class _MyArtPage extends State<MyArtPage> {
         false;
   }
 
-  Future navigateToSubPage(context) async {
+  Future navigateToArtDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => ArtDetailsPage()));
+  }
+  Future navigateToAboutAppDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
+  }
+  Future navigateToAcronymsMeaningsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AcronymsMeanings()));
+  }
+  Future navigateToAboutSchoolDetailsPage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutSchoolDetails()));
+  }
+  Future navigateToWhoWeArePage(context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
 
   @override
@@ -125,7 +143,9 @@ class _MyArtPage extends State<MyArtPage> {
 
   @override
   Widget build(BuildContext context) {
+
     ArtClassNotifier artClassNotifier = Provider.of<ArtClassNotifier>(context);
+
 
     return WillPopScope(
       onWillPop: _onWillPop,
@@ -142,11 +162,54 @@ class _MyArtPage extends State<MyArtPage> {
                     IconButton(
                       icon: Icon(MdiIcons.bandage),
                       onPressed: () {
-                        showBottomSheet(
+                        showModalBottomSheet(
+                          backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
-                              color: Colors.blueAccent,
+                              decoration: BoxDecoration(
+                                color: Colors.blue[300],
+                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  splashColor: Colors.black87,
+                                  child: Wrap(
+                                    children: <Widget>[
+                                      ListTile(
+                                          leading: new Icon(MdiIcons.atom),
+                                          title: new Text('Who We Are'),
+                                          onTap: () {
+                                          navigateToWhoWeArePage(context);
+                                          }
+                                      ),
+                                      ListTile(
+                                        leading: new Icon(MdiIcons.chessQueen),
+                                        title: new Text('About Hallel College'),
+                                        onTap: () {
+                                          navigateToAboutSchoolDetailsPage(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
+                                          title: new Text('Acronym Meanings'),
+                                          onTap: () {
+                                            navigateToAcronymsMeaningsPage(context);
+                                          }
+                                      ),
+                                      ListTile(
+                                        leading: new Icon(MdiIcons.opacity),
+                                        title: new Text('About App'),
+                                        onTap: () {
+                                          navigateToAboutAppDetailsPage(context);
+                                        },
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ));
                       },
                     ),
@@ -163,12 +226,9 @@ class _MyArtPage extends State<MyArtPage> {
                             fontSize: 16.0,
                           )
                       ),
-                      background: CachedNetworkImage(
-                        imageUrl: imageURL,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => new CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => new Icon(Icons.error),
-                      )
+                    background: Image.asset('assets/images/hallel_13.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ];

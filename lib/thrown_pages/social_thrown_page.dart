@@ -38,7 +38,7 @@ class _MySocialPage extends State<MySocialPage> {
           splashColor: Colors.blue,
             onTap: () {
               socialClassNotifier.currentSocialClass = socialClassNotifier.socialClassList[index];
-              navigateToSubPage(context);
+              navigateToSocialDetailsPage(context);
             },
 
               child: Row(
@@ -113,7 +113,7 @@ class _MySocialPage extends State<MySocialPage> {
         false;
   }
 
-  Future navigateToSubPage(context) async {
+  Future navigateToSocialDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SocialDetailsPage()));
   }
 
@@ -151,12 +151,9 @@ class _MySocialPage extends State<MySocialPage> {
                             fontSize: 16.0,
                           )
                       ),
-                      background: CachedNetworkImage(
-                        imageUrl: imageURL,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => new CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => new Icon(Icons.error),
-                      )
+                      background: Image.asset('assets/images/hallel_12.jpg',
+                      fit: BoxFit.cover,
+                      ),
                   ),
                 ),
               ];

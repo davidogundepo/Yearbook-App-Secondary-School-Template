@@ -104,7 +104,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                     splashColor: Colors.lightBlueAccent,
                                     onTap: () {},
                                     child: Padding(
-                                      padding: const EdgeInsets.only(bottom: 80, top: 80),
+                                      padding: const EdgeInsets.only(bottom: 20, top: 120),
                                       child: ListTile(
                                         title: Text(
                                           "HALLEL COLLEGE",
@@ -116,7 +116,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                         subtitle: Text(
                                           "SS3 Graduates",
                                           style: TextStyle(
-                                            color: Colors.indigo,
+                                            color: Colors.black,
                                             fontSize: 20,
                                           ),
                                         ),
@@ -127,8 +127,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                 width: 400.0,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: new ExactAssetImage('assets/images/gsw.jpg'),
-                                    fit: BoxFit.fitWidth,
+                                    image: new ExactAssetImage('assets/images/hallel_9.jpg'),
+                                    fit: BoxFit.cover,
                                   ),
                                   gradient: LinearGradient(
                                     begin: Alignment.topLeft,
