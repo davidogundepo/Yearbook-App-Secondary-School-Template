@@ -15,7 +15,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      
     );
   }
 }

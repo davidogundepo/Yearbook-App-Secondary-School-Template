@@ -80,12 +80,6 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
             bottom: Radius.circular(30),
           ),
         ),
-//        SliverAppBar(
-//          shape: ContinuousRectangleBorder(
-//              borderRadius: BorderRadius.only(
-//                  bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30))),
-//          title: Text('Sliver AppBar'),
-//        );
         elevation: 10,
         backgroundColor: Colors.lightBlue,
         leading: IconButton(

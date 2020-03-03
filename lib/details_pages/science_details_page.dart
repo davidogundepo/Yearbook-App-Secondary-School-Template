@@ -33,14 +33,22 @@ Map<int, Widget> userBIO;
 
 var _autobio;
 var _bestmoment;
+var _d_o_b;
+var _dream_university;
+var _dream_university_course;
 var _email;
 var _facebook;
+var _hobbies;
+var _id;
 var _image;
 var _instagram;
+var _my_dropline;
 var _name;
 var _nickname;
+var _philosophy;
 var _phone;
 var _twitter;
+var _worst_moment;
 
 class SubPage extends StatefulWidget {
 
@@ -78,12 +86,6 @@ class _SubPageState extends State<SubPage>{
             bottom: Radius.circular(30),
           ),
         ),
-//        SliverAppBar(
-//          shape: ContinuousRectangleBorder(
-//              borderRadius: BorderRadius.only(
-//                  bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30))),
-//          title: Text('Sliver AppBar'),
-//        );
         elevation: 10,
         backgroundColor: Colors.lightBlue,
         leading: IconButton(
@@ -220,15 +222,21 @@ class _SubPageState extends State<SubPage>{
 
     _autobio = scienceClassNotifier.currentScienceClass.autobio;
     _bestmoment = scienceClassNotifier.currentScienceClass.bestmoment;
+    _d_o_b = scienceClassNotifier.currentScienceClass.d_o_b;
+    _dream_university = scienceClassNotifier.currentScienceClass.dream_university;
+    _dream_university_course = scienceClassNotifier.currentScienceClass.dream_university_course;
     _email = scienceClassNotifier.currentScienceClass.email;
     _facebook = scienceClassNotifier.currentScienceClass.facebook;
+    _hobbies = scienceClassNotifier.currentScienceClass.hobbies;
     _image = scienceClassNotifier.currentScienceClass.image;
     _instagram = scienceClassNotifier.currentScienceClass.instagram;
+    _my_dropline = scienceClassNotifier.currentScienceClass.my_dropline;
     _name = scienceClassNotifier.currentScienceClass.name;
     _nickname = scienceClassNotifier.currentScienceClass.nickname;
+    _philosophy = scienceClassNotifier.currentScienceClass.philosophy;
     _phone = scienceClassNotifier.currentScienceClass.phone;
     _twitter = scienceClassNotifier.currentScienceClass.twitter;
-
+    _worst_moment = scienceClassNotifier.currentScienceClass.worst_moment;
 
     userBIO = <int, Widget>{
 
@@ -420,7 +428,7 @@ class _SubPageState extends State<SubPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Nickname\n',
+                            text: 'Autobiography\n',
                             style: TextStyle(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -428,7 +436,7 @@ class _SubPageState extends State<SubPage>{
                             )
                         ),
                         TextSpan(
-                            text: ' '+_nickname,
+                            text: ' '+_autobio,
                             style: TextStyle(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -461,7 +469,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'AutoBio\n',
+                              text: 'My Nickname\n',
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -469,7 +477,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_autobio,
+                              text: ' '+_nickname,
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -503,7 +511,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Best Moment in Hallel\n',
+                              text: 'Best Moment in Hallel College\n',
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -512,6 +520,300 @@ class _SubPageState extends State<SubPage>{
                           ),
                           TextSpan(
                               text: ' '+_bestmoment,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Worst Moment in Hallel College\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_worst_moment,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Dream University\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_dream_university,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Dream University Course\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_dream_university_course,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Date of Birth\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_d_o_b,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Hobbies\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_hobbies,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Philosophy about Life\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_philosophy,
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w300,
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                  color: Colors.lightBlue.withAlpha(50),
+                  borderRadius: new BorderRadius.circular(10)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlueAccent,
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    child: Text.rich(
+                      TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Dropline to My Junior Hallel Colleagues\n',
+                              style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )
+                          ),
+                          TextSpan(
+                              text: ' '+_my_dropline,
                               style: TextStyle(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
