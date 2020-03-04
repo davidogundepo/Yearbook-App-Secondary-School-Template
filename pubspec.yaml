@@ -76,6 +76,8 @@ dependencies:
   fancy_alert_dialog: ^0.0.1
   feature_discovery: ^0.8.0
   wave: ^0.0.8
+  flutter_swiper: ^1.1.6
+  syncfusion_flutter_charts: ^17.4.51
 
 
 

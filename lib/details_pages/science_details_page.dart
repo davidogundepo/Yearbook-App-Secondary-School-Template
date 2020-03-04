@@ -10,10 +10,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-//const Color _colorOne = Color(0x33000000);
-//const Color _colorTwo = Color(0x24000000);
-//const Color _colorThree = Color(0x1F000000);
-
 String dave = "David";
 String whatsApp = "+2348070920625";
 
@@ -605,7 +601,7 @@ class _SubPageState extends State<SubPage>{
                           TextSpan(
                               text: ' '+_dream_university,
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Colors.lightBlue[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )

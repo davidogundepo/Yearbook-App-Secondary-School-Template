@@ -6,6 +6,7 @@ import 'package:second_lfutter_project/notifier/art_class_notifier.dart';
 import 'package:second_lfutter_project/notifier/class_prefects_notifier.dart';
 import 'package:second_lfutter_project/notifier/graduates_class_teachers_notifier.dart';
 import 'package:second_lfutter_project/notifier/management_body_notifier.dart';
+import 'package:second_lfutter_project/notifier/school_arial_notifier.dart';
 import 'package:second_lfutter_project/notifier/social_class_notifier.dart';
 import './sidebar/sidebar_layout.dart';
 import 'notifier/science_class_notifier.dart';
@@ -31,6 +32,9 @@ void main() => runApp(MultiProvider(
     ),
     ChangeNotifierProvider(
       create: (context) => ManagementBodyNotifier(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => SchoolArialNotifier(),
     ),
   ],
     child: MyApp(),
