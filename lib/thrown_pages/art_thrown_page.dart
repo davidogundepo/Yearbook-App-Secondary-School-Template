@@ -71,7 +71,10 @@ class _MyArtPage extends State<MyArtPage> {
                         padding: const EdgeInsets.only(top: 30),
                         child: Text(
                             artClassNotifier.artClassList[index].name,
-                            style: TextStyle(color: Colors.white,
+                            style: TextStyle(
+                              color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600
                             )
                         ),
                       ),

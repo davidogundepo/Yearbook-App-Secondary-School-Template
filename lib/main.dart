@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:second_lfutter_project/model/ClassPrefects.dart';
-import 'package:second_lfutter_project/notifier/art_class_notifier.dart';
-import 'package:second_lfutter_project/notifier/class_prefects_notifier.dart';
-import 'package:second_lfutter_project/notifier/graduates_class_teachers_notifier.dart';
-import 'package:second_lfutter_project/notifier/management_body_notifier.dart';
-import 'package:second_lfutter_project/notifier/school_arial_notifier.dart';
-import 'package:second_lfutter_project/notifier/social_class_notifier.dart';
+import './notifier/achievement_images_notifier.dart';
+import './notifier/art_class_notifier.dart';
+import './notifier/class_prefects_notifier.dart';
+import './notifier/graduates_class_teachers_notifier.dart';
+import './notifier/management_body_notifier.dart';
+import './notifier/school_arial_notifier.dart';
+import './notifier/social_class_notifier.dart';
 import './sidebar/sidebar_layout.dart';
 import 'notifier/science_class_notifier.dart';
 
@@ -35,6 +35,9 @@ void main() => runApp(MultiProvider(
     ),
     ChangeNotifierProvider(
       create: (context) => SchoolArialNotifier(),
+    ),
+    ChangeNotifierProvider(
+      create: (context) => AchievementsNotifier(),
     ),
   ],
     child: MyApp(),

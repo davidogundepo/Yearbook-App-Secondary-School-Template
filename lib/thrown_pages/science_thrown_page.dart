@@ -70,10 +70,13 @@ class _MySciencePage extends State<MySciencePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Text(
                             scienceClassNotifier.scienceClassList[index].name,
-                            style: TextStyle(color: Colors.white
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600
                             )
                         ),
                       ),

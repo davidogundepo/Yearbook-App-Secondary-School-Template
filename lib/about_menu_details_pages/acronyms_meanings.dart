@@ -58,7 +58,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                   children: <Widget>[
                     Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 20, bottom: 30),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Card(
                           color: Colors.white,
                           child: Padding(

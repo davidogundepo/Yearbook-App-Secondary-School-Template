@@ -53,14 +53,24 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10)),
                       image: DecorationImage(
                           image: CachedNetworkImageProvider(
                               graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image
                           ),
-                          fit: BoxFit.cover
+                          fit: BoxFit.cover,
+                        
                       )
                   ),
+//                  child: CachedNetworkImage(
+//                    imageUrl: graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image,
+//                    fit: BoxFit.cover,
+//                    placeholder: (context, url) => CircularProgressIndicator(),
+//                    errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+//                  ),
+
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 60),

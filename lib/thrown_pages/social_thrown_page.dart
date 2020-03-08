@@ -71,7 +71,10 @@ class _MySocialPage extends State<MySocialPage> {
                           padding: const EdgeInsets.only(top: 30),
                           child: Text(
                               socialClassNotifier.socialClassList[index].name,
-                              style: TextStyle(color: Colors.white
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600
                               )
                           ),
                         ),

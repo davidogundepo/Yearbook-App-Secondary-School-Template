@@ -1,9 +1,14 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../api/school_arial_images_api.dart';
+import '../api/achievement_images_api.dart';
 import '../notifier/school_arial_notifier.dart';
+import '../notifier/achievement_images_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -28,14 +33,14 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
 
   var scrollDirection = Axis.horizontal;
 
-  final List<String> images = [
-
-  ];
 
   @override
   void initState() {
     SchoolArialNotifier schoolArialNotifier = Provider.of<SchoolArialNotifier>(context, listen: false);
     getSchoolArial(schoolArialNotifier);
+
+    AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context, listen: false);
+    getAchievements(achievementsNotifier);
     super.initState();
   }
 
@@ -43,13 +48,15 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
   Widget build(BuildContext context) {
     SchoolArialNotifier schoolArialNotifier = Provider.of<SchoolArialNotifier>(context);
 
+    AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context);
+
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
       appBar: AppBar(
         centerTitle: true,
         title: Text('About Hallel College'),
         elevation: 10,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey[800],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -301,6 +308,44 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
+                height: 300,
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)
+                ),
+                child: SfCircularChart(
+                    title: ChartTitle(
+                        text: 'Hallel College Population Chart',
+                        textStyle: ChartTextStyle(
+                            color: Colors.blueGrey,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        )
+                    ),
+                    legend: Legend(
+                        isVisible: true,
+                        textStyle: ChartTextStyle(
+                            color: Colors.blueGrey,
+                            fontSize: 17
+                        )
+                    ),
+                    series: <PieSeries>[
+                      PieSeries<SchoolPopulation, String>(
+                        dataSource: getSchoolPopulationData(),
+                        xValueMapper: (SchoolPopulation schoolPopulation,_)=>schoolPopulation.x,
+                        yValueMapper: (SchoolPopulation schoolPopulation,_)=>schoolPopulation.y,
+                        dataLabelSettings: DataLabelSettings(
+                            isVisible: true
+                        ),
+
+                      )
+                    ]
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+              child: Container(
                 child: Material (
                   color: Colors.transparent,
                   child: InkWell(
@@ -329,6 +374,440 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 )
                             ),
                           ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+              child: Container(
+                height: 300,
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)
+                ),
+                child: SfCircularChart(
+                  title: ChartTitle(
+                    text: 'Hallel Students Population Chart',
+                    textStyle: ChartTextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    )
+                  ),
+                  legend: Legend(
+                    isVisible: true,
+                    textStyle: ChartTextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 17
+                    )
+                  ),
+                  series: <DoughnutSeries>[
+                    DoughnutSeries<SchoolStudentPopulation, String>(
+                      dataSource: getStudentPopulationData(),
+                      xValueMapper: (SchoolStudentPopulation studentPopulation,_)=>studentPopulation.x,
+                      yValueMapper: (SchoolStudentPopulation studentPopulation,_)=>studentPopulation.y,
+                      dataLabelSettings: DataLabelSettings(
+                        isVisible: true
+                      ),
+
+                    )
+                  ]
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, bottom: 10),
+              child: Text('Subjects offered in Hallel College',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.blueGrey,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+              child: Container(
+                height: 300,
+                child: Material (
+                  color: Colors.transparent,
+                  child: InkWell(
+                    splashColor: Colors.blueGrey,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
+                      child: SingleChildScrollView(
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text:TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: 'Junior Secondary School (JSS) Subjects\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '1. English Language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '2. Mathematics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '3. Integrated/Basic Science\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '4. Introductory/Basic Technology\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '5. Social studies\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '6. Computer studies\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '7. French language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '8. Home Economics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '9. Physical & Health Education\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '10. Christian Religious Studies\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: 'Senior Secondary School (SSS) Art Department Subjects\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '1. English Language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '2. Literature\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '3. Food and Nutrition\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '4. Christian Religious Studies\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '5. Yoruba or Igbo or Hausa Language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '6. Civic Education\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: 'Senior Secondary School (SSS) Social Science Department Subjects\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '1. English Language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '2. Economics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '3. Mathematics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '4. Government\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '5. Commerce\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '6. Geography\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: 'Senior Secondary School (SSS) Science Department Subjects\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '1. English Language\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '2. Geography\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '3. Mathematics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '4. Physics\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '5. Biology\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '6. Chemistry\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
+              child: Container(
+                height: 300,
+                child: Material (
+                  color: Colors.transparent,
+                  child: InkWell(
+                    splashColor: Colors.blueGrey,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
+                      child: SingleChildScrollView(
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text:TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: 'Extra-curricullar Activities offered in Hallel College\n\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '1. Inter-House Sports\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '2. Mathematics Competitions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '3. Essay Competitions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '4. Cooking Competitions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '5. Local and Foreign excursions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '6. Swimming Competitions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '7. Fashion Designing Competitions\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: '8. National Spelling Bee Competition\n',
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -402,38 +881,37 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               ),
             ),
             Container(
-
               height: 250,
               child: Swiper(
                 viewportFraction: 0.8,
                 scale: 0.9,
-                itemCount: schoolArialNotifier.schoolArialList.length,
+                itemCount: achievementsNotifier.achievementsList.length,
                 itemBuilder: (context, index) => Stack(
                   children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
-//                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
+                          colorFilter: ColorFilter.linearToSrgbGamma(),
                           image: CachedNetworkImageProvider(
-                              schoolArialNotifier.schoolArialList[index].image
+                              achievementsNotifier.achievementsList[index].image
                           ),
                           fit: BoxFit.cover,
                         )
                       ),
                     ),
                     Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.topCenter,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
 //                        color: Colors.blue.withOpacity(0.5)
                       ),
                       child: Text(
-                        schoolArialNotifier.schoolArialList[index].toastname,
+                        achievementsNotifier.achievementsList[index].toastname,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.blueGrey,
                           fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
+                          fontSize: 17.0,
                         ),
                       ),
                     )
@@ -442,9 +920,56 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
 //                  pagination: SwiperPagination(),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, bottom: 30, top: 20),
+              child: RichText(
+                text: TextSpan(
+                  text: 'For more information about Hallel College please trust and click me',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.blueGrey,
+                    fontWeight: FontWeight.w800,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  recognizer: TapGestureRecognizer()..onTap = () {
+                    launch('https://hallelcollege.com/');
+                  }
+                ),
+              )
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+class SchoolStudentPopulation{
+  String x;
+  double y;
+  SchoolStudentPopulation(this.x,this.y);
+}
+
+dynamic getStudentPopulationData(){
+  List<SchoolStudentPopulation> studentPopulationData = <SchoolStudentPopulation>[
+    SchoolStudentPopulation('Male', 871),
+    SchoolStudentPopulation('Female', 655),
+  ];
+  return studentPopulationData;
+}
+
+class SchoolPopulation{
+  String x;
+  double y;
+  SchoolPopulation(this.x,this.y);
+}
+
+dynamic getSchoolPopulationData(){
+  List<SchoolPopulation> schoolPopulationData = <SchoolPopulation>[
+    SchoolPopulation('Male Students', 871),
+    SchoolPopulation('Female Students', 655),
+    SchoolPopulation('Teaching Staff', 85),
+    SchoolPopulation('Non Teaching Staff', 32),
+  ];
+  return schoolPopulationData;
 }
