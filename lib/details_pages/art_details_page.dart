@@ -73,19 +73,24 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
     artClassNotifier = Provider.of<ArtClassNotifier>(context, listen: true);
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Color.fromRGBO(86, 158, 128, 1),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(artClassNotifier.currentArtClass.nickname),
+        title: Text(artClassNotifier.currentArtClass.nickname,
+          style: GoogleFonts.sanchez(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.w400
+          ),),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
           ),
         ),
         elevation: 10,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromRGBO(46, 137, 112, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -120,13 +125,13 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
             Material(
               color: Colors.transparent,
               child: InkWell(
-                splashColor: Colors.lightBlue[500].withOpacity(0.20),
+                splashColor: Color.fromRGBO(46, 137, 112, 1).withOpacity(0.20),
                 onTap: () {},
                 child: Card(
                   elevation: 4,
                   shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
+                        color: Color.fromRGBO(46, 137, 112, 1).withOpacity(0.70), width: 4.0, style: BorderStyle.solid
                     ),
                   ),
 
@@ -139,8 +144,8 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         bottom: 16.0),
 
                     child: Text(artClassNotifier.currentArtClass.name.toUpperCase(),
-                      style: TextStyle(
-                          color: Colors.lightBlue,
+                      style: GoogleFonts.blinker(
+                          color: Color.fromRGBO(46, 137, 112, 1),
                           fontSize: 30,
                           fontWeight: FontWeight.w500
                       ),
@@ -169,20 +174,20 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       child: CupertinoSlidingSegmentedControl<int>(
                         padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                         thumbColor: Colors.white,
-                        backgroundColor: Colors.lightBlue.withAlpha(50),
+                        backgroundColor: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
 
                         children: {
                           0: Text('Reach',
-                            style: TextStyle(
-                                color: Colors.lightBlue,
+                            style: GoogleFonts.sacramento(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w400
                             ),
                           ),
                           1: Text('AutoBio',
-                            style: TextStyle(
-                              color: Colors.lightBlue,
+                            style: GoogleFonts.sacramento(
+                              color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 25,
                               fontStyle: FontStyle.normal,
                               fontWeight: FontWeight.w400,
@@ -249,10 +254,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
                   label: Text('Call',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -273,10 +278,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
                   label: Text('Send a Message',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -297,10 +302,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
                   label: Text("Send an Email",
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -321,10 +326,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
                   label: Text('My Twitter',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -345,10 +350,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
                   label: Text('My Instagram',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -369,10 +374,10 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: TextStyle(
+//                    style: GoogleFonts.abel(
 //                      fontFamily: 'DancingScript',
 //                      color: Colors.white,
 //                      fontSize: 18,
@@ -415,7 +420,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                splashColor: Colors.lightBlueAccent,
+                splashColor: Color.fromRGBO(46, 137, 112, 1),
                 onTap: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -424,16 +429,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Autobiography\n',
-                            style: TextStyle(
-                              color: Colors.lightBlue,
+                            style:  GoogleFonts.aBeeZee(
+                              color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
                             )
                         ),
                         TextSpan(
                             text: ' '+_autobio,
-                            style: TextStyle(
-                              color: Colors.lightBlue,
+                            style: GoogleFonts.trykker(
+                              color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
                             )
@@ -446,7 +451,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
             ),
 
             decoration: BoxDecoration(
-                color: Colors.lightBlue.withAlpha(50),
+                color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                 borderRadius: new BorderRadius.circular(10)
             ),
           ),
@@ -456,7 +461,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -465,16 +470,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'My Nickname\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_nickname,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -487,7 +492,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -498,7 +503,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -507,16 +512,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Best Moment in Hallel College\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_bestmoment,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -529,7 +534,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -540,7 +545,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -549,16 +554,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Worst Moment in Hallel College\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_worst_moment,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -571,7 +576,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -582,7 +587,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -591,16 +596,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Dream University\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_dream_university,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -613,7 +618,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -624,7 +629,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -633,16 +638,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Dream University Course\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_dream_university_course,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -655,7 +660,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -666,7 +671,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -675,16 +680,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Date of Birth\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_d_o_b,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -697,7 +702,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -708,7 +713,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -717,16 +722,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Hobbies\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_hobbies,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -739,7 +744,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -750,7 +755,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -759,16 +764,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Philosophy about Life\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_philosophy,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -781,7 +786,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -792,7 +797,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(46, 137, 112, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -801,16 +806,16 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Dropline to My Junior Hallel Colleagues\n',
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style:  GoogleFonts.aBeeZee(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
                           ),
                           TextSpan(
                               text: ' '+_my_dropline,
-                              style: TextStyle(
-                                color: Colors.lightBlue,
+                              style: GoogleFonts.trykker(
+                                color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -823,7 +828,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
@@ -39,7 +40,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            splashColor: Colors.blue,
+            splashColor: Colors.white,
             onTap: () {
               classPrefectsNotifier.currentClassPrefects = classPrefectsNotifier.classPrefectsList[index];
               navigateToClassPrefectDetailsPage(context);
@@ -67,10 +68,13 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Text(
                             classPrefectsNotifier.classPrefectsList[index].name,
-                            style: TextStyle(color: Colors.white
+                            style: GoogleFonts.tenorSans(
+                              color: Colors.blueGrey,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600
                             )
                         ),
                       ),
@@ -78,7 +82,9 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
                             classPrefectsNotifier.classPrefectsList[index].position_enforced,
-                            style: TextStyle(color: Colors.white70
+                            style: GoogleFonts.varela(
+                                color: Colors.blueGrey,
+                                fontStyle: FontStyle.italic
                             )
                         ),
                       ),
@@ -149,7 +155,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Colors.blue,
+          color: Color.fromRGBO(242, 243, 244, 1),
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -158,7 +164,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage),
+                      icon: Icon(MdiIcons.bandage, color: Colors.blueGrey,),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: Colors.transparent,
@@ -166,7 +172,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Colors.blue[300],
+                                color: Color.fromRGBO(254, 250, 239, 1),
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
@@ -176,29 +182,53 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom),
-                                          title: new Text('Who We Are'),
+                                          leading: new Icon(MdiIcons.atom,
+                                          color: Colors.blueGrey,
+                                          ),
+                                          title: new Text('Who We Are',
+                                          style: GoogleFonts.zillaSlab(
+                                            color: Colors.blueGrey
+                                          ),
+                                          ),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen),
-                                        title: new Text('About Hallel College'),
+                                        leading: new Icon(MdiIcons.chessQueen,
+                                          color: Colors.blueGrey,
+                                        ),
+                                        title: new Text('About Hallel College',
+                                          style: GoogleFonts.zillaSlab(
+                                              color: Colors.blueGrey
+                                          ),
+                                        ),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
-                                          title: new Text('Acronym Meanings'),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending,
+                                            color: Colors.blueGrey,
+                                          ),
+                                          title: new Text('Acronym Meanings',
+                                            style: GoogleFonts.zillaSlab(
+                                                color: Colors.blueGrey
+                                            ),
+                                          ),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity),
-                                        title: new Text('About App'),
+                                        leading: new Icon(MdiIcons.opacity,
+                                          color: Colors.blueGrey,
+                                        ),
+                                        title: new Text('About App',
+                                          style: GoogleFonts.zillaSlab(
+                                              color: Colors.blueGrey
+                                          ),
+                                        ),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
                                         },
@@ -212,16 +242,17 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                       },
                     ),
                   ],
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: Color.fromRGBO(254, 250, 239, 1),
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
                       title: Text("School Prefects",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16.0,
+                          style:  GoogleFonts.amaticSC(
+                            color: Colors.blueGrey,
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold
                           )
                       ),
                       background: Image.asset('assets/images/hallel_18.jpg',

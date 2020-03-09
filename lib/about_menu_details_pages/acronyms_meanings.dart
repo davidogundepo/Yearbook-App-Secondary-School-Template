@@ -25,12 +25,12 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(58, 31, 41, 1),
       appBar: AppBar(
         title: Text('Acronym Meanings'),
         centerTitle: true,
         elevation: 10,
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromRGBO(52, 18, 30, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -51,7 +51,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                color: Colors.brown,
+                color: Color.fromRGBO(52, 18, 30, 1),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -67,7 +67,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,
-                                  color: Colors.brown,
+                                  color: Color.fromRGBO(58, 31, 41, 1).withAlpha(220),
                                   fontWeight: FontWeight.w700
                               ),
                             ),

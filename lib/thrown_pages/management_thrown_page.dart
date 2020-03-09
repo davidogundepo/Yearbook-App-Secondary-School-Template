@@ -181,29 +181,45 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom),
-                                          title: new Text('Who We Are'),
+                                          leading: new Icon(MdiIcons.atom,
+                                          color: Colors.white,),
+                                          title: new Text('Who We Are',
+                                          style: TextStyle(
+                                            color: Colors.white
+                                          ),),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen),
-                                        title: new Text('About Hallel College'),
+                                        leading: new Icon(MdiIcons.chessQueen,
+                                          color: Colors.white,),
+                                        title: new Text('About Hallel College',
+                                          style: TextStyle(
+                                              color: Colors.white
+                                          ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
-                                          title: new Text('Acronym Meanings'),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending,
+                                            color: Colors.white,),
+                                          title: new Text('Acronym Meanings',
+                                            style: TextStyle(
+                                                color: Colors.white
+                                            ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity),
-                                        title: new Text('About App'),
+                                        leading: new Icon(MdiIcons.opacity,
+                                          color: Colors.white,),
+                                        title: new Text('About App',
+                                          style: TextStyle(
+                                              color: Colors.white
+                                          ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
                                         },

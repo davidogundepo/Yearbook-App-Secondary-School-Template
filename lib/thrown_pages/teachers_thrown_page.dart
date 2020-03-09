@@ -61,22 +61,15 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                               graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image
                           ),
                           fit: BoxFit.cover,
-                        
-                      )
+                      ),
                   ),
-//                  child: CachedNetworkImage(
-//                    imageUrl: graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image,
-//                    fit: BoxFit.cover,
-//                    placeholder: (context, url) => CircularProgressIndicator(),
-//                    errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
-//                  ),
-
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 60),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(
@@ -163,7 +156,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Colors.blue,
+          color: Color.fromRGBO(114, 78, 147, 1),
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -180,7 +173,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Colors.blue[300],
+                                color: Color.fromRGBO(95, 65, 128, 1),
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
@@ -190,29 +183,45 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom),
-                                          title: new Text('Who We Are'),
+                                          leading: new Icon(MdiIcons.atom,
+                                          color: Colors.white,),
+                                          title: new Text('Who We Are',
+                                          style: TextStyle(
+                                            color: Colors.white
+                                          ),),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen),
-                                        title: new Text('About Hallel College'),
+                                        leading: new Icon(MdiIcons.chessQueen,
+                                          color: Colors.white,),
+                                        title: new Text('About Hallel College',
+                                          style: TextStyle(
+                                              color: Colors.white
+                                          ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
-                                          title: new Text('Acronym Meanings'),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending,
+                                            color: Colors.white,),
+                                          title: new Text('Acronym Meanings',
+                                            style: TextStyle(
+                                                color: Colors.white
+                                            ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity),
-                                        title: new Text('About App'),
+                                        leading: new Icon(MdiIcons.opacity,
+                                          color: Colors.white,),
+                                        title: new Text('About App',
+                                          style: TextStyle(
+                                              color: Colors.white
+                                          ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
                                         },
@@ -226,7 +235,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                       },
                     ),
                   ],
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: Color.fromRGBO(95, 65, 128, 1),
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,

@@ -28,12 +28,12 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(102, 66, 36, 1),
       appBar: AppBar(
         title: Text('About App'),
         centerTitle: true,
         elevation: 10,
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromRGBO(104, 65, 34, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {

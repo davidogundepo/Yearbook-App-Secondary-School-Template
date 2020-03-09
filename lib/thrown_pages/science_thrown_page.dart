@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import '../about_menu_details_pages/about_app.dart';
@@ -42,7 +43,7 @@ class _MySciencePage extends State<MySciencePage> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            splashColor: Colors.blue,
+            splashColor: Colors.pinkAccent,
             onTap: () {
               scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
               navigateToSubPage(context);
@@ -73,7 +74,7 @@ class _MySciencePage extends State<MySciencePage> {
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(
                             scienceClassNotifier.scienceClassList[index].name,
-                            style: TextStyle(
+                            style: GoogleFonts.tenorSans(
                               color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.w600
@@ -84,7 +85,8 @@ class _MySciencePage extends State<MySciencePage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
                             scienceClassNotifier.scienceClassList[index].twitter == scienceClassNotifier.scienceClassList[index].twitter ? '@'+scienceClassNotifier.scienceClassList[index].twitter : scienceClassNotifier.scienceClassList[index].twitter,
-                            style: TextStyle(color: Colors.white70,
+                            style: GoogleFonts.varela(
+                                color: Colors.white70,
                                 fontStyle: FontStyle.italic
                             )
                         ),
@@ -155,7 +157,7 @@ class _MySciencePage extends State<MySciencePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Colors.blue,
+          color: Color.fromRGBO(222, 93, 131, 1),
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -172,39 +174,55 @@ class _MySciencePage extends State<MySciencePage> {
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Colors.blue[300],
+                                color: Colors.pink[300],
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
                                 color: Colors.transparent,
                                 child: InkWell(
-                                  splashColor: Colors.black87,
+                                  splashColor: Colors.pinkAccent,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom),
-                                          title: new Text('Who We Are'),
+                                          leading: new Icon(
+                                            MdiIcons.atom,
+                                            color: Colors.white),
+                                          title: new Text(
+                                          'Who We Are',
+                                          style: GoogleFonts.zillaSlab(
+                                            color: Colors.white,
+                                          ),
+                                          ),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen),
-                                        title: new Text('About Hallel College'),
+                                        leading: new Icon(MdiIcons.chessQueen, color: Colors.white),
+                                        title: new Text('About Hallel College',
+                                          style: GoogleFonts.zillaSlab(
+                                            color: Colors.white,
+                                          ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending),
-                                          title: new Text('Acronym Meanings'),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: Colors.white),
+                                          title: new Text('Acronym Meanings',
+                                            style: GoogleFonts.zillaSlab(
+                                              color: Colors.white,
+                                            ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity),
-                                        title: new Text('About App'),
+                                        leading: new Icon(MdiIcons.opacity, color: Colors.white),
+                                        title: new Text('About App',
+                                          style: GoogleFonts.zillaSlab(
+                                            color: Colors.white,
+                                          ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
                                         },
@@ -218,16 +236,17 @@ class _MySciencePage extends State<MySciencePage> {
                       },
                     ),
                   ],
-                  backgroundColor: Colors.blueAccent,
+                  backgroundColor: Colors.pink[300],
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
                       title: Text("Science Class Graduates",
-                          style: TextStyle(
+                          style: GoogleFonts.amaticSC(
                             color: Colors.white,
-                            fontSize: 16.0,
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.bold
                           )
                       ),
                     background: Image.asset('assets/images/hallel_5.jpg',

@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -31,12 +32,12 @@ class _WhoWeAreState extends State<WhoWeAre> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(15, 65, 79, 1),
       appBar: AppBar(
         title: Text('We Are GENIAL'),
         centerTitle: true,
         elevation: 10,
-        backgroundColor: Colors.brown,
+        backgroundColor: Color.fromRGBO(2, 42, 53, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -57,7 +58,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                color: Colors.brown,
+                color: Color.fromRGBO(2, 42, 53, 1),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -72,7 +73,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                             child: Text('Who We Are',
                               style: TextStyle(
                                 fontSize: 25,
-                                color: Colors.brown,
+                                color: Color.fromRGBO(15, 65, 79, 1),
                                 fontWeight: FontWeight.w700
                               ),
                             ),
@@ -140,7 +141,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                color: Colors.brown,
+                color: Color.fromRGBO(2, 42, 53, 1),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -155,7 +156,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                             child: Text('Genial Set 2020',
                               style: TextStyle(
                                 fontSize: 25,
-                                color: Colors.brown,
+                                color: Color.fromRGBO(15, 65, 79, 1),
                                 fontWeight: FontWeight.w700
                               ),
                             ),

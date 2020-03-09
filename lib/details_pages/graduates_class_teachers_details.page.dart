@@ -68,7 +68,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
     graduatesClassTeachersNotifier = Provider.of<GraduatesClassTeachersNotifier>(context, listen: true);
 
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Color.fromRGBO(114, 78, 147, 1),
       appBar: AppBar(
         centerTitle: true,
 //        title: Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name),
@@ -84,7 +84,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
 //          title: Text('Sliver AppBar'),
 //        );
         elevation: 10,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromRGBO(95, 65, 128, 1),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -121,13 +121,13 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             Material(
               color: Colors.transparent,
               child: InkWell(
-                splashColor: Colors.lightBlue[500].withOpacity(0.20),
+                splashColor: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.20),
                 onTap: () {},
                 child: Card(
                   elevation: 4,
                   shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
+                        color: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.80), width: 4.0, style: BorderStyle.solid
                     ),
                   ),
 
@@ -141,7 +141,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
 
                     child: Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
                       style: TextStyle(
-                          color: Colors.lightBlue,
+                          color: Color.fromRGBO(114, 78, 147, 1),
                           fontSize: 30,
                           fontWeight: FontWeight.w500
                       ),
@@ -170,12 +170,12 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       child: CupertinoSlidingSegmentedControl<int>(
                         padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                         thumbColor: Colors.white,
-                        backgroundColor: Colors.lightBlue.withAlpha(50),
+                        backgroundColor: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
 
                         children: {
                           0: Text('Reach',
                             style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w400
@@ -183,7 +183,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           ),
                           1: Text('AutoBio',
                             style: TextStyle(
-                              color: Colors.lightBlue,
+                              color: Color.fromRGBO(114, 78, 147, 1),
                               fontSize: 25,
                               fontStyle: FontStyle.normal,
                               fontWeight: FontWeight.w400,
@@ -246,7 +246,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
                   label: Text('Call',
                       style: TextStyle(
@@ -270,7 +270,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
                   label: Text('Send a Message',
                       style: TextStyle(
@@ -294,7 +294,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
                   label: Text("Send an Email",
                       style: TextStyle(
@@ -318,7 +318,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
                   label: Text('My Twitter',
                       style: TextStyle(
@@ -342,7 +342,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
                   label: Text('My Instagram',
                       style: TextStyle(
@@ -366,7 +366,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.linkedinBox, color: Colors.white,),
                   label: Text('My LinkedIn',
                       style: TextStyle(
@@ -390,7 +390,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 2,
-                  color: Colors.lightBlue,
+                  color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
 //                    style: TextStyle(
@@ -436,7 +436,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                splashColor: Colors.lightBlueAccent,
+                splashColor: Color.fromRGBO(114, 78, 147, 1),
                 onTap: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -446,7 +446,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         TextSpan(
                             text: 'Autobiography\n',
                             style: TextStyle(
-                              color: Colors.lightBlue,
+                              color: Color.fromRGBO(114, 78, 147, 1),
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
                             )
@@ -454,7 +454,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         TextSpan(
                             text: ' '+_autobio,
                             style: TextStyle(
-                              color: Colors.lightBlue,
+                              color: Color.fromRGBO(114, 78, 147, 1),
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
                             )
@@ -467,7 +467,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             ),
 
             decoration: BoxDecoration(
-                color: Colors.lightBlue.withAlpha(50),
+                color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
                 borderRadius: new BorderRadius.circular(10)
             ),
           ),
@@ -477,7 +477,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(114, 78, 147, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -487,7 +487,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: 'Staff Position \n',
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -495,7 +495,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_staff_position,
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -508,7 +508,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -519,7 +519,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(114, 78, 147, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -529,7 +529,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: 'Course Teaching\n',
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -537,7 +537,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_course_teaching,
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -550,7 +550,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -561,7 +561,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: Color.fromRGBO(114, 78, 147, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -571,7 +571,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: 'Qualification(s)\n',
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -579,7 +579,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_qualification,
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -592,7 +592,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -603,7 +603,8 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor:
+                  Color.fromRGBO(114, 78, 147, 1),
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -613,7 +614,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: 'Year of Inception\n',
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -621,7 +622,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_year_of_inception,
                               style: TextStyle(
-                                color: Colors.lightBlue,
+                                color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -634,7 +635,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
