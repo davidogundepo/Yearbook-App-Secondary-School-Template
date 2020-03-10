@@ -34,12 +34,15 @@ class _WhoWeAreState extends State<WhoWeAre> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(15, 65, 79, 1),
       appBar: AppBar(
-        title: Text('We Are GENIAL'),
+        title: Text('We Are GENIAL',
+        style: TextStyle(
+            color: Colors.white
+        ),),
         centerTitle: true,
         elevation: 10,
         backgroundColor: Color.fromRGBO(2, 42, 53, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },

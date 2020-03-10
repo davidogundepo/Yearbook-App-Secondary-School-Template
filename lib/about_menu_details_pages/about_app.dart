@@ -30,12 +30,15 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(102, 66, 36, 1),
       appBar: AppBar(
-        title: Text('About App'),
+        title: Text('About App',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         elevation: 10,
         backgroundColor: Color.fromRGBO(104, 65, 34, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },

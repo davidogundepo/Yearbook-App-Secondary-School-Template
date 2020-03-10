@@ -90,7 +90,7 @@ class _SubPageState extends State<SubPage>{
         elevation: 10,
         backgroundColor: Colors.pink[300],
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -839,10 +839,5 @@ class _SubPageState extends State<SubPage>{
     };
     super.initState();
   }
-
-
-
   int sharedValue = 0;
-
-
 }

@@ -27,12 +27,15 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 31, 41, 1),
       appBar: AppBar(
-        title: Text('Acronym Meanings'),
+        title: Text('Acronym Meanings',
+        style: TextStyle(
+          color: Colors.white
+        ),),
         centerTitle: true,
         elevation: 10,
         backgroundColor: Color.fromRGBO(52, 18, 30, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },

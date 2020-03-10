@@ -166,7 +166,7 @@ class _MySciencePage extends State<MySciencePage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage),
+                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: Colors.transparent,
@@ -243,6 +243,7 @@ class _MySciencePage extends State<MySciencePage> {
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
                       title: Text("Science Class Graduates",
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.amaticSC(
                             color: Colors.white,
                             fontSize: 26.0,

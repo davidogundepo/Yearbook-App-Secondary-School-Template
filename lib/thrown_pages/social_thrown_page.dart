@@ -165,7 +165,7 @@ class _MySocialPage extends State<MySocialPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage),
+                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: Colors.transparent,

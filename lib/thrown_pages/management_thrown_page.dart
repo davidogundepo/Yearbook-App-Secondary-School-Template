@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
@@ -70,7 +71,8 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(
                             managementBodyNotifier.managementBodyList[index].name,
-                            style: TextStyle(color: Colors.white,
+                            style: GoogleFonts.tenorSans(
+                                color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.w600
                             )
@@ -80,7 +82,8 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
                             managementBodyNotifier.managementBodyList[index].staff_position,
-                            style: TextStyle(color: Colors.white,
+                            style: GoogleFonts.tenorSans(
+                                color: Colors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
                               fontStyle: FontStyle.italic
@@ -163,7 +166,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage),
+                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: Colors.transparent,
@@ -184,7 +187,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                           leading: new Icon(MdiIcons.atom,
                                           color: Colors.white,),
                                           title: new Text('Who We Are',
-                                          style: TextStyle(
+                                          style: GoogleFonts.zillaSlab(
                                             color: Colors.white
                                           ),),
                                           onTap: () {
@@ -195,7 +198,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                         leading: new Icon(MdiIcons.chessQueen,
                                           color: Colors.white,),
                                         title: new Text('About Hallel College',
-                                          style: TextStyle(
+                                          style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
                                         onTap: () {
@@ -206,7 +209,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                           leading: new Icon(MdiIcons.sortAlphabeticalAscending,
                                             color: Colors.white,),
                                           title: new Text('Acronym Meanings',
-                                            style: TextStyle(
+                                            style: GoogleFonts.zillaSlab(
                                                 color: Colors.white
                                             ),),
                                           onTap: () {
@@ -217,7 +220,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                         leading: new Icon(MdiIcons.opacity,
                                           color: Colors.white,),
                                         title: new Text('About App',
-                                          style: TextStyle(
+                                          style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
                                         onTap: () {
@@ -240,9 +243,10 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
                       title: Text("Management",
-                          style: TextStyle(
+                          style: GoogleFonts.amaticSC(
                             color: Colors.white,
-                            fontSize: 16.0,
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold
                           )
                       ),
                       background: Image.asset('assets/images/proprietor.jpg',

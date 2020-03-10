@@ -130,7 +130,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                         bottom: 16.0),
 
                     child: Text(classPrefectsNotifier.currentClassPrefects.name.toUpperCase(),
-                      style: TextStyle(
+                      style: GoogleFonts.blinker(
                           color: Color.fromRGBO(254, 255, 236, 1),
                           fontSize: 30,
                           fontWeight: FontWeight.w500
@@ -168,7 +168,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                 children: <TextSpan>[
                                   TextSpan(
                                       text: 'Department\n',
-                                      style: TextStyle(
+                                      style: GoogleFonts.aBeeZee(
                                         color: Color.fromRGBO(254, 255, 236, 1),
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
@@ -176,7 +176,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                   ),
                                   TextSpan(
                                       text: ' '+classPrefectsNotifier.currentClassPrefects.department,
-                                      style: TextStyle(
+                                      style: GoogleFonts.trykker(
                                         color: Color.fromRGBO(254, 255, 236, 1),
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
@@ -209,7 +209,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                   children: <TextSpan>[
                                     TextSpan(
                                         text: 'Position Enforced\n',
-                                        style: TextStyle(
+                                        style: GoogleFonts.aBeeZee(
                                           color: Color.fromRGBO(254, 255, 236, 1),
                                           fontSize: 19,
                                           fontWeight: FontWeight.bold,
@@ -217,7 +217,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                     ),
                                     TextSpan(
                                         text: ' '+classPrefectsNotifier.currentClassPrefects.position_enforced,
-                                        style: TextStyle(
+                                        style: GoogleFonts.trykker(
                                           color: Color.fromRGBO(254, 255, 236, 1),
                                           fontSize: 19,
                                           fontWeight: FontWeight.w300,

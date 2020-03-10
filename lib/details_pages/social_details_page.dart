@@ -88,7 +88,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
         elevation: 10,
         backgroundColor: Color.fromRGBO(155, 134, 99, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },

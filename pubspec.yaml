@@ -78,6 +78,7 @@ dependencies:
   wave: ^0.0.8
   flutter_swiper: ^1.1.6
   syncfusion_flutter_charts: ^17.4.51
+  vibration: ^1.2.4
 
 
 

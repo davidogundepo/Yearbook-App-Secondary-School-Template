@@ -82,7 +82,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
         elevation: 10,
         backgroundColor: Colors.lightBlue,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -136,7 +136,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         bottom: 16.0),
 
                     child: Text(managementBodyNotifier.currentManagementBody.name.toUpperCase(),
-                      style: TextStyle(
+                      style: GoogleFonts.blinker(
                           color: Colors.lightBlue,
                           fontSize: 30,
                           fontWeight: FontWeight.w500
@@ -170,7 +170,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
 
                         children: {
                           0: Text('Reach',
-                            style: TextStyle(
+                            style: GoogleFonts.sacramento(
                                 color: Colors.lightBlue,
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
@@ -178,7 +178,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                             ),
                           ),
                           1: Text('AutoBio',
-                            style: TextStyle(
+                            style: GoogleFonts.sacramento(
                               color: Colors.lightBlue,
                               fontSize: 25,
                               fontStyle: FontStyle.normal,
@@ -243,7 +243,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
                   label: Text('Call',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -267,7 +267,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
                   label: Text('Send a Message',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -291,7 +291,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
                   label: Text("Send an Email",
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -315,7 +315,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
                   label: Text('My Twitter',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -339,7 +339,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
                   label: Text('My Instagram',
-                      style: TextStyle(
+                      style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w300
@@ -363,7 +363,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: TextStyle(
+//                    style: GoogleFonts.abel(
 //                      fontFamily: 'DancingScript',
 //                      color: Colors.white,
 //                      fontSize: 18,
@@ -415,7 +415,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Autobiography\n',
-                            style: TextStyle(
+                            style: GoogleFonts.aBeeZee(
                               color: Colors.lightBlue,
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
@@ -423,7 +423,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         ),
                         TextSpan(
                             text: ' '+_autobio,
-                            style: TextStyle(
+                            style: GoogleFonts.trykker(
                               color: Colors.lightBlue,
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
@@ -456,7 +456,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Staff Position \n',
-                              style: TextStyle(
+                              style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
@@ -464,7 +464,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           ),
                           TextSpan(
                               text: ' '+_staff_position,
-                              style: TextStyle(
+                              style: GoogleFonts.trykker(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
@@ -498,7 +498,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Qualification(s)\n',
-                              style: TextStyle(
+                              style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
@@ -506,7 +506,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           ),
                           TextSpan(
                               text: ' '+_qualification,
-                              style: TextStyle(
+                              style: GoogleFonts.trykker(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
@@ -540,7 +540,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Year of Inception\n',
-                              style: TextStyle(
+                              style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
@@ -548,7 +548,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           ),
                           TextSpan(
                               text: ' '+_year_of_inception,
-                              style: TextStyle(
+                              style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
