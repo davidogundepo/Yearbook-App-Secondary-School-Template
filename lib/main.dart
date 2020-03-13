@@ -43,7 +43,8 @@ void main() => runApp(MultiProvider(
     ),
   ],
     child: MyApp(),
-));
+)
+);
 
 class MyApp extends StatefulWidget {
 
@@ -63,6 +64,7 @@ class MyApp extends StatefulWidget {
       @override
     Widget build(BuildContext context) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
