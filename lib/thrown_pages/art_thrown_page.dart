@@ -8,7 +8,6 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:vibration/vibration.dart';
 import '../about_menu_details_pages/about_app.dart';
 import '../about_menu_details_pages/about_school.dart';
 import '../about_menu_details_pages/acronyms_meanings.dart';
@@ -170,9 +169,6 @@ class _MyArtPage extends State<MyArtPage> {
                       icon: Icon(MdiIcons.bandage,
                       color: Colors.white,),
                       onPressed: () async {
-                        if(await Vibration.hasVibrator() & await Vibration.hasAmplitudeControl()){
-                          Vibration.vibrate(amplitude: 128, duration: 500);
-                        }
                         showModalBottomSheet(
                           backgroundColor: Colors.transparent,
                             context: context,

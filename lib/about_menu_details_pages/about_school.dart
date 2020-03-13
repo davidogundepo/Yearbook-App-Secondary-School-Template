@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../api/school_arial_images_api.dart';
 import '../api/achievement_images_api.dart';
@@ -11,7 +10,7 @@ import '../notifier/school_arial_notifier.dart';
 import '../notifier/achievement_images_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-
+import 'package:pie_chart/pie_chart.dart';
 
 
 class AboutSchoolDetails extends StatefulWidget {
@@ -41,14 +40,25 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
 
     AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context, listen: false);
     getAchievements(achievementsNotifier);
+
+    schoolMap.putIfAbsent("Male Students", () => 871);
+    schoolMap.putIfAbsent("Female Students", () => 655);
+    schoolMap.putIfAbsent("Teaching Staff", () => 85);
+    schoolMap.putIfAbsent("Non Teaching Staff", () => 32);
+
+    studentMap.putIfAbsent("Male Students", () => 871);
+    studentMap.putIfAbsent("Female Students", () => 655);
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     SchoolArialNotifier schoolArialNotifier = Provider.of<SchoolArialNotifier>(context);
-
     AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context);
+
+
+    
 
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
@@ -308,38 +318,56 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 300,
+                height: 250,
                 decoration: BoxDecoration(
                     color: Colors.blueGrey.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
-                child: SfCircularChart(
-                    title: ChartTitle(
-                        text: 'Hallel College Population Chart',
-                        textStyle: ChartTextStyle(
-                            color: Colors.blueGrey,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        )
-                    ),
-                    legend: Legend(
-                        isVisible: true,
-                        textStyle: ChartTextStyle(
-                            color: Colors.blueGrey,
-                            fontSize: 17
-                        )
-                    ),
-                    series: <PieSeries>[
-                      PieSeries<SchoolPopulation, String>(
-                        dataSource: getSchoolPopulationData(),
-                        xValueMapper: (SchoolPopulation schoolPopulation,_)=>schoolPopulation.x,
-                        yValueMapper: (SchoolPopulation schoolPopulation,_)=>schoolPopulation.y,
-                        dataLabelSettings: DataLabelSettings(
-                            isVisible: true
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    splashColor: Colors.blueGrey,
+                    onTap: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
+                          child: Text('Hallel College Population Chart',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: Colors.blueGrey,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )),
                         ),
-
-                      )
-                    ]
+                        PieChart(
+                          legendStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          dataMap: schoolMap,
+                          animationDuration: Duration(seconds: 10),
+                          chartLegendSpacing: 42.0,
+                          chartRadius: MediaQuery.of(context).size.width / 2.7,
+                          showChartValuesInPercentage: false,
+                          showChartValues: true,
+                          showChartValuesOutside: false,
+                          chartValueBackgroundColor: Colors.grey[200],
+                          colorList: schoolColorList,
+                          showLegends: true,
+                          legendPosition: LegendPosition.right,
+                          decimalPlaces: 0,
+                          showChartValueLabel: true,
+                          initialAngle: 0,
+                          chartValueStyle: defaultChartValueStyle.copyWith(
+                            color: Colors.blueGrey[900].withOpacity(0.9),
+                          ),
+                          chartType: ChartType.disc,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -388,38 +416,56 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 300,
+                height: 270,
                 decoration: BoxDecoration(
                     color: Colors.blueGrey.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
-                child: SfCircularChart(
-                  title: ChartTitle(
-                    text: 'Hallel Students Population Chart',
-                    textStyle: ChartTextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    )
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    splashColor: Colors.blueGrey,
+                    onTap: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
+                          child: Text('Hallel Students Population Chart',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: Colors.blueGrey,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                              )),
+                        ),
+                        PieChart(
+                          legendStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          dataMap: studentMap,
+                          animationDuration: Duration(seconds: 10),
+                          chartLegendSpacing: 42.0,
+                          chartRadius: MediaQuery.of(context).size.width / 2.7,
+                          showChartValuesInPercentage: false,
+                          showChartValues: true,
+                          showChartValuesOutside: false,
+                          chartValueBackgroundColor: Colors.grey[200],
+                          colorList: studentColorList,
+                          showLegends: true,
+                          legendPosition: LegendPosition.right,
+                          decimalPlaces: 0,
+                          showChartValueLabel: true,
+                          initialAngle: 0,
+                          chartValueStyle: defaultChartValueStyle.copyWith(
+                            color: Colors.blueGrey[900].withOpacity(0.9),
+                          ),
+                          chartType: ChartType.ring,
+                        ),
+                      ],
+                    ),
                   ),
-                  legend: Legend(
-                    isVisible: true,
-                    textStyle: ChartTextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 17
-                    )
-                  ),
-                  series: <DoughnutSeries>[
-                    DoughnutSeries<SchoolStudentPopulation, String>(
-                      dataSource: getStudentPopulationData(),
-                      xValueMapper: (SchoolStudentPopulation studentPopulation,_)=>studentPopulation.x,
-                      yValueMapper: (SchoolStudentPopulation studentPopulation,_)=>studentPopulation.y,
-                      dataLabelSettings: DataLabelSettings(
-                        isVisible: true
-                      ),
-
-                    )
-                  ]
                 ),
               ),
             ),
@@ -830,18 +876,18 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               ),
             ),
             Container(
-
-              height: 250,
+              height: 340,
               child: Swiper(
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: schoolArialNotifier.schoolArialList.length,
-                itemBuilder: (context, index) => Stack(
+                itemBuilder: (context, index) => Column(
                   children: <Widget>[
                     Container(
+                      height: 250,
                       decoration: BoxDecoration(
 //                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                         image: DecorationImage(
                           image: CachedNetworkImageProvider(
                               schoolArialNotifier.schoolArialList[index].image
@@ -851,27 +897,28 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                       ),
                     ),
                     Container(
-                      alignment: Alignment.topCenter,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-//                        color: Colors.blue.withOpacity(0.5)
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                        color: Colors.blueGrey
                       ),
-                      child: Text(
-                        schoolArialNotifier.schoolArialList[index].toastname,
-                        style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 24.0,
+                      child: ListTile(
+                        title: Text(
+                          schoolArialNotifier.schoolArialList[index].toastname,
+                          style: TextStyle(
+                            color: Colors.blueGrey[900],
+                            fontWeight: FontWeight.w800,
+                            fontSize: 17.0,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     )
                   ],
                 ),
-//                  pagination: SwiperPagination(),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, bottom: 10, top: 20),
+              padding: const EdgeInsets.only(left: 20, bottom: 10),
               child: Text('Some of our achievements',
               style: TextStyle(
                 fontSize: 20,
@@ -881,44 +928,52 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               ),
             ),
             Container(
-              height: 250,
+              height: 340,
               child: Swiper(
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: achievementsNotifier.achievementsList.length,
-                itemBuilder: (context, index) => Stack(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          colorFilter: ColorFilter.linearToSrgbGamma(),
-                          image: CachedNetworkImageProvider(
-                              achievementsNotifier.achievementsList[index].image
-                          ),
-                          fit: BoxFit.cover,
-                        )
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.topCenter,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-//                        color: Colors.blue.withOpacity(0.5)
-                      ),
-                      child: Text(
-                        achievementsNotifier.achievementsList[index].toastname,
-                        style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17.0,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                          image: DecorationImage(
+//                            colorFilter: ColorFilter.linearToSrgbGamma(),
+                            image: CachedNetworkImageProvider(
+                                achievementsNotifier.achievementsList[index].image
+                            ),
+                            fit: BoxFit.cover,
+                          )
                         ),
                       ),
-                    )
-                  ],
-                ),
-//                  pagination: SwiperPagination(),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                          color: Colors.blueGrey
+                        ),
+                        child: ListTile(
+                          title: Text(
+                            achievementsNotifier.achievementsList[index].toastname,
+                            style: TextStyle(
+                              color: Colors.blueGrey[900],
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17.0,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+                itemWidth: 350,
+                  layout: SwiperLayout.STACK,
+//                pagination: SwiperPagination(),
               ),
+
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 30, top: 20),
@@ -937,10 +992,12 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                 ),
               )
             ),
+
           ],
         ),
       ),
     );
+
   }
 }
 
@@ -973,3 +1030,22 @@ dynamic getSchoolPopulationData(){
   ];
   return schoolPopulationData;
 }
+
+
+bool toggle = false;
+Map<String, double> schoolMap = Map();
+
+Map<String, double> studentMap = Map();
+
+List<Color> schoolColorList = [
+  Colors.blueGrey,
+  Colors.deepOrangeAccent,
+  Colors.yellow,
+  Colors.cyan,
+];
+
+List<Color> studentColorList = [
+  Colors.blueGrey,
+  Colors.deepOrangeAccent,
+];
+
