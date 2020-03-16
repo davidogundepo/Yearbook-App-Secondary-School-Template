@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../notifier/science_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 String dave = "David";
 String whatsApp = "+2348070920625";
@@ -20,7 +19,7 @@ String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 //String mailTHIRD = "$dave";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/olowote.oluwaseun";
+String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
 ScienceClassNotifier scienceClassNotifier;
@@ -35,8 +34,6 @@ var _dream_university_course;
 var _email;
 var _facebook;
 var _hobbies;
-var _id;
-var _image;
 var _instagram;
 var _my_dropline;
 var _name;
@@ -229,7 +226,6 @@ class _SubPageState extends State<SubPage>{
     _email = scienceClassNotifier.currentScienceClass.email;
     _facebook = scienceClassNotifier.currentScienceClass.facebook;
     _hobbies = scienceClassNotifier.currentScienceClass.hobbies;
-    _image = scienceClassNotifier.currentScienceClass.image;
     _instagram = scienceClassNotifier.currentScienceClass.instagram;
     _my_dropline = scienceClassNotifier.currentScienceClass.my_dropline;
     _name = scienceClassNotifier.currentScienceClass.name;
@@ -378,12 +374,6 @@ class _SubPageState extends State<SubPage>{
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: GoogleFonts.abel(
-//                      fontFamily: 'DancingScript',
-//                      color: Colors.white,
-//                      fontSize: 18,
-//                      fontWeight: FontWeight.w300
-//                    ),
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -391,19 +381,7 @@ class _SubPageState extends State<SubPage>{
                     ),
                   ),
                   onPressed: () {
-//                    WebViewController _controller;
-//                    WebView(
-//                      onWebViewCreated: (WebViewController c) {
-//                        _controller = c;
-//                      },
-//                    );
-                  WebView(
-                    initialUrl: 'https://fb.com/olowote.oluwaseun',
-                    javascriptMode: JavascriptMode.unrestricted,
-                  );
-
-//                    _controller.loadUrl('https://fb.com/'+_facebook);
-//                  launchURL(urlFacebook);
+                    launchURL(urlFacebook+_facebook);
                   },
                 ),
               ),

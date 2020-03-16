@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../notifier/management_body_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 String dave = "David";
 String whatsApp = "+2348070920625";
@@ -18,7 +17,7 @@ String smsFIRST = "sms:+234";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/olowote.oluwaseun";
+String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
 ManagementBodyNotifier managementBodyNotifier;
@@ -31,7 +30,6 @@ var _qualification;
 var _year_of_inception;
 var _email;
 var _facebook;
-var _image;
 var _instagram;
 var _name;
 var _phone;
@@ -216,7 +214,6 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
     _year_of_inception = managementBodyNotifier.currentManagementBody.year_of_inception;
     _email = managementBodyNotifier.currentManagementBody.email;
     _facebook = managementBodyNotifier.currentManagementBody.facebook;
-    _image = managementBodyNotifier.currentManagementBody.image;
     _instagram = managementBodyNotifier.currentManagementBody.instagram;
     _name = managementBodyNotifier.currentManagementBody.name;
     _qualification = managementBodyNotifier.currentManagementBody.qualification;
@@ -363,12 +360,6 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: GoogleFonts.abel(
-//                      fontFamily: 'DancingScript',
-//                      color: Colors.white,
-//                      fontSize: 18,
-//                      fontWeight: FontWeight.w300
-//                    ),
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -376,19 +367,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                     ),
                   ),
                   onPressed: () {
-//                    WebViewController _controller;
-//                    WebView(
-//                      onWebViewCreated: (WebViewController c) {
-//                        _controller = c;
-//                      },
-//                    );
-                    WebView(
-                      initialUrl: 'https://fb.com/olowote.oluwaseun',
-                      javascriptMode: JavascriptMode.unrestricted,
-                    );
-
-//                    _controller.loadUrl('https://fb.com/'+_facebook);
-//                  launchURL(urlFacebook);
+                    launchURL(urlFacebook+_facebook);
                   },
                 ),
               ),

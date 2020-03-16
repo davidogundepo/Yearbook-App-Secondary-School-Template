@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../notifier/social_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 String dave = "David";
 String whatsApp = "+2348070920625";
@@ -18,7 +17,7 @@ String smsFIRST = "sms:+234";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/olowote.oluwaseun";
+String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
 SocialClassNotifier socialClassNotifier;
@@ -33,8 +32,6 @@ var _dream_university_course;
 var _email;
 var _facebook;
 var _hobbies;
-var _id;
-var _image;
 var _instagram;
 var _my_dropline;
 var _name;
@@ -225,7 +222,6 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
     _email = socialClassNotifier.currentSocialClass.email;
     _facebook = socialClassNotifier.currentSocialClass.facebook;
     _hobbies = socialClassNotifier.currentSocialClass.hobbies;
-    _image = socialClassNotifier.currentSocialClass.image;
     _instagram = socialClassNotifier.currentSocialClass.instagram;
     _my_dropline = socialClassNotifier.currentSocialClass.my_dropline;
     _name = socialClassNotifier.currentSocialClass.name;
@@ -375,12 +371,6 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: GoogleFonts.belleza(
-//                      fontFamily: 'DancingScript',
-//                      color: Colors.white,
-//                      fontSize: 18,
-//                      fontWeight: FontWeight.w300
-//                    ),
                     style: GoogleFonts.belleza(
                         color: Colors.white,
                         fontSize: 18,
@@ -388,19 +378,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                     ),
                   ),
                   onPressed: () {
-//                    WebViewController _controller;
-//                    WebView(
-//                      onWebViewCreated: (WebViewController c) {
-//                        _controller = c;
-//                      },
-//                    );
-                    WebView(
-                      initialUrl: 'https://fb.com/olowote.oluwaseun',
-                      javascriptMode: JavascriptMode.unrestricted,
-                    );
-
-//                    _controller.loadUrl('https://fb.com/'+_facebook);
-//                  launchURL(urlFacebook);
+                    launchURL(urlFacebook+_facebook);
                   },
                 ),
               ),

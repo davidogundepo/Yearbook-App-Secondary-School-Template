@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../notifier/graduates_class_teachers_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 String dave = "David";
 String whatsApp = "+2348070920625";
@@ -18,7 +17,7 @@ String smsFIRST = "sms:+234";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/olowote.oluwaseun";
+String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
 
@@ -34,8 +33,6 @@ var _year_of_inception;
 var _email;
 var _facebook;
 var _linkedin;
-var _id;
-var _image;
 var _instagram;
 var _name;
 var _phone;
@@ -223,7 +220,6 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
     _email = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.email;
     _facebook = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.facebook;
     _linkedin = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.linkedin;
-    _image = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.image;
     _instagram = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.instagram;
     _name = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name;
     _phone = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.phone;
@@ -393,12 +389,6 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: GoogleFonts.abel(
-//                      fontFamily: 'DancingScript',
-//                      color: Colors.white,
-//                      fontSize: 18,
-//                      fontWeight: FontWeight.w300
-//                    ),
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -406,19 +396,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                     ),
                   ),
                   onPressed: () {
-//                    WebViewController _controller;
-//                    WebView(
-//                      onWebViewCreated: (WebViewController c) {
-//                        _controller = c;
-//                      },
-//                    );
-                    WebView(
-                      initialUrl: 'https://fb.com/olowote.oluwaseun',
-                      javascriptMode: JavascriptMode.unrestricted,
-                    );
-
-//                    _controller.loadUrl('https://fb.com/'+_facebook);
-//                  launchURL(urlFacebook);
+                    launchURL(urlFacebook+_facebook);
                   },
                 ),
               ),

@@ -151,6 +151,7 @@ class _MySciencePage extends State<MySciencePage> {
 
   @override
   Widget build(BuildContext context) {
+
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
 
     return WillPopScope(

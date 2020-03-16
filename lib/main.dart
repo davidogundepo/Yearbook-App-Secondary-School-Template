@@ -10,8 +10,9 @@ import './notifier/graduates_class_teachers_notifier.dart';
 import './notifier/management_body_notifier.dart';
 import './notifier/school_arial_notifier.dart';
 import './notifier/social_class_notifier.dart';
-import './sidebar/sidebar_layout.dart';
 import 'notifier/science_class_notifier.dart';
+
+import './sidebar/sidebar_layout.dart';
 
 void main() => runApp(MultiProvider(
   providers: [

@@ -8,7 +8,8 @@ import 'package:provider/provider.dart';
 import '../notifier/art_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+
+
 
 String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
@@ -20,7 +21,7 @@ String smsFIRST = "sms:+234";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/olowote.oluwaseun";
+String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
 ArtClassNotifier artClassNotifier;
@@ -377,12 +378,6 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
                   label: Text('My Facebook',
-//                    style: GoogleFonts.abel(
-//                      fontFamily: 'DancingScript',
-//                      color: Colors.white,
-//                      fontSize: 18,
-//                      fontWeight: FontWeight.w300
-//                    ),
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -390,19 +385,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                     ),
                   ),
                   onPressed: () {
-//                    WebViewController _controller;
-//                    WebView(
-//                      onWebViewCreated: (WebViewController c) {
-//                        _controller = c;
-//                      },
-//                    );
-                    WebView(
-                      initialUrl: 'https://fb.com/olowote.oluwaseun',
-                      javascriptMode: JavascriptMode.unrestricted,
-                    );
-
-//                    _controller.loadUrl('https://fb.com/'+_facebook);
-//                  launchURL(urlFacebook);
+                    launchURL(urlFacebook+_facebook);
                   },
                 ),
               ),
