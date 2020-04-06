@@ -42,7 +42,7 @@ class _MyArtPage extends State<MyArtPage> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            splashColor: Colors.blue,
+            splashColor: Color.fromRGBO(46, 137, 112, 1),
             onTap: () {
               artClassNotifier.currentArtClass = artClassNotifier.artClassList[index];
               navigateToArtDetailsPage(context);

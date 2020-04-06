@@ -67,6 +67,7 @@ dependencies:
   splashscreen: ^1.2.0
   awesome_loader: ^0.0.3
   pie_chart: ^3.1.1
+  showcaseview: ^0.1.2
 
 
 
