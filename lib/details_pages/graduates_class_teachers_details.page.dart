@@ -9,6 +9,9 @@ import '../notifier/graduates_class_teachers_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+
+String schoolName = "Hallel College";
+
 String dave = "David";
 String whatsApp = "+2348070920625";
 
@@ -21,18 +24,35 @@ String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
 
+
+String reachDetails = "Reach";
+String autoBioDetails = "AutoBio";
+
+String callButton = "Call";
+String messageButton = "Send a Message";
+String emailButton = "Send an Email";
+String twitterButton = "My Twitter";
+String instagramButton = "My Instagram";
+String linkedInButton = "My LinkedIn";
+
+String autobiographyTitle = "Autobiography\n";
+String staffPositionTitle = "Staff Position\n";
+String courseTeachingTitle = "Course Teaching\n";
+String qualificationTitle = "Qualification(s)\n";
+String yearOfInceptionTitle = "Year of Inception\n";
+
 GraduatesClassTeachersNotifier graduatesClassTeachersNotifier;
 
 Map<int, Widget> userBIO;
 
-var _autobio;
-var _staff_position;
+var _autoBio;
+var _staffPosition;
 var _qualification;
-var _course_teaching;
-var _year_of_inception;
+var _courseTeaching;
+var _yearOfInception;
 var _email;
 var _facebook;
-var _linkedin;
+var _linkedIn;
 var _instagram;
 var _name;
 var _phone;
@@ -212,14 +232,14 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
   initState(){
     GraduatesClassTeachersNotifier graduatesClassTeachersNotifier = Provider.of<GraduatesClassTeachersNotifier>(context, listen: false);
 
-    _autobio = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.autobio;
-    _staff_position = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.staff_position;
+    _autoBio = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.autoBio;
+    _staffPosition = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.staffPosition;
     _qualification = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.qualification;
-    _course_teaching = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.course_teaching;
-    _year_of_inception = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.year_of_inception;
+    _courseTeaching = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.courseTeaching;
+    _yearOfInception = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.yearOfInception;
     _email = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.email;
     _facebook = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.facebook;
-    _linkedin = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.linkedin;
+    _linkedIn = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.linkedIn;
     _instagram = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.instagram;
     _name = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name;
     _phone = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.phone;
@@ -244,7 +264,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text('Call',
+                  label: Text(callButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -268,7 +288,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text('Send a Message',
+                  label: Text(messageButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -292,7 +312,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text("Send an Email",
+                  label: Text(emailButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -316,7 +336,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text('My Twitter',
+                  label: Text(twitterButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -340,7 +360,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text('My Instagram',
+                  label: Text(instagramButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -364,7 +384,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   elevation: 2,
                   color: Color.fromRGBO(114, 78, 147, 1),
                   icon: new Icon(MdiIcons.linkedinBox, color: Colors.white,),
-                  label: Text('My LinkedIn',
+                  label: Text(linkedInButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -372,7 +392,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       )
                   ),
                   onPressed: () {
-                    launchURL(urlLinkedIn+_linkedin);
+                    launchURL(urlLinkedIn+_linkedIn);
                   },
                 ),
               ),
@@ -422,7 +442,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Autobiography\n',
+                            text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
                               color: Color.fromRGBO(114, 78, 147, 1),
                               fontSize: 19,
@@ -430,7 +450,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                             )
                         ),
                         TextSpan(
-                            text: ' '+_autobio,
+                            text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
                               color: Color.fromRGBO(114, 78, 147, 1),
                               fontSize: 19,
@@ -463,7 +483,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Staff Position \n',
+                              text: staffPositionTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -471,7 +491,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                               )
                           ),
                           TextSpan(
-                              text: ' '+_staff_position,
+                              text: ' '+_staffPosition,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -505,7 +525,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Course Teaching\n',
+                              text: courseTeachingTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -513,7 +533,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                               )
                           ),
                           TextSpan(
-                              text: ' '+_course_teaching,
+                              text: ' '+_courseTeaching,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -547,7 +567,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Qualification(s)\n',
+                              text: qualificationTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -590,7 +610,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Year of Inception\n',
+                              text: yearOfInceptionTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,
@@ -598,7 +618,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                               )
                           ),
                           TextSpan(
-                              text: ' '+_year_of_inception,
+                              text: ' '+_yearOfInception,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 19,

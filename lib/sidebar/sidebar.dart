@@ -2,12 +2,35 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
+
+
+String schoolName = "Hallel College";
+String title = "Hallel College".toUpperCase();
+String subtitle = "Graduating Class";
+
+String scienceClassTitle = "Science Class Graduates";
+String socialScienceClassTitle = "Social Science Class Graduates";
+String artClassTitle = "Art Class Graduates";
+String schoolPrefectsTitle = "School Prefects";
+String classTeachersTitle = "Graduates Class Teachers";
+String managementBodyTitle = "Management Body";
+
+String exitAppStatement = "Exit from App";
+String exitAppTitle = "Come on!";
+String exitAppSubtitle = "Do you really really want to?";
+String exitAppNo = "Oh No";
+String exitAppYes = "I Have To";
+
+String imgAsset = "assets/images/hallel_9.jpg";
+
+
 
 class SideBar extends StatefulWidget {
 
@@ -88,191 +111,218 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             colors: [Colors.indigo, Colors.cyan]
                         )
                     ),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 50,
-                        ),
-                        Stack(
-                          children: <Widget>[
-                            Opacity(
-                              opacity: 0.7,
-                              child: Container(
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    splashColor: Colors.lightBlueAccent,
-                                    onTap: () {},
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(bottom: 20, top: 120),
-                                      child: ListTile(
-                                        title: Text(
-                                          "HALLEL COLLEGE",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 30,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        subtitle: Text(
-                                          "Graduating Class",
-                                          style: TextStyle(
-                                            color: Colors.brown[200],
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 20,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: 60,
+                          ),
+                          Stack(
+                            children: <Widget>[
+                              Opacity(
+                                opacity: 0.7,
+                                child: Container(
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    child: InkWell(
+                                      splashColor: Colors.lightBlueAccent,
+                                      onTap: () {},
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(bottom: 20, top: 120),
+                                        child: ListTile(
+                                          title: Text(
+                                            schoolName,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 30,
+                                                fontWeight: FontWeight.w800),
+                                          ),
+                                          subtitle: Text(
+                                            subtitle,
+                                            style: TextStyle(
+                                              color: Colors.brown[200],
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 20,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                width: 400.0,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: new ExactAssetImage('assets/images/hallel_9.jpg'),
-                                    fit: BoxFit.cover,
+                                  width: 400.0,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: new ExactAssetImage(imgAsset),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
+                                      stops: [0.3, 1],
+
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.blueAccent,
+                                        blurRadius: 12,
+                                        offset: Offset(3, 12),
+                                      )
+                                    ],
+                                    borderRadius: new BorderRadius.circular(10),
                                   ),
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
-                                    stops: [0.3, 1],
 
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.blueAccent,
-                                      blurRadius: 12,
-                                      offset: Offset(3, 12),
-                                    )
-                                  ],
-                                  borderRadius: new BorderRadius.circular(10),
+
                                 ),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            height: 30,
+                            thickness: 0.5,
+                            color: Colors.white.withOpacity(0.3),
+                            indent: 32,
+                            endIndent: 32,
+                          ),
+                          Material(
+                            color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(0);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySciencePageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.matrix,
+                                  title: scienceClassTitle,
 
-
+                                ),
                               ),
                             ),
-                          ],
-                        ),
-                        Divider(
-                          height: 30,
-                          thickness: 0.5,
-                          color: Colors.white.withOpacity(0.3),
-                          indent: 32,
-                          endIndent: 32,
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(0);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySciencePageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.matrix,
-                              title: "Science Class Graduates",
-
+                          ),
+                          Material(
+                            color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(1);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySocialPageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.chartBellCurve,
+                                  title: socialScienceClassTitle,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(1);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySocialPageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.chartBellCurve,
-                              title: "Social Science Class Graduates",
+                          Material(
+                            color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(2);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyArtPageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.draw,
+                                  title: artClassTitle,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(2);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyArtPageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.draw,
-                              title: "Art Class Graduates",
+                          Material(
+                            color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(3);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyClassPrefectsPageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.accountGroup,
+                                  title: schoolPrefectsTitle,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(3);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyClassPrefectsPageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.accountGroup,
-                              title: "School Prefects",
+                          Material(
+                            color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(4);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGraduatesClassTeachersPageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.teach,
+                                  title: classTeachersTitle,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(4);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGraduatesClassTeachersPageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.teach,
-                              title: "Graduates Class Teachers",
+                          Material(
+                            color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                            child: InkWell(
+                              splashColor: Colors.white,
+                              onTap: () {
+                                _onSelected(5);
+                                onIconPressed();
+                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyPageClickedEvent);
+                              },
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: MenuItem(
+                                  icon: MdiIcons.pillar,
+                                  title: managementBodyTitle,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Material(
-                          color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onSelected(5);
-                              onIconPressed();
-                              BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyPageClickedEvent);
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.pillar,
-                              title: "Management Body",
+                          Divider(
+                            height: 64,
+                            thickness: 0.5,
+                            color: Colors.white.withOpacity(0.3),
+                            indent: 32,
+                            endIndent: 32,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 50, top: 10),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onWillPop();
+                                  onIconPressed();
+                                },
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: MenuItem(
+                                    icon: MdiIcons.logout,
+                                    title: exitAppStatement,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          height: 64,
-                          thickness: 0.5,
-                          color: Colors.white.withOpacity(0.3),
-                          indent: 32,
-                          endIndent: 32,
-                        ),
-                        Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            splashColor: Colors.white,
-                            onTap: () {
-                              _onWillPop();
-                              onIconPressed();
-                            },
-                            child: MenuItem(
-                              icon: MdiIcons.logout,
-                              title: "Exit from App",
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -337,17 +387,17 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Come on!'),
-        content: Text('Do you really really want to?'),
+        title: Text(exitAppTitle),
+        content: Text(exitAppSubtitle),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Oh No'),
+            child: Text(exitAppNo),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text('I Have To'),
+            child: Text(exitAppYes),
           ),
         ],
       ),

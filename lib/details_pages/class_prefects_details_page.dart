@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../notifier/class_prefects_notifier.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+String deptTitle = "Department\n";
+String positionEnforcedTitle = "Position Enforced\n";
+
 
 ClassPrefectsNotifier classPrefectsNotifier;
 
@@ -139,7 +142,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                               TextSpan(
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: 'Department\n',
+                                      text: deptTitle,
                                       style: GoogleFonts.aBeeZee(
                                         color: Color.fromRGBO(254, 255, 236, 1),
                                         fontSize: 19,
@@ -180,7 +183,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                 TextSpan(
                                   children: <TextSpan>[
                                     TextSpan(
-                                        text: 'Position Enforced\n',
+                                        text: positionEnforcedTitle,
                                         style: GoogleFonts.aBeeZee(
                                           color: Color.fromRGBO(254, 255, 236, 1),
                                           fontSize: 19,
@@ -188,7 +191,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                         )
                                     ),
                                     TextSpan(
-                                        text: ' '+classPrefectsNotifier.currentClassPrefects.position_enforced,
+                                        text: ' '+classPrefectsNotifier.currentClassPrefects.positionEnforced,
                                         style: GoogleFonts.trykker(
                                           color: Color.fromRGBO(254, 255, 236, 1),
                                           fontSize: 19,

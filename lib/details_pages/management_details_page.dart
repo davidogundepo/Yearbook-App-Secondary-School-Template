@@ -20,14 +20,26 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
+String callButton = "Call";
+String messageButton = "Send a Message";
+String emailButton = "Send an Email";
+String twitterButton = "My Twitter";
+String instagramButton = "My Instagram";
+String facebookButton = "My Facebook";
+
+String autobiographyTitle = "Autobiography\n";
+String staffPositionTitle = "Staff Position\n";
+String qualificationTitle = "Qualification(s)\n";
+String yearOfInceptionTitle = "Year of Inception\n";
+
 ManagementBodyNotifier managementBodyNotifier;
 
 Map<int, Widget> userBIO;
 
-var _autobio;
-var _staff_position;
+var _autoBio;
+var _staffPosition;
 var _qualification;
-var _year_of_inception;
+var _yearOfInception;
 var _email;
 var _facebook;
 var _instagram;
@@ -209,9 +221,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
   initState(){
     ManagementBodyNotifier managementBodyNotifier = Provider.of<ManagementBodyNotifier>(context, listen: false);
 
-    _autobio = managementBodyNotifier.currentManagementBody.autobio;
-    _staff_position = managementBodyNotifier.currentManagementBody.staff_position;
-    _year_of_inception = managementBodyNotifier.currentManagementBody.year_of_inception;
+    _autoBio = managementBodyNotifier.currentManagementBody.autoBio;
+    _staffPosition = managementBodyNotifier.currentManagementBody.staffPosition;
+    _yearOfInception = managementBodyNotifier.currentManagementBody.yearOfInception;
     _email = managementBodyNotifier.currentManagementBody.email;
     _facebook = managementBodyNotifier.currentManagementBody.facebook;
     _instagram = managementBodyNotifier.currentManagementBody.instagram;
@@ -239,7 +251,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text('Call',
+                  label: Text(callButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -263,7 +275,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text('Send a Message',
+                  label: Text(messageButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -287,7 +299,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text("Send an Email",
+                  label: Text(emailButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -311,7 +323,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text('My Twitter',
+                  label: Text(twitterButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -335,7 +347,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text('My Instagram',
+                  label: Text(instagramButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -359,7 +371,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   elevation: 2,
                   color: Colors.lightBlue,
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text('My Facebook',
+                  label: Text(facebookButton,
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -393,7 +405,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Autobiography\n',
+                            text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -401,7 +413,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                             )
                         ),
                         TextSpan(
-                            text: ' '+_autobio,
+                            text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
                               color: Colors.lightBlue,
                               fontSize: 19,
@@ -434,7 +446,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Staff Position \n',
+                              text: staffPositionTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -442,7 +454,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_staff_position,
+                              text: ' '+_staffPosition,
                               style: GoogleFonts.trykker(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -476,7 +488,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Qualification(s)\n',
+                              text: qualificationTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -518,7 +530,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Year of Inception\n',
+                              text: yearOfInceptionTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,
@@ -526,7 +538,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_year_of_inception,
+                              text: ' '+_yearOfInception,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.lightBlue,
                                 fontSize: 19,

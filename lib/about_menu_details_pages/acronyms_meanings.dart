@@ -1,14 +1,19 @@
 
 import 'package:flutter/material.dart';
 
+
+String schoolName = "Hallel College";
+String acronymTitle = "Acronym Meanings";
 String acronym = "The following acronyms are used in the apps and their meanings are detailed.";
-String hc = "HC - Hallel College";
+String hc = "HC - $schoolName";
 String sss = "SSS - Senior Secondary School";
-String jss = "SSS - Junior Secondary School";
+String jss = "JSS - Junior Secondary School";
 String sp = "SP - School Prefcets";
 String sd = "SD - Science Department";
 String ad = "AD - Art Department";
 String ssd = "SSD - Social Science Department";
+
+String imgAsset = "assets/images/acronym.jpg";
 
 class AcronymsMeanings extends StatefulWidget {
 
@@ -27,7 +32,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 31, 41, 1),
       appBar: AppBar(
-        title: Text('Acronym Meanings',
+        title: Text(acronymTitle,
         style: TextStyle(
           color: Colors.white
         ),),
@@ -48,7 +53,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                child: Image.asset('assets/images/acronym.jpg'),
+                child: Image.asset(imgAsset),
               ),
             ),
             Container(
@@ -66,7 +71,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                           color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text('Acronym Meanings',
+                            child: Text(acronymTitle,
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,

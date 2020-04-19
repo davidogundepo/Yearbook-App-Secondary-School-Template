@@ -14,26 +14,29 @@ class MenuItem extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
-          children: <Widget>[
-            Icon(
-              icon,
-              color: Colors.cyan,
-              size: 30,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.w300,
-                fontSize: 15,
-                color: Colors.white
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: <Widget>[
+              Icon(
+                icon,
+                color: Colors.cyan,
+                size: 30,
               ),
-            ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 15,
+                  color: Colors.white
+                ),
+              ),
 
-          ],
+            ],
+          ),
         ),
       ),
     );

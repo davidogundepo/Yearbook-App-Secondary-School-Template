@@ -18,6 +18,24 @@ import '../notifier/graduates_class_teachers_notifier.dart';
 String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
 
+String schoolName = "Hallel College";
+String thrownName = "Class Teachers";
+
+String exitAppStatement = "Exit from App";
+String exitAppTitle = "Come on!";
+String exitAppSubtitle = "Do you really really want to?";
+String exitAppNo = "Oh No";
+String exitAppYes = "I Have To";
+
+String whoWeAre = "Who We Are";
+String aboutSchool = "About $schoolName";
+String acronymMeanings = "Acronym Meanings";
+String aboutApp = "About App";
+
+String imgAsset = "assets/images/management_2.jpg";
+
+
+
 class MyGraduatesClassTeachersPage extends StatefulWidget with NavigationStates{
   MyGraduatesClassTeachersPage({Key key, this.title}) : super(key: key);
 
@@ -47,56 +65,60 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
               navigateToGraduatesClassTeachersDetailsPage(context);
             },
 
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10)),
-                      image: DecorationImage(
-                          image: CachedNetworkImageProvider(
-                              graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10)),
+                        image: DecorationImage(
+                          alignment: Alignment(0, -1),
+                            image: CachedNetworkImageProvider(
+                                graduatesClassTeachersNotifier.graduatesClassTeachersList[index].image
+                            ),
+                            fit: BoxFit.cover,
+                        ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Text(
+                              graduatesClassTeachersNotifier.graduatesClassTeachersList[index].name,
+                              style: GoogleFonts.tenorSans(
+                                  color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600
+                              )
                           ),
-                          fit: BoxFit.cover,
-                      ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 60),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20),
-                        child: Text(
-                            graduatesClassTeachersNotifier.graduatesClassTeachersList[index].name,
-                            style: GoogleFonts.tenorSans(
-                                color: Colors.white,
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600
-                            )
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                            graduatesClassTeachersNotifier.graduatesClassTeachersList[index].course_teaching,
-                            style: GoogleFonts.varela(
-                              color: Colors.white70,
-                              fontStyle: FontStyle.italic,
-                            )
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Text(
+                              graduatesClassTeachersNotifier.graduatesClassTeachersList[index].courseTeaching,
+                              style: GoogleFonts.varela(
+                                color: Colors.white70,
+                                fontStyle: FontStyle.italic,
+                              )
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                )
+                      ],
+                    ),
+                  )
 
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -108,17 +130,17 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Come on!'),
-        content: Text('Do you really really want to?'),
+        title: Text(exitAppTitle),
+        content: Text(exitAppSubtitle),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Oh No'),
+            child: Text(exitAppNo),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text('I Have To'),
+            child: Text(exitAppYes),
           ),
         ],
       ),
@@ -188,7 +210,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ListTile(
                                           leading: new Icon(MdiIcons.atom,
                                           color: Colors.white,),
-                                          title: new Text('Who We Are',
+                                          title: new Text(whoWeAre,
                                           style: GoogleFonts.zillaSlab(
                                             color: Colors.white
                                           ),),
@@ -199,7 +221,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ListTile(
                                         leading: new Icon(MdiIcons.chessQueen,
                                           color: Colors.white,),
-                                        title: new Text('About Hallel College',
+                                        title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
@@ -210,7 +232,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ListTile(
                                           leading: new Icon(MdiIcons.sortAlphabeticalAscending,
                                             color: Colors.white,),
-                                          title: new Text('Acronym Meanings',
+                                          title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
                                                 color: Colors.white
                                             ),),
@@ -221,7 +243,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ListTile(
                                         leading: new Icon(MdiIcons.opacity,
                                           color: Colors.white,),
-                                        title: new Text('About App',
+                                        title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
@@ -244,14 +266,14 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
-                      title: Text("Class Teachers",
+                      title: Text(thrownName,
                           style: GoogleFonts.amaticSC(
                             color: Colors.white,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )
                       ),
-                      background: Image.asset('assets/images/management_2.jpg',
+                      background: Image.asset(imgAsset,
                       fit: BoxFit.cover
                         ,)
                   ),

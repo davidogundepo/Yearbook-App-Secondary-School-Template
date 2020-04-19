@@ -13,6 +13,87 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 
+String schoolName = "Hallel College";
+String aboutSchool = "About $schoolName";
+
+String visionTitle = "OUR VISION STATEMENT";
+String visionStatement = "Raising the Total youth through comprehensive education.";
+String missionTitle = "OUR MISSION STATEMENT";
+String missionStatement = "Mobilizing Academic, Moral, Social, Political and Religious tools, by dedicated and vision driven educators in a proactive environment of teaching and learning, which is geared towards impacting and equipping our students to be THE TOTAL YOUTH the world will be proud of.";
+
+String coreValues = "OUR CORE VALUES";
+String cvStatement1 = "1. We are dedicated to the success of your ward\n\n";
+String cvStatement2 = "2. We teach academics as well as morals\n\n";
+String cvStatement3 = "3. We are genuinely interested in deploying the full capacity of your child.\n\n";
+String cvStatement4 = "4. We create a social atmosphere for children and we believe every child can excel.";
+
+String whySchool = "WHY $schoolName?".toUpperCase();
+String whySchoolStatement = "$schoolName was established on the 3rd of October 1994 out of the vision and passion of Dr. Edna Opara to empower today’s youth for tomorrows challenges.\n\n We offers students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.";
+String staffBody = "Staff Body\n\n";
+String staffBodyStatement = "We have 85 teaching staff and 32 non-teaching staff (including management body) in $schoolName.";
+String populationChart = "$schoolName Population Chart";
+String studentBody = "Student Body\n\n";
+String studentBodyStatement = "We have 1,526 students in $schoolName, 871 male students and 655 female students.";
+String studentPopulationChart = "Hallel Students Population Chart";
+
+String subjectsOffered = "Subjects offered in $schoolName";
+String subjectsOfferedInJSS = "Junior Secondary School (JSS) Subjects\n\n";
+String subjectsOfferedInJSSStatement1 = "1. English Language\n";
+String subjectsOfferedInJSSStatement2 = "2. Mathematics\n";
+String subjectsOfferedInJSSStatement3 = "3. Integrated/Basic Science\n";
+String subjectsOfferedInJSSStatement4 = "4. Introductory/Basic Technology\n";
+String subjectsOfferedInJSSStatement5 = "5. Social studies\n";
+String subjectsOfferedInJSSStatement6 = "6. Computer studies\n";
+String subjectsOfferedInJSSStatement7 = "7. French language\n";
+String subjectsOfferedInJSSStatement8 = "8. Home Economics\n";
+String subjectsOfferedInJSSStatement9 = "9. Physical & Health Education\n";
+String subjectsOfferedInJSSStatement10 = "10. Christian Religious Studies\n\n";
+
+String subjectsOfferedInSSSArtDept = "Senior Secondary School (SSS) Art Department Subjects\n\n";
+String subjectsOfferedInSSSArtDeptStatement1 = "1. English Language\n";
+String subjectsOfferedInSSSArtDeptStatement2 = "2. Literature\n";
+String subjectsOfferedInSSSArtDeptStatement3 = "3. Food and Nutrition\n";
+String subjectsOfferedInSSSArtDeptStatement4 = "4. Christian Religious Studies\n";
+String subjectsOfferedInSSSArtDeptStatement5 = "5. Yoruba or Igbo or Hausa Language\n";
+String subjectsOfferedInSSSArtDeptStatement6 = "6. Civic Education\n\n";
+
+String subjectsOfferedInSSSSocialScienceDept = "Senior Secondary School (SSS) Social Science Department Subjects\n\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement1 = "1. English Language\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement2 = "2. Economics\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement3 = "3. Mathematics\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement4 = "4. Government\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement5 = "5. Commerce\n";
+String subjectsOfferedInSSSSocialScienceDeptStatement6 = "6. Geography\n\n";
+
+String subjectsOfferedInSSSScienceDept = "Senior Secondary School (SSS) Science Department Subjects\n\n";
+String subjectsOfferedInSSSScienceDeptStatement1 = "1. English Language\n";
+String subjectsOfferedInSSSScienceDeptStatement2 = "2. Geography\n";
+String subjectsOfferedInSSSScienceDeptStatement3 = "3. Mathematics\n";
+String subjectsOfferedInSSSScienceDeptStatement4 = "4. Physics\n";
+String subjectsOfferedInSSSScienceDeptStatement5 = "5. Biology\n";
+String subjectsOfferedInSSSScienceDeptStatement6 = "6. Chemistry\n\n";
+
+String extraCurricularActs = "Extra-curricullar Activities offered in $schoolName\n\n";
+String extraCurricularActsStatement1 = "1. Inter-House Sports\n";
+String extraCurricularActsStatement2 = "2. Mathematics Competitions\n";
+String extraCurricularActsStatement3 = "3. Essay Competitions\n";
+String extraCurricularActsStatement4 = "4. Cooking Competitions\n";
+String extraCurricularActsStatement5 = "5. Local and Foreign excursions\n";
+String extraCurricularActsStatement6 = "6. Swimming Competitions\n";
+String extraCurricularActsStatement7 = "7. Fashion Designing Competitions\n";
+String extraCurricularActsStatement8 = "8. National Spelling Bee Competition\n";
+
+String schoolArialViews = "Some Arial views of $schoolName";
+String schoolAchievements = "Some of our achievements";
+String moreInfoAboutSchool = "For more information about $schoolName please trust and click me";
+String moreInfoAboutSchoolURL = "https://hallelcollege.com/";
+
+double maleStudentPopulation = 871;
+double femaleStudentPopulation = 655;
+double teachingStaffPopulation = 85;
+double nonTeachingStaffPopulation = 32;
+
+
 class AboutSchoolDetails extends StatefulWidget {
 
   AboutSchoolDetails({Key key, this.title}) : super(key: key);
@@ -57,14 +138,11 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
     SchoolArialNotifier schoolArialNotifier = Provider.of<SchoolArialNotifier>(context);
     AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context);
 
-
-    
-
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
       appBar: AppBar(
         centerTitle: true,
-        title: Text('About Hallel College'),
+        title: Text(aboutSchool),
         elevation: 10,
         backgroundColor: Colors.blueGrey[800],
       ),
@@ -84,37 +162,40 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                       color: Colors.black38,
                       elevation: 4,
                       margin:   EdgeInsets.all(24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Center(
-                              child: Container(
-                                child: Text(
-                                  'OUR VISION STATEMENT',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w400,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Center(
+                                child: Container(
+                                  child: Text(
+                                    visionTitle,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
-                            child: Text(
-                              'Raising the Total youth through comprehensive education.',
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 18
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
+                              child: Text(
+                                visionStatement,
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 18
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -123,150 +204,157 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                       color: Colors.black38,
                       elevation: 4,
                       margin:   EdgeInsets.all(24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Center(
-                              child: Container(
-                                child: Text(
-                                  'OUR MISSION STATEMENT',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w400,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Center(
+                                child: Container(
+                                  child: Text(
+                                    missionTitle,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
-                            child: Text(
-                              'Mobilizing Academic, Moral, Social, Political and Religious tools, by dedicated and vision driven educators in a proactive environment of teaching and learning, which is geared towards impacting and equipping our students to be THE TOTAL YOUTH the world will be proud of.',
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Card(
-                      color: Colors.black38,
-                      elevation: 4,
-                      margin:   EdgeInsets.all(24),
-                      child: Column(
-//                          mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Center(
-                              child: Container(
-                                child: Text(
-                                  'OUR CORE VALUES',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
-                            child: RichText(
-                              textAlign: TextAlign.justify,
-                              text: TextSpan(
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: '1. We are dedicated to the success of your ward\n\n',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blueGrey,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '2. We teach academics as well as morals\n\n',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blueGrey,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '3. We are genuinely interested in deploying the full capacity of your child.\n\n',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blueGrey,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: '4. We create a social atmosphere for children and we believe every child can excel.',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blueGrey,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Card(
-                      color: Colors.black38,
-                      elevation: 4,
-                      margin:   EdgeInsets.all(24),
-                      child: Column(
-//                          mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Center(
-                              child: Container(
-                                child: Text(
-                                  'WHY HALLEL COLLEGE?',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.blueGrey,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
-                            child: Text(
-                              "Hallel College was established on the 3rd of October 1994 out of the vision and passion of Dr. Edna Opara to empower today’s youth for tomorrows challenges.\n\n We offers students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.",
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
+                              child: Text(
+                                missionStatement,
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
                                   color: Colors.blueGrey,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 16
+                                  fontSize: 18
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Card(
+                      color: Colors.black38,
+                      elevation: 4,
+                      margin:   EdgeInsets.all(24),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Center(
+                                child: Container(
+                                  child: Text(
+                                    coreValues,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
+                              child: RichText(
+                                textAlign: TextAlign.justify,
+                                text: TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: cvStatement1,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blueGrey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: cvStatement2,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blueGrey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: cvStatement3,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blueGrey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: cvStatement4,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blueGrey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Card(
+                      color: Colors.black38,
+                      elevation: 4,
+                      margin:   EdgeInsets.all(24),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Center(
+                                child: Container(
+                                  child: Text(
+                                    whySchool,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.blueGrey,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30, left: 8, right: 8, bottom: 8),
+                              child: Text(
+                                whySchoolStatement,
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -283,27 +371,30 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
-                      child: RichText(
-                        textAlign: TextAlign.justify,
-                        text:TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Staff Body\n\n',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )
-                            ),
-                            TextSpan(
-                                text: 'We have 85 teaching staff and 32 non-teaching staff (including management body) in Hallel College.',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )
-                            ),
-                          ],
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text:TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: staffBody,
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: staffBodyStatement,
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -328,44 +419,47 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   child: InkWell(
                     splashColor: Colors.blueGrey,
                     onTap: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
-                          child: Text('Hallel College Population Chart',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ),
-                        PieChart(
-                          legendStyle: TextStyle(
-                            color: Colors.blueGrey,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
+                            child: Text(populationChart,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
                           ),
-                          dataMap: schoolMap,
-                          animationDuration: Duration(seconds: 10),
-                          chartLegendSpacing: 42.0,
-                          chartRadius: MediaQuery.of(context).size.width / 2.7,
-                          showChartValuesInPercentage: false,
-                          showChartValues: true,
-                          showChartValuesOutside: false,
-                          chartValueBackgroundColor: Colors.grey[200],
-                          colorList: schoolColorList,
-                          showLegends: true,
-                          legendPosition: LegendPosition.right,
-                          decimalPlaces: 0,
-                          showChartValueLabel: true,
-                          initialAngle: 0,
-                          chartValueStyle: defaultChartValueStyle.copyWith(
-                            color: Colors.blueGrey[900].withOpacity(0.9),
+                          PieChart(
+                            legendStyle: TextStyle(
+                              color: Colors.blueGrey,
+                            ),
+                            dataMap: schoolMap,
+                            animationDuration: Duration(seconds: 10),
+                            chartLegendSpacing: 42.0,
+                            chartRadius: MediaQuery.of(context).size.width / 2.7,
+                            showChartValuesInPercentage: false,
+                            showChartValues: true,
+                            showChartValuesOutside: false,
+                            chartValueBackgroundColor: Colors.grey[200],
+                            colorList: schoolColorList,
+                            showLegends: true,
+                            legendPosition: LegendPosition.right,
+                            decimalPlaces: 0,
+                            showChartValueLabel: true,
+                            initialAngle: 0,
+                            chartValueStyle: defaultChartValueStyle.copyWith(
+                              color: Colors.blueGrey[900].withOpacity(0.9),
+                            ),
+                            chartType: ChartType.disc,
                           ),
-                          chartType: ChartType.disc,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -381,27 +475,30 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
-                      child: RichText(
-                        textAlign: TextAlign.justify,
-                        text:TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: 'Student Body\n\n',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )
-                            ),
-                            TextSpan(
-                                text: 'We have 1,526 students in Hallel College, 871 male students and 655 female students.',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )
-                            ),
-                          ],
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: RichText(
+                          textAlign: TextAlign.justify,
+                          text:TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: studentBody,
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: studentBodyStatement,
+                                  style: TextStyle(
+                                    color: Colors.blueGrey,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -426,44 +523,47 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   child: InkWell(
                     splashColor: Colors.blueGrey,
                     onTap: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
-                          child: Text('Hallel Students Population Chart',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ),
-                        PieChart(
-                          legendStyle: TextStyle(
-                            color: Colors.blueGrey,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
+                            child: Text(populationChart,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
                           ),
-                          dataMap: studentMap,
-                          animationDuration: Duration(seconds: 10),
-                          chartLegendSpacing: 42.0,
-                          chartRadius: MediaQuery.of(context).size.width / 2.7,
-                          showChartValuesInPercentage: false,
-                          showChartValues: true,
-                          showChartValuesOutside: false,
-                          chartValueBackgroundColor: Colors.grey[200],
-                          colorList: studentColorList,
-                          showLegends: true,
-                          legendPosition: LegendPosition.right,
-                          decimalPlaces: 0,
-                          showChartValueLabel: true,
-                          initialAngle: 0,
-                          chartValueStyle: defaultChartValueStyle.copyWith(
-                            color: Colors.blueGrey[900].withOpacity(0.9),
+                          PieChart(
+                            legendStyle: TextStyle(
+                              color: Colors.blueGrey,
+                            ),
+                            dataMap: studentMap,
+                            animationDuration: Duration(seconds: 10),
+                            chartLegendSpacing: 42.0,
+                            chartRadius: MediaQuery.of(context).size.width / 2.7,
+                            showChartValuesInPercentage: false,
+                            showChartValues: true,
+                            showChartValuesOutside: false,
+                            chartValueBackgroundColor: Colors.grey[200],
+                            colorList: studentColorList,
+                            showLegends: true,
+                            legendPosition: LegendPosition.right,
+                            decimalPlaces: 0,
+                            showChartValueLabel: true,
+                            initialAngle: 0,
+                            chartValueStyle: defaultChartValueStyle.copyWith(
+                              color: Colors.blueGrey[900].withOpacity(0.9),
+                            ),
+                            chartType: ChartType.ring,
                           ),
-                          chartType: ChartType.ring,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -471,7 +571,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 10),
-              child: Text('Subjects offered in Hallel College',
+              child: Text(subjectsOffered,
                 style: TextStyle(
                     fontSize: 20,
                     color: Colors.blueGrey,
@@ -496,7 +596,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                           text:TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                  text: 'Junior Secondary School (JSS) Subjects\n\n',
+                                  text: subjectsOfferedInJSS,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -504,7 +604,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '1. English Language\n',
+                                  text: subjectsOfferedInJSSStatement1,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -512,7 +612,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '2. Mathematics\n',
+                                  text: subjectsOfferedInJSSStatement2,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -520,7 +620,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '3. Integrated/Basic Science\n',
+                                  text: subjectsOfferedInJSSStatement3,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -528,7 +628,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '4. Introductory/Basic Technology\n',
+                                  text: subjectsOfferedInJSSStatement4,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -536,7 +636,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '5. Social studies\n',
+                                  text: subjectsOfferedInJSSStatement5,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -544,7 +644,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '6. Computer studies\n',
+                                  text: subjectsOfferedInJSSStatement6,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -552,7 +652,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '7. French language\n',
+                                  text: subjectsOfferedInJSSStatement7,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -560,7 +660,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '8. Home Economics\n',
+                                  text: subjectsOfferedInJSSStatement8,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -568,7 +668,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '9. Physical & Health Education\n',
+                                  text: subjectsOfferedInJSSStatement9,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -576,7 +676,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '10. Christian Religious Studies\n\n',
+                                  text: subjectsOfferedInJSSStatement10,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -584,7 +684,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: 'Senior Secondary School (SSS) Art Department Subjects\n\n',
+                                  text: subjectsOfferedInSSSArtDept,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -592,7 +692,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '1. English Language\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement1,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -600,7 +700,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '2. Literature\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement2,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -608,7 +708,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '3. Food and Nutrition\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement3,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -616,7 +716,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '4. Christian Religious Studies\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement4,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -624,7 +724,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '5. Yoruba or Igbo or Hausa Language\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement5,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -632,7 +732,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '6. Civic Education\n\n',
+                                  text: subjectsOfferedInSSSArtDeptStatement6,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -640,7 +740,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: 'Senior Secondary School (SSS) Social Science Department Subjects\n\n',
+                                  text: subjectsOfferedInSSSSocialScienceDept,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -648,7 +748,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '1. English Language\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement1,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -656,7 +756,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '2. Economics\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement2,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -664,7 +764,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '3. Mathematics\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement3,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -672,7 +772,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '4. Government\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement4,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -680,7 +780,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '5. Commerce\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement5,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -688,7 +788,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '6. Geography\n\n',
+                                  text: subjectsOfferedInSSSSocialScienceDeptStatement6,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -696,7 +796,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: 'Senior Secondary School (SSS) Science Department Subjects\n\n',
+                                  text: subjectsOfferedInSSSScienceDept,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -704,7 +804,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '1. English Language\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement1,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -712,7 +812,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '2. Geography\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement2,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -720,7 +820,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '3. Mathematics\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement3,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -728,7 +828,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '4. Physics\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement4,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -736,7 +836,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '5. Biology\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement5,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -744,7 +844,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '6. Chemistry\n',
+                                  text: subjectsOfferedInSSSScienceDeptStatement6,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -781,7 +881,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                           text:TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                  text: 'Extra-curricullar Activities offered in Hallel College\n\n',
+                                  text: extraCurricularActs,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -789,7 +889,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '1. Inter-House Sports\n',
+                                  text: extraCurricularActsStatement1,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -797,7 +897,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '2. Mathematics Competitions\n',
+                                  text: extraCurricularActsStatement2,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -805,7 +905,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '3. Essay Competitions\n',
+                                  text: extraCurricularActsStatement3,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -813,7 +913,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '4. Cooking Competitions\n',
+                                  text: extraCurricularActsStatement4,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -821,7 +921,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '5. Local and Foreign excursions\n',
+                                  text: extraCurricularActsStatement5,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -829,7 +929,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '6. Swimming Competitions\n',
+                                  text: extraCurricularActsStatement6,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -837,7 +937,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '7. Fashion Designing Competitions\n',
+                                  text: extraCurricularActsStatement7,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -845,7 +945,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                   )
                               ),
                               TextSpan(
-                                  text: '8. National Spelling Bee Competition\n',
+                                  text: extraCurricularActsStatement8,
                                   style: TextStyle(
                                     color: Colors.blueGrey,
                                     fontSize: 19,
@@ -867,7 +967,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 10),
-              child: Text('Some Arial views of Hallel College',
+              child: Text(schoolArialViews,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.blueGrey,
@@ -902,14 +1002,19 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                         color: Colors.blueGrey
                       ),
                       child: ListTile(
-                        title: Text(
-                          schoolArialNotifier.schoolArialList[index].toastname,
-                          style: TextStyle(
-                            color: Colors.blueGrey[900],
-                            fontWeight: FontWeight.w800,
-                            fontSize: 17.0,
+                        title: Center(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              schoolArialNotifier.schoolArialList[index].toastName,
+                              style: TextStyle(
+                                color: Colors.blueGrey[900],
+                                fontWeight: FontWeight.w800,
+                                fontSize: 17.0,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     )
@@ -919,7 +1024,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 10),
-              child: Text('Some of our achievements',
+              child: Text(schoolAchievements,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.blueGrey,
@@ -955,14 +1060,19 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                           color: Colors.blueGrey
                         ),
                         child: ListTile(
-                          title: Text(
-                            achievementsNotifier.achievementsList[index].toastname,
-                            style: TextStyle(
-                              color: Colors.blueGrey[900],
-                              fontWeight: FontWeight.bold,
-                              fontSize: 17.0,
+                          title: Center(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Text(
+                                achievementsNotifier.achievementsList[index].toastName,
+                                style: TextStyle(
+                                  color: Colors.blueGrey[900],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            textAlign: TextAlign.center,
                           ),
                         ),
                       )
@@ -979,7 +1089,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               padding: const EdgeInsets.only(left: 20, bottom: 30, top: 20),
               child: RichText(
                 text: TextSpan(
-                  text: 'For more information about Hallel College please trust and click me',
+                  text: moreInfoAboutSchool,
                   style: TextStyle(
                     fontSize: 17,
                     color: Colors.blueGrey,
@@ -987,7 +1097,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                     fontStyle: FontStyle.italic,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {
-                    launch('https://hallelcollege.com/');
+                    launch(moreInfoAboutSchoolURL);
                   }
                 ),
               )
@@ -1009,8 +1119,8 @@ class SchoolStudentPopulation{
 
 dynamic getStudentPopulationData(){
   List<SchoolStudentPopulation> studentPopulationData = <SchoolStudentPopulation>[
-    SchoolStudentPopulation('Male', 871),
-    SchoolStudentPopulation('Female', 655),
+    SchoolStudentPopulation('Male', maleStudentPopulation),
+    SchoolStudentPopulation('Female', femaleStudentPopulation),
   ];
   return studentPopulationData;
 }
@@ -1023,10 +1133,10 @@ class SchoolPopulation{
 
 dynamic getSchoolPopulationData(){
   List<SchoolPopulation> schoolPopulationData = <SchoolPopulation>[
-    SchoolPopulation('Male Students', 871),
-    SchoolPopulation('Female Students', 655),
-    SchoolPopulation('Teaching Staff', 85),
-    SchoolPopulation('Non Teaching Staff', 32),
+    SchoolPopulation('Male Students', maleStudentPopulation),
+    SchoolPopulation('Female Students', femaleStudentPopulation),
+    SchoolPopulation('Teaching Staff', teachingStaffPopulation),
+    SchoolPopulation('Non Teaching Staff', nonTeachingStaffPopulation),
   ];
   return schoolPopulationData;
 }

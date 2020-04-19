@@ -5,14 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-String aboutapp = "This Almanac App was developed by 'ICDAT DANS LE MONDE LIMITED' Company with the RC Number of 3032487.";
-String hc = "The following are the terms and conditions attached to usage of this app;";
-String sss = "This App is subject to copyright of ICDAT dans le monde limited. Hence should not be developed or replicated without due permission by any company or individual";
-String jss = "Hallel College and her subsidiaries are at freewill by this permission to share with her stakeholders, parents, staff and Students.";
-String sp = "For more information about our terms and conditions, please trust and click me.";
-//String sd = "4. - Science Department";
-//String ad = "5. - Art Department";
-//String ssd = "6. - Social Science Department";
+String schoolName = "Hallel College";
+String title = "About App";
+String imageAboutApp = "assets/images/about_app.jpg";
+String schoolAlmanac = "$schoolName Almanac, 2020";
+String developerWebsite = "https://davidogundepo.wordpress.com/";
+
+String aboutApp = "This Almanac App was developed by 'ICDAT DANS LE MONDE LIMITED' Company with the RC Number of 3032487.";
+String copyrightTerms = "This App is subject to copyright of ICDAT dans le monde limited. Hence should not be developed or replicated without due permission by any company or individual";
+String termsEtConditions = "The following are the terms and conditions attached to usage of this app;";
+String termsEtConditions2 = "$schoolName and her subsidiaries are at freewill by this permission to share with her stakeholders, parents, staff and Students.";
+String termsEtConditions3 = "For more information about our terms and conditions, please trust and click me.";
+
+
 
 class AboutAppDetails extends StatefulWidget {
 
@@ -30,7 +35,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(102, 66, 36, 1),
       appBar: AppBar(
-        title: Text('About App',
+        title: Text(title,
         style: TextStyle(
           color: Colors.white
         ),),
@@ -51,7 +56,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                child: Image.asset('assets/images/about_app.jpg'),
+                child: Image.asset(imageAboutApp),
               ),
             ),
             Container(
@@ -69,7 +74,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                           color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text('Hallel College Almanac, 2020',
+                            child: Text(schoolAlmanac,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20,
@@ -89,7 +94,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                         text:TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: aboutapp+'\n\n\n',
+                              text: aboutApp+'\n\n\n',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -97,7 +102,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                               ),
                             ),
                             TextSpan(
-                              text: hc+'\n\n',
+                              text: termsEtConditions+'\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -105,7 +110,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                               ),
                             ),
                             TextSpan(
-                              text: sss+'\n\n',
+                              text: copyrightTerms+'\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -113,7 +118,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                               ),
                             ),
                             TextSpan(
-                              text: jss+'\n\n',
+                              text: termsEtConditions2+'\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -121,7 +126,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                               ),
                             ),
                             TextSpan(
-                              text: sp+'\n\n',
+                              text: termsEtConditions3+'\n\n',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -129,7 +134,7 @@ class _AboutAppDetailsState extends State<AboutAppDetails> {
                                 fontStyle: FontStyle.italic,
                               ),
                                 recognizer: TapGestureRecognizer()..onTap = () {
-                                  launch('https://davidogundepo.wordpress.com/');
+                                  launch(developerWebsite);
                                 }
                               ),
 //                            TextSpan(

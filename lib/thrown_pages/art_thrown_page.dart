@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +14,23 @@ import '../api/art_class_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/art_details_page.dart';
 import '../notifier/art_class_notifier.dart';
+
+String schoolName = "Hallel College";
+String thrownName = "Art Class Graduates";
+
+String exitAppStatement = "Exit from App";
+String exitAppTitle = "Come on!";
+String exitAppSubtitle = "Do you really really want to?";
+String exitAppNo = "Oh No";
+String exitAppYes = "I Have To";
+
+String whoWeAre = "Who We Are";
+String aboutSchool = "About $schoolName";
+String acronymMeanings = "Acronym Meanings";
+String aboutApp = "About App";
+
+String imgAsset = "assets/images/hallel_13.jpg";
+
 
 
 class MyArtPage extends StatefulWidget with NavigationStates{
@@ -48,53 +63,57 @@ class _MyArtPage extends State<MyArtPage> {
               navigateToArtDetailsPage(context);
             },
 
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
-                      image: DecorationImage(
-                          image: CachedNetworkImageProvider(
-                              artClassNotifier.artClassList[index].image
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                        image: DecorationImage(
+                            alignment: Alignment(0, -1),
+                            image: CachedNetworkImageProvider(
+                                artClassNotifier.artClassList[index].image
+                            ),
+                            fit: BoxFit.cover
+                        )
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: Text(
+                              artClassNotifier.artClassList[index].name,
+                              style: GoogleFonts.tenorSans(
+                                color: Colors.white,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600
+                              )
                           ),
-                          fit: BoxFit.cover
-                      )
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 60),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30),
-                        child: Text(
-                            artClassNotifier.artClassList[index].name,
-                            style: GoogleFonts.tenorSans(
-                              color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600
-                            )
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Text(
-                            '@'+artClassNotifier.artClassList[index].twitter,
-                            style: GoogleFonts.varela(
-                                color: Colors.white70,
-                              fontStyle: FontStyle.italic
-                            )
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Text(
+                              '@'+artClassNotifier.artClassList[index].twitter,
+                              style: GoogleFonts.varela(
+                                  color: Colors.white70,
+                                fontStyle: FontStyle.italic
+                              )
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                )
+                      ],
+                    ),
+                  )
 
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -106,17 +125,17 @@ class _MyArtPage extends State<MyArtPage> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Come on!'),
-        content: Text('Do you really really want to?'),
+        title: Text(exitAppTitle),
+        content: Text(exitAppSubtitle),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Oh No'),
+            child: Text(exitAppNo),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text('I Have To'),
+            child: Text(exitAppYes),
           ),
         ],
       ),
@@ -186,7 +205,7 @@ class _MyArtPage extends State<MyArtPage> {
                                     children: <Widget>[
                                       ListTile(
                                           leading: new Icon(MdiIcons.atom, color: Colors.white),
-                                          title: new Text('Who We Are',
+                                          title: new Text(whoWeAre,
                                           style: GoogleFonts.zillaSlab(
                                             color: Colors.white
                                           ),),
@@ -196,7 +215,7 @@ class _MyArtPage extends State<MyArtPage> {
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.chessQueen, color: Colors.white),
-                                        title: new Text('About Hallel College',
+                                        title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
@@ -206,7 +225,7 @@ class _MyArtPage extends State<MyArtPage> {
                                       ),
                                       ListTile(
                                           leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: Colors.white),
-                                          title: new Text('Acronym Meanings',
+                                          title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
                                                 color: Colors.white
                                             ),),
@@ -216,7 +235,7 @@ class _MyArtPage extends State<MyArtPage> {
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.opacity, color: Colors.white),
-                                        title: new Text('About App',
+                                        title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
                                               color: Colors.white
                                           ),),
@@ -239,14 +258,14 @@ class _MyArtPage extends State<MyArtPage> {
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
-                      title: Text("Art Class Graduates",
+                      title: Text(thrownName,
                           style: GoogleFonts.amaticSC(
                             color: Colors.white,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )
                       ),
-                    background: Image.asset('assets/images/hallel_13.jpg',
+                    background: Image.asset(imgAsset,
                       fit: BoxFit.cover,
                     ),
                   ),

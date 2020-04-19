@@ -9,6 +9,9 @@ import '../notifier/social_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+
+String schoolName = "Hallel College";
+
 String dave = "David";
 String whatsApp = "+2348070920625";
 
@@ -20,26 +23,48 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
+
+String reachDetails = "Reach";
+String autoBioDetails = "AutoBio";
+
+String callButton = "Call";
+String messageButton = "Send a Message";
+String emailButton = "Send an Email";
+String twitterButton = "My Twitter";
+String instagramButton = "My Instagram";
+String facebookButton = "My Facebook";
+
+String autobiographyTitle = "Autobiography\n";
+String nicknameTitle = "My Nickname\n";
+String bestMomentTitle = "Best Moment in $schoolName\n";
+String worstMomentTitle = "Worst Moment in $schoolName\n";
+String dreamUniversityTitle = "Dream University\n";
+String dreamUniversityCourseTitle = "Dream University Course\n";
+String dobTitle = "Date of Birth\n";
+String hobbiesTitle = "Hobbies\n";
+String philosophyTitle = "Philosophy about Life\n";
+String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
+
 SocialClassNotifier socialClassNotifier;
 
 Map<int, Widget> userBIO;
 
-var _autobio;
-var _bestmoment;
-var _d_o_b;
-var _dream_university;
-var _dream_university_course;
+var _autoBio;
+var _bestMoment;
+var _dob;
+var _dreamUniversity;
+var _dreamUniversityCourse;
 var _email;
 var _facebook;
 var _hobbies;
 var _instagram;
-var _my_dropline;
+var _myDropline;
 var _name;
 var _nickname;
 var _philosophy;
 var _phone;
 var _twitter;
-var _worst_moment;
+var _worstMoment;
 
 class SocialDetailsPage extends StatefulWidget {
 
@@ -172,7 +197,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                         backgroundColor: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
 
                         children: {
-                          0: Text('Reach',
+                          0: Text(reachDetails,
                             style: GoogleFonts.sacramento(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 25,
@@ -180,7 +205,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                                 fontWeight: FontWeight.w400
                             ),
                           ),
-                          1: Text('AutoBio',
+                          1: Text(autoBioDetails,
                             style: GoogleFonts.sacramento(
                               color: Color.fromRGBO(155, 134, 99, 1),
                               fontSize: 25,
@@ -214,22 +239,22 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
   initState(){
     SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context, listen: false);
 
-    _autobio = socialClassNotifier.currentSocialClass.autobio;
-    _bestmoment = socialClassNotifier.currentSocialClass.bestmoment;
-    _d_o_b = socialClassNotifier.currentSocialClass.d_o_b;
-    _dream_university = socialClassNotifier.currentSocialClass.dream_university;
-    _dream_university_course = socialClassNotifier.currentSocialClass.dream_university_course;
+    _autoBio = socialClassNotifier.currentSocialClass.autoBio;
+    _bestMoment = socialClassNotifier.currentSocialClass.bestMoment;
+    _dob = socialClassNotifier.currentSocialClass.dob;
+    _dreamUniversity = socialClassNotifier.currentSocialClass.dreamUniversity;
+    _dreamUniversityCourse = socialClassNotifier.currentSocialClass.dreamUniversityCourse;
     _email = socialClassNotifier.currentSocialClass.email;
     _facebook = socialClassNotifier.currentSocialClass.facebook;
     _hobbies = socialClassNotifier.currentSocialClass.hobbies;
     _instagram = socialClassNotifier.currentSocialClass.instagram;
-    _my_dropline = socialClassNotifier.currentSocialClass.my_dropline;
+    _myDropline = socialClassNotifier.currentSocialClass.myDropline;
     _name = socialClassNotifier.currentSocialClass.name;
     _nickname = socialClassNotifier.currentSocialClass.nickname;
     _philosophy = socialClassNotifier.currentSocialClass.philosophy;
     _phone = socialClassNotifier.currentSocialClass.phone;
     _twitter = socialClassNotifier.currentSocialClass.twitter;
-    _worst_moment = socialClassNotifier.currentSocialClass.worst_moment;
+    _worstMoment = socialClassNotifier.currentSocialClass.worstMoment;
 
 
     userBIO = <int, Widget>{
@@ -250,7 +275,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text('Call',
+                  label: Text(callButton,
                       style: GoogleFonts.belleza(
                           color: Colors.white,
                           fontSize: 18,
@@ -274,7 +299,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text('Send a Message',
+                  label: Text(messageButton,
                       style: GoogleFonts.belleza(
                           color: Colors.white,
                           fontSize: 18,
@@ -298,7 +323,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text("Send an Email",
+                  label: Text(emailButton,
                       style: GoogleFonts.belleza(
                           color: Colors.white,
                           fontSize: 18,
@@ -322,7 +347,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text('My Twitter',
+                  label: Text(twitterButton,
                       style: GoogleFonts.belleza(
                           color: Colors.white,
                           fontSize: 18,
@@ -346,7 +371,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text('My Instagram',
+                  label: Text(instagramButton,
                       style: GoogleFonts.belleza(
                           color: Colors.white,
                           fontSize: 18,
@@ -370,7 +395,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(155, 134, 99, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text('My Facebook',
+                  label: Text(facebookButton,
                     style: GoogleFonts.belleza(
                         color: Colors.white,
                         fontSize: 18,
@@ -404,7 +429,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Autobiography\n',
+                            text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
                               color: Color.fromRGBO(155, 134, 99, 1),
                               fontSize: 19,
@@ -412,7 +437,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                             )
                         ),
                         TextSpan(
-                            text: ' '+_autobio,
+                            text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
                               color: Color.fromRGBO(155, 134, 99, 1),
                               fontSize: 19,
@@ -445,7 +470,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'My Nickname\n',
+                              text: nicknameTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -487,7 +512,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Best Moment in Hallel College\n',
+                              text: bestMomentTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -495,7 +520,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_bestmoment,
+                              text: ' '+_bestMoment,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -529,7 +554,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Worst Moment in Hallel College\n',
+                              text: worstMomentTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -537,7 +562,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_worst_moment,
+                              text: ' '+_worstMoment,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -571,7 +596,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University\n',
+                              text: dreamUniversityTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -579,7 +604,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university,
+                              text: ' '+_dreamUniversity,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -613,7 +638,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University Course\n',
+                              text: dreamUniversityCourseTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -621,7 +646,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university_course,
+                              text: ' '+_dreamUniversityCourse,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -655,7 +680,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Date of Birth\n',
+                              text: dobTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -663,7 +688,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_d_o_b,
+                              text: ' '+_dob,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -697,7 +722,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Hobbies\n',
+                              text: hobbiesTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -739,7 +764,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Philosophy about Life\n',
+                              text: philosophyTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -781,7 +806,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dropline to My Junior Hallel Colleagues\n',
+                              text: droplineTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,
@@ -789,7 +814,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_my_dropline,
+                              text: ' '+_myDropline,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(155, 134, 99, 1),
                                 fontSize: 19,

@@ -1,12 +1,12 @@
 class GraduatesClassTeachers {
-  String autobio;
-  String staff_position;
+  String autoBio;
+  String staffPosition;
   String qualification;
-  String course_teaching;
-  String year_of_inception;
+  String courseTeaching;
+  String yearOfInception;
   String email;
   String facebook;
-  String linkedin;
+  String linkedIn;
   String id;
   String image;
   String instagram;
@@ -16,7 +16,7 @@ class GraduatesClassTeachers {
 
   GraduatesClassTeachers.fromMap(Map<String, dynamic> data) {
     id = data['id'];
-    autobio = data['autobio'];
+    autoBio = data['autobio'];
     email = data['email'];
     facebook = data['facebook'];
     image = data['image'];
@@ -24,11 +24,11 @@ class GraduatesClassTeachers {
     name = data['name'];
     phone = data['phone'];
     twitter = data['twitter'];
-    staff_position = data['staff_position'];
+    staffPosition = data['staff_position'];
     qualification = data['qualification'];
-    course_teaching = data['course_teaching'];
-    year_of_inception = data['year_of_inception'];
-    linkedin = data['linkedin'];
+    courseTeaching = data['course_teaching'];
+    yearOfInception = data['year_of_inception'];
+    linkedIn = data['linkedin'];
   }
 
 }

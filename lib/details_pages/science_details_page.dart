@@ -9,6 +9,9 @@ import '../notifier/science_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+
+String schoolName = "Hallel College";
+
 String dave = "David";
 String whatsApp = "+2348070920625";
 
@@ -22,26 +25,49 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
+
+String reachDetails = "Reach";
+String autoBioDetails = "AutoBio";
+
+String callButton = "Call";
+String messageButton = "Send a Message";
+String emailButton = "Send an Email";
+String twitterButton = "My Twitter";
+String instagramButton = "My Instagram";
+String facebookButton = "My Facebook";
+
+String autobiographyTitle = "Autobiography\n";
+String nicknameTitle = "My Nickname\n";
+String bestMomentTitle = "Best Moment in $schoolName\n";
+String worstMomentTitle = "Worst Moment in $schoolName\n";
+String dreamUniversityTitle = "Dream University\n";
+String dreamUniversityCourseTitle = "Dream University Course\n";
+String dobTitle = "Date of Birth\n";
+String hobbiesTitle = "Hobbies\n";
+String philosophyTitle = "Philosophy about Life\n";
+String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
+
+
 ScienceClassNotifier scienceClassNotifier;
 
 Map<int, Widget> userBIO;
 
-var _autobio;
-var _bestmoment;
-var _d_o_b;
-var _dream_university;
-var _dream_university_course;
+var _autoBio;
+var _bestMoment;
+var _dob;
+var _dreamUniversity;
+var _dreamUniversityCourse;
 var _email;
 var _facebook;
 var _hobbies;
 var _instagram;
-var _my_dropline;
+var _myDropline;
 var _name;
 var _nickname;
 var _philosophy;
 var _phone;
 var _twitter;
-var _worst_moment;
+var _worstMoment;
 
 class SubPage extends StatefulWidget {
 
@@ -175,7 +201,7 @@ class _SubPageState extends State<SubPage>{
                         backgroundColor: Colors.pink[300].withAlpha(50),
 
                         children: {
-                          0: Text('Reach',
+                          0: Text(reachDetails,
                             style: GoogleFonts.sacramento(
                                 color: Colors.pink[300],
                                 fontSize: 25,
@@ -183,7 +209,7 @@ class _SubPageState extends State<SubPage>{
                                 fontWeight: FontWeight.w400
                             ),
                           ),
-                          1: Text('AutoBio',
+                          1: Text(autoBioDetails,
                             style: GoogleFonts.sacramento(
                               color: Colors.pink[300],
                               fontSize: 25,
@@ -218,22 +244,22 @@ class _SubPageState extends State<SubPage>{
    initState(){
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
 
-    _autobio = scienceClassNotifier.currentScienceClass.autobio;
-    _bestmoment = scienceClassNotifier.currentScienceClass.bestmoment;
-    _d_o_b = scienceClassNotifier.currentScienceClass.d_o_b;
-    _dream_university = scienceClassNotifier.currentScienceClass.dream_university;
-    _dream_university_course = scienceClassNotifier.currentScienceClass.dream_university_course;
+    _autoBio = scienceClassNotifier.currentScienceClass.autoBio;
+    _bestMoment = scienceClassNotifier.currentScienceClass.bestMoment;
+    _dob = scienceClassNotifier.currentScienceClass.dob;
+    _dreamUniversity = scienceClassNotifier.currentScienceClass.dreamUniversity;
+    _dreamUniversityCourse = scienceClassNotifier.currentScienceClass.dreamUniversityCourse;
     _email = scienceClassNotifier.currentScienceClass.email;
     _facebook = scienceClassNotifier.currentScienceClass.facebook;
     _hobbies = scienceClassNotifier.currentScienceClass.hobbies;
     _instagram = scienceClassNotifier.currentScienceClass.instagram;
-    _my_dropline = scienceClassNotifier.currentScienceClass.my_dropline;
+    _myDropline = scienceClassNotifier.currentScienceClass.myDropline;
     _name = scienceClassNotifier.currentScienceClass.name;
     _nickname = scienceClassNotifier.currentScienceClass.nickname;
     _philosophy = scienceClassNotifier.currentScienceClass.philosophy;
     _phone = scienceClassNotifier.currentScienceClass.phone;
     _twitter = scienceClassNotifier.currentScienceClass.twitter;
-    _worst_moment = scienceClassNotifier.currentScienceClass.worst_moment;
+    _worstMoment = scienceClassNotifier.currentScienceClass.worstMoment;
 
     userBIO = <int, Widget>{
 
@@ -253,7 +279,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text('Call',
+                  label: Text(callButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -277,7 +303,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text('Send a Message',
+                  label: Text(messageButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -301,7 +327,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text("Send an Email",
+                  label: Text(emailButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -325,7 +351,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text('My Twitter',
+                  label: Text(twitterButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -349,7 +375,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text('My Instagram',
+                  label: Text(instagramButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -373,7 +399,7 @@ class _SubPageState extends State<SubPage>{
                   elevation: 2,
                   color: Colors.pink[300],
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text('My Facebook',
+                  label: Text(facebookButton,
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -407,7 +433,7 @@ class _SubPageState extends State<SubPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Autobiography\n',
+                            text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
                               color: Colors.pink[300],
                               fontSize: 19,
@@ -415,7 +441,7 @@ class _SubPageState extends State<SubPage>{
                             )
                         ),
                         TextSpan(
-                            text: ' '+_autobio,
+                            text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
                               color: Colors.pink[300],
                               fontSize: 19,
@@ -448,7 +474,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'My Nickname\n',
+                              text: nicknameTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -490,7 +516,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Best Moment in Hallel College\n',
+                              text: bestMomentTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -498,7 +524,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_bestmoment,
+                              text: ' '+_bestMoment,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -532,7 +558,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Worst Moment in Hallel College\n',
+                              text: worstMomentTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -540,7 +566,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_worst_moment,
+                              text: ' '+_worstMoment,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -574,7 +600,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University\n',
+                              text: dreamUniversityTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -582,7 +608,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university,
+                              text: ' '+_dreamUniversity,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -616,7 +642,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University Course\n',
+                              text: dreamUniversityCourseTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -624,7 +650,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university_course,
+                              text: ' '+_dreamUniversityCourse,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -658,7 +684,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Date of Birth\n',
+                              text: dobTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -666,7 +692,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_d_o_b,
+                              text: ' '+_dob,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -700,7 +726,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Hobbies\n',
+                              text: hobbiesTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -742,7 +768,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Philosophy about Life\n',
+                              text: philosophyTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -784,7 +810,7 @@ class _SubPageState extends State<SubPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dropline to My Junior Hallel Colleagues\n',
+                              text: droplineTitle,
                               style: GoogleFonts.aBeeZee(
                                 color: Colors.pink[300],
                                 fontSize: 19,
@@ -792,7 +818,7 @@ class _SubPageState extends State<SubPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_my_dropline,
+                              text: ' '+_myDropline,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,

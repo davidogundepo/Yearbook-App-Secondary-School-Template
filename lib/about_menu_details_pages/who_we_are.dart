@@ -1,18 +1,23 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-String lorep = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
+String graduateSetTheme = "GENIAL Set 2020";
+String graduateSetThemeTitle = "We Are GENIAL";
+String whoWeAre = "Who We Are";
+
+String lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 String ipsum = 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 String dolor = 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
 String sit = 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-String amet = 'Jenny Chen';
+String amen = 'Jenny Chen';
 
 String core = 'Our core mission is:';
 String coreOne= '1. To be a solution providers by adding value and creativity to changing the mirage of our society today.';
 String coreTwo= "2. To be leaders who are not just breadwinners, job creators and worl changers, but also God's Kingdom passionate lovers.";
+
+String imgAsset = "assets/images/gsw.jpg";
 
 
 class WhoWeAre extends StatefulWidget {
@@ -34,7 +39,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(15, 65, 79, 1),
       appBar: AppBar(
-        title: Text('We Are GENIAL',
+        title: Text(graduateSetThemeTitle,
         style: TextStyle(
             color: Colors.white
         ),),
@@ -55,7 +60,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                child: Image.asset('assets/images/gsw.jpg'),
+                child: Image.asset(imgAsset),
               ),
             ),
             Container(
@@ -73,7 +78,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                           color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text('Who We Are',
+                            child: Text(whoWeAre,
                               style: TextStyle(
                                 fontSize: 25,
                                 color: Color.fromRGBO(15, 65, 79, 1),
@@ -91,7 +96,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                           text:TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: lorep+'\n\n',
+                              text: lorem+'\n\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -128,7 +133,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10, right: 10),
-                      child: Text(amet,
+                      child: Text(amen,
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           fontSize: 22,
@@ -156,7 +161,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                           color: Colors.white,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text('Genial Set 2020',
+                            child: Text(graduateSetTheme,
                               style: TextStyle(
                                 fontSize: 25,
                                 color: Color.fromRGBO(15, 65, 79, 1),
@@ -182,7 +187,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: lorep+'\n\n',
+                              text: lorem+'\n\n',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -219,7 +224,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                      child: Text(lorep,
+                      child: Text(lorem,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontSize: 16,

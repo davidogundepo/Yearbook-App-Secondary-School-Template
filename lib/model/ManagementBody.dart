@@ -1,8 +1,8 @@
 class ManagementBody {
-  String autobio;
-  String staff_position;
+  String autoBio;
+  String staffPosition;
   String qualification;
-  String year_of_inception;
+  String yearOfInception;
   String email;
   String facebook;
   String id;
@@ -14,7 +14,7 @@ class ManagementBody {
 
   ManagementBody.fromMap(Map<String, dynamic> data) {
     id = data['id'];
-    autobio = data['autobio'];
+    autoBio = data['autobio'];
     email = data['email'];
     facebook = data['facebook'];
     image = data['image'];
@@ -22,9 +22,9 @@ class ManagementBody {
     name = data['name'];
     phone = data['phone'];
     twitter = data['twitter'];
-    staff_position = data['staff_position'];
+    staffPosition = data['staff_position'];
     qualification = data['qualification'];
-    year_of_inception = data['year_of_inception'];
+    yearOfInception = data['year_of_inception'];
   }
 
 }

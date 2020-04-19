@@ -1,27 +1,27 @@
 class ArtClass {
-  String autobio;
-  String bestmoment;
-  String d_o_b;
-  String dream_university;
-  String dream_university_course;
+  String autoBio;
+  String bestMoment;
+  String dob;
+  String dreamUniversity;
+  String dreamUniversityCourse;
   String email;
   String facebook;
   String hobbies;
   String id;
   String image;
   String instagram;
-  String my_dropline;
+  String myDropline;
   String name;
   String nickname;
   String philosophy;
   String phone;
   String twitter;
-  String worst_moment;
+  String worstMoment;
 
   ArtClass.fromMap(Map<String, dynamic> data) {
     id = data['id'];
-    autobio = data['autobio'];
-    bestmoment = data['best_moment'];
+    autoBio = data['autobio'];
+    bestMoment = data['best_moment'];
     email = data['email'];
     facebook = data['facebook'];
     image = data['image'];
@@ -30,13 +30,13 @@ class ArtClass {
     nickname = data['nickname'];
     phone = data['phone'];
     twitter = data['twitter'];
-    d_o_b = data['d_o_b'];
-    dream_university = data['dream_university'];
-    dream_university_course = data['dream_university_course'];
+    dob = data['d_o_b'];
+    dreamUniversity = data['dream_university'];
+    dreamUniversityCourse = data['dream_university_course'];
     hobbies = data['hobbies'];
-    my_dropline = data['my_dropline'];
+    myDropline = data['my_dropline'];
     philosophy = data['philosophy'];
-    worst_moment = data['worst_moment'];
+    worstMoment = data['worst_moment'];
   }
 
 }

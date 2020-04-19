@@ -10,7 +10,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 
-
 String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
 String dave = "David";
@@ -24,28 +23,50 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
+String schoolName = "Hallel College";
+
+String reachDetails = "Reach";
+String autoBioDetails = "AutoBio";
+
+String callButton = "Call";
+String messageButton = "Send a Message";
+String emailButton = "Send an Email";
+String twitterButton = "My Twitter";
+String instagramButton = "My Instagram";
+String facebookButton = "My Facebook";
+
+String autobiographyTitle = "Autobiography\n";
+String nicknameTitle = "My Nickname\n";
+String bestMomentTitle = "Best Moment in $schoolName\n";
+String worstMomentTitle = "Worst Moment in $schoolName\n";
+String dreamUniversityTitle = "Dream University\n";
+String dreamUniversityCourseTitle = "Dream University Course\n";
+String dobTitle = "Date of Birth\n";
+String hobbiesTitle = "Hobbies\n";
+String philosophyTitle = "Philosophy about Life\n";
+String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
+
+
 ArtClassNotifier artClassNotifier;
 
 Map<int, Widget> userBIO;
 
-var _autobio;
-var _bestmoment;
-var _d_o_b;
-var _dream_university;
-var _dream_university_course;
+var _autoBio;
+var _bestMoment;
+var _dob;
+var _dreamUniversity;
+var _dreamUniversityCourse;
 var _email;
 var _facebook;
 var _hobbies;
-var _id;
-var _image;
 var _instagram;
-var _my_dropline;
+var _myDropline;
 var _name;
 var _nickname;
 var _philosophy;
 var _phone;
 var _twitter;
-var _worst_moment;
+var _worstMoment;
 
 class ArtDetailsPage extends StatefulWidget {
 
@@ -105,6 +126,12 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                 child: Container(
                   width: 400,
                   height: 520,
+//                  foregroundDecoration: const BoxDecoration(
+//                    image: DecorationImage(
+//                        image: NetworkImage(
+//                            'https://p6.storage.canalblog.com/69/50/922142/85510911_o.png'),
+//                        fit: BoxFit.fill),
+//                  ),
                   child: Card(
                     elevation: 5,
                     margin: EdgeInsets.all(10),
@@ -178,7 +205,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                         backgroundColor: Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
 
                         children: {
-                          0: Text('Reach',
+                          0: Text(reachDetails,
                             style: GoogleFonts.sacramento(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 25,
@@ -186,7 +213,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                                 fontWeight: FontWeight.w400
                             ),
                           ),
-                          1: Text('AutoBio',
+                          1: Text(autoBioDetails,
                             style: GoogleFonts.sacramento(
                               color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 25,
@@ -220,23 +247,22 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
   initState(){
     ArtClassNotifier artClassNotifier = Provider.of<ArtClassNotifier>(context, listen: false);
 
-    _autobio = artClassNotifier.currentArtClass.autobio;
-    _bestmoment = artClassNotifier.currentArtClass.bestmoment;
-    _d_o_b = artClassNotifier.currentArtClass.d_o_b;
-    _dream_university = artClassNotifier.currentArtClass.dream_university;
-    _dream_university_course = artClassNotifier.currentArtClass.dream_university_course;
+    _autoBio = artClassNotifier.currentArtClass.autoBio;
+    _bestMoment = artClassNotifier.currentArtClass.bestMoment;
+    _dob = artClassNotifier.currentArtClass.dob;
+    _dreamUniversity = artClassNotifier.currentArtClass.dreamUniversity;
+    _dreamUniversityCourse = artClassNotifier.currentArtClass.dreamUniversityCourse;
     _email = artClassNotifier.currentArtClass.email;
     _facebook = artClassNotifier.currentArtClass.facebook;
     _hobbies = artClassNotifier.currentArtClass.hobbies;
-    _image = artClassNotifier.currentArtClass.image;
     _instagram = artClassNotifier.currentArtClass.instagram;
-    _my_dropline = artClassNotifier.currentArtClass.my_dropline;
+    _myDropline = artClassNotifier.currentArtClass.myDropline;
     _name = artClassNotifier.currentArtClass.name;
     _nickname = artClassNotifier.currentArtClass.nickname;
     _philosophy = artClassNotifier.currentArtClass.philosophy;
     _phone = artClassNotifier.currentArtClass.phone;
     _twitter = artClassNotifier.currentArtClass.twitter;
-    _worst_moment = artClassNotifier.currentArtClass.worst_moment;
+    _worstMoment = artClassNotifier.currentArtClass.worstMoment;
 
 
     userBIO = <int, Widget>{
@@ -257,7 +283,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text('Call',
+                  label: Text(callButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -281,7 +307,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text('Send a Message',
+                  label: Text(messageButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -305,7 +331,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text("Send an Email",
+                  label: Text(emailButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -329,7 +355,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text('My Twitter',
+                  label: Text(twitterButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -353,7 +379,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text('My Instagram',
+                  label: Text(instagramButton,
                       style: GoogleFonts.abel(
                           color: Colors.white,
                           fontSize: 18,
@@ -377,7 +403,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                   elevation: 2,
                   color: Color.fromRGBO(46, 137, 112, 1),
                   icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text('My Facebook',
+                  label: Text(facebookButton,
                     style: GoogleFonts.abel(
                         color: Colors.white,
                         fontSize: 18,
@@ -411,7 +437,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                     TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Autobiography\n',
+                            text: autobiographyTitle,
                             style:  GoogleFonts.aBeeZee(
                               color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 19,
@@ -419,7 +445,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                             )
                         ),
                         TextSpan(
-                            text: ' '+_autobio,
+                            text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
                               color: Color.fromRGBO(46, 137, 112, 1),
                               fontSize: 19,
@@ -452,7 +478,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'My Nickname\n',
+                              text: nicknameTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -494,7 +520,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Best Moment in Hallel College\n',
+                              text: bestMomentTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -502,7 +528,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_bestmoment,
+                              text: ' '+_bestMoment,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -536,7 +562,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Worst Moment in Hallel College\n',
+                              text: worstMomentTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -544,7 +570,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_worst_moment,
+                              text: ' '+_worstMoment,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -578,7 +604,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University\n',
+                              text: dreamUniversityTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -586,7 +612,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university,
+                              text: ' '+_dreamUniversity,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -620,7 +646,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dream University Course\n',
+                              text: dreamUniversityCourseTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -628,7 +654,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_dream_university_course,
+                              text: ' '+_dreamUniversityCourse,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -662,7 +688,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Date of Birth\n',
+                              text: dobTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -670,7 +696,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_d_o_b,
+                              text: ' '+_dob,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -704,7 +730,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Hobbies\n',
+                              text: hobbiesTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -746,7 +772,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Philosophy about Life\n',
+                              text: philosophyTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -788,7 +814,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                       TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Dropline to My Junior Hallel Colleagues\n',
+                              text: droplineTitle,
                               style:  GoogleFonts.aBeeZee(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,
@@ -796,7 +822,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage>{
                               )
                           ),
                           TextSpan(
-                              text: ' '+_my_dropline,
+                              text: ' '+_myDropline,
                               style: GoogleFonts.trykker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 19,

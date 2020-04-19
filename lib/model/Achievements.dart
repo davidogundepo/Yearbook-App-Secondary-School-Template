@@ -1,10 +1,10 @@
 
 class Achievements {
   String image;
-  String toastname;
+  String toastName;
 
   Achievements.fromMap(Map<String, dynamic> data) {
     image = data['image'];
-    toastname = data['toastname'];
+    toastName = data['toastname'];
   }
 }
