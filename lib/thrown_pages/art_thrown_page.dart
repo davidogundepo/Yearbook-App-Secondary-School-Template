@@ -43,6 +43,13 @@ class MyArtPage extends StatefulWidget with NavigationStates{
 }
 
 class _MyArtPage extends State<MyArtPage> {
+  bool _isVisible = true;
+
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
 
 
   Widget _buildProductItem(BuildContext context, int index) {
@@ -98,16 +105,49 @@ class _MyArtPage extends State<MyArtPage> {
                               )
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Text(
-                              '@'+artClassNotifier.artClassList[index].twitter,
-                              style: GoogleFonts.varela(
-                                  color: Colors.white70,
-                                fontStyle: FontStyle.italic
-                              )
-                          ),
-                        ),
+                        (() {
+                          if (artClassNotifier.artClassList[index].twitter.toString().isNotEmpty) {
+                            if (!artClassNotifier.artClassList[index].twitter.toString().contains("@")) {
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    artClassNotifier.artClassList[index].twitter == artClassNotifier.artClassList[index].twitter ? '@'+artClassNotifier.artClassList[index].twitter : artClassNotifier.artClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              );
+                            }
+                            else {
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    artClassNotifier.artClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              );
+                            }
+                          } else {
+                            return Visibility(
+                              visible: !_isVisible,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    artClassNotifier.artClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              ),
+                            );
+                          }
+                        }()),
+
                       ],
                     ),
                   )

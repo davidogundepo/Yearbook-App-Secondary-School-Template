@@ -48,6 +48,15 @@ class MySciencePage extends StatefulWidget with NavigationStates{
 
 class _MySciencePage extends State<MySciencePage> {
 
+  bool _isVisible = true;
+
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
+
   Widget _buildProductItem(BuildContext context, int index) {
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context);
     return Padding(
@@ -101,16 +110,48 @@ class _MySciencePage extends State<MySciencePage> {
                               )
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Text(
-                              scienceClassNotifier.scienceClassList[index].twitter == scienceClassNotifier.scienceClassList[index].twitter ? '@'+scienceClassNotifier.scienceClassList[index].twitter : scienceClassNotifier.scienceClassList[index].twitter,
-                              style: GoogleFonts.varela(
-                                  color: Colors.white70,
-                                  fontStyle: FontStyle.italic
-                              )
-                          ),
-                        ),
+                        (() {
+                          if (scienceClassNotifier.scienceClassList[index].twitter.toString().isNotEmpty) {
+                            if (!scienceClassNotifier.scienceClassList[index].twitter.toString().contains("@")) {
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    scienceClassNotifier.scienceClassList[index].twitter == scienceClassNotifier.scienceClassList[index].twitter ? '@'+scienceClassNotifier.scienceClassList[index].twitter : scienceClassNotifier.scienceClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              );
+                            }
+                            else {
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    scienceClassNotifier.scienceClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              );
+                            }
+                          } else {
+                            return Visibility(
+                              visible: !_isVisible,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                    scienceClassNotifier.scienceClassList[index].twitter,
+                                    style: GoogleFonts.varela(
+                                        color: Colors.white70,
+                                        fontStyle: FontStyle.italic
+                                    )
+                                ),
+                              ),
+                            );
+                          }
+                        }()),
                       ],
                     ),
                   )

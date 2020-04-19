@@ -107,16 +107,49 @@ class _MySocialPage extends State<MySocialPage> {
                                 )
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Text(
-                                '@'+socialClassNotifier.socialClassList[index].twitter,
-                                style: GoogleFonts.varela(
-                                    color: Colors.white70,
-                                  fontStyle: FontStyle.italic
-                                )
-                            ),
-                          ),
+                          (() {
+                            if (socialClassNotifier.socialClassList[index].twitter.toString().isNotEmpty) {
+                              if (!socialClassNotifier.socialClassList[index].twitter.toString().contains("@")) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Text(
+                                      socialClassNotifier.socialClassList[index].twitter == socialClassNotifier.socialClassList[index].twitter ? '@'+socialClassNotifier.socialClassList[index].twitter : socialClassNotifier.socialClassList[index].twitter,
+                                      style: GoogleFonts.varela(
+                                          color: Colors.white70,
+                                          fontStyle: FontStyle.italic
+                                      )
+                                  ),
+                                );
+                              }
+                              else {
+                                return Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Text(
+                                      socialClassNotifier.socialClassList[index].twitter,
+                                      style: GoogleFonts.varela(
+                                          color: Colors.white70,
+                                          fontStyle: FontStyle.italic
+                                      )
+                                  ),
+                                );
+                              }
+                            } else {
+                              return Visibility(
+                                visible: !_isVisible,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Text(
+                                      socialClassNotifier.socialClassList[index].twitter,
+                                      style: GoogleFonts.varela(
+                                          color: Colors.white70,
+                                          fontStyle: FontStyle.italic
+                                      )
+                                  ),
+                                ),
+                              );
+                            }
+                          }()),
+
                         ],
                       ),
                     )

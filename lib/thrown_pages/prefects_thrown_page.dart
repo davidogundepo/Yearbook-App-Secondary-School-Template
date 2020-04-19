@@ -278,6 +278,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                           )
                       ),
                       background: Image.asset(imgAsset,
+                      alignment: Alignment(0, -1),
                       fit: BoxFit.cover,
                       ),
                   ),
