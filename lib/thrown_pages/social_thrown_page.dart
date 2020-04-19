@@ -46,6 +46,14 @@ class MySocialPage extends StatefulWidget with NavigationStates{
 
 class _MySocialPage extends State<MySocialPage> {
 
+  bool _isVisible = true;
+
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
   Widget _buildProductItem(BuildContext context, int index) {
     SocialClassNotifier socialClassNotifier = Provider.of<SocialClassNotifier>(context);
     return Padding(

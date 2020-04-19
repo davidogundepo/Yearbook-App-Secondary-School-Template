@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -8,7 +7,6 @@ import 'package:provider/provider.dart';
 import '../notifier/science_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
 
 String schoolName = "Hallel College";
 
@@ -24,7 +22,6 @@ String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
-
 
 String reachDetails = "Reach";
 String autoBioDetails = "AutoBio";
@@ -46,7 +43,6 @@ String dobTitle = "Date of Birth\n";
 String hobbiesTitle = "Hobbies\n";
 String philosophyTitle = "Philosophy about Life\n";
 String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
-
 
 ScienceClassNotifier scienceClassNotifier;
 
@@ -70,41 +66,45 @@ var _twitter;
 var _worstMoment;
 
 class SubPage extends StatefulWidget {
-
   SubPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
   _SubPageState createState() => _SubPageState();
-
 }
 
-class _SubPageState extends State<SubPage>{
+class _SubPageState extends State<SubPage> {
+  bool _isVisible = true;
 
-  Future launchURL(String url) async{
-    if(await canLaunch(url)) {
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
+  Future launchURL(String url) async {
+    if (await canLaunch(url)) {
       await launch(url);
-    } else{
+    } else {
       print("Can't Launch $url");
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
-    scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: true);
+    scienceClassNotifier =
+        Provider.of<ScienceClassNotifier>(context, listen: true);
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(222, 93, 131, 1),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(scienceClassNotifier.currentScienceClass.nickname,
-        style: GoogleFonts.sanchez(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.w400
-        ),),
+        title: Text(
+          scienceClassNotifier.currentScienceClass.nickname,
+          style: GoogleFonts.sanchez(
+              color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
@@ -113,7 +113,10 @@ class _SubPageState extends State<SubPage>{
         elevation: 10,
         backgroundColor: Colors.pink[300],
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -135,17 +138,17 @@ class _SubPageState extends State<SubPage>{
                     child: CachedNetworkImage(
                       imageUrl: scienceClassNotifier.currentScienceClass.image,
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          Icon(MdiIcons.alertRhombus),
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
-
                     ),
                   ),
                 ),
-                message: scienceClassNotifier.currentScienceClass.name
-            ),
+                message: scienceClassNotifier.currentScienceClass.name),
             Material(
               color: Colors.transparent,
               child: InkWell(
@@ -155,24 +158,21 @@ class _SubPageState extends State<SubPage>{
                   elevation: 4,
                   shape: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Colors.pink[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
-                    ),
+                        color: Colors.pink[500].withOpacity(0.20),
+                        width: 4.0,
+                        style: BorderStyle.solid),
                   ),
-
                   margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        left: 16.0,
-                        top: 16.0,
-                        right: 16.0,
-                        bottom: 16.0),
-
-                    child: Text(scienceClassNotifier.currentScienceClass.name.toUpperCase(),
+                        left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
+                    child: Text(
+                      scienceClassNotifier.currentScienceClass.name
+                          .toUpperCase(),
                       style: GoogleFonts.blinker(
                           color: Colors.pink[300],
                           fontSize: 30,
-                          fontWeight: FontWeight.w500
-                      ),
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
@@ -187,9 +187,9 @@ class _SubPageState extends State<SubPage>{
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 8.0, right: 8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
@@ -199,30 +199,28 @@ class _SubPageState extends State<SubPage>{
                         padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                         thumbColor: Colors.white,
                         backgroundColor: Colors.pink[300].withAlpha(50),
-
                         children: {
-                          0: Text(reachDetails,
+                          0: Text(
+                            reachDetails,
                             style: GoogleFonts.sacramento(
                                 color: Colors.pink[300],
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400
-                            ),
+                                fontWeight: FontWeight.w400),
                           ),
-                          1: Text(autoBioDetails,
+                          1: Text(
+                            autoBioDetails,
                             style: GoogleFonts.sacramento(
                               color: Colors.pink[300],
                               fontSize: 25,
                               fontStyle: FontStyle.normal,
                               fontWeight: FontWeight.w400,
-
                             ),
                           ),
                         },
                         onValueChanged: (int val) {
                           setState(() {
                             sharedValue = val;
-
                           });
                         },
                         groupValue: sharedValue,
@@ -237,18 +235,17 @@ class _SubPageState extends State<SubPage>{
         ),
       ),
     );
-
   }
 
-
-   initState(){
+  initState() {
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
 
     _autoBio = scienceClassNotifier.currentScienceClass.autoBio;
     _bestMoment = scienceClassNotifier.currentScienceClass.bestMoment;
     _dob = scienceClassNotifier.currentScienceClass.dob;
     _dreamUniversity = scienceClassNotifier.currentScienceClass.dreamUniversity;
-    _dreamUniversityCourse = scienceClassNotifier.currentScienceClass.dreamUniversityCourse;
+    _dreamUniversityCourse =
+        scienceClassNotifier.currentScienceClass.dreamUniversityCourse;
     _email = scienceClassNotifier.currentScienceClass.email;
     _facebook = scienceClassNotifier.currentScienceClass.facebook;
     _hobbies = scienceClassNotifier.currentScienceClass.hobbies;
@@ -262,160 +259,349 @@ class _SubPageState extends State<SubPage>{
     _worstMoment = scienceClassNotifier.currentScienceClass.worstMoment;
 
     userBIO = <int, Widget>{
-
       0: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text(callButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(callFIRST+_phone);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text(messageButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(smsFIRST+_phone);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text(emailButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(mailFIRST+_email+mailSECOND+_name);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text(twitterButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(urlTwitter+_twitter);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text(instagramButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(urlInstagram+_instagram);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.pink[300],
-                  icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text(facebookButton,
-                    style: GoogleFonts.abel(
+            (() {
+              if (_phone.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.dialpad,
                         color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w300
+                      ),
+                      label: Text(callButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        launchURL(callFIRST + _phone);
+                      },
                     ),
                   ),
-                  onPressed: () {
-                    launchURL(urlFacebook+_facebook);
-                  },
-                ),
-              ),
-            ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: Colors.pink[300],
+                        icon: new Icon(
+                          MdiIcons.dialpad,
+                          color: Colors.white,
+                        ),
+                        label: Text(callButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(callFIRST + _phone);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+            (() {
+              if (_phone.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.message,
+                        color: Colors.white,
+                      ),
+                      label: Text(messageButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        launchURL(smsFIRST + _phone);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: Colors.pink[300],
+                        icon: new Icon(
+                          MdiIcons.message,
+                          color: Colors.white,
+                        ),
+                        label: Text(messageButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(smsFIRST + _phone);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+            (() {
+              if (_email.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.gmail,
+                        color: Colors.white,
+                      ),
+                      label: Text(emailButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        launchURL(mailFIRST + _email + mailSECOND + _name);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                    visible: !_isVisible,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: InkWell(
+                        splashColor: Colors.white,
+                        child: RaisedButton.icon(
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          elevation: 2,
+                          color: Colors.pink[300],
+                          icon: new Icon(
+                            MdiIcons.gmail,
+                            color: Colors.white,
+                          ),
+                          label: Text(emailButton,
+                              style: GoogleFonts.abel(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w300)),
+                          onPressed: () {
+                            launchURL(mailFIRST + _email + mailSECOND + _name);
+                          },
+                        ),
+                      ),
+                    ));
+              }
+            }()),
+            (() {
+              if (_twitter.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.twitterCircle,
+                        color: Colors.white,
+                      ),
+                      label: Text(twitterButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        launchURL(urlTwitter + _twitter);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                    visible: !_isVisible,
+                    child: Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: InkWell(
+                          splashColor: Colors.white,
+                          child: RaisedButton.icon(
+                            shape: BeveledRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            elevation: 2,
+                            color: Colors.pink[300],
+                            icon: new Icon(
+                              MdiIcons.twitterCircle,
+                              color: Colors.white,
+                            ),
+                            label: Text(twitterButton,
+                                style: GoogleFonts.abel(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300)),
+                            onPressed: () {
+                              launchURL(urlTwitter + _twitter);
+                            },
+                          ),
+                        )));
+              }
+            }()),
+            (() {
+              if (_instagram.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.instagram,
+                        color: Colors.white,
+                      ),
+                      label: Text(instagramButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        launchURL(urlInstagram + _instagram);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                    visible: !_isVisible,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: InkWell(
+                        splashColor: Colors.white,
+                        child: RaisedButton.icon(
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          elevation: 2,
+                          color: Colors.pink[300],
+                          icon: new Icon(
+                            MdiIcons.instagram,
+                            color: Colors.white,
+                          ),
+                          label: Text(instagramButton,
+                              style: GoogleFonts.abel(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w300)),
+                          onPressed: () {
+                            launchURL(urlInstagram + _instagram);
+                          },
+                        ),
+                      ),
+                    ));
+              }
+            }()),
+            (() {
+              if (_facebook.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: Colors.pink[300],
+                      icon: new Icon(
+                        MdiIcons.facebook,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        facebookButton,
+                        style: GoogleFonts.abel(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      onPressed: () {
+                        launchURL(urlFacebook + _facebook);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                    visible: !_isVisible,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: InkWell(
+                        splashColor: Colors.white,
+                        child: RaisedButton.icon(
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          elevation: 2,
+                          color: Colors.pink[300],
+                          icon: new Icon(
+                            MdiIcons.facebook,
+                            color: Colors.white,
+                          ),
+                          label: Text(
+                            facebookButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          onPressed: () {
+                            launchURL(urlFacebook + _facebook);
+                          },
+                        ),
+                      ),
+                    ));
+              }
+            }()),
           ],
         ),
       ),
-
       1: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
@@ -438,27 +624,23 @@ class _SubPageState extends State<SubPage>{
                               color: Colors.pink[300],
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
-                            )
-                        ),
+                            )),
                         TextSpan(
-                            text: ' '+_autoBio,
+                            text: ' ' + _autoBio,
                             style: GoogleFonts.trykker(
                               color: Colors.pink[300],
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
-                            )
-                        ),
+                            )),
                       ],
                     ),
                   ),
                 ),
               ),
             ),
-
             decoration: BoxDecoration(
                 color: Colors.pink[300].withAlpha(50),
-                borderRadius: new BorderRadius.circular(10)
-            ),
+                borderRadius: new BorderRadius.circular(10)),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
@@ -469,7 +651,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -479,27 +662,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_nickname,
+                              text: ' ' + _nickname,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -511,7 +690,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -521,27 +701,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_bestMoment,
+                              text: ' ' + _bestMoment,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -553,7 +729,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -563,27 +740,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_worstMoment,
+                              text: ' ' + _worstMoment,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -595,7 +768,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -605,27 +779,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_dreamUniversity,
+                              text: ' ' + _dreamUniversity,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -637,7 +807,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -647,27 +818,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_dreamUniversityCourse,
+                              text: ' ' + _dreamUniversityCourse,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -679,7 +846,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -689,27 +857,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_dob,
+                              text: ' ' + _dob,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -721,7 +885,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -731,27 +896,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_hobbies,
+                              text: ' ' + _hobbies,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -763,7 +924,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -773,27 +935,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_philosophy,
+                              text: ' ' + _philosophy,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
           Padding(
@@ -805,7 +963,8 @@ class _SubPageState extends State<SubPage>{
                   splashColor: Colors.pink[300],
                   onTap: () {},
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                    padding:
+                        const EdgeInsets.only(bottom: 15, top: 15, left: 25),
                     child: Text.rich(
                       TextSpan(
                         children: <TextSpan>[
@@ -815,27 +974,23 @@ class _SubPageState extends State<SubPage>{
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
-                              )
-                          ),
+                              )),
                           TextSpan(
-                              text: ' '+_myDropline,
+                              text: ' ' + _myDropline,
                               style: GoogleFonts.trykker(
                                 color: Colors.pink[300],
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
-
               decoration: BoxDecoration(
                   color: Colors.pink[300].withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
+                  borderRadius: new BorderRadius.circular(10)),
             ),
           ),
         ],
@@ -843,5 +998,6 @@ class _SubPageState extends State<SubPage>{
     };
     super.initState();
   }
+
   int sharedValue = 0;
 }

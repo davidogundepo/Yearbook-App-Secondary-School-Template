@@ -59,6 +59,13 @@ class ManagementBodyDetailsPage extends StatefulWidget {
 }
 
 class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
+  bool _isVisible = true;
+
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
 
   Future launchURL(String url) async{
     if(await canLaunch(url)) {
@@ -240,150 +247,350 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
-                  label: Text(callButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(callFIRST+_phone);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.message, color: Colors.white,),
-                  label: Text(messageButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(smsFIRST+_phone);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.gmail, color: Colors.white,),
-                  label: Text(emailButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(mailFIRST+_email+mailSECOND+_name);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
-                  label: Text(twitterButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(urlTwitter+_twitter);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.instagram, color: Colors.white,),
-                  label: Text(instagramButton,
-                      style: GoogleFonts.abel(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300
-                      )
-                  ),
-                  onPressed: () {
-                    launchURL(urlInstagram+_instagram);
-                  },
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: InkWell(
-                splashColor: Colors.white,
-                child: RaisedButton.icon(
-                  shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 2,
-                  color: Colors.lightBlue,
-                  icon: new Icon(MdiIcons.facebook, color: Colors.white,),
-                  label: Text(facebookButton,
-                    style: GoogleFonts.abel(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w300
+
+            (() {
+              if (_phone.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                      label: Text(callButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        launchURL(callFIRST+_phone);
+                      },
                     ),
                   ),
-                  onPressed: () {
-                    launchURL(urlFacebook+_facebook);
-                  },
-                ),
-              ),
-            ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                        label: Text(callButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(callFIRST+_phone);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_phone.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.message, color: Colors.white,),
+                      label: Text(messageButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        launchURL(smsFIRST+_phone);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.message, color: Colors.white,),
+                        label: Text(messageButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(smsFIRST+_phone);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_email.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                      label: Text(emailButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        launchURL(mailFIRST+_email+mailSECOND+_name);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                        label: Text(emailButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(mailFIRST+_email+mailSECOND+_name);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+
+            (() {
+              if (_twitter.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                      label: Text(twitterButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        launchURL(urlTwitter+_twitter);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                        label: Text(twitterButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(urlTwitter+_twitter);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_instagram.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                      label: Text(instagramButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        launchURL(urlInstagram+_instagram);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                        label: Text(instagramButton,
+                            style: GoogleFonts.abel(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(urlInstagram+_instagram);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_facebook.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: Colors.white,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: Colors.lightBlue,
+                      icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                      label: Text(facebookButton,
+                        style: GoogleFonts.abel(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w300
+                        ),
+                      ),
+                      onPressed: () {
+                        launchURL(urlFacebook+_facebook);
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: Colors.white,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: Colors.lightBlue,
+                        icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                        label: Text(facebookButton,
+                          style: GoogleFonts.abel(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          ),
+                        ),
+                        onPressed: () {
+                          launchURL(urlFacebook+_facebook);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
           ],
         ),
       ),

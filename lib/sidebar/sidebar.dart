@@ -153,6 +153,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                   width: 400.0,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
+                                      alignment: Alignment(0, -0.8),
                                       image: new ExactAssetImage(imgAsset),
                                       fit: BoxFit.cover,
                                     ),
