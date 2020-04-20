@@ -164,13 +164,24 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         right: 16.0,
                         bottom: 16.0),
 
-                    child: Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
-                      style: GoogleFonts.blinker(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
+                          style: GoogleFonts.blinker(
+                              color: Color.fromRGBO(114, 78, 147, 1),
+                              fontSize: 30,
+                              fontWeight: FontWeight.w500
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Icon (
+                          MdiIcons.shieldCheck,
                           color: Color.fromRGBO(114, 78, 147, 1),
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500
-                      ),
+                        ),
+                      ],
                     ),
+
                   ),
                 ),
               ),

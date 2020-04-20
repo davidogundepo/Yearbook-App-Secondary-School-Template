@@ -180,12 +180,39 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(
                         left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
-                    child: Text(
-                      artClassNotifier.currentArtClass.name.toUpperCase(),
-                      style: GoogleFonts.blinker(
-                          color: Color.fromRGBO(46, 137, 112, 1),
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          artClassNotifier.currentArtClass.name.toUpperCase(),
+                          style: GoogleFonts.blinker(
+                              color: Color.fromRGBO(46, 137, 112, 1),
+                              fontSize: 30,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        (() {
+                          if (artClassNotifier.currentArtClass.prefect == "Yes") {
+                            return
+                              Row(
+                                children: <Widget>[
+                                  SizedBox(width: 10),
+                                  Icon (
+                                    MdiIcons.shieldCheck,
+                                    color: Color.fromRGBO(46, 137, 112, 1),
+                                  ),
+                                ],
+                              );
+                          } else {
+                            return Visibility(
+                              visible: !_isVisible,
+                              child: Icon (
+                                MdiIcons.shieldCheck,
+                                color: Color.fromRGBO(46, 137, 112, 1),
+                              ),
+                            );
+                          }
+                        }()),
+                      ],
                     ),
                   ),
                 ),
