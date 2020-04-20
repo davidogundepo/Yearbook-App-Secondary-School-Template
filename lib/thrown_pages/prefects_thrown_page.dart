@@ -90,13 +90,23 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
-                          child: Text(
-                              classPrefectsNotifier.classPrefectsList[index].name,
-                              style: GoogleFonts.tenorSans(
-                                color: Colors.blueGrey,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600
-                              )
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                  classPrefectsNotifier.classPrefectsList[index].name,
+                                  style: GoogleFonts.tenorSans(
+                                    color: Colors.blueGrey,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600
+                                  )
+
+                              ),
+                              SizedBox(width: 10),
+                              Icon (
+                                MdiIcons.shieldCheck,
+                                color: Color.fromRGBO(254, 250, 239, 1),
+                              ),
+                            ],
                           ),
                         ),
                         Padding(

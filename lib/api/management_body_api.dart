@@ -1,10 +1,12 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/ManagementBody.dart';
 import '../notifier/management_body_notifier.dart';
 
-getManagementBody(ManagementBodyNotifier managementBodyNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance.collection('ManagementBody').getDocuments();
+getManagementBody(ManagementBodyNotifier managementBodyNotifier) async {
+  QuerySnapshot snapshot = await Firestore.instance
+      .collection('ManagementBody')
+      .orderBy('name')
+      .getDocuments();
 
   List<ManagementBody> _managementBodyList = [];
 

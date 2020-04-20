@@ -1,10 +1,12 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/ClassPrefects.dart';
 import '../notifier/class_prefects_notifier.dart';
 
-getClassPrefects(ClassPrefectsNotifier classPrefectsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance.collection('ClassPrefects').getDocuments();
+getClassPrefects(ClassPrefectsNotifier classPrefectsNotifier) async {
+  QuerySnapshot snapshot = await Firestore.instance
+      .collection('ClassPrefects')
+      .orderBy('name')
+      .getDocuments();
 
   List<ClassPrefects> _classPrefectsList = [];
 

@@ -16,6 +16,10 @@ class ScienceClass {
   String nickname;
   String philosophy;
   String phone;
+  String prefect;
+  String positionEnforced;
+  String stateLiving;
+  String originState;
   String twitter;
   String worstMoment;
 
@@ -30,6 +34,10 @@ class ScienceClass {
     name = data['name'];
     nickname = data['nickname'];
     phone = data['phone'];
+    prefect = data['prefect'];
+    positionEnforced = data['position_enforced'];
+    originState = data['origin_state'];
+    stateLiving = data['state_living'];
     twitter = data['twitter'];
     dob = data['d_o_b'];
     dreamUniversity = data['dream_university'];

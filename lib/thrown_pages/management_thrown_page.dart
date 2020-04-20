@@ -91,13 +91,22 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
-                          child: Text(
-                              managementBodyNotifier.managementBodyList[index].name,
-                              style: GoogleFonts.tenorSans(
-                                  color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600
-                              )
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                  managementBodyNotifier.managementBodyList[index].name,
+                                  style: GoogleFonts.tenorSans(
+                                      color: Colors.white,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600
+                                  )
+                              ),
+                              SizedBox(width: 10),
+                              Icon (
+                                MdiIcons.shieldCheck,
+                                color: Colors.white,
+                              ),
+                            ],
                           ),
                         ),
                         Padding(

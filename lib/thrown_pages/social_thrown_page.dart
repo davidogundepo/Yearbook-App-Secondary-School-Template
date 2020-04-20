@@ -98,14 +98,41 @@ class _MySocialPage extends State<MySocialPage> {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(top: 30),
-                            child: Text(
-                                socialClassNotifier.socialClassList[index].name,
-                                style: GoogleFonts.tenorSans(
-                                  color: Colors.white,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600
-                                )
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                    socialClassNotifier.socialClassList[index].name,
+                                    style: GoogleFonts.tenorSans(
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                (() {
+                                  if (socialClassNotifier.socialClassList[index].prefect == "Yes") {
+                                    return
+                                      Row(
+                                        children: <Widget>[
+                                          SizedBox(width: 10),
+                                          Icon (
+                                            MdiIcons.shieldCheck,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      );
+                                  } else {
+                                    return Visibility(
+                                      visible: !_isVisible,
+                                      child: Icon (
+                                        MdiIcons.shieldCheck,
+                                        color: Colors.white,
+                                      ),
+                                    );
+                                  }
+                                }()),
+                              ],
                             ),
+
                           ),
                           (() {
                             if (socialClassNotifier.socialClassList[index].twitter.toString().isNotEmpty) {

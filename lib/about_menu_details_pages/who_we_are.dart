@@ -1,7 +1,5 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 String graduateSetTheme = "GENIAL Set 2020";
 String graduateSetThemeTitle = "We Are GENIAL";
@@ -12,16 +10,13 @@ String ipsum = 'Ut enim ad minim veniam, quis nostrud exercitation ullamco labor
 String dolor = 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
 String sit = 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 String amen = 'Jenny Chen';
-
 String core = 'Our core mission is:';
-String coreOne= '1. To be a solution providers by adding value and creativity to changing the mirage of our society today.';
-String coreTwo= "2. To be leaders who are not just breadwinners, job creators and worl changers, but also God's Kingdom passionate lovers.";
+String coreOne = '1. To be a solution providers by adding value and creativity to changing the mirage of our society today.';
+String coreTwo = "2. To be leaders who are not just breadwinners, job creators and worl changers, but also God's Kingdom passionate lovers.";
 
 String imgAsset = "assets/images/gsw.jpg";
 
-
 class WhoWeAre extends StatefulWidget {
-
   WhoWeAre({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -31,23 +26,23 @@ class WhoWeAre extends StatefulWidget {
 }
 
 class _WhoWeAreState extends State<WhoWeAre> {
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Color.fromRGBO(15, 65, 79, 1),
       appBar: AppBar(
-        title: Text(graduateSetThemeTitle,
-        style: TextStyle(
-            color: Colors.white
-        ),),
+        title: Text(
+          graduateSetThemeTitle,
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 10,
         backgroundColor: Color.fromRGBO(2, 42, 53, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -77,26 +72,28 @@ class _WhoWeAreState extends State<WhoWeAre> {
                         child: Card(
                           color: Colors.white,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text(whoWeAre,
+                            padding: const EdgeInsets.only(
+                                top: 15, bottom: 15, left: 30, right: 30),
+                            child: Text(
+                              whoWeAre,
                               style: TextStyle(
-                                fontSize: 25,
-                                color: Color.fromRGBO(15, 65, 79, 1),
-                                fontWeight: FontWeight.w700
-                              ),
+                                  fontSize: 25,
+                                  color: Color.fromRGBO(15, 65, 79, 1),
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-                        child: RichText(
-                          textAlign: TextAlign.justify,
-                          text:TextSpan(
+                      padding:
+                          const EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: RichText(
+                        textAlign: TextAlign.justify,
+                        text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: lorem+'\n\n',
+                              text: lorem + '\n\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -104,7 +101,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: ipsum+'\n\n',
+                              text: ipsum + '\n\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -112,7 +109,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: dolor+'\n\n',
+                              text: dolor + '\n\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -120,7 +117,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: sit+'\n\n\n',
+                              text: sit + '\n\n\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -133,7 +130,8 @@ class _WhoWeAreState extends State<WhoWeAre> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10, right: 10),
-                      child: Text(amen,
+                      child: Text(
+                        amen,
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           fontSize: 22,
@@ -160,26 +158,28 @@ class _WhoWeAreState extends State<WhoWeAre> {
                         child: Card(
                           color: Colors.white,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text(graduateSetTheme,
+                            padding: const EdgeInsets.only(
+                                top: 15, bottom: 15, left: 30, right: 30),
+                            child: Text(
+                              graduateSetTheme,
                               style: TextStyle(
-                                fontSize: 25,
-                                color: Color.fromRGBO(15, 65, 79, 1),
-                                fontWeight: FontWeight.w700
-                              ),
+                                  fontSize: 25,
+                                  color: Color.fromRGBO(15, 65, 79, 1),
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-                        child: RichText(
-                          textAlign: TextAlign.justify,
-                          text:TextSpan(
+                      padding:
+                          const EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: RichText(
+                        textAlign: TextAlign.justify,
+                        text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: ipsum+'\n',
+                              text: ipsum + '\n',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -187,7 +187,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: lorem+'\n\n',
+                              text: lorem + '\n\n',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -195,7 +195,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: core+'\n',
+                              text: core + '\n',
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -203,7 +203,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: coreOne+'\n',
+                              text: coreOne + '\n',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -211,7 +211,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               ),
                             ),
                             TextSpan(
-                              text: coreTwo+'\n\n',
+                              text: coreTwo + '\n\n',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -223,8 +223,10 @@ class _WhoWeAreState extends State<WhoWeAre> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                      child: Text(lorem,
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 10, bottom: 10),
+                      child: Text(
+                        lorem,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontSize: 16,

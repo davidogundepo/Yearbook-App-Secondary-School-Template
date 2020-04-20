@@ -96,13 +96,39 @@ class _MyArtPage extends State<MyArtPage> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
-                          child: Text(
-                              artClassNotifier.artClassList[index].name,
-                              style: GoogleFonts.tenorSans(
-                                color: Colors.white,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600
-                              )
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                  artClassNotifier.artClassList[index].name,
+                                  style: GoogleFonts.tenorSans(
+                                    color: Colors.white,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600
+                                  )
+                              ),
+                              (() {
+                                if (artClassNotifier.artClassList[index].prefect == "Yes") {
+                                  return
+                                    Row(
+                                      children: <Widget>[
+                                        SizedBox(width: 10),
+                                        Icon (
+                                        MdiIcons.shieldCheck,
+                                        color: Colors.white,
+                                        ),
+                                      ],
+                                    );
+                                } else {
+                                  return Visibility(
+                                    visible: !_isVisible,
+                                    child: Icon (
+                                      MdiIcons.shieldCheck,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                }
+                              }()),
+                            ],
                           ),
                         ),
                         (() {

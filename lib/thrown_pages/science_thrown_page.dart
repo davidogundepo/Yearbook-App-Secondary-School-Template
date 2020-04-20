@@ -101,14 +101,41 @@ class _MySciencePage extends State<MySciencePage> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(top: 20),
-                          child: Text(
-                              scienceClassNotifier.scienceClassList[index].name,
-                              style: GoogleFonts.tenorSans(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600
-                              )
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                  scienceClassNotifier.scienceClassList[index].name,
+                                  style: GoogleFonts.tenorSans(
+                                      color: Colors.white,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600
+                                  )
+                              ),
+                              (() {
+                                if (scienceClassNotifier.scienceClassList[index].prefect == "Yes") {
+                                  return
+                                    Row(
+                                      children: <Widget>[
+                                        SizedBox(width: 10),
+                                        Icon (
+                                          MdiIcons.shieldCheck,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    );
+                                } else {
+                                  return Visibility(
+                                    visible: !_isVisible,
+                                    child: Icon (
+                                      MdiIcons.shieldCheck,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                }
+                              }()),
+                            ],
                           ),
+
                         ),
                         (() {
                           if (scienceClassNotifier.scienceClassList[index].twitter.toString().isNotEmpty) {

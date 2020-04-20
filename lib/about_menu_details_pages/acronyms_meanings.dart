@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 String schoolName = "Hallel College";
 String acronymTitle = "Acronym Meanings";
@@ -16,11 +14,9 @@ String ssd = "SSD - Social Science Department";
 String imgAsset = "assets/images/acronym.jpg";
 
 class AcronymsMeanings extends StatefulWidget {
-
   AcronymsMeanings({Key key, this.title}) : super(key: key);
 
   final String title;
-
 
   @override
   _AcronymsMeaningsState createState() => _AcronymsMeaningsState();
@@ -32,15 +28,18 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 31, 41, 1),
       appBar: AppBar(
-        title: Text(acronymTitle,
-        style: TextStyle(
-          color: Colors.white
-        ),),
+        title: Text(
+          acronymTitle,
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 10,
         backgroundColor: Color.fromRGBO(52, 18, 30, 1),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -70,27 +69,30 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                         child: Card(
                           color: Colors.white,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text(acronymTitle,
+                            padding: const EdgeInsets.only(
+                                top: 15, bottom: 15, left: 30, right: 30),
+                            child: Text(
+                              acronymTitle,
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,
-                                  color: Color.fromRGBO(58, 31, 41, 1).withAlpha(220),
-                                  fontWeight: FontWeight.w700
-                              ),
+                                  color: Color.fromRGBO(58, 31, 41, 1)
+                                      .withAlpha(220),
+                                  fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 10, top: 10, bottom: 10),
                       child: RichText(
                         textAlign: TextAlign.justify,
-                        text:TextSpan(
+                        text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: acronym+'\n\n\n',
+                              text: acronym + '\n\n\n',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.white,
@@ -98,7 +100,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: hc+'\n\n',
+                              text: hc + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -106,7 +108,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: sss+'\n\n',
+                              text: sss + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -114,7 +116,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: jss+'\n\n',
+                              text: jss + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -122,7 +124,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: sp+'\n\n',
+                              text: sp + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -130,7 +132,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: sd+'\n\n',
+                              text: sd + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -138,7 +140,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                               ),
                             ),
                             TextSpan(
-                              text: ad+'\n\n',
+                              text: ad + '\n\n',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,

@@ -33,7 +33,7 @@ String staffBody = "Staff Body\n\n";
 String staffBodyStatement = "We have 85 teaching staff and 32 non-teaching staff (including management body) in $schoolName.";
 String populationChart = "$schoolName Population Chart";
 String studentBody = "Student Body\n\n";
-String studentBodyStatement = "We have 1,526 students in $schoolName, 871 male students and 655 female students.";
+String studentBodyStatement = "We currently have 1,526 students in $schoolName, 871 male students and 655 female students. 3,486 students have graduated from $schoolName";
 String studentPopulationChart = "Hallel Students Population Chart";
 
 String subjectsOffered = "Subjects offered in $schoolName";
