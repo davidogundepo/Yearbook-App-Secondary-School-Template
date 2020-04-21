@@ -8,7 +8,7 @@ import '../notifier/social_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 
 String dave = "David";
 String whatsApp = "+2348070920625";

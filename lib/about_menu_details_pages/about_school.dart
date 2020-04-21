@@ -13,7 +13,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 String aboutSchool = "About $schoolName";
 
 String visionTitle = "OUR VISION STATEMENT";
@@ -28,13 +28,13 @@ String cvStatement3 = "3. We are genuinely interested in deploying the full capa
 String cvStatement4 = "4. We create a social atmosphere for children and we believe every child can excel.";
 
 String whySchool = "WHY $schoolName?".toUpperCase();
-String whySchoolStatement = "$schoolName was established on the 3rd of October 1994 out of the vision and passion of Dr. Edna Opara to empower today’s youth for tomorrows challenges.\n\n We offers students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.";
+String whySchoolStatement = "$schoolName was established on the 3rd of October 1994 out of the vision and passion of Dr. David Oludepo to empower today’s youth for tomorrows challenges.\n\n We offers students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.";
 String staffBody = "Staff Body\n\n";
 String staffBodyStatement = "We have 85 teaching staff and 32 non-teaching staff (including management body) in $schoolName.";
 String populationChart = "$schoolName Population Chart";
 String studentBody = "Student Body\n\n";
 String studentBodyStatement = "We currently have 1,526 students in $schoolName, 871 male students and 655 female students. 3,486 students have graduated from $schoolName";
-String studentPopulationChart = "Hallel Students Population Chart";
+String studentPopulationChart = "$schoolName Students Population Chart";
 
 String subjectsOffered = "Subjects offered in $schoolName";
 String subjectsOfferedInJSS = "Junior Secondary School (JSS) Subjects\n\n";
@@ -531,7 +531,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 30, left: 10),
-                            child: Text(populationChart,
+                            child: Text(studentPopulationChart,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color: Colors.blueGrey,

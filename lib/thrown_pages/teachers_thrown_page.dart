@@ -18,7 +18,7 @@ import '../notifier/graduates_class_teachers_notifier.dart';
 String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 String thrownName = "Class Teachers";
 
 String exitAppStatement = "Exit from App";

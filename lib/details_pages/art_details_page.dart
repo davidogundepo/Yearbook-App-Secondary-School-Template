@@ -22,7 +22,7 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://fb.com/";
 String urlInstagram = "https://www.instagram.com/";
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 
 String reachDetails = "Reach";
 String autoBioDetails = "AutoBio";

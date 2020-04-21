@@ -11,9 +11,8 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
 
 
-String schoolName = "Hallel College";
-String title = "Hallel College".toUpperCase();
-String subtitle = "Graduating Class";
+String schoolName = "ABC College";
+String subtitle = "Graduating Class (Elite Set 2020)";
 
 String scienceClassTitle = "Science Class Graduates";
 String socialScienceClassTitle = "Social Science Class Graduates";
@@ -126,7 +125,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                   child: Material(
                                     color: Colors.transparent,
                                     child: InkWell(
-                                      splashColor: Colors.lightBlueAccent,
+                                      splashColor: Colors.brown,
                                       onTap: () {},
                                       child: Padding(
                                         padding: const EdgeInsets.only(bottom: 20, top: 120),

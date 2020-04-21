@@ -15,7 +15,7 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/art_details_page.dart';
 import '../notifier/art_class_notifier.dart';
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 String thrownName = "Art Class Graduates";
 
 String exitAppStatement = "Exit from App";

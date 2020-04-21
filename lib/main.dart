@@ -86,7 +86,7 @@ class MyApp extends StatefulWidget {
 //          imageBackground: AssetImage("assets/images/hallel_9.jpg",),
 //            seconds: 6,
 //            navigateAfterSeconds: new SideBarLayout(),
-//            title: new Text('Hallel College Almanac App 2020',
+//            title: new Text('ABC College Almanac App 2020',
 //              style: GoogleFonts.gorditas(
 //                fontWeight: FontWeight.w400,
 //                fontSize: 40.0,

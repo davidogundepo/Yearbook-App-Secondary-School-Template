@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-String schoolName = "Hallel College";
+String schoolName = "ABC College";
 String acronymTitle = "Acronym Meanings";
 String acronym = "The following acronyms are used in the apps and their meanings are detailed.";
-String hc = "HC - $schoolName";
+String abc = "ABC - $schoolName";
 String sss = "SSS - Senior Secondary School";
 String jss = "JSS - Junior Secondary School";
 String sp = "SP - School Prefcets";
@@ -86,7 +86,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          left: 10, right: 10, top: 10, bottom: 10),
+                          left: 10, right: 10, top: 10, bottom: 30),
                       child: RichText(
                         textAlign: TextAlign.justify,
                         text: TextSpan(
@@ -94,15 +94,15 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: acronym + '\n\n\n',
                               style: TextStyle(
-                                fontSize: 17,
+                                fontSize: 15,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             TextSpan(
-                              text: hc + '\n\n',
+                              text: abc + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -110,7 +110,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: sss + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -118,7 +118,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: jss + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -126,7 +126,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: sp + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -134,7 +134,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: sd + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -142,7 +142,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: ad + '\n\n',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -150,7 +150,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                             TextSpan(
                               text: ssd,
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                               ),
