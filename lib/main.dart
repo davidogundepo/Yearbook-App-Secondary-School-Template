@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:splashscreen/splashscreen.dart';
 import './notifier/achievement_images_notifier.dart';
 import './notifier/art_class_notifier.dart';
 import './notifier/class_prefects_notifier.dart';
@@ -18,8 +16,6 @@ void main() => runApp(MultiProvider(
   providers: [
     ChangeNotifierProvider(
       create: (context) => ScienceClassNotifier(),
-//      builder: (context) => ScienceClassNotifier(), create: (BuildContext context) {},
-//      create: (context) => ScienceClassNotifier(),
     ),
     ChangeNotifierProvider(
       create: (context) => SocialClassNotifier(),
@@ -73,32 +69,5 @@ class MyApp extends StatefulWidget {
         home: SideBarLayout()
       );
     }
-
-//    @override
-//    Widget build(BuildContext context) {
-//      return MaterialApp(
-//        title: 'Flutter Demo',
-//        theme: ThemeData(
-//          primarySwatch: Colors.lightBlue,
-//        ),
-//
-//        home: SplashScreen(
-//          imageBackground: AssetImage("assets/images/hallel_9.jpg",),
-//            seconds: 6,
-//            navigateAfterSeconds: new SideBarLayout(),
-//            title: new Text('ABC College Almanac App 2020',
-//              style: GoogleFonts.gorditas(
-//                fontWeight: FontWeight.w400,
-//                fontSize: 40.0,
-//                color: Colors.white,
-//                fontStyle: FontStyle.italic,
-//              ),
-//              textAlign: TextAlign.justify,
-//            ),
-//            styleTextUnderTheLoader: new TextStyle(),
-//            loaderColor: Colors.white,
-//        ),
-//      );
-//    }
 
   }

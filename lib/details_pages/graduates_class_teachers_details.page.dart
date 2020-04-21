@@ -174,11 +174,6 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                               fontWeight: FontWeight.w500
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Icon (
-                          MdiIcons.shieldCheck,
-                          color: Color.fromRGBO(114, 78, 147, 1),
-                        ),
                       ],
                     ),
 
