@@ -17,7 +17,7 @@ String schoolName = "ABC College";
 String aboutSchool = "About $schoolName";
 
 String visionTitle = "OUR VISION STATEMENT";
-String visionStatement = "Raising the Total youth through comprehensive education.";
+String visionStatement = "Raising the total youth through comprehensive education.";
 String missionTitle = "OUR MISSION STATEMENT";
 String missionStatement = "Mobilizing Academic, Moral, Social, Political and Religious tools, by dedicated and vision driven educators in a proactive environment of teaching and learning, which is geared towards impacting and equipping our students to be THE TOTAL YOUTH the world will be proud of.";
 
@@ -28,12 +28,12 @@ String cvStatement3 = "3. We are genuinely interested in deploying the full capa
 String cvStatement4 = "4. We create a social atmosphere for children and we believe every child can excel.";
 
 String whySchool = "WHY $schoolName?".toUpperCase();
-String whySchoolStatement = "$schoolName was established on the 3rd of October 1994 out of the vision and passion of Dr. David Oludepo to empower today’s youth for tomorrows challenges.\n\n We offers students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.";
+String whySchoolStatement = "$schoolName was established on the 3rd of October 1994 out of the vision and passion of Dr. David Oludepo to empower today’s youth for tomorrows challenges.\n\nWe offer students (both domestic and international) the opportunity to earn an unparalleled high-quality educational experience. With passionate and  qualified teaching staff, a clean and caring school atmosphere, and the resources to supply students with the skills necessary for their continued personal success, our school looks to help students to realize their potential.";
 String staffBody = "Staff Body\n\n";
 String staffBodyStatement = "We have 85 teaching staff and 32 non-teaching staff (including management body) in $schoolName.";
 String populationChart = "$schoolName Population Chart";
 String studentBody = "Student Body\n\n";
-String studentBodyStatement = "We currently have 1,526 students in $schoolName, 871 male students and 655 female students. 3,486 students have graduated from $schoolName";
+String studentBodyStatement = "We currently have 1,526 students in $schoolName, 871 male students and 655 female students. 3,486 students have graduated from $schoolName.";
 String studentPopulationChart = "$schoolName Students Population Chart";
 
 String subjectsOffered = "Subjects offered in $schoolName";
@@ -105,7 +105,6 @@ class AboutSchoolDetails extends StatefulWidget {
 }
 
 class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
-
 
   final controlla = PageController(
     initialPage: 0,
