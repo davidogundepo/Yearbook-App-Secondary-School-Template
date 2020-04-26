@@ -1,5 +1,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +60,8 @@ class ManagementBodyDetailsPage extends StatefulWidget {
 }
 
 class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
+  ConfettiController _confettiController;
+
   bool _isVisible = true;
 
   void showToast() {
@@ -80,155 +83,167 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
 
     managementBodyNotifier = Provider.of<ManagementBodyNotifier>(context, listen: true);
 
-    return Scaffold(
-      backgroundColor: Colors.lightBlue,
-      appBar: AppBar(
-        centerTitle: true,
-//        title: Text(managementBodyNotifier.currentManagementBody.name),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
+    return ConfettiWidget(
+      confettiController: _confettiController,
+      blastDirectionality: BlastDirectionality.explosive,
+      shouldLoop: false,
+      colors: [
+        Colors.green,
+        Colors.blue,
+        Colors.pink,
+        Colors.orange,
+        Colors.purple,
+        Colors.brown,
+        Colors.white,
+        Colors.blueGrey,
+        Colors.redAccent,
+        Colors.teal,
+        Colors.indigoAccent,
+        Colors.cyan,
+      ],
+      child: Scaffold(
+        backgroundColor: Colors.lightBlue,
+        appBar: AppBar(
+          centerTitle: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
+          elevation: 10,
+          backgroundColor: Colors.lightBlue,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
-//        SliverAppBar(
-//          shape: ContinuousRectangleBorder(
-//              borderRadius: BorderRadius.only(
-//                  bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30))),
-//          title: Text('Sliver AppBar'),
-//        );
-        elevation: 10,
-        backgroundColor: Colors.lightBlue,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Tooltip(
-                child: Container(
-                  width: 400,
-                  height: 520,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Tooltip(
+                  child: Container(
+                    width: 400,
+                    height: 520,
+                    child: Card(
+                      elevation: 5,
+                      margin: EdgeInsets.all(10),
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: CachedNetworkImage(
+                        imageUrl: managementBodyNotifier.currentManagementBody.image,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  message: managementBodyNotifier.currentManagementBody.name
+              ),
+              Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.lightBlue[500].withOpacity(0.20),
+                  onTap: () {},
                   child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.all(10),
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: CachedNetworkImage(
-                      imageUrl: managementBodyNotifier.currentManagementBody.image,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                    elevation: 4,
+                    shape: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                ),
-                message: managementBodyNotifier.currentManagementBody.name
-            ),
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: Colors.lightBlue[500].withOpacity(0.20),
-                onTap: () {},
-                child: Card(
-                  elevation: 4,
-                  shape: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
-                    ),
-                  ),
 
-                  margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0,
-                        top: 16.0,
-                        right: 16.0,
-                        bottom: 16.0),
+                    margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 16.0,
+                          top: 16.0,
+                          right: 16.0,
+                          bottom: 16.0),
 
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(managementBodyNotifier.currentManagementBody.name.toUpperCase(),
-                          style: GoogleFonts.blinker(
-                              color: Colors.lightBlue,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(managementBodyNotifier.currentManagementBody.name.toUpperCase(),
+                            style: GoogleFonts.blinker(
+                                color: Colors.lightBlue,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w500
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 10),
-                        Icon (
-                          MdiIcons.shieldCheck,
-                          color: Colors.lightBlue,
-                        ),
-                      ],
+                          SizedBox(width: 10),
+                          Icon (
+                            MdiIcons.shieldCheck,
+                            color: Colors.lightBlue,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Card(
-              elevation: 5,
-              color: Colors.white,
-              margin: EdgeInsets.all(10),
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
+              Card(
+                elevation: 5,
+                color: Colors.white,
+                margin: EdgeInsets.all(10),
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
 
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 35),
-                      child: CupertinoSlidingSegmentedControl<int>(
-                        padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                        thumbColor: Colors.white,
-                        backgroundColor: Colors.lightBlue.withAlpha(50),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 35),
+                        child: CupertinoSlidingSegmentedControl<int>(
+                          padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                          thumbColor: Colors.white,
+                          backgroundColor: Colors.lightBlue.withAlpha(50),
 
-                        children: {
-                          0: Text('Reach',
-                            style: GoogleFonts.sacramento(
+                          children: {
+                            0: Text('Reach',
+                              style: GoogleFonts.sacramento(
+                                  color: Colors.lightBlue,
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w400
+                              ),
+                            ),
+                            1: Text('AutoBio',
+                              style: GoogleFonts.sacramento(
                                 color: Colors.lightBlue,
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400
-                            ),
-                          ),
-                          1: Text('AutoBio',
-                            style: GoogleFonts.sacramento(
-                              color: Colors.lightBlue,
-                              fontSize: 25,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w400,
 
+                              ),
                             ),
-                          ),
-                        },
-                        onValueChanged: (int val) {
-                          setState(() {
-                            sharedValue = val;
+                          },
+                          onValueChanged: (int val) {
+                            setState(() {
+                              sharedValue = val;
 
-                          });
-                        },
-                        groupValue: sharedValue,
+                            });
+                          },
+                          groupValue: sharedValue,
+                        ),
                       ),
-                    ),
-                    userBIO[sharedValue],
-                  ],
+                      userBIO[sharedValue],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -236,6 +251,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
   }
 
   initState(){
+    _confettiController = ConfettiController(duration: const Duration(seconds: 35));
+    _confettiController.play();
+
     ManagementBodyNotifier managementBodyNotifier = Provider.of<ManagementBodyNotifier>(context, listen: false);
 
     _autoBio = managementBodyNotifier.currentManagementBody.autoBio;
@@ -783,5 +801,11 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
 
   int sharedValue = 0;
 
+
+  @override
+  void dispose() {
+    _confettiController.dispose();
+    super.dispose();
+  }
 
 }

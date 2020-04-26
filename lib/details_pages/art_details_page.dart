@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,8 @@ class ArtDetailsPage extends StatefulWidget {
 }
 
 class _ArtDetailsPage extends State<ArtDetailsPage> {
+  ConfettiController _confettiController;
+
   bool _isVisible = true;
 
   void showToast() {
@@ -101,184 +104,207 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+
     artClassNotifier = Provider.of<ArtClassNotifier>(context, listen: true);
 
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(86, 158, 128, 1),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          artClassNotifier.currentArtClass.nickname,
-          style: GoogleFonts.sanchez(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
+    return ConfettiWidget(
+      confettiController: _confettiController,
+      blastDirectionality: BlastDirectionality.explosive,
+      shouldLoop: false,
+      colors: [
+        Colors.green,
+        Colors.blue,
+        Colors.pink,
+        Colors.orange,
+        Colors.purple,
+        Colors.brown,
+        Colors.white,
+        Colors.blueGrey,
+        Colors.redAccent,
+        Colors.teal,
+        Colors.indigoAccent,
+        Colors.cyan,
+      ],
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(86, 158, 128, 1),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            artClassNotifier.currentArtClass.nickname,
+            style: GoogleFonts.sanchez(
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
+          elevation: 10,
+          backgroundColor: Color.fromRGBO(46, 137, 112, 1),
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
-        elevation: 10,
-        backgroundColor: Color.fromRGBO(46, 137, 112, 1),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Tooltip(
-                child: Container(
-                  width: 400,
-                  height: 520,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Tooltip(
+                  child: Container(
+                    width: 400,
+                    height: 520,
 //                  foregroundDecoration: const BoxDecoration(
 //                    image: DecorationImage(
 //                        image: NetworkImage(
 //                            'https://p6.storage.canalblog.com/69/50/922142/85510911_o.png'),
 //                        fit: BoxFit.fill),
 //                  ),
+                    child: Card(
+                      elevation: 5,
+                      margin: EdgeInsets.all(10),
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: CachedNetworkImage(
+                        imageUrl: artClassNotifier.currentArtClass.image,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) =>
+                            Icon(MdiIcons.alertRhombus),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  message: artClassNotifier.currentArtClass.name),
+              Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Color.fromRGBO(46, 137, 112, 1).withOpacity(0.20),
+                  onTap: () {},
                   child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.all(10),
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: CachedNetworkImage(
-                      imageUrl: artClassNotifier.currentArtClass.image,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) =>
-                          Icon(MdiIcons.alertRhombus),
+                    elevation: 4,
+                    shape: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              Color.fromRGBO(46, 137, 112, 1).withOpacity(0.70),
+                          width: 4.0,
+                          style: BorderStyle.solid),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                ),
-                message: artClassNotifier.currentArtClass.name),
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: Color.fromRGBO(46, 137, 112, 1).withOpacity(0.20),
-                onTap: () {},
-                child: Card(
-                  elevation: 4,
-                  shape: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color:
-                            Color.fromRGBO(46, 137, 112, 1).withOpacity(0.70),
-                        width: 4.0,
-                        style: BorderStyle.solid),
-                  ),
-                  margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(
-                          artClassNotifier.currentArtClass.name.toUpperCase(),
-                          style: GoogleFonts.blinker(
-                              color: Color.fromRGBO(46, 137, 112, 1),
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        (() {
-                          if (artClassNotifier.currentArtClass.prefect == "Yes") {
-                            return
-                              Row(
-                                children: <Widget>[
-                                  SizedBox(width: 10),
-                                  Icon (
-                                    MdiIcons.shieldCheck,
-                                    color: Color.fromRGBO(46, 137, 112, 1),
-                                  ),
-                                ],
-                              );
-                          } else {
-                            return Visibility(
-                              visible: !_isVisible,
-                              child: Icon (
-                                MdiIcons.shieldCheck,
+                    margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                            artClassNotifier.currentArtClass.name.toUpperCase(),
+                            style: GoogleFonts.blinker(
                                 color: Color.fromRGBO(46, 137, 112, 1),
-                              ),
-                            );
-                          }
-                        }()),
-                      ],
+                                fontSize: 30,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          (() {
+                            if (artClassNotifier.currentArtClass.prefect == "Yes") {
+                              return
+                                Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 10),
+                                    Icon (
+                                      MdiIcons.shieldCheck,
+                                      color: Color.fromRGBO(46, 137, 112, 1),
+                                    ),
+                                  ],
+                                );
+                            } else {
+                              return Visibility(
+                                visible: !_isVisible,
+                                child: Icon (
+                                  MdiIcons.shieldCheck,
+                                  color: Color.fromRGBO(46, 137, 112, 1),
+                                ),
+                              );
+                            }
+                          }()),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Card(
-              elevation: 5,
-              color: Colors.white,
-              margin: EdgeInsets.all(10),
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, left: 8.0, right: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 35),
-                      child: CupertinoSlidingSegmentedControl<int>(
-                        padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                        thumbColor: Colors.white,
-                        backgroundColor:
-                            Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
-                        children: {
-                          0: Text(
-                            reachDetails,
-                            style: GoogleFonts.sacramento(
+              Card(
+                elevation: 5,
+                color: Colors.white,
+                margin: EdgeInsets.all(10),
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 20, bottom: 20, left: 8.0, right: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 35),
+                        child: CupertinoSlidingSegmentedControl<int>(
+                          padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                          thumbColor: Colors.white,
+                          backgroundColor:
+                              Color.fromRGBO(46, 137, 112, 1).withAlpha(50),
+                          children: {
+                            0: Text(
+                              reachDetails,
+                              style: GoogleFonts.sacramento(
+                                  color: Color.fromRGBO(46, 137, 112, 1),
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            1: Text(
+                              autoBioDetails,
+                              style: GoogleFonts.sacramento(
                                 color: Color.fromRGBO(46, 137, 112, 1),
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400),
-                          ),
-                          1: Text(
-                            autoBioDetails,
-                            style: GoogleFonts.sacramento(
-                              color: Color.fromRGBO(46, 137, 112, 1),
-                              fontSize: 25,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
-                        },
-                        onValueChanged: (int val) {
-                          setState(() {
-                            sharedValue = val;
-                          });
-                        },
-                        groupValue: sharedValue,
+                          },
+                          onValueChanged: (int val) {
+                            setState(() {
+                              sharedValue = val;
+                            });
+                          },
+                          groupValue: sharedValue,
+                        ),
                       ),
-                    ),
-                    userBIO[sharedValue],
-                  ],
+                      userBIO[sharedValue],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 
   initState() {
+    _confettiController = ConfettiController(duration: const Duration(seconds: 35));
+    _confettiController.play();
+
     ArtClassNotifier artClassNotifier = Provider.of<ArtClassNotifier>(context, listen: false);
 
     _autoBio = artClassNotifier.currentArtClass.autoBio;
@@ -1801,4 +1827,11 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
   }
 
   int sharedValue = 0;
+
+  @override
+  void dispose() {
+    _confettiController.dispose();
+    super.dispose();
+  }
+
 }

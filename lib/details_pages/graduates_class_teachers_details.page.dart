@@ -1,5 +1,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +71,7 @@ class GraduatesClassTeachersDetailsPage extends StatefulWidget {
 }
 
 class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDetailsPage>{
+  ConfettiController _confettiController;
 
   bool _isVisible = true;
 
@@ -92,151 +94,164 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
 
     graduatesClassTeachersNotifier = Provider.of<GraduatesClassTeachersNotifier>(context, listen: true);
 
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(114, 78, 147, 1),
-      appBar: AppBar(
-        centerTitle: true,
-//        title: Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
+    return ConfettiWidget(
+      confettiController: _confettiController,
+      blastDirectionality: BlastDirectionality.explosive,
+      shouldLoop: false,
+      colors: [
+        Colors.green,
+        Colors.blue,
+        Colors.pink,
+        Colors.orange,
+        Colors.purple,
+        Colors.brown,
+        Colors.white,
+        Colors.blueGrey,
+        Colors.redAccent,
+        Colors.teal,
+        Colors.indigoAccent,
+        Colors.cyan,
+      ],
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(114, 78, 147, 1),
+        appBar: AppBar(
+          centerTitle: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
+
+          elevation: 10,
+          backgroundColor: Color.fromRGBO(95, 65, 128, 1),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
-//        SliverAppBar(
-//          shape: ContinuousRectangleBorder(
-//              borderRadius: BorderRadius.only(
-//                  bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30))),
-//          title: Text('Sliver AppBar'),
-//        );
-        elevation: 10,
-        backgroundColor: Color.fromRGBO(95, 65, 128, 1),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Tooltip(
-                child: Container(
-                  width: 400,
-                  height: 520,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Tooltip(
+                  child: Container(
+                    width: 400,
+                    height: 520,
+                    child: Card(
+                      elevation: 5,
+                      margin: EdgeInsets.all(10),
+                      semanticContainer: true,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      child: CachedNetworkImage(
+                        imageUrl: graduatesClassTeachersNotifier.currentGraduatesClassTeachers.image,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                  message: graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name
+              ),
+              Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.20),
+                  onTap: () {},
                   child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.all(10),
-                    semanticContainer: true,
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: CachedNetworkImage(
-                      imageUrl: graduatesClassTeachersNotifier.currentGraduatesClassTeachers.image,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(MdiIcons.alertRhombus),
+                    elevation: 4,
+                    shape: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.80), width: 4.0, style: BorderStyle.solid
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                ),
-                message: graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name
-            ),
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.20),
-                onTap: () {},
-                child: Card(
-                  elevation: 4,
-                  shape: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.80), width: 4.0, style: BorderStyle.solid
-                    ),
-                  ),
 
-                  margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 16.0,
-                        top: 16.0,
-                        right: 16.0,
-                        bottom: 16.0),
+                    margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 16.0,
+                          top: 16.0,
+                          right: 16.0,
+                          bottom: 16.0),
 
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
-                          style: GoogleFonts.blinker(
-                              color: Color.fromRGBO(114, 78, 147, 1),
-                              fontSize: 30,
-                              fontWeight: FontWeight.w500
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
+                            style: GoogleFonts.blinker(
+                                color: Color.fromRGBO(114, 78, 147, 1),
+                                fontSize: 30,
+                                fontWeight: FontWeight.w500
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
 
+                    ),
                   ),
                 ),
               ),
-            ),
-            Card(
-              elevation: 5,
-              color: Colors.white,
-              margin: EdgeInsets.all(10),
-              semanticContainer: true,
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
+              Card(
+                elevation: 5,
+                color: Colors.white,
+                margin: EdgeInsets.all(10),
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
 
-              child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 35),
-                      child: CupertinoSlidingSegmentedControl<int>(
-                        padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                        thumbColor: Colors.white,
-                        backgroundColor: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 35),
+                        child: CupertinoSlidingSegmentedControl<int>(
+                          padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                          thumbColor: Colors.white,
+                          backgroundColor: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
 
-                        children: {
-                          0: Text('Reach',
-                            style: GoogleFonts.sacramento(
+                          children: {
+                            0: Text('Reach',
+                              style: GoogleFonts.sacramento(
+                                  color: Color.fromRGBO(114, 78, 147, 1),
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w400
+                              ),
+                            ),
+                            1: Text('AutoBio',
+                              style: GoogleFonts.sacramento(
                                 color: Color.fromRGBO(114, 78, 147, 1),
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w400
-                            ),
-                          ),
-                          1: Text('AutoBio',
-                            style: GoogleFonts.sacramento(
-                              color: Color.fromRGBO(114, 78, 147, 1),
-                              fontSize: 25,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w400,
 
+                              ),
                             ),
-                          ),
-                        },
-                        onValueChanged: (int val) {
-                          setState(() {
-                            sharedValue = val;
+                          },
+                          onValueChanged: (int val) {
+                            setState(() {
+                              sharedValue = val;
 
-                          });
-                        },
-                        groupValue: sharedValue,
+                            });
+                          },
+                          groupValue: sharedValue,
+                        ),
                       ),
-                    ),
-                    userBIO[sharedValue],
-                  ],
+                      userBIO[sharedValue],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -244,6 +259,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
   }
 
   initState(){
+    _confettiController = ConfettiController(duration: const Duration(seconds: 35));
+    _confettiController.play();
+
     GraduatesClassTeachersNotifier graduatesClassTeachersNotifier = Provider.of<GraduatesClassTeachersNotifier>(context, listen: false);
 
     _autoBio = graduatesClassTeachersNotifier.currentGraduatesClassTeachers.autoBio;
@@ -894,5 +912,10 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
 
   int sharedValue = 0;
 
+  @override
+  void dispose() {
+    _confettiController.dispose();
+    super.dispose();
+  }
 
 }

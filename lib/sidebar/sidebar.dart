@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer/shimmer.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
 
@@ -84,17 +86,68 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 
   @override
   Widget build(BuildContext context) {
-    final screeWidth = MediaQuery.of(context).size.width;
+    var screeWidth = MediaQuery.of(context).size.width;
+    var screeWidthLeft = MediaQuery.of(context).size.width;
+    var wittyWidth;
+
+//      if (MediaQuery.of(context).size.width <= 1620) {
+//        var d = "freeform";
+//        wittyWidth = screeWidth + 620;
+//      }
+       if (MediaQuery.of(context).size.width <=  1565) {
+        var d = "Ipad Pro";
+        wittyWidth = screeWidth + 565;
+      }
+      else if (screeWidth <= 750) {
+        var d = "medium tablet";
+        wittyWidth = screeWidth =  750;
+      }
+      else if (screeWidth <= 550) {
+        var d = "small tablet";
+        wittyWidth = screeWidth = 550;
+      }
+      else if (screeWidth <= 715) {
+        var d = "Ipad Air";
+        wittyWidth = screeWidth = 715;
+      }
+      else if (screeWidth <= screeWidth + 20) {
+        var d = "Large Phone";
+        wittyWidth = screeWidth =  screeWidth + 20;
+      }
+      else if (screeWidth >= screeWidth - 50) {
+        var d = "Iphone XS Max";
+        wittyWidth = screeWidth = screeWidth - 50;
+      }
+      else if (screeWidth >= screeWidth - 90) {
+        var d = "Iphone X";
+        wittyWidth = screeWidth = screeWidth - 90;
+      }
+      else if (screeWidth >= screeWidth - 105) {
+        var d = "Medium Phone";
+        wittyWidth = screeWidth = screeWidth - 105;
+      }
+      else if (screeWidth >= screeWidth - 145) {
+        var d = "Iphone 5 | Small Phone";
+        wittyWidth = screeWidth = screeWidth - 145;
+      }
+
+
+
+
     return StreamBuilder<bool>(
       initialData: false,
       stream: isSidebarOpenedStream,
       builder: (context, isSidebarOpenedAsync) {
         return AnimatedPositioned(
+
           duration: _animationDuration,
           top: 0,
           bottom: 0,
-          left: isSidebarOpenedAsync.data ? 0 : -screeWidth,
-          right: isSidebarOpenedAsync.data ? 0 : screeWidth - 55,
+//          left: isSidebarOpenedAsync.data ? 0 : -screeWidth,
+//          right: isSidebarOpenedAsync.data ? 0 : 200,
+          left: isSidebarOpenedAsync.data ? 0 : -screeWidthLeft,
+          right: isSidebarOpenedAsync.data ? 0 : wittyWidth,
+
           child: Row(
             children: <Widget>[
               Expanded(
@@ -130,16 +183,29 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       child: Padding(
                                         padding: const EdgeInsets.only(bottom: 20, top: 120),
                                         child: ListTile(
-                                          title: Text(
-                                            schoolName,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.w800),
+                                          title: Shimmer.fromColors(
+                                            baseColor: Colors.white,
+                                            highlightColor: Colors.brown,
+                                            period: Duration(seconds: 2),
+                                            child: Text(
+                                              schoolName.toUpperCase(),
+                                              style: GoogleFonts.gorditas(
+                                                  color: Colors.white,
+                                                  fontSize: 25,
+                                                  fontWeight: FontWeight.w800,
+                                                  shadows: <Shadow>[
+                                                    Shadow(
+                                                        blurRadius: 30,
+                                                        color: Colors.white,
+                                                        offset: Offset.fromDirection(100, 12)
+                                                    )
+                                                  ]
+                                              ),
+                                            ),
                                           ),
                                           subtitle: Text(
                                             subtitle,
-                                            style: TextStyle(
+                                            style: GoogleFonts.varela(
                                               color: Colors.brown[200],
                                               fontWeight: FontWeight.w500,
                                               fontSize: 20,
@@ -328,7 +394,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                 ),
               ),
               Align(
-                alignment: Alignment(-0.4, -0.9),
+                alignment: Alignment(-0.1, -0.9),
                 child: GestureDetector(
                   onTap: () {
                     onIconPressed();
@@ -341,7 +407,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       child: Container(
                         width: 35,
                         height: 110,
-                        color: Colors.indigo.shade500,
+                        color: Colors.yellowAccent,
                         alignment: Alignment.centerLeft,
                         child: AnimatedIcon(
                           progress: _animationController.view,
@@ -407,47 +473,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 
 }
 
-class CustomPILLCardShapePainter extends CustomPainter {
-
-  final double radius;
-  final Color startColor;
-  final Color endColor;
-
-  CustomPILLCardShapePainter(this.radius, this.startColor, this.endColor);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-   var radius = 24.0;
-
-   var david = Paint();
-   david.shader = ui.Gradient.linear(
-     Offset(0,0), Offset(size.width, size.height), [
-       HSLColor.fromColor(startColor).withLightness(0.8).toColor(),endColor
-   ]);
-
-   var jesus = Path()
-     ..moveTo(0, size.height)
-     ..lineTo(size.width - radius, size.height)
-     ..quadraticBezierTo(size.width, size.height, size.width, size.height - radius)
-     ..lineTo(size.width, radius)
-     ..quadraticBezierTo(size.width, 0, size.width - radius, 0)
-     ..lineTo(size.width - 1.5 * radius, 0)
-     ..quadraticBezierTo(-radius, 2 * radius, 0, size.height)
-     ..close();
-
-   canvas.drawPath(jesus, david);
-
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-
-    return true;
-  }
-
-
-}
-
 class CustomMenuClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -458,7 +483,7 @@ class CustomMenuClipper extends CustomClipper<Path> {
     final height = size.height;
 
     Path path = Path();
-    path.moveTo(0, 0);
+    path.moveTo(0, 10);
     path.quadraticBezierTo(0, 8, 10, 16);
     path.quadraticBezierTo(width - 1, height / 2 - 20, width, height / 2);
     path.quadraticBezierTo(width + 1, height / 2 + 20, 10, height - 16);
@@ -471,5 +496,51 @@ class CustomMenuClipper extends CustomClipper<Path> {
 
     return true;
   }
+
+
+}
+
+
+
+
+
+class CustomPILLCardShapePainter extends CustomPainter {
+
+  final double radius;
+  final Color startColor;
+  final Color endColor;
+
+  CustomPILLCardShapePainter(this.radius, this.startColor, this.endColor);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    var radius = 24.0;
+
+    var david = Paint();
+    david.shader = ui.Gradient.linear(
+        Offset(0,0), Offset(size.width, size.height), [
+      HSLColor.fromColor(startColor).withLightness(0.8).toColor(),endColor
+    ]);
+
+    var jesus = Path()
+      ..moveTo(0, size.height)
+      ..lineTo(size.width - radius, size.height)
+      ..quadraticBezierTo(size.width, size.height, size.width, size.height - radius)
+      ..lineTo(size.width, radius)
+      ..quadraticBezierTo(size.width, 0, size.width - radius, 0)
+      ..lineTo(size.width - 1.5 * radius, 0)
+      ..quadraticBezierTo(-radius, 2 * radius, 0, size.height)
+      ..close();
+
+    canvas.drawPath(jesus, david);
+
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+
+    return true;
+  }
+
 
 }
