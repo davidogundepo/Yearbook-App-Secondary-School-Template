@@ -154,7 +154,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                 color: Color.fromRGBO(2, 42, 53, 1),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Center(
                       child: Padding(
@@ -233,7 +233,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                           left: 10, right: 10, bottom: 10),
                       child: Text(
                         bottomLine,
-                        textAlign: TextAlign.justify,
+                        textAlign: TextAlign.start,
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,

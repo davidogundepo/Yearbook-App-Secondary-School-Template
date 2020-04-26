@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
@@ -86,50 +87,53 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 
   @override
   Widget build(BuildContext context) {
-    var screeWidth = MediaQuery.of(context).size.width;
+    var dd = MediaQuery.of(context).size;
+//    double screeWidth = size.width > size.height ? size.height : size.width;
+    double screeWidth = sqrt((dd.width * dd.width) + (dd.height * dd.height));
     var screeWidthLeft = MediaQuery.of(context).size.width;
+    var screeWidthLeftYou = MediaQuery.of(context).size.width;
     var wittyWidth;
 
-//      if (MediaQuery.of(context).size.width <= 1620) {
-//        var d = "freeform";
-//        wittyWidth = screeWidth + 620;
-//      }
-       if (MediaQuery.of(context).size.width <=  1565) {
+      if (screeWidth > 947) {
+        var d = "freeform";
+        wittyWidth = screeWidthLeftYou  - 200;
+      }
+      else if (screeWidth <= 947) {
         var d = "Ipad Pro";
-        wittyWidth = screeWidth + 565;
+        wittyWidth = screeWidthLeftYou - 200;
       }
-      else if (screeWidth <= 750) {
-        var d = "medium tablet";
-        wittyWidth = screeWidth =  750;
-      }
-      else if (screeWidth <= 550) {
-        var d = "small tablet";
-        wittyWidth = screeWidth = 550;
-      }
-      else if (screeWidth <= 715) {
-        var d = "Ipad Air";
-        wittyWidth = screeWidth = 715;
-      }
-      else if (screeWidth <= screeWidth + 20) {
-        var d = "Large Phone";
-        wittyWidth = screeWidth =  screeWidth + 20;
-      }
-      else if (screeWidth >= screeWidth - 50) {
-        var d = "Iphone XS Max";
-        wittyWidth = screeWidth = screeWidth - 50;
-      }
-      else if (screeWidth >= screeWidth - 90) {
-        var d = "Iphone X";
-        wittyWidth = screeWidth = screeWidth - 90;
-      }
-      else if (screeWidth >= screeWidth - 105) {
-        var d = "Medium Phone";
-        wittyWidth = screeWidth = screeWidth - 105;
-      }
-      else if (screeWidth >= screeWidth - 145) {
-        var d = "Iphone 5 | Small Phone";
-        wittyWidth = screeWidth = screeWidth - 145;
-      }
+//      else if (screeWidth < 750) {
+//        var d = "medium tablet";
+//        wittyWidth = screeWidth =  650;
+//      }
+//      else if (screeWidth <= 550) {
+//        var d = "small tablet";
+//        wittyWidth = screeWidth = 650;
+//      }
+//      else if (screeWidth <= 715) {
+//        var d = "Ipad Air";
+//        wittyWidth = screeWidth = 615;
+//      }
+//      else if (screeWidth <= screeWidth + 20) {
+//        var d = "Large Phone";
+//        wittyWidth = screeWidth =  screeWidth + 50;
+//      }
+//      else if (screeWidth >= screeWidth - 50) {
+//        var d = "Iphone XS Max";
+//        wittyWidth = screeWidth = screeWidth - 50;
+//      }
+//      else if (screeWidth >= screeWidth - 90) {
+//        var d = "Iphone X";
+//        wittyWidth = screeWidth = screeWidth - 90;
+//      }
+//      else if (screeWidth >= screeWidth - 105) {
+//        var d = "Medium Phone";
+//        wittyWidth = screeWidth = screeWidth - 105;
+//      }
+//      else if (screeWidth >= screeWidth - 145) {
+//        var d = "Iphone 5 | Small Phone";
+//        wittyWidth = screeWidth = screeWidth - 145;
+//      }
 
 
 
@@ -139,255 +143,260 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
       stream: isSidebarOpenedStream,
       builder: (context, isSidebarOpenedAsync) {
         return AnimatedPositioned(
-
           duration: _animationDuration,
           top: 0,
           bottom: 0,
 //          left: isSidebarOpenedAsync.data ? 0 : -screeWidth,
 //          right: isSidebarOpenedAsync.data ? 0 : 200,
           left: isSidebarOpenedAsync.data ? 0 : -screeWidthLeft,
-          right: isSidebarOpenedAsync.data ? 0 : wittyWidth,
+          right: isSidebarOpenedAsync.data ? 0 : screeWidthLeft - 55,
 
           child: Row(
             children: <Widget>[
               Expanded(
                 child: Card(
+
                   elevation: 20,
                   margin: EdgeInsets.all(0),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            colors: [Colors.indigo, Colors.cyan]
-                        )
-                    ),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 60,
-                          ),
-                          Stack(
-                            children: <Widget>[
-                              Opacity(
-                                opacity: 0.7,
-                                child: Container(
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                      splashColor: Colors.brown,
-                                      onTap: () {},
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(bottom: 20, top: 120),
-                                        child: ListTile(
-                                          title: Shimmer.fromColors(
-                                            baseColor: Colors.white,
-                                            highlightColor: Colors.brown,
-                                            period: Duration(seconds: 2),
-                                            child: Text(
-                                              schoolName.toUpperCase(),
-                                              style: GoogleFonts.gorditas(
-                                                  color: Colors.white,
-                                                  fontSize: 25,
-                                                  fontWeight: FontWeight.w800,
-                                                  shadows: <Shadow>[
-                                                    Shadow(
-                                                        blurRadius: 30,
-                                                        color: Colors.white,
-                                                        offset: Offset.fromDirection(100, 12)
-                                                    )
-                                                  ]
+                  child: Align(
+                    alignment: Alignment(0, -1.0),
+                    child: Container(
+
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [Colors.indigo, Colors.cyan]
+                          )
+                      ),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(
+                              height: 60,
+                            ),
+                            Stack(
+                              children: <Widget>[
+                                Opacity(
+                                  opacity: 0.7,
+                                  child: Container(
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        splashColor: Colors.brown,
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(bottom: 20, top: 120),
+                                          child: ListTile(
+                                            title: Shimmer.fromColors(
+                                              baseColor: Colors.white,
+                                              highlightColor: Colors.brown,
+                                              period: Duration(seconds: 2),
+                                              child: Text(
+                                                schoolName.toUpperCase(),
+                                                style: GoogleFonts.gorditas(
+                                                    color: Colors.white,
+                                                    fontSize: 25,
+                                                    fontWeight: FontWeight.w800,
+                                                    shadows: <Shadow>[
+                                                      Shadow(
+                                                          blurRadius: 30,
+                                                          color: Colors.white,
+                                                          offset: Offset.fromDirection(100, 12)
+                                                      )
+                                                    ]
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          subtitle: Text(
-                                            subtitle,
-                                            style: GoogleFonts.varela(
-                                              color: Colors.brown[200],
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 20,
+                                            subtitle: Text(
+                                              subtitle,
+                                              style: GoogleFonts.varela(
+                                                color: Colors.brown[200],
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 20,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  width: 400.0,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      alignment: Alignment(0, -0.8),
-                                      image: new ExactAssetImage(imgAsset),
-                                      fit: BoxFit.cover,
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height * 0.4,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        alignment: Alignment(0, -0.8),
+                                        image: new ExactAssetImage(imgAsset),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
+                                        stops: [0.3, 1],
+
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.blueAccent,
+                                          blurRadius: 12,
+                                          offset: Offset(3, 12),
+                                        )
+                                      ],
+                                      borderRadius: new BorderRadius.circular(10),
                                     ),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
-                                      stops: [0.3, 1],
 
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.blueAccent,
-                                        blurRadius: 12,
-                                        offset: Offset(3, 12),
-                                      )
-                                    ],
-                                    borderRadius: new BorderRadius.circular(10),
+
                                   ),
-
-
                                 ),
-                              ),
-                            ],
-                          ),
-                          Divider(
-                            height: 30,
-                            thickness: 0.5,
-                            color: Colors.white.withOpacity(0.3),
-                            indent: 32,
-                            endIndent: 32,
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(0);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySciencePageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.matrix,
-                                  title: scienceClassTitle,
-
-                                ),
-                              ),
+                              ],
                             ),
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(1);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySocialPageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.chartBellCurve,
-                                  title: socialScienceClassTitle,
-                                ),
-                              ),
+                            Divider(
+                              height: 30,
+                              thickness: 0.5,
+                              color: Colors.white.withOpacity(0.3),
+                              indent: 32,
+                              endIndent: 32,
                             ),
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(2);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyArtPageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.draw,
-                                  title: artClassTitle,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(3);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyClassPrefectsPageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.accountGroup,
-                                  title: schoolPrefectsTitle,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(4);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGraduatesClassTeachersPageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.teach,
-                                  title: classTeachersTitle,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Material(
-                            color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
-                            child: InkWell(
-                              splashColor: Colors.white,
-                              onTap: () {
-                                _onSelected(5);
-                                onIconPressed();
-                                BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyPageClickedEvent);
-                              },
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: MenuItem(
-                                  icon: MdiIcons.pillar,
-                                  title: managementBodyTitle,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            height: 64,
-                            thickness: 0.5,
-                            color: Colors.white.withOpacity(0.3),
-                            indent: 32,
-                            endIndent: 32,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 50, top: 10),
-                            child: Material(
-                              color: Colors.transparent,
+                            Material(
+                              color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
                               child: InkWell(
                                 splashColor: Colors.white,
                                 onTap: () {
-                                  _onWillPop();
+                                  _onSelected(0);
                                   onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySciencePageClickedEvent);
                                 },
                                 child: Align(
-                                  alignment: Alignment.center,
+                                  alignment: Alignment.centerLeft,
                                   child: MenuItem(
-                                    icon: MdiIcons.logout,
-                                    title: exitAppStatement,
+                                    icon: MdiIcons.matrix,
+                                    title: scienceClassTitle,
+
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            Material(
+                              color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onSelected(1);
+                                  onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySocialPageClickedEvent);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: MenuItem(
+                                    icon: MdiIcons.chartBellCurve,
+                                    title: socialScienceClassTitle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Material(
+                              color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onSelected(2);
+                                  onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyArtPageClickedEvent);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: MenuItem(
+                                    icon: MdiIcons.draw,
+                                    title: artClassTitle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Material(
+                              color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onSelected(3);
+                                  onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyClassPrefectsPageClickedEvent);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: MenuItem(
+                                    icon: MdiIcons.accountGroup,
+                                    title: schoolPrefectsTitle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Material(
+                              color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onSelected(4);
+                                  onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGraduatesClassTeachersPageClickedEvent);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: MenuItem(
+                                    icon: MdiIcons.teach,
+                                    title: classTeachersTitle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Material(
+                              color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              child: InkWell(
+                                splashColor: Colors.white,
+                                onTap: () {
+                                  _onSelected(5);
+                                  onIconPressed();
+                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyPageClickedEvent);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: MenuItem(
+                                    icon: MdiIcons.pillar,
+                                    title: managementBodyTitle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              height: 64,
+                              thickness: 0.5,
+                              color: Colors.white.withOpacity(0.3),
+                              indent: 32,
+                              endIndent: 32,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 50, top: 10),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  splashColor: Colors.white,
+                                  onTap: () {
+                                    _onWillPop();
+                                    onIconPressed();
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: MenuItem(
+                                      icon: MdiIcons.logout,
+                                      title: exitAppStatement,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -407,7 +416,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       child: Container(
                         width: 35,
                         height: 110,
-                        color: Colors.yellowAccent,
+                        color: Colors.indigo,
                         alignment: Alignment.centerLeft,
                         child: AnimatedIcon(
                           progress: _animationController.view,

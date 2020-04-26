@@ -157,8 +157,8 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
             children: <Widget>[
               Tooltip(
                   child: Container(
-                    width: 400,
-                    height: 520,
+                    width: MediaQuery.of(context).size.width,
+
 //                  foregroundDecoration: const BoxDecoration(
 //                    image: DecorationImage(
 //                        image: NetworkImage(

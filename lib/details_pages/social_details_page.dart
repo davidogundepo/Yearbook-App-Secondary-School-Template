@@ -153,8 +153,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
             children: <Widget>[
               Tooltip(
                   child: Container(
-                    width: 400,
-                    height: 520,
+                    width: MediaQuery.of(context).size.width,
                     child: Card(
                       elevation: 5,
                       margin: EdgeInsets.all(10),

@@ -17,6 +17,7 @@ import './sidebar/sidebar_layout.dart';
 void main() => runApp(
 
   DevicePreview(
+    enabled: !kReleaseMode,
     builder: (context) =>  MultiProvider(
         providers: [
           ChangeNotifierProvider(
