@@ -100,7 +100,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
       }
       else if (screeWidth <= 947) {
         var d = "Ipad Pro";
-        wittyWidth = screeWidthLeftYou - 200;
+        wittyWidth = screeWidthLeftYou + 200;
       }
 //      else if (screeWidth < 750) {
 //        var d = "medium tablet";
@@ -462,17 +462,38 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(exitAppTitle),
-        content: Text(exitAppSubtitle),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: Colors.blue,
+        title: Text(exitAppTitle,
+          style: TextStyle(
+              color: Colors.white
+          ),
+        ),
+        content: Text(exitAppSubtitle,
+          style: TextStyle(
+              color: Colors.white
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(exitAppNo),
+            child: Text(exitAppNo,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text(exitAppYes),
+            child: Text(exitAppYes,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
           ),
         ],
       ),

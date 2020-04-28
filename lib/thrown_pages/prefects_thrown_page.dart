@@ -136,17 +136,38 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(exitAppTitle),
-        content: Text(exitAppSubtitle),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: Color.fromRGBO(242, 243, 244, 1),
+        title: Text(exitAppTitle,
+          style: TextStyle(
+              color: Colors.blueGrey
+          ),
+        ),
+        content: Text(exitAppSubtitle,
+          style: TextStyle(
+              color: Colors.blueGrey
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(exitAppNo),
+            child: Text(exitAppNo,
+              style: TextStyle(
+                  color: Colors.blueGrey
+              ),
+            ),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text(exitAppYes),
+            child: Text(exitAppYes,
+              style: TextStyle(
+                  color: Colors.blueGrey
+              ),
+            ),
           ),
         ],
       ),

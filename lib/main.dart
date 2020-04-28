@@ -17,7 +17,7 @@ import './sidebar/sidebar_layout.dart';
 void main() => runApp(
 
   DevicePreview(
-    enabled: !kReleaseMode,
+    enabled: !kDebugMode,
     builder: (context) =>  MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -75,7 +75,8 @@ class MyApp extends StatefulWidget {
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
-        home: SideBarLayout()
+        home: SideBarLayout(
+        )
       );
     }
 

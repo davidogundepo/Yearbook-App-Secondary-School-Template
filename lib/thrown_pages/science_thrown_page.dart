@@ -196,17 +196,38 @@ class _MySciencePage extends State<MySciencePage> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(exitAppTitle),
-        content: Text(exitAppSubtitle),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: Color.fromRGBO(222, 93, 131, 1),
+        title: Text(exitAppTitle,
+          style: TextStyle(
+              color: Colors.white
+          ),
+        ),
+        content: Text(exitAppSubtitle,
+          style: TextStyle(
+              color: Colors.white
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(exitAppNo),
+            child: Text(exitAppNo,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
           ),
           FlatButton(
             onPressed: () => exit(0),
             /*Navigator.of(context).pop(true)*/
-            child: Text(exitAppYes),
+            child: Text(exitAppYes,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
           ),
         ],
       ),
@@ -256,7 +277,8 @@ class _MySciencePage extends State<MySciencePage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
+                      icon: Icon(MdiIcons.bandage, color: Colors.white
+                      ),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: Colors.transparent,
@@ -265,7 +287,8 @@ class _MySciencePage extends State<MySciencePage> {
                               height: 250,
                               decoration: BoxDecoration(
                                 color: Colors.pink[300],
-                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                                borderRadius: BorderRadius.all(Radius.circular(15)
+                                ),
                               ),
                               child: Material(
                                 color: Colors.transparent,

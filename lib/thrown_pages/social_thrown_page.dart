@@ -195,17 +195,38 @@ class _MySocialPage extends State<MySocialPage> {
       context: context,
       builder: (context) =>
           AlertDialog(
-            title: Text(exitAppTitle),
-            content: Text(exitAppSubtitle),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+
+            ),
+            backgroundColor: Color.fromRGBO(194, 178, 128, 1),
+            title: Text(exitAppTitle,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
+            content: Text(exitAppSubtitle,
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: Text(exitAppNo),
+                child: Text(exitAppNo,
+                  style: TextStyle(
+                      color: Colors.white
+                  ),
+                ),
               ),
               FlatButton(
                 onPressed: () => exit(0),
                 /*Navigator.of(context).pop(true)*/
-                child: Text(exitAppYes),
+                child: Text(exitAppYes,
+                  style: TextStyle(
+                      color: Colors.white
+                  ),
+                ),
               ),
             ],
           ),
