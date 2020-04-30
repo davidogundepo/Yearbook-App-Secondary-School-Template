@@ -71,6 +71,7 @@ dependencies:
   shimmer: ^1.1.1
   confetti: ^0.4.0
   device_preview: ^0.4.4
+  firebase_crashlytics: ^0.1.3
 
 
 

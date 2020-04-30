@@ -14,42 +14,45 @@ import './notifier/science_class_notifier.dart';
 
 import './sidebar/sidebar_layout.dart';
 
-void main() => runApp(
+void main() {
+  runApp(
 
-  DevicePreview(
-    enabled: !kDebugMode,
-    builder: (context) =>  MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => ScienceClassNotifier(),
+    DevicePreview(
+      enabled: !kDebugMode,
+      builder: (context) =>
+          MultiProvider(
+              providers: [
+                ChangeNotifierProvider(
+                  create: (context) => ScienceClassNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => SocialClassNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => ArtClassNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => ClassPrefectsNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => GraduatesClassTeachersNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => ManagementBodyNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => SchoolArialNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => AchievementsNotifier(),
+                ),
+              ],
+              child: MyApp()
           ),
-          ChangeNotifierProvider(
-            create: (context) => SocialClassNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ArtClassNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ClassPrefectsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => GraduatesClassTeachersNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ManagementBodyNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => SchoolArialNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AchievementsNotifier(),
-          ),
-        ],
-        child: MyApp()
-      ),
-  ),
+    ),
 
-);
+  );
+}
 
 class MyApp extends StatefulWidget {
 
