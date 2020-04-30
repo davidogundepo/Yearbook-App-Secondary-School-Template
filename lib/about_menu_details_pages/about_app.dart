@@ -67,7 +67,7 @@ String childrenPrivacy1 = "These Services do not address anyone under the age of
 String privacyPolicyChanges = "Changes to This Privacy Policy";
 String privacyPolicyChanges1 = "We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. This policy is effective as of 2020-04-30";
 String contactUs = "Contact Us";
-String contactUs1 = "If you have any questions or suggestions about our Terms and Conditions, Disclaimer, Privacy Policy, Software do not hesitate to send an email by clicking me";
+String contactUs1 = "If you have any questions or suggestions about our Terms and Conditions, Disclaimer, Privacy Policy, Software do not hesitate to send an email by clicking me too.";
 String termsEtConditionsMore = "For more information about our terms and conditions, please trust and click me.";
 
 

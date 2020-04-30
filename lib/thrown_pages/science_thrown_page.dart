@@ -1,11 +1,15 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../about_menu_details_pages/about_app.dart';
 import '../about_menu_details_pages/about_school.dart';
 import '../about_menu_details_pages/acronyms_meanings.dart';
@@ -47,6 +51,7 @@ class MySciencePage extends StatefulWidget with NavigationStates{
 }
 
 class _MySciencePage extends State<MySciencePage> {
+
 
   bool _isVisible = true;
 
@@ -252,10 +257,55 @@ class _MySciencePage extends State<MySciencePage> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
 
+  startTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool firstTime = prefs.getBool('first_time');
+
+    if (firstTime != null && !firstTime) {
+      // Not first time
+    } else {
+      // First time
+      prefs.setBool('first_time', false);
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+
+          ),
+          backgroundColor: Color.fromRGBO(222, 93, 131, 1),
+          title: Text("Network",
+            style: TextStyle(
+                color: Colors.white
+            ),
+          ),
+          content: Text("The internet connection is required for the first time launch, please leave on for few seconds :)",
+            style: TextStyle(
+                color: Colors.white
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text("Okies",
+                style: TextStyle(
+                    color: Colors.white
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   void initState() {
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
     getScienceClass(scienceClassNotifier);
+
+    startTime();
+
     super.initState();
   }
 
