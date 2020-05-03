@@ -10,6 +10,7 @@ String sp = "SP - School Prefcets";
 String sd = "SD - Science Department";
 String ad = "AD - Art Department";
 String ssd = "SSD - Social Science Department";
+String icdat = "ICDAT - I Can Do All Things";
 
 String imgAsset = "assets/images/acronym.jpg";
 
@@ -151,6 +152,14 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                 ),
                                 TextSpan(
                                   text: ssd,
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: icdat,
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: Colors.white,

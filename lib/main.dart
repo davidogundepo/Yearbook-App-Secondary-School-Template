@@ -70,8 +70,7 @@ class MyApp extends StatefulWidget {
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
-        home: SideBarLayout(
-        )
+        home: SideBarLayout()
       );
     }
 
