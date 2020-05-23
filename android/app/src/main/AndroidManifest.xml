@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Almanac Elite Set 2020"
+        android:label="Secondary Sch ALMANAC Template"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
