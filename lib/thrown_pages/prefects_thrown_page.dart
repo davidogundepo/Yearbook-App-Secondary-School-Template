@@ -34,6 +34,24 @@ String aboutApp = "About App";
 
 String imgAsset = "assets/images/hallel_18.jpg";
 
+Color backgroundColor = Color.fromRGBO(242, 243, 244, 1);
+Color backgroundColorTwo = Colors.blueAccent;
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(254, 250, 239, 1);
+Color appBarIconColor = Colors.white;
+Color modalColor = Colors.transparent;
+Color modalBackgroundColor = Color.fromRGBO(254, 250, 239, 1);
+Color materialBackgroundColor = Colors.transparent;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Colors.white;
+Color splashColorTwo = Colors.black87;
+Color iconColor = Color.fromRGBO(254, 250, 239, 1);
+Color iconColorTwo = Colors.blueGrey;
+Color textColor = Colors.blueGrey;
+Color textColorTwo = Colors.white70;
+Color dialogBackgroundColor = Color.fromRGBO(242, 243, 244, 1);
+Color borderColor = Colors.black;
+
 
 class MyClassPrefectsPage extends StatefulWidget with NavigationStates{
   MyClassPrefectsPage({Key key, this.title}) : super(key: key);
@@ -52,13 +70,13 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
+          borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
         ),
 
         child: Material(
-          color: Colors.transparent,
+          color: materialBackgroundColor,
           child: InkWell(
-            splashColor: Colors.white,
+            splashColor: splashColor,
             onTap: () {
               classPrefectsNotifier.currentClassPrefects = classPrefectsNotifier.classPrefectsList[index];
               navigateToClassPrefectDetailsPage(context);
@@ -95,7 +113,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                               Text(
                                   classPrefectsNotifier.classPrefectsList[index].name,
                                   style: GoogleFonts.tenorSans(
-                                    color: Colors.blueGrey,
+                                    color: textColor,
                                     fontSize: 17,
                                     fontWeight: FontWeight.w600
                                   )
@@ -104,7 +122,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                               SizedBox(width: 10),
                               Icon (
                                 MdiIcons.shieldCheck,
-                                color: Color.fromRGBO(254, 250, 239, 1),
+                                color: iconColor,
                               ),
                             ],
                           ),
@@ -114,7 +132,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                           child: Text(
                               classPrefectsNotifier.classPrefectsList[index].positionEnforced,
                               style: GoogleFonts.varela(
-                                  color: Colors.blueGrey,
+                                  color: textColor,
                                   fontStyle: FontStyle.italic
                               )
                           ),
@@ -140,15 +158,15 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
           borderRadius: BorderRadius.all(Radius.circular(8)),
 
         ),
-        backgroundColor: Color.fromRGBO(242, 243, 244, 1),
+        backgroundColor: dialogBackgroundColor,
         title: Text(exitAppTitle,
           style: TextStyle(
-              color: Colors.blueGrey
+              color: textColor
           ),
         ),
         content: Text(exitAppSubtitle,
           style: TextStyle(
-              color: Colors.blueGrey
+              color: textColor
           ),
         ),
         actions: <Widget>[
@@ -156,7 +174,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(exitAppNo,
               style: TextStyle(
-                  color: Colors.blueGrey
+                  color: textColor
               ),
             ),
           ),
@@ -165,7 +183,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
             /*Navigator.of(context).pop(true)*/
             child: Text(exitAppYes,
               style: TextStyle(
-                  color: Colors.blueGrey
+                  color: textColor
               ),
             ),
           ),
@@ -208,7 +226,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Color.fromRGBO(242, 243, 244, 1),
+          color: backgroundColor,
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -217,30 +235,30 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: Colors.blueGrey,),
+                      icon: Icon(MdiIcons.bandage, color: iconColorTwo,),
                       onPressed: () {
                         showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
+                            backgroundColor: modalColor,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(254, 250, 239, 1),
+                                color: modalBackgroundColor,
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Colors.black87,
+                                  splashColor: splashColorTwo,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
                                           leading: new Icon(MdiIcons.atom,
-                                          color: Colors.blueGrey,
+                                          color: iconColorTwo,
                                           ),
                                           title: new Text(whoWeAre,
                                           style: GoogleFonts.zillaSlab(
-                                            color: Colors.blueGrey
+                                            color: textColor
                                           ),
                                           ),
                                           onTap: () {
@@ -249,11 +267,11 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.chessQueen,
-                                          color: Colors.blueGrey,
+                                          color: iconColorTwo,
                                         ),
                                         title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.blueGrey
+                                              color: textColor
                                           ),
                                         ),
                                         onTap: () {
@@ -262,11 +280,11 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                       ),
                                       ListTile(
                                           leading: new Icon(MdiIcons.sortAlphabeticalAscending,
-                                            color: Colors.blueGrey,
+                                            color: iconColorTwo,
                                           ),
                                           title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
-                                                color: Colors.blueGrey
+                                                color: textColor
                                             ),
                                           ),
                                           onTap: () {
@@ -275,11 +293,11 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.opacity,
-                                          color: Colors.blueGrey,
+                                          color: iconColorTwo,
                                         ),
                                         title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.blueGrey
+                                              color: textColor
                                           ),
                                         ),
                                         onTap: () {
@@ -295,7 +313,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                       },
                     ),
                   ],
-                  backgroundColor: Color.fromRGBO(254, 250, 239, 1),
+                  backgroundColor: appBarBackgroundColor,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -303,7 +321,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                       centerTitle: true,
                       title: Text(thrownName,
                           style:  GoogleFonts.amaticSC(
-                            color: Colors.blueGrey,
+                            color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold
                           )

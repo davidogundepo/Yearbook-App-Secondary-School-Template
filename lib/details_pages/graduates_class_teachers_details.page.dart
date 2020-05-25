@@ -42,6 +42,35 @@ String courseTeachingTitle = "Course Teaching\n";
 String qualificationTitle = "Qualification(s)\n";
 String yearOfInceptionTitle = "Year of Inception\n";
 
+Color backgroundColor = Color.fromRGBO(114, 78, 147, 1);
+Color appBarBackgroundColor = Color.fromRGBO(95, 65, 128, 1);
+Color appBarIconColor = Colors.white;
+Color materialBackgroundColor = Colors.transparent;
+Color shapeDecorationColor = Color.fromRGBO(95, 65, 128, 1);
+Color shapeDecorationColorTwo = Color.fromRGBO(114, 78, 147, 1);
+Color shapeDecorationTextColor = Color.fromRGBO(114, 78, 147, 1);
+Color shapeDecorationIconColor = Color.fromRGBO(254, 255, 236, 1);
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Color.fromRGBO(95, 65, 128, 1);
+Color splashColorTwo = Colors.white;
+Color splashColorThree = Color.fromRGBO(114, 78, 147, 1);
+Color iconTextColor = Colors.white;
+Color buttonColor = Color.fromRGBO(114, 78, 147, 1);
+Color textColor = Color.fromRGBO(114, 78, 147, 1);
+Color confettiColorOne = Colors.green;
+Color confettiColorTwo = Colors.blue;
+Color confettiColorThree = Colors.pink;
+Color confettiColorFour = Colors.orange;
+Color confettiColorFive = Colors.purple;
+Color confettiColorSix = Colors.brown;
+Color confettiColorSeven = Colors.white;
+Color confettiColorEight = Colors.blueGrey;
+Color confettiColorNine = Colors.redAccent;
+Color confettiColorTen = Colors.teal;
+Color confettiColorEleven = Colors.indigoAccent;
+Color confettiColorTwelve = Colors.cyan;
+
+
 GraduatesClassTeachersNotifier graduatesClassTeachersNotifier;
 
 Map<int, Widget> userBIO;
@@ -99,21 +128,21 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
       blastDirectionality: BlastDirectionality.explosive,
       shouldLoop: false,
       colors: [
-        Colors.green,
-        Colors.blue,
-        Colors.pink,
-        Colors.orange,
-        Colors.purple,
-        Colors.brown,
-        Colors.white,
-        Colors.blueGrey,
-        Colors.redAccent,
-        Colors.teal,
-        Colors.indigoAccent,
-        Colors.cyan,
+        confettiColorOne,
+        confettiColorTwo,
+        confettiColorThree,
+        confettiColorFour,
+        confettiColorFive,
+        confettiColorSix,
+        confettiColorSeven,
+        confettiColorEight,
+        confettiColorNine,
+        confettiColorTen,
+        confettiColorEleven,
+        confettiColorTwelve,
       ],
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(114, 78, 147, 1),
+        backgroundColor: backgroundColor,
         appBar: AppBar(
           centerTitle: true,
           shape: RoundedRectangleBorder(
@@ -123,9 +152,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
           ),
 
           elevation: 10,
-          backgroundColor: Color.fromRGBO(95, 65, 128, 1),
+          backgroundColor: appBarBackgroundColor,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+            icon: Icon(Icons.arrow_back_ios, color: appBarIconColor),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -157,15 +186,15 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   message: graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name
               ),
               Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.20),
+                  splashColor: splashColor.withOpacity(0.20),
                   onTap: () {},
                   child: Card(
                     elevation: 4,
                     shape: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Color.fromRGBO(95, 65, 128, 1).withOpacity(0.80), width: 4.0, style: BorderStyle.solid
+                          color: shapeDecorationColor.withOpacity(0.80), width: 4.0, style: BorderStyle.solid
                       ),
                     ),
 
@@ -182,7 +211,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         children: <Widget>[
                           Text(graduatesClassTeachersNotifier.currentGraduatesClassTeachers.name.toUpperCase(),
                             style: GoogleFonts.blinker(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: shapeDecorationTextColor,
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500
                             ),
@@ -190,7 +219,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           SizedBox(width: 10),
                           Icon (
                             MdiIcons.shieldCheck,
-                            color: Color.fromRGBO(254, 255, 236, 1),
+                            color: shapeDecorationIconColor,
                           ),
                         ],
                       ),
@@ -201,7 +230,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
               Card(
                 elevation: 5,
-                color: Colors.white,
+                color: cardBackgroundColor,
                 margin: EdgeInsets.all(10),
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -218,13 +247,13 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         padding: const EdgeInsets.only(bottom: 35),
                         child: CupertinoSlidingSegmentedControl<int>(
                           padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                          thumbColor: Colors.white,
-                          backgroundColor: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                          thumbColor: cardBackgroundColor,
+                          backgroundColor: shapeDecorationColorTwo.withAlpha(120),
 
                           children: {
                             0: Text('Reach',
                               style: GoogleFonts.sacramento(
-                                  color: Color.fromRGBO(114, 78, 147, 1),
+                                  color: shapeDecorationTextColor,
                                   fontSize: 25,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w400
@@ -232,7 +261,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                             ),
                             1: Text('AutoBio',
                               style: GoogleFonts.sacramento(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: shapeDecorationTextColor,
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w400,
@@ -295,17 +324,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.dialpad, color: iconTextColor),
                       label: Text(callButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -322,17 +351,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.dialpad, color: iconTextColor),
                         label: Text(callButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -352,17 +381,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.message, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.message, color: iconTextColor),
                       label: Text(messageButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -379,17 +408,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.message, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.message, color: iconTextColor),
                         label: Text(messageButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -409,17 +438,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.gmail, color: iconTextColor),
                       label: Text(emailButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -436,17 +465,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.gmail, color: iconTextColor),
                         label: Text(emailButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -467,17 +496,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.twitterCircle, color: iconTextColor),
                       label: Text(twitterButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -494,17 +523,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.twitterCircle, color: iconTextColor),
                         label: Text(twitterButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -525,17 +554,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.instagram, color: iconTextColor),
                       label: Text(instagramButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -552,17 +581,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.instagram, color: iconTextColor),
                         label: Text(instagramButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -582,17 +611,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.linkedinBox, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
                       label: Text(linkedInButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -609,17 +638,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.linkedinBox, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
                         label: Text(linkedInButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -639,17 +668,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Color.fromRGBO(114, 78, 147, 1),
-                      icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.facebook, color: iconTextColor),
                       label: Text('My Facebook',
                         style: GoogleFonts.abel(
-                            color: Colors.white,
+                            color: iconTextColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w300
                         ),
@@ -666,17 +695,17 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: iconTextColor,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Color.fromRGBO(114, 78, 147, 1),
-                        icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.facebook, color: iconTextColor),
                         label: Text('My Facebook',
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           ),
@@ -702,9 +731,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
         children: <Widget>[
           Container(
             child: Material(
-              color: Colors.transparent,
+              color: materialBackgroundColor,
               child: InkWell(
-                splashColor: Color.fromRGBO(114, 78, 147, 1),
+                splashColor: splashColorThree,
                 onTap: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -714,7 +743,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         TextSpan(
                             text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
-                              color: Color.fromRGBO(114, 78, 147, 1),
+                              color: textColor,
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
                             )
@@ -722,7 +751,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                         TextSpan(
                             text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
-                              color: Color.fromRGBO(114, 78, 147, 1),
+                              color: textColor,
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
                             )
@@ -735,7 +764,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             ),
 
             decoration: BoxDecoration(
-                color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                color: shapeDecorationColorTwo.withAlpha(120),
                 borderRadius: new BorderRadius.circular(10)
             ),
           ),
@@ -743,9 +772,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(114, 78, 147, 1),
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -755,7 +784,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: staffPositionTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -763,7 +792,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_staffPosition,
                               style: GoogleFonts.trykker(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -776,7 +805,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                  color: shapeDecorationColorTwo.withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -785,9 +814,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(114, 78, 147, 1),
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -797,7 +826,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: courseTeachingTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -805,7 +834,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_courseTeaching,
                               style: GoogleFonts.trykker(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -818,7 +847,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                  color: shapeDecorationColorTwo.withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -827,9 +856,9 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(114, 78, 147, 1),
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -839,7 +868,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: qualificationTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -847,7 +876,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_qualification,
                               style: GoogleFonts.trykker(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -860,7 +889,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                  color: shapeDecorationColorTwo.withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -869,10 +898,10 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
                   splashColor:
-                  Color.fromRGBO(114, 78, 147, 1),
+                  textColor,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -882,7 +911,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: yearOfInceptionTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -890,7 +919,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
                           TextSpan(
                               text: ' '+_yearOfInception,
                               style: GoogleFonts.trykker(
-                                color: Color.fromRGBO(114, 78, 147, 1),
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -903,7 +932,7 @@ class _GraduatesClassTeachersDetailsPage extends State<GraduatesClassTeachersDet
               ),
 
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(114, 78, 147, 1).withAlpha(120),
+                  color: shapeDecorationColorTwo.withAlpha(120),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),

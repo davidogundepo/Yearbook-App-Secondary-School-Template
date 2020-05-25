@@ -34,7 +34,27 @@ String aboutSchool = "About $schoolName";
 String acronymMeanings = "Acronym Meanings";
 String aboutApp = "About App";
 
+String networkSharedPreferencesKey = "first_time";
+String networkSharedPreferencesTitle = "Network";
+String networkSharedPreferencesContent = "The internet connection is required for the first time launch, please leave on for few seconds :)";
+String networkSharedPreferencesButton = "Okies";
+
 String imgAsset = "assets/images/hallel_5.jpg";
+
+Color backgroundColor = Color.fromRGBO(222, 93, 131, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Colors.pink[300];
+Color appBarIconColor = Colors.white;
+Color modalColor = Colors.transparent;
+Color modalBackgroundColor = Colors.pink[300];
+Color materialBackgroundColor = Colors.transparent;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Colors.pinkAccent;
+Color iconColor = Colors.white;
+Color textColor = Colors.white;
+Color textColorTwo = Colors.white70;
+Color dialogBackgroundColor = Color.fromRGBO(222, 93, 131, 1);
+Color borderColor = Colors.black;
 
 
 class MySciencePage extends StatefulWidget with NavigationStates{
@@ -66,13 +86,13 @@ class _MySciencePage extends State<MySciencePage> {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
+          borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
         ),
 
         child: Material(
-          color: Colors.transparent,
+          color: materialBackgroundColor,
           child: InkWell(
-            splashColor: Colors.pinkAccent,
+            splashColor: splashColor,
             onTap: () {
               scienceClassNotifier.currentScienceClass = scienceClassNotifier.scienceClassList[index];
               navigateToSubPage(context);
@@ -109,7 +129,7 @@ class _MySciencePage extends State<MySciencePage> {
                               Text(
                                   scienceClassNotifier.scienceClassList[index].name,
                                   style: GoogleFonts.tenorSans(
-                                      color: Colors.white,
+                                      color: textColor,
                                       fontSize: 17,
                                       fontWeight: FontWeight.w600
                                   )
@@ -122,7 +142,7 @@ class _MySciencePage extends State<MySciencePage> {
                                         SizedBox(width: 10),
                                         Icon (
                                           MdiIcons.shieldCheck,
-                                          color: Colors.white,
+                                          color: iconColor,
                                         ),
                                       ],
                                     );
@@ -131,7 +151,7 @@ class _MySciencePage extends State<MySciencePage> {
                                     visible: !_isVisible,
                                     child: Icon (
                                       MdiIcons.shieldCheck,
-                                      color: Colors.white,
+                                      color: iconColor,
                                     ),
                                   );
                                 }
@@ -148,7 +168,7 @@ class _MySciencePage extends State<MySciencePage> {
                                 child: Text(
                                     scienceClassNotifier.scienceClassList[index].twitter == scienceClassNotifier.scienceClassList[index].twitter ? '@'+scienceClassNotifier.scienceClassList[index].twitter : scienceClassNotifier.scienceClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -160,7 +180,7 @@ class _MySciencePage extends State<MySciencePage> {
                                 child: Text(
                                     scienceClassNotifier.scienceClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -174,7 +194,7 @@ class _MySciencePage extends State<MySciencePage> {
                                 child: Text(
                                     scienceClassNotifier.scienceClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -203,15 +223,15 @@ class _MySciencePage extends State<MySciencePage> {
           borderRadius: BorderRadius.all(Radius.circular(8)),
 
         ),
-        backgroundColor: Color.fromRGBO(222, 93, 131, 1),
+        backgroundColor: dialogBackgroundColor,
         title: Text(exitAppTitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         content: Text(exitAppSubtitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         actions: <Widget>[
@@ -219,7 +239,7 @@ class _MySciencePage extends State<MySciencePage> {
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(exitAppNo,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -228,7 +248,7 @@ class _MySciencePage extends State<MySciencePage> {
             /*Navigator.of(context).pop(true)*/
             child: Text(exitAppYes,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -263,7 +283,7 @@ class _MySciencePage extends State<MySciencePage> {
       // Not first time
     } else {
       // First time
-      prefs.setBool('first_time', false);
+      prefs.setBool(networkSharedPreferencesKey, false);
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -271,23 +291,23 @@ class _MySciencePage extends State<MySciencePage> {
             borderRadius: BorderRadius.all(Radius.circular(8)),
 
           ),
-          backgroundColor: Color.fromRGBO(222, 93, 131, 1),
-          title: Text("Network",
+          backgroundColor: dialogBackgroundColor,
+          title: Text(networkSharedPreferencesTitle,
             style: TextStyle(
-                color: Colors.white
+                color: textColor
             ),
           ),
-          content: Text("The internet connection is required for the first time launch, please leave on for few seconds :)",
+          content: Text(networkSharedPreferencesContent,
             style: TextStyle(
-                color: Colors.white
+                color: textColor
             ),
           ),
           actions: <Widget>[
             FlatButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text("Okies",
+              child: Text(networkSharedPreferencesButton,
                 style: TextStyle(
-                    color: Colors.white
+                    color: textColor
                 ),
               ),
             )
@@ -316,7 +336,7 @@ class _MySciencePage extends State<MySciencePage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Color.fromRGBO(222, 93, 131, 1),
+          color: backgroundColor,
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -325,62 +345,62 @@ class _MySciencePage extends State<MySciencePage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: Colors.white
+                      icon: Icon(MdiIcons.bandage, color: iconColor
                       ),
                       onPressed: () {
                         showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
+                            backgroundColor: modalColor,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Colors.pink[300],
+                                color: modalBackgroundColor,
                                 borderRadius: BorderRadius.all(Radius.circular(15)
                                 ),
                               ),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Colors.pinkAccent,
+                                  splashColor: splashColor,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
                                           leading: new Icon(
                                             MdiIcons.atom,
-                                            color: Colors.white),
+                                            color: iconColor),
                                           title: new Text(whoWeAre,
                                             style: GoogleFonts.zillaSlab(
-                                              color: Colors.white,
+                                              color: textColor,
                                             ),),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen, color: Colors.white),
+                                        leading: new Icon(MdiIcons.chessQueen, color: iconColor),
                                         title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
-                                            color: Colors.white,
+                                            color: textColor,
                                           ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: Colors.white),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
                                           title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
-                                              color: Colors.white,
+                                              color: textColor,
                                             ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity, color: Colors.white),
+                                        leading: new Icon(MdiIcons.opacity, color: iconColor),
                                         title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
-                                            color: Colors.white,
+                                            color: textColor,
                                           ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
@@ -395,7 +415,7 @@ class _MySciencePage extends State<MySciencePage> {
                       },
                     ),
                   ],
-                  backgroundColor: Colors.pink[300],
+                  backgroundColor: appBarBackgroundColor,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -404,7 +424,7 @@ class _MySciencePage extends State<MySciencePage> {
                       title: Text(thrownName,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.amaticSC(
-                            color: Colors.white,
+                            color: textColor,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )

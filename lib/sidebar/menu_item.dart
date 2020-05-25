@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+Color iconColor = Colors.cyan;
+Color textColor = Colors.white;
+
+
 class MenuItem extends StatelessWidget {
 
   final IconData icon;
@@ -20,7 +24,7 @@ class MenuItem extends StatelessWidget {
             children: <Widget>[
               Icon(
                 icon,
-                color: Colors.cyan,
+                color: iconColor,
                 size: 30,
               ),
               SizedBox(
@@ -31,7 +35,7 @@ class MenuItem extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w300,
                   fontSize: 15,
-                  color: Colors.white
+                  color: textColor
                 ),
               ),
 

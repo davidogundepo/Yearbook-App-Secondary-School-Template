@@ -32,6 +32,20 @@ String aboutApp = "About App";
 String imgAsset = "assets/images/hallel_13.jpg";
 
 
+Color backgroundColor = Color.fromRGBO(86, 158, 128, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(46, 137, 112, 1);
+Color appBarIconColor = Colors.white;
+Color modalColor = Colors.transparent;
+Color materialBackgroundColor = Colors.transparent;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Color.fromRGBO(46, 137, 112, 1);
+Color iconColor = Colors.white;
+Color textColor = Colors.white;
+Color textColorTwo = Colors.white70;
+Color dialogBackgroundColor = Color.fromRGBO(86, 158, 128, 1);
+Color borderColor = Colors.black;
+
 
 class MyArtPage extends StatefulWidget with NavigationStates{
   MyArtPage({Key key, this.title}) : super(key: key);
@@ -58,13 +72,13 @@ class _MyArtPage extends State<MyArtPage> {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
+          borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
         ),
 
         child: Material(
-          color: Colors.transparent,
+          color: materialBackgroundColor,
           child: InkWell(
-            splashColor: Color.fromRGBO(46, 137, 112, 1),
+            splashColor: splashColor,
             onTap: () {
               artClassNotifier.currentArtClass = artClassNotifier.artClassList[index];
               navigateToArtDetailsPage(context);
@@ -101,7 +115,7 @@ class _MyArtPage extends State<MyArtPage> {
                               Text(
                                   artClassNotifier.artClassList[index].name,
                                   style: GoogleFonts.tenorSans(
-                                    color: Colors.white,
+                                    color: textColor,
                                       fontSize: 17,
                                       fontWeight: FontWeight.w600
                                   )
@@ -114,7 +128,7 @@ class _MyArtPage extends State<MyArtPage> {
                                         SizedBox(width: 10),
                                         Icon (
                                         MdiIcons.shieldCheck,
-                                        color: Colors.white,
+                                        color: iconColor,
                                         ),
                                       ],
                                     );
@@ -123,7 +137,7 @@ class _MyArtPage extends State<MyArtPage> {
                                     visible: !_isVisible,
                                     child: Icon (
                                       MdiIcons.shieldCheck,
-                                      color: Colors.white,
+                                      color: iconColor,
                                     ),
                                   );
                                 }
@@ -139,7 +153,7 @@ class _MyArtPage extends State<MyArtPage> {
                                 child: Text(
                                     artClassNotifier.artClassList[index].twitter == artClassNotifier.artClassList[index].twitter ? '@'+artClassNotifier.artClassList[index].twitter : artClassNotifier.artClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -151,7 +165,7 @@ class _MyArtPage extends State<MyArtPage> {
                                 child: Text(
                                     artClassNotifier.artClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -165,7 +179,7 @@ class _MyArtPage extends State<MyArtPage> {
                                 child: Text(
                                     artClassNotifier.artClassList[index].twitter,
                                     style: GoogleFonts.varela(
-                                        color: Colors.white70,
+                                        color: textColorTwo,
                                         fontStyle: FontStyle.italic
                                     )
                                 ),
@@ -195,15 +209,15 @@ class _MyArtPage extends State<MyArtPage> {
           borderRadius: BorderRadius.all(Radius.circular(8)),
 
         ),
-        backgroundColor: Color.fromRGBO(86, 158, 128, 1),
+        backgroundColor: dialogBackgroundColor,
         title: Text(exitAppTitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         content: Text(exitAppSubtitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         actions: <Widget>[
@@ -211,7 +225,7 @@ class _MyArtPage extends State<MyArtPage> {
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(exitAppNo,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -220,7 +234,7 @@ class _MyArtPage extends State<MyArtPage> {
             /*Navigator.of(context).pop(true)*/
             child: Text(exitAppYes,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -264,7 +278,7 @@ class _MyArtPage extends State<MyArtPage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Color.fromRGBO(86, 158, 128, 1),
+          color: backgroundColor,
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
                 bool innerBoxIsScrolled) {
@@ -273,58 +287,58 @@ class _MyArtPage extends State<MyArtPage> {
                   actions: <Widget>[
                     IconButton(
                       icon: Icon(MdiIcons.bandage,
-                      color: Colors.white,),
+                      color: appBarIconColor),
                       onPressed: () async {
                         showModalBottomSheet(
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: modalColor,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(46, 137, 112, 1),
+                                color: appBarBackgroundColor,
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Color.fromRGBO(46, 137, 112, 1),
+                                  splashColor: splashColor,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom, color: Colors.white),
+                                          leading: new Icon(MdiIcons.atom, color: iconColor),
                                           title: new Text(whoWeAre,
                                           style: GoogleFonts.zillaSlab(
-                                            color: Colors.white
+                                            color: textColor
                                           ),),
                                           onTap: () {
                                           navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen, color: Colors.white),
+                                        leading: new Icon(MdiIcons.chessQueen, color: iconColor),
                                         title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.white
+                                              color: textColor
                                           ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: Colors.white),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
                                           title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
-                                                color: Colors.white
+                                                color: textColor
                                             ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity, color: Colors.white),
+                                        leading: new Icon(MdiIcons.opacity, color: iconColor),
                                         title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.white
+                                              color: textColor
                                           ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
@@ -339,7 +353,7 @@ class _MyArtPage extends State<MyArtPage> {
                       },
                     ),
                     ],
-                  backgroundColor: Color.fromRGBO(46, 137, 112, 1),
+                  backgroundColor: appBarBackgroundColor,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -347,7 +361,7 @@ class _MyArtPage extends State<MyArtPage> {
                       centerTitle: true,
                       title: Text(thrownName,
                           style: GoogleFonts.amaticSC(
-                            color: Colors.white,
+                            color: appBarTextColor,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )

@@ -94,6 +94,24 @@ double teachingStaffPopulation = 85;
 double nonTeachingStaffPopulation = 32;
 
 
+Color backgroundColor = Colors.blueGrey[900];
+Color cardBackgroundColor = Colors.black38;
+Color appBarBackgroundColor = Colors.blueGrey[800];
+Color cardTextColor = Colors.blueGrey;
+Color boxDecorationColor = Colors.blueGrey;
+Color chartBackgroundColor = Colors.grey[200];
+Color materialColor = Colors.transparent;
+Color textColor = Colors.blueGrey[900];
+Color firstSchoolChartColor = Colors.blueGrey;
+Color secondSchoolChartColor = Colors.deepOrangeAccent;
+Color thirdSchoolChartColor = Colors.yellow;
+Color fourthSchoolChartColor = Colors.cyan;
+Color firstStudentChartColor = Colors.blueGrey;
+Color secondStudentChartColor = Colors.deepOrangeAccent;
+
+
+
+
 class AboutSchoolDetails extends StatefulWidget {
 
   AboutSchoolDetails({Key key, this.title}) : super(key: key);
@@ -138,12 +156,12 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
     AchievementsNotifier achievementsNotifier = Provider.of<AchievementsNotifier>(context);
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey[900],
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
         title: Text(aboutSchool),
         elevation: 10,
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: appBarBackgroundColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -158,9 +176,9 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                 children: <Widget>[
                   Container(
                     child: Card(
-                      color: Colors.black38,
+                      color: cardBackgroundColor,
                       elevation: 4,
-                      margin:   EdgeInsets.all(24),
+                      margin: EdgeInsets.all(24),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
@@ -174,7 +192,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                     visionTitle,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Colors.blueGrey,
+                                      color: cardTextColor,
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -188,7 +206,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 visionStatement,
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
-                                  color: Colors.blueGrey,
+                                  color: cardTextColor,
                                   fontSize: 18
                                 ),
                               ),
@@ -200,7 +218,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                   Container(
                     child: Card(
-                      color: Colors.black38,
+                      color: cardBackgroundColor,
                       elevation: 4,
                       margin:   EdgeInsets.all(24),
                       child: SingleChildScrollView(
@@ -216,7 +234,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                     missionTitle,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Colors.blueGrey,
+                                      color: cardTextColor,
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -230,7 +248,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 missionStatement,
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
-                                  color: Colors.blueGrey,
+                                  color: cardTextColor,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 18
                                 ),
@@ -243,7 +261,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                   Container(
                     child: Card(
-                      color: Colors.black38,
+                      color: cardBackgroundColor,
                       elevation: 4,
                       margin:   EdgeInsets.all(24),
                       child: SingleChildScrollView(
@@ -259,7 +277,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                     coreValues,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Colors.blueGrey,
+                                      color: cardTextColor,
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -277,7 +295,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                       text: cvStatement1,
                                       style: TextStyle(
                                         fontSize: 20,
-                                        color: Colors.blueGrey,
+                                        color: cardTextColor,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -285,7 +303,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                       text: cvStatement2,
                                       style: TextStyle(
                                         fontSize: 20,
-                                        color: Colors.blueGrey,
+                                        color: cardTextColor,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -293,7 +311,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                       text: cvStatement3,
                                       style: TextStyle(
                                         fontSize: 20,
-                                        color: Colors.blueGrey,
+                                        color: cardTextColor,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -301,7 +319,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                       text: cvStatement4,
                                       style: TextStyle(
                                         fontSize: 20,
-                                        color: Colors.blueGrey,
+                                        color: cardTextColor,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -316,7 +334,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                   Container(
                     child: Card(
-                      color: Colors.black38,
+                      color: cardBackgroundColor,
                       elevation: 4,
                       margin:   EdgeInsets.all(24),
                       child: SingleChildScrollView(
@@ -332,7 +350,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                     whySchool,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Colors.blueGrey,
+                                      color: cardTextColor,
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -346,7 +364,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 whySchoolStatement,
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 16
                                 ),
@@ -364,9 +382,9 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 child: Material (
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
@@ -379,7 +397,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: staffBody,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -387,7 +405,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: staffBodyStatement,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -400,7 +418,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
               ),
@@ -410,13 +428,13 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Container(
                 height: 250,
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
                 child: Material(
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
@@ -429,14 +447,14 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             child: Text(populationChart,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  color: Colors.blueGrey,
+                                  color: cardTextColor,
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
                                 )),
                           ),
                           PieChart(
                             legendStyle: TextStyle(
-                              color: Colors.blueGrey,
+                              color: cardTextColor,
                             ),
                             dataMap: schoolMap,
                             animationDuration: Duration(seconds: 10),
@@ -445,7 +463,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             showChartValuesInPercentage: false,
                             showChartValues: true,
                             showChartValuesOutside: false,
-                            chartValueBackgroundColor: Colors.grey[200],
+                            chartValueBackgroundColor: chartBackgroundColor,
                             colorList: schoolColorList,
                             showLegends: true,
                             legendPosition: LegendPosition.right,
@@ -453,7 +471,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             showChartValueLabel: true,
                             initialAngle: 0,
                             chartValueStyle: defaultChartValueStyle.copyWith(
-                              color: Colors.blueGrey[900].withOpacity(0.9),
+                              color: textColor.withOpacity(0.9),
                             ),
                             chartType: ChartType.disc,
                           ),
@@ -468,9 +486,9 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 child: Material (
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
@@ -483,7 +501,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: studentBody,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -491,7 +509,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: studentBodyStatement,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -504,7 +522,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
               ),
@@ -514,13 +532,13 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Container(
                 height: 270,
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
                 child: Material(
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
@@ -533,14 +551,14 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             child: Text(studentPopulationChart,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  color: Colors.blueGrey,
+                                  color: cardTextColor,
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
                                 )),
                           ),
                           PieChart(
                             legendStyle: TextStyle(
-                              color: Colors.blueGrey,
+                              color: cardTextColor,
                             ),
                             dataMap: studentMap,
                             animationDuration: Duration(seconds: 10),
@@ -549,7 +567,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             showChartValuesInPercentage: false,
                             showChartValues: true,
                             showChartValuesOutside: false,
-                            chartValueBackgroundColor: Colors.grey[200],
+                            chartValueBackgroundColor: chartBackgroundColor,
                             colorList: studentColorList,
                             showLegends: true,
                             legendPosition: LegendPosition.right,
@@ -557,7 +575,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             showChartValueLabel: true,
                             initialAngle: 0,
                             chartValueStyle: defaultChartValueStyle.copyWith(
-                              color: Colors.blueGrey[900].withOpacity(0.9),
+                              color: textColor.withOpacity(0.9),
                             ),
                             chartType: ChartType.ring,
                           ),
@@ -573,7 +591,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Text(subjectsOffered,
                 style: TextStyle(
                     fontSize: 20,
-                    color: Colors.blueGrey,
+                    color: cardTextColor,
                     fontWeight: FontWeight.w500
                 ),
               ),
@@ -583,9 +601,9 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Container(
                 height: 300,
                 child: Material (
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
@@ -597,7 +615,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSS,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -605,7 +623,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement1,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -613,7 +631,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement2,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -621,7 +639,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement3,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -629,7 +647,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement4,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -637,7 +655,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement5,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -645,7 +663,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement6,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -653,7 +671,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement7,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -661,7 +679,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement8,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -669,7 +687,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement9,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -677,7 +695,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInJSSStatement10,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -685,7 +703,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDept,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -693,7 +711,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement1,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -701,7 +719,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement2,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -709,7 +727,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement3,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -717,7 +735,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement4,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -725,7 +743,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement5,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -733,7 +751,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSArtDeptStatement6,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -741,7 +759,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDept,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -749,7 +767,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement1,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -757,7 +775,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement2,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -765,7 +783,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement3,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -773,7 +791,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement4,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -781,7 +799,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement5,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -789,7 +807,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSSocialScienceDeptStatement6,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -797,7 +815,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDept,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -805,7 +823,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement1,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -813,7 +831,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement2,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -821,7 +839,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement3,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -829,7 +847,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement4,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -837,7 +855,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement5,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -845,7 +863,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: subjectsOfferedInSSSScienceDeptStatement6,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -858,7 +876,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
               ),
@@ -868,9 +886,9 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Container(
                 height: 300,
                 child: Material (
-                  color: Colors.transparent,
+                  color: materialColor,
                   child: InkWell(
-                    splashColor: Colors.blueGrey,
+                    splashColor: cardTextColor,
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 10, right: 10),
@@ -882,7 +900,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActs,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )
@@ -890,7 +908,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement1,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -898,7 +916,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement2,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -906,7 +924,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement3,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -914,7 +932,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement4,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -922,7 +940,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement5,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -930,7 +948,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement6,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -938,7 +956,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement7,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -946,7 +964,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               TextSpan(
                                   text: extraCurricularActsStatement8,
                                   style: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: cardTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )
@@ -959,7 +977,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.blueGrey.withAlpha(50),
+                    color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
                 ),
               ),
@@ -969,7 +987,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Text(schoolArialViews,
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.blueGrey,
+                color: cardTextColor,
                 fontWeight: FontWeight.w500
               ),
               ),
@@ -985,7 +1003,6 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                     Container(
                       height: 250,
                       decoration: BoxDecoration(
-//                        color: Colors.blue,
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                         image: DecorationImage(
                           image: CachedNetworkImageProvider(
@@ -998,7 +1015,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                        color: Colors.blueGrey
+                        color: cardTextColor
                       ),
                       child: ListTile(
                         title: Center(
@@ -1007,7 +1024,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             child: Text(
                               schoolArialNotifier.schoolArialList[index].toastName,
                               style: TextStyle(
-                                color: Colors.blueGrey[900],
+                                color: textColor,
                                 fontWeight: FontWeight.w800,
                                 fontSize: 17.0,
                               ),
@@ -1026,7 +1043,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               child: Text(schoolAchievements,
               style: TextStyle(
                 fontSize: 20,
-                color: Colors.blueGrey,
+                color: cardTextColor,
                 fontWeight: FontWeight.w500
               ),
               ),
@@ -1056,7 +1073,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                          color: Colors.blueGrey
+                          color: cardTextColor
                         ),
                         child: ListTile(
                           title: Center(
@@ -1065,7 +1082,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                               child: Text(
                                 achievementsNotifier.achievementsList[index].toastName,
                                 style: TextStyle(
-                                  color: Colors.blueGrey[900],
+                                  color: textColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 17.0,
                                 ),
@@ -1091,7 +1108,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                   text: moreInfoAboutSchool,
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.blueGrey,
+                    color: cardTextColor,
                     fontWeight: FontWeight.w800,
                     fontStyle: FontStyle.italic,
                   ),
@@ -1147,14 +1164,14 @@ Map<String, double> schoolMap = Map();
 Map<String, double> studentMap = Map();
 
 List<Color> schoolColorList = [
-  Colors.blueGrey,
-  Colors.deepOrangeAccent,
-  Colors.yellow,
-  Colors.cyan,
+  firstSchoolChartColor,
+  secondSchoolChartColor,
+  thirdSchoolChartColor,
+  fourthSchoolChartColor,
 ];
 
 List<Color> studentColorList = [
-  Colors.blueGrey,
-  Colors.deepOrangeAccent,
+  firstStudentChartColor,
+  secondStudentChartColor,
 ];
 

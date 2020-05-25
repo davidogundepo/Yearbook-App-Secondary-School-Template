@@ -35,6 +35,22 @@ String aboutApp = "About App";
 String imgAsset = "assets/images/management_2.jpg";
 
 
+Color backgroundColor = Color.fromRGBO(114, 78, 147, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(95, 65, 128, 1);
+Color appBarIconColor = Colors.white;
+Color modalColor = Colors.transparent;
+Color modalBackgroundColor = Color.fromRGBO(95, 65, 128, 1);
+Color materialBackgroundColor = Colors.transparent;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Colors.purple;
+Color splashColorTwo = Colors.black87;
+Color iconColor = Colors.white;
+Color textColor = Colors.white;
+Color textColorTwo = Colors.white70;
+Color dialogBackgroundColor = Color.fromRGBO(114, 78, 147, 1);
+Color borderColor = Colors.black;
+
 
 class MyGraduatesClassTeachersPage extends StatefulWidget with NavigationStates{
   MyGraduatesClassTeachersPage({Key key, this.title}) : super(key: key);
@@ -53,13 +69,13 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
+          borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
         ),
 
         child: Material(
-          color: Colors.transparent,
+          color: materialBackgroundColor,
           child: InkWell(
-            splashColor: Colors.purple,
+            splashColor: splashColor,
             onTap: () {
               graduatesClassTeachersNotifier.currentGraduatesClassTeachers = graduatesClassTeachersNotifier.graduatesClassTeachersList[index];
               navigateToGraduatesClassTeachersDetailsPage(context);
@@ -99,7 +115,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                               Text(
                                   graduatesClassTeachersNotifier.graduatesClassTeachersList[index].name,
                                   style: GoogleFonts.tenorSans(
-                                      color: Colors.white,
+                                      color: textColor,
                                     fontSize: 17,
                                     fontWeight: FontWeight.w600
                                   )
@@ -107,7 +123,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                               SizedBox(width: 10),
                               Icon (
                                 MdiIcons.shieldCheck,
-                                color: Colors.white,
+                                color: iconColor,
                               ),
                             ],
                           ),
@@ -117,7 +133,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                           child: Text(
                               graduatesClassTeachersNotifier.graduatesClassTeachersList[index].courseTeaching,
                               style: GoogleFonts.varela(
-                                color: Colors.white70,
+                                color: textColorTwo,
                                 fontStyle: FontStyle.italic,
                               )
                           ),
@@ -143,15 +159,15 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
           borderRadius: BorderRadius.all(Radius.circular(8)),
 
         ),
-        backgroundColor: Color.fromRGBO(114, 78, 147, 1),
+        backgroundColor: dialogBackgroundColor,
         title: Text(exitAppTitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         content: Text(exitAppSubtitle,
           style: TextStyle(
-              color: Colors.white
+              color: textColor
           ),
         ),
         actions: <Widget>[
@@ -159,7 +175,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(exitAppNo,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -168,7 +184,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
             /*Navigator.of(context).pop(true)*/
             child: Text(exitAppYes,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
           ),
@@ -211,7 +227,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Color.fromRGBO(114, 78, 147, 1),
+          color: backgroundColor,
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -220,29 +236,29 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
+                      icon: Icon(MdiIcons.bandage, color: iconColor),
                       onPressed: () {
                         showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
+                            backgroundColor: modalColor,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(95, 65, 128, 1),
+                                color: modalBackgroundColor,
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Colors.black87,
+                                  splashColor: splashColorTwo,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
                                           leading: new Icon(MdiIcons.atom,
-                                          color: Colors.white,),
+                                          color: iconColor),
                                           title: new Text(whoWeAre,
                                           style: GoogleFonts.zillaSlab(
-                                            color: Colors.white
+                                            color: textColor
                                           ),),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
@@ -250,10 +266,10 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.chessQueen,
-                                          color: Colors.white,),
+                                          color: iconColor),
                                         title: new Text(aboutSchool,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.white
+                                              color: textColor
                                           ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
@@ -261,10 +277,10 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ),
                                       ListTile(
                                           leading: new Icon(MdiIcons.sortAlphabeticalAscending,
-                                            color: Colors.white,),
+                                            color: iconColor),
                                           title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
-                                                color: Colors.white
+                                                color: textColor
                                             ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
@@ -272,10 +288,10 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                       ),
                                       ListTile(
                                         leading: new Icon(MdiIcons.opacity,
-                                          color: Colors.white,),
+                                          color: iconColor),
                                         title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.white
+                                              color: textColor
                                           ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
@@ -290,7 +306,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                       },
                     ),
                   ],
-                  backgroundColor: Color.fromRGBO(95, 65, 128, 1),
+                  backgroundColor: appBarBackgroundColor,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -298,7 +314,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                       centerTitle: true,
                       title: Text(thrownName,
                           style: GoogleFonts.amaticSC(
-                            color: Colors.white,
+                            color: textColor,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )

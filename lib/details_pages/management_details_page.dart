@@ -33,6 +33,36 @@ String staffPositionTitle = "Staff Position\n";
 String qualificationTitle = "Qualification(s)\n";
 String yearOfInceptionTitle = "Year of Inception\n";
 
+Color backgroundColor = Colors.lightBlue;
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Colors.lightBlue;
+Color appBarIconColor = Colors.white;
+Color materialBackgroundColor = Colors.transparent;
+Color shapeDecorationColor = Colors.lightBlue[500];
+Color shapeDecorationColorTwo = Colors.lightBlue[500];
+Color shapeDecorationTextColor = Colors.lightBlue;
+Color shapeDecorationIconColor = Colors.lightBlue;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Colors.lightBlue[500];
+Color splashColorTwo = Colors.white;
+Color splashColorThree = Colors.lightBlueAccent;
+Color iconTextColor = Colors.white;
+Color buttonColor = Colors.lightBlue;
+Color textColor = Colors.lightBlue;
+Color confettiColorOne = Colors.green;
+Color confettiColorTwo = Colors.blue;
+Color confettiColorThree = Colors.pink;
+Color confettiColorFour = Colors.orange;
+Color confettiColorFive = Colors.purple;
+Color confettiColorSix = Colors.brown;
+Color confettiColorSeven = Colors.white;
+Color confettiColorEight = Colors.blueGrey;
+Color confettiColorNine = Colors.redAccent;
+Color confettiColorTen = Colors.teal;
+Color confettiColorEleven = Colors.indigoAccent;
+Color confettiColorTwelve = Colors.cyan;
+
+
 ManagementBodyNotifier managementBodyNotifier;
 
 Map<int, Widget> userBIO;
@@ -88,21 +118,21 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
       blastDirectionality: BlastDirectionality.explosive,
       shouldLoop: false,
       colors: [
-        Colors.green,
-        Colors.blue,
-        Colors.pink,
-        Colors.orange,
-        Colors.purple,
-        Colors.brown,
-        Colors.white,
-        Colors.blueGrey,
-        Colors.redAccent,
-        Colors.teal,
-        Colors.indigoAccent,
-        Colors.cyan,
+        confettiColorOne,
+        confettiColorTwo,
+        confettiColorThree,
+        confettiColorFour,
+        confettiColorFive,
+        confettiColorSix,
+        confettiColorSeven,
+        confettiColorEight,
+        confettiColorNine,
+        confettiColorTen,
+        confettiColorEleven,
+        confettiColorTwelve,
       ],
       child: Scaffold(
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: backgroundColor,
         appBar: AppBar(
           centerTitle: true,
           shape: RoundedRectangleBorder(
@@ -111,9 +141,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
             ),
           ),
           elevation: 10,
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: appBarBackgroundColor,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+            icon: Icon(Icons.arrow_back_ios, color: appBarIconColor),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -145,15 +175,15 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   message: managementBodyNotifier.currentManagementBody.name
               ),
               Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Colors.lightBlue[500].withOpacity(0.20),
+                  splashColor: splashColor.withOpacity(0.20),
                   onTap: () {},
                   child: Card(
                     elevation: 4,
                     shape: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Colors.lightBlue[500].withOpacity(0.20), width: 4.0, style: BorderStyle.solid
+                          color: shapeDecorationColor.withOpacity(0.20), width: 4.0, style: BorderStyle.solid
                       ),
                     ),
 
@@ -170,7 +200,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         children: <Widget>[
                           Text(managementBodyNotifier.currentManagementBody.name.toUpperCase(),
                             style: GoogleFonts.blinker(
-                                color: Colors.lightBlue,
+                                color: shapeDecorationTextColor,
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500
                             ),
@@ -178,7 +208,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           SizedBox(width: 10),
                           Icon (
                             MdiIcons.shieldCheck,
-                            color: Colors.lightBlue,
+                            color: shapeDecorationIconColor,
                           ),
                         ],
                       ),
@@ -188,7 +218,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
               ),
               Card(
                 elevation: 5,
-                color: Colors.white,
+                color: cardBackgroundColor,
                 margin: EdgeInsets.all(10),
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -205,13 +235,13 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         padding: const EdgeInsets.only(bottom: 35),
                         child: CupertinoSlidingSegmentedControl<int>(
                           padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                          thumbColor: Colors.white,
-                          backgroundColor: Colors.lightBlue.withAlpha(50),
+                          thumbColor: cardBackgroundColor,
+                          backgroundColor: shapeDecorationColorTwo.withAlpha(50),
 
                           children: {
                             0: Text('Reach',
                               style: GoogleFonts.sacramento(
-                                  color: Colors.lightBlue,
+                                  color: shapeDecorationTextColor,
                                   fontSize: 25,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w400
@@ -219,7 +249,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                             ),
                             1: Text('AutoBio',
                               style: GoogleFonts.sacramento(
-                                color: Colors.lightBlue,
+                                color: shapeDecorationTextColor,
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w400,
@@ -280,17 +310,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.dialpad, color: iconTextColor),
                       label: Text(callButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -307,17 +337,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.dialpad, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.dialpad, color: iconTextColor),
                         label: Text(callButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -337,17 +367,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.message, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.message, color: iconTextColor),
                       label: Text(messageButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -364,17 +394,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.message, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.message, color: iconTextColor),
                         label: Text(messageButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -394,17 +424,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.gmail, color: iconTextColor),
                       label: Text(emailButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -421,17 +451,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.gmail, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.gmail, color: iconTextColor),
                         label: Text(emailButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -452,17 +482,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.twitterCircle, color: iconTextColor),
                       label: Text(twitterButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -479,17 +509,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.twitterCircle, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.twitterCircle, color: iconTextColor),
                         label: Text(twitterButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -509,17 +539,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.instagram, color: iconTextColor),
                       label: Text(instagramButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           )
@@ -536,17 +566,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.instagram, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.instagram, color: iconTextColor),
                         label: Text(instagramButton,
                             style: GoogleFonts.abel(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300
                             )
@@ -566,17 +596,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
                       elevation: 2,
-                      color: Colors.lightBlue,
-                      icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.facebook, color: iconTextColor),
                       label: Text(facebookButton,
                         style: GoogleFonts.abel(
-                            color: Colors.white,
+                            color: iconTextColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w300
                         ),
@@ -593,17 +623,17 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
                         elevation: 2,
-                        color: Colors.lightBlue,
-                        icon: new Icon(MdiIcons.facebook, color: Colors.white,),
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.facebook, color: iconTextColor),
                         label: Text(facebookButton,
                           style: GoogleFonts.abel(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300
                           ),
@@ -629,9 +659,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
         children: <Widget>[
           Container(
             child: Material(
-              color: Colors.transparent,
+              color: materialBackgroundColor,
               child: InkWell(
-                splashColor: Colors.lightBlueAccent,
+                splashColor: splashColorThree,
                 onTap: () {},
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -641,7 +671,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         TextSpan(
                             text: autobiographyTitle,
                             style: GoogleFonts.aBeeZee(
-                              color: Colors.lightBlue,
+                              color: textColor,
                               fontSize: 19,
                               fontWeight: FontWeight.bold,
                             )
@@ -649,7 +679,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         TextSpan(
                             text: ' '+_autoBio,
                             style: GoogleFonts.trykker(
-                              color: Colors.lightBlue,
+                              color: textColor,
                               fontSize: 19,
                               fontWeight: FontWeight.w300,
                             )
@@ -662,7 +692,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
             ),
 
             decoration: BoxDecoration(
-                color: Colors.lightBlue.withAlpha(50),
+                color: shapeDecorationColorTwo.withAlpha(50),
                 borderRadius: new BorderRadius.circular(10)
             ),
           ),
@@ -670,9 +700,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -682,7 +712,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: staffPositionTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -690,7 +720,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: ' '+_staffPosition,
                               style: GoogleFonts.trykker(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -703,7 +733,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: shapeDecorationColorTwo.withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -712,9 +742,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -724,7 +754,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: qualificationTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -732,7 +762,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: ' '+_qualification,
                               style: GoogleFonts.trykker(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -745,7 +775,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: shapeDecorationColorTwo.withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),
@@ -754,9 +784,9 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               child: Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Colors.lightBlueAccent,
+                  splashColor: splashColorThree,
                   onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -766,7 +796,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: yearOfInceptionTitle,
                               style: GoogleFonts.aBeeZee(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.bold,
                               )
@@ -774,7 +804,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           TextSpan(
                               text: ' '+_yearOfInception,
                               style: GoogleFonts.aBeeZee(
-                                color: Colors.lightBlue,
+                                color: textColor,
                                 fontSize: 19,
                                 fontWeight: FontWeight.w300,
                               )
@@ -787,7 +817,7 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
               ),
 
               decoration: BoxDecoration(
-                  color: Colors.lightBlue.withAlpha(50),
+                  color: shapeDecorationColorTwo.withAlpha(50),
                   borderRadius: new BorderRadius.circular(10)
               ),
             ),

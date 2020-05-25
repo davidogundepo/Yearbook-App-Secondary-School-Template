@@ -22,6 +22,17 @@ String coreThree = "3. To be an army of reformers who shall redeem the battered 
 String bottomLine = "It was C. Wright Mills (1956), an American sociologist who stated in his work titled 'The Power Elite' the need for a breed of Leaders that are value driven.";
 
 
+Color backgroundColor = Color.fromRGBO(15, 65, 79, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(52, 18, 30, 1);
+Color appBarIconColor = Colors.white;
+Color cardBackgroundColor = Color.fromRGBO(52, 18, 30, 1);
+Color headingCardColor = Colors.white;
+Color headingCardTextColor = Color.fromRGBO(15, 65, 79, 1);
+Color cardTextColor = Colors.greenAccent;
+Color cardTextColorTwo = Colors.white;
+
+
 class WhoWeAre extends StatefulWidget {
   WhoWeAre({Key key, this.title}) : super(key: key);
 
@@ -35,19 +46,19 @@ class _WhoWeAreState extends State<WhoWeAre> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(15, 65, 79, 1),
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: Text(
           graduateSetThemeTitle,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: appBarTextColor),
         ),
         centerTitle: true,
         elevation: 10,
-        backgroundColor: Color.fromRGBO(2, 42, 53, 1),
+        backgroundColor: appBarBackgroundColor,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Colors.white,
+            color: appBarIconColor,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -66,7 +77,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                color: Color.fromRGBO(2, 42, 53, 1),
+                color: cardBackgroundColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
@@ -76,7 +87,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 20, bottom: 30),
                           child: Card(
-                            color: Colors.white,
+                            color: headingCardColor,
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   top: 15, bottom: 15, left: 30, right: 30),
@@ -84,7 +95,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                                 whoWeAre,
                                 style: TextStyle(
                                     fontSize: 25,
-                                    color: Color.fromRGBO(15, 65, 79, 1),
+                                    color: headingCardTextColor,
                                     fontWeight: FontWeight.w300
                                 ),
                               ),
@@ -99,7 +110,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: whoVerse + '\n\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.greenAccent,
+                                color: cardTextColor,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -107,7 +118,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: weVerse + '\n\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.greenAccent,
+                                color: cardTextColor,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -115,7 +126,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: areVerse + '\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.greenAccent,
+                                color: cardTextColor,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -123,7 +134,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: eliteVerse + '\n\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.greenAccent,
+                                color: cardTextColor,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -137,7 +148,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                           child: Text(poet,
                             style: TextStyle(
                               fontSize: 17,
-                              color: Colors.white,
+                              color: cardTextColorTwo,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -151,7 +162,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
             Container(
               child: Card(
                 margin: EdgeInsets.all(20),
-                color: Color.fromRGBO(2, 42, 53, 1),
+                color: cardBackgroundColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,7 +171,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 20, bottom: 30),
                         child: Card(
-                          color: Colors.white,
+                          color: headingCardColor,
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 15, bottom: 15, left: 30, right: 30),
@@ -169,7 +180,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,
-                                  color: Color.fromRGBO(15, 65, 79, 1),
+                                  color: headingCardTextColor,
                                   fontWeight: FontWeight.w700),
                             ),
                           ),
@@ -187,7 +198,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: setVerse + '\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.white,
+                                color: cardTextColorTwo,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -195,7 +206,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: core + '\n',
                               style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.white,
+                                color: cardTextColorTwo,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -203,7 +214,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: coreOne + '\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.white,
+                                color: cardTextColorTwo,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -211,7 +222,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: coreTwo + '\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.white,
+                                color: cardTextColorTwo,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -219,7 +230,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                               text: coreThree + '\n\n',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.white,
+                                color: cardTextColorTwo,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -236,7 +247,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                         textAlign: TextAlign.start,
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: cardTextColorTwo,
                           fontWeight: FontWeight.w400,
                         ),
                       ),

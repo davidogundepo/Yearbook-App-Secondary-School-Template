@@ -13,6 +13,29 @@ String deptTitle = "Department\n";
 String positionEnforcedTitle = "Position Enforced\n";
 
 
+Color backgroundColor = Color.fromRGBO(254, 250, 239, 1);
+Color appBarBackgroundColor = Color.fromRGBO(254, 255, 236, 1);
+Color appBarIconColor = Colors.blueGrey;
+Color materialBackgroundColor = Colors.transparent;
+Color shapeDecorationColor = Color.fromRGBO(254, 255, 236, 1);
+Color cardBackgroundColor = Colors.blueGrey;
+Color splashColor = Color.fromRGBO(254, 255, 236, 1);
+Color textColor = Color.fromRGBO(254, 255, 236, 1);
+Color iconColor = Color.fromRGBO(254, 255, 236, 1);
+Color confettiColorOne = Colors.green;
+Color confettiColorTwo = Colors.blue;
+Color confettiColorThree = Colors.pink;
+Color confettiColorFour = Colors.orange;
+Color confettiColorFive = Colors.purple;
+Color confettiColorSix = Colors.brown;
+Color confettiColorSeven = Colors.white;
+Color confettiColorEight = Colors.blueGrey;
+Color confettiColorNine = Colors.redAccent;
+Color confettiColorTen = Colors.teal;
+Color confettiColorEleven = Colors.indigoAccent;
+Color confettiColorTwelve = Colors.cyan;
+
+
 ClassPrefectsNotifier classPrefectsNotifier;
 
 class ClassPrefectDetailsPage extends StatefulWidget {
@@ -39,21 +62,21 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
       blastDirectionality: BlastDirectionality.explosive,
       shouldLoop: false,
       colors: [
-        Colors.green,
-        Colors.blue,
-        Colors.pink,
-        Colors.orange,
-        Colors.purple,
-        Colors.brown,
-        Colors.white,
-        Colors.blueGrey,
-        Colors.redAccent,
-        Colors.teal,
-        Colors.indigoAccent,
-        Colors.cyan,
+        confettiColorOne,
+        confettiColorTwo,
+        confettiColorThree,
+        confettiColorFour,
+        confettiColorFive,
+        confettiColorSix,
+        confettiColorSeven,
+        confettiColorEight,
+        confettiColorNine,
+        confettiColorTen,
+        confettiColorEleven,
+        confettiColorTwelve,
       ],
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(254, 250, 239, 1),
+        backgroundColor: backgroundColor,
         appBar: AppBar(
           centerTitle: true,
           shape: RoundedRectangleBorder(
@@ -63,10 +86,10 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
           ),
 
           elevation: 10,
-          backgroundColor: Color.fromRGBO(254, 255, 236, 1),
+          backgroundColor: appBarBackgroundColor,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios,
-            color: Colors.blueGrey,),
+            color: appBarIconColor),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -101,16 +124,16 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                   message: classPrefectsNotifier.currentClassPrefects.name
               ),
               Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(254, 255, 236, 1).withOpacity(0.20),
+                  splashColor: splashColor.withOpacity(0.20),
                   onTap: () {},
                   child: Card(
-                    color: Colors.blueGrey,
+                    color: cardBackgroundColor,
                     elevation: 4,
                     shape: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Color.fromRGBO(254, 255, 236, 1), width: 4.0, style: BorderStyle.solid
+                          color: shapeDecorationColor, width: 4.0, style: BorderStyle.solid
                       ),
                     ),
 
@@ -127,7 +150,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                         children: <Widget>[
                           Text(classPrefectsNotifier.currentClassPrefects.name.toUpperCase(),
                             style: GoogleFonts.blinker(
-                                color: Color.fromRGBO(254, 255, 236, 1),
+                                color: textColor,
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500
                             ),
@@ -135,7 +158,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                           SizedBox(width: 10),
                           Icon (
                             MdiIcons.shieldCheck,
-                            color: Color.fromRGBO(254, 255, 236, 1),
+                            color: iconColor,
                           ),
                         ],
                       ),
@@ -145,7 +168,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
               ),
               Card(
                 elevation: 5,
-                color: Colors.blueGrey,
+                color: cardBackgroundColor,
                 margin: EdgeInsets.all(10),
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -160,9 +183,9 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                     children: <Widget>[
                       Container(
                         child: Material(
-                          color: Colors.transparent,
+                          color: materialBackgroundColor,
                           child: InkWell(
-                            splashColor: Color.fromRGBO(254, 255, 236, 1),
+                            splashColor: splashColor,
                             onTap: () {},
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -172,7 +195,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                     TextSpan(
                                         text: deptTitle,
                                         style: GoogleFonts.aBeeZee(
-                                          color: Color.fromRGBO(254, 255, 236, 1),
+                                          color: textColor,
                                           fontSize: 19,
                                           fontWeight: FontWeight.bold,
                                         )
@@ -180,7 +203,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                     TextSpan(
                                         text: ' '+classPrefectsNotifier.currentClassPrefects.department,
                                         style: GoogleFonts.trykker(
-                                          color: Color.fromRGBO(254, 255, 236, 1),
+                                          color: textColor,
                                           fontSize: 19,
                                           fontWeight: FontWeight.w300,
                                         )
@@ -193,7 +216,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                         ),
 
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(254, 255, 236, 1).withAlpha(120),
+                            color: shapeDecorationColor.withAlpha(120),
                             borderRadius: new BorderRadius.circular(10)
                         ),
                       ),
@@ -201,9 +224,9 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
                           child: Material(
-                            color: Colors.transparent,
+                            color: materialBackgroundColor,
                             child: InkWell(
-                              splashColor: Color.fromRGBO(254, 255, 236, 1),
+                              splashColor: splashColor,
                               onTap: () {},
                               child: Padding(
                                 padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -213,7 +236,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                       TextSpan(
                                           text: positionEnforcedTitle,
                                           style: GoogleFonts.aBeeZee(
-                                            color: Color.fromRGBO(254, 255, 236, 1),
+                                            color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.bold,
                                           )
@@ -221,7 +244,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                                       TextSpan(
                                           text: ' '+classPrefectsNotifier.currentClassPrefects.positionEnforced,
                                           style: GoogleFonts.trykker(
-                                            color: Color.fromRGBO(254, 255, 236, 1),
+                                            color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.w300,
                                           )
@@ -234,7 +257,7 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                           ),
 
                           decoration: BoxDecoration(
-                              color: Color.fromRGBO(254, 255, 236, 1).withAlpha(120),
+                              color: shapeDecorationColor.withAlpha(120),
                               borderRadius: new BorderRadius.circular(10)
                           ),
                         ),

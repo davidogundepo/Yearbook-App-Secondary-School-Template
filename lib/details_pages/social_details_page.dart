@@ -46,6 +46,36 @@ String hobbiesTitle = "Hobbies\n";
 String philosophyTitle = "Philosophy about Life\n";
 String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
 
+Color backgroundColor = Color.fromRGBO(194, 178, 128, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(155, 134, 99, 1);
+Color appBarIconColor = Colors.white;
+Color materialBackgroundColor = Colors.transparent;
+Color shapeDecorationColor = Color.fromRGBO(194, 178, 128, 1);
+Color shapeDecorationColorTwo = Color.fromRGBO(155, 134, 99, 1);
+Color shapeDecorationTextColor = Color.fromRGBO(155, 134, 99, 1);
+Color shapeDecorationIconColor = Color.fromRGBO(155, 134, 99, 1);
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Color.fromRGBO(237, 209, 166, 1);
+Color splashColorTwo = Colors.white;
+Color splashColorThree = Color.fromRGBO(155, 134, 99, 1);
+Color iconTextColor = Colors.white;
+Color buttonColor = Color.fromRGBO(155, 134, 99, 1);
+Color textColor = Color.fromRGBO(155, 134, 99, 1);
+Color confettiColorOne = Colors.green;
+Color confettiColorTwo = Colors.blue;
+Color confettiColorThree = Colors.pink;
+Color confettiColorFour = Colors.orange;
+Color confettiColorFive = Colors.purple;
+Color confettiColorSix = Colors.brown;
+Color confettiColorSeven = Colors.white;
+Color confettiColorEight = Colors.blueGrey;
+Color confettiColorNine = Colors.redAccent;
+Color confettiColorTen = Colors.teal;
+Color confettiColorEleven = Colors.indigoAccent;
+Color confettiColorTwelve = Colors.cyan;
+
+
 SocialClassNotifier socialClassNotifier;
 
 Map<int, Widget> userBIO;
@@ -108,27 +138,27 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
       blastDirectionality: BlastDirectionality.explosive,
       shouldLoop: false,
       colors: [
-        Colors.green,
-        Colors.blue,
-        Colors.pink,
-        Colors.orange,
-        Colors.purple,
-        Colors.brown,
-        Colors.white,
-        Colors.blueGrey,
-        Colors.redAccent,
-        Colors.teal,
-        Colors.indigoAccent,
-        Colors.cyan,
+        confettiColorOne,
+        confettiColorTwo,
+        confettiColorThree,
+        confettiColorFour,
+        confettiColorFive,
+        confettiColorSix,
+        confettiColorSeven,
+        confettiColorEight,
+        confettiColorNine,
+        confettiColorTen,
+        confettiColorEleven,
+        confettiColorTwelve,
       ],
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(194, 178, 128, 1),
+        backgroundColor: backgroundColor,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
             socialClassNotifier.currentSocialClass.nickname,
             style: GoogleFonts.sanchez(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
+                color: appBarTextColor, fontSize: 25, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
@@ -136,11 +166,11 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
             ),
           ),
           elevation: 10,
-          backgroundColor: Color.fromRGBO(155, 134, 99, 1),
+          backgroundColor: appBarBackgroundColor,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
-              color: Colors.white,
+              color: appBarIconColor,
             ),
             onPressed: () {
               Navigator.pop(context);
@@ -174,16 +204,15 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   ),
                   message: socialClassNotifier.currentSocialClass.name),
               Material(
-                color: Colors.transparent,
+                color: materialBackgroundColor,
                 child: InkWell(
-                  splashColor: Color.fromRGBO(237, 209, 166, 1),
+                  splashColor: splashColor,
                   onTap: () {},
                   child: Card(
                     elevation: 4,
                     shape: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color:
-                              Color.fromRGBO(194, 178, 128, 1).withOpacity(0.70),
+                          color: shapeDecorationColor.withOpacity(0.70),
                           width: 4.0,
                           style: BorderStyle.solid),
                     ),
@@ -197,7 +226,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                           Text(
                             socialClassNotifier.currentSocialClass.name.toUpperCase(),
                             style: GoogleFonts.blinker(
-                                color: Color.fromRGBO(155, 134, 99, 1),
+                                color: shapeDecorationTextColor,
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500
                             ),
@@ -210,7 +239,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                     SizedBox(width: 10),
                                     Icon (
                                       MdiIcons.shieldCheck,
-                                      color: Color.fromRGBO(155, 134, 99, 1),
+                                      color: shapeDecorationIconColor,
                                     ),
                                   ],
                                 );
@@ -219,7 +248,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                 visible: !_isVisible,
                                 child: Icon (
                                   MdiIcons.shieldCheck,
-                                  color: Color.fromRGBO(155, 134, 99, 1),
+                                  color: shapeDecorationIconColor,
                                 ),
                               );
                             }
@@ -232,7 +261,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
               ),
               Card(
                 elevation: 5,
-                color: Colors.white,
+                color: cardBackgroundColor,
                 margin: EdgeInsets.all(10),
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -249,14 +278,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         padding: const EdgeInsets.only(bottom: 35),
                         child: CupertinoSlidingSegmentedControl<int>(
                           padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                          thumbColor: Colors.white,
+                          thumbColor: cardBackgroundColor,
                           backgroundColor:
-                              Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          shapeDecorationColorTwo.withAlpha(50),
                           children: {
                             0: Text(
                               reachDetails,
                               style: GoogleFonts.sacramento(
-                                  color: Color.fromRGBO(155, 134, 99, 1),
+                                  color: shapeDecorationColorTwo,
                                   fontSize: 25,
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.w400),
@@ -264,7 +293,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                             1: Text(
                               autoBioDetails,
                               style: GoogleFonts.sacramento(
-                                color: Color.fromRGBO(155, 134, 99, 1),
+                                color: shapeDecorationColorTwo,
                                 fontSize: 25,
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w400,
@@ -329,19 +358,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.dialpad,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(callButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -356,19 +385,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.dialpad,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(callButton,
                             style: GoogleFonts.belleza(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -385,19 +414,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.message,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(messageButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -412,19 +441,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.message,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(messageButton,
                             style: GoogleFonts.belleza(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -441,19 +470,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.gmail,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(emailButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -468,19 +497,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.gmail,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(emailButton,
                             style: GoogleFonts.belleza(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -497,19 +526,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.twitterCircle,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(twitterButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -524,19 +553,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.twitterCircle,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(twitterButton,
                             style: GoogleFonts.belleza(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -553,19 +582,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.instagram,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(instagramButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -580,19 +609,19 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.instagram,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(instagramButton,
                             style: GoogleFonts.belleza(
-                                color: Colors.white,
+                                color: iconTextColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -609,20 +638,20 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: Colors.white,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 2,
-                      color: Color.fromRGBO(155, 134, 99, 1),
+                      color: buttonColor,
                       icon: new Icon(
                         MdiIcons.facebook,
-                        color: Colors.white,
+                        color: iconTextColor,
                       ),
                       label: Text(
                         facebookButton,
                         style: GoogleFonts.belleza(
-                            color: Colors.white,
+                            color: iconTextColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w300),
                       ),
@@ -638,20 +667,20 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: Colors.white,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         elevation: 2,
-                        color: Color.fromRGBO(155, 134, 99, 1),
+                        color: buttonColor,
                         icon: new Icon(
                           MdiIcons.facebook,
-                          color: Colors.white,
+                          color: iconTextColor,
                         ),
                         label: Text(
                           facebookButton,
                           style: GoogleFonts.belleza(
-                              color: Colors.white,
+                              color: iconTextColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w300),
                         ),
@@ -678,9 +707,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
             if (_autoBio.toString().isNotEmpty) {
               return Container(
                 child: Material(
-                  color: Colors.transparent,
+                  color: materialBackgroundColor,
                   child: InkWell(
-                    splashColor: Color.fromRGBO(155, 134, 99, 1),
+                    splashColor: splashColorThree,
                     onTap: () {},
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -690,14 +719,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                             TextSpan(
                                 text: autobiographyTitle,
                                 style: GoogleFonts.aBeeZee(
-                                  color: Color.fromRGBO(155, 134, 99, 1),
+                                  color: textColor,
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
                                 )),
                             TextSpan(
                                 text: ' ' + _autoBio,
                                 style: GoogleFonts.trykker(
-                                  color: Color.fromRGBO(155, 134, 99, 1),
+                                  color: textColor,
                                   fontSize: 19,
                                   fontWeight: FontWeight.w300,
                                 )),
@@ -708,7 +737,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                    color: shapeDecorationColorTwo.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)),
               );
             } else {
@@ -716,9 +745,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                   visible: !_isVisible,
                   child: Container(
                     child: Material(
-                      color: Colors.transparent,
+                      color: materialBackgroundColor,
                       child: InkWell(
-                        splashColor: Color.fromRGBO(155, 134, 99, 1),
+                        splashColor: splashColorThree,
                         onTap: () {},
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
@@ -728,14 +757,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                 TextSpan(
                                     text: autobiographyTitle,
                                     style: GoogleFonts.aBeeZee(
-                                      color: Color.fromRGBO(155, 134, 99, 1),
+                                      color: textColor,
                                       fontSize: 19,
                                       fontWeight: FontWeight.bold,
                                     )),
                                 TextSpan(
                                     text: ' ' + _autoBio,
                                     style: GoogleFonts.trykker(
-                                      color: Color.fromRGBO(155, 134, 99, 1),
+                                      color: textColor,
                                       fontSize: 19,
                                       fontWeight: FontWeight.w300,
                                     )),
@@ -746,7 +775,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                       ),
                     ),
                     decoration: BoxDecoration(
-                        color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                        color: shapeDecorationColorTwo.withAlpha(50),
                         borderRadius: new BorderRadius.circular(10)),
                   ));
             }
@@ -758,9 +787,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -771,14 +800,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: nicknameTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _nickname,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -789,7 +818,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -800,9 +829,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -813,14 +842,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: nicknameTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _nickname,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -831,7 +860,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -845,9 +874,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -858,14 +887,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: bestMomentTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _bestMoment,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -876,7 +905,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -887,9 +916,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -900,14 +929,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: bestMomentTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _bestMoment,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -918,7 +947,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -933,9 +962,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -946,14 +975,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: worstMomentTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _worstMoment,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -964,7 +993,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -975,9 +1004,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -988,14 +1017,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: worstMomentTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _worstMoment,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1006,7 +1035,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1020,9 +1049,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1033,14 +1062,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: prefectPositionTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _prefectPosition,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1051,7 +1080,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1062,9 +1091,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1075,14 +1104,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: prefectPositionTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _prefectPosition,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1093,7 +1122,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1107,9 +1136,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1120,14 +1149,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: dreamUniversityTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _dreamUniversity,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1138,7 +1167,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1149,9 +1178,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1162,14 +1191,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: dreamUniversityTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _dreamUniversity,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1180,7 +1209,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1195,9 +1224,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1208,14 +1237,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: dreamUniversityCourseTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _dreamUniversityCourse,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1226,7 +1255,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1237,9 +1266,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1250,14 +1279,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: dreamUniversityCourseTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _dreamUniversityCourse,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1268,7 +1297,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1282,9 +1311,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1295,14 +1324,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: dobTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _dob,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1313,7 +1342,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1324,9 +1353,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1337,14 +1366,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: dobTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _dob,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1355,7 +1384,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1369,9 +1398,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1382,14 +1411,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: stateOfOriginTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _originState,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1400,7 +1429,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1411,9 +1440,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1424,14 +1453,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: stateOfOriginTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _originState,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1442,7 +1471,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1457,9 +1486,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1470,14 +1499,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: currentLivingStateTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _stateLiving,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1488,7 +1517,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1499,9 +1528,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1512,14 +1541,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: currentLivingStateTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _stateLiving,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1530,7 +1559,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1544,9 +1573,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1557,14 +1586,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: hobbiesTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _hobbies,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1575,7 +1604,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1586,9 +1615,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1599,14 +1628,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: hobbiesTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _hobbies,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1617,7 +1646,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1631,9 +1660,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1644,14 +1673,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: philosophyTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _philosophy,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1662,7 +1691,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1673,9 +1702,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1686,14 +1715,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: philosophyTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _philosophy,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1704,7 +1733,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )
@@ -1718,9 +1747,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
                   child: Material(
-                    color: Colors.transparent,
+                    color: materialBackgroundColor,
                     child: InkWell(
-                      splashColor: Color.fromRGBO(155, 134, 99, 1),
+                      splashColor: splashColorThree,
                       onTap: () {},
                       child: Padding(
                         padding:
@@ -1731,14 +1760,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                   text: droplineTitle,
                                   style: GoogleFonts.aBeeZee(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   )),
                               TextSpan(
                                   text: ' ' + _myDropline,
                                   style: GoogleFonts.trykker(
-                                    color: Color.fromRGBO(155, 134, 99, 1),
+                                    color: textColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
                                   )),
@@ -1749,7 +1778,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     ),
                   ),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                      color: shapeDecorationColorTwo.withAlpha(50),
                       borderRadius: new BorderRadius.circular(10)),
                 ),
               );
@@ -1760,9 +1789,9 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Container(
                       child: Material(
-                        color: Colors.transparent,
+                        color: materialBackgroundColor,
                         child: InkWell(
-                          splashColor: Color.fromRGBO(155, 134, 99, 1),
+                          splashColor: splashColorThree,
                           onTap: () {},
                           child: Padding(
                             padding:
@@ -1773,14 +1802,14 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                                   TextSpan(
                                       text: droplineTitle,
                                       style: GoogleFonts.aBeeZee(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   TextSpan(
                                       text: ' ' + _myDropline,
                                       style: GoogleFonts.trykker(
-                                        color: Color.fromRGBO(155, 134, 99, 1),
+                                        color: textColor,
                                         fontSize: 19,
                                         fontWeight: FontWeight.w300,
                                       )),
@@ -1791,7 +1820,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(155, 134, 99, 1).withAlpha(50),
+                          color: shapeDecorationColorTwo.withAlpha(50),
                           borderRadius: new BorderRadius.circular(10)),
                     ),
                   )

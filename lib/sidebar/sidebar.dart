@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:math';
+//import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
@@ -32,7 +32,26 @@ String exitAppYes = "I Have To";
 
 String imgAsset = "assets/images/hallel_9.jpg";
 
-
+Color gradientColor = Colors.indigo;
+Color gradientColorTwo = Colors.cyan;
+Color linearGradientColor = Colors.blue;
+Color linearGradientColorTwo = Colors.lightBlueAccent;
+Color boxShadowColor = Colors.blueAccent;
+Color dividerColor = Colors.white;
+Color materialBackgroundColor = Colors.transparent;
+Color shimmerBaseColor = Colors.white;
+Color shimmerHighlightColor = Colors.brown;
+Color shapeDecorationTextColor = Color.fromRGBO(46, 137, 112, 1);
+Color containerBackgroundColor = Colors.indigo;
+Color containerIconColor = Color(0xFF1BB5FD);
+Color dialogBackgroundColor = Colors.blue;
+Color dialogTextColor = Colors.white;
+Color splashColor = Colors.brown;
+Color splashColorTwo = Color.fromRGBO(46, 137, 112, 1);
+Color splashColorThree = Colors.white;
+Color textColor = Colors.white;
+Color textColorTwo = Colors.brown[200];
+Color textShadowColor = Colors.white;
 
 class SideBar extends StatefulWidget {
 
@@ -87,21 +106,23 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
 
   @override
   Widget build(BuildContext context) {
-    var dd = MediaQuery.of(context).size;
-//    double screeWidth = size.width > size.height ? size.height : size.width;
-    double screeWidth = sqrt((dd.width * dd.width) + (dd.height * dd.height));
     var screeWidthLeft = MediaQuery.of(context).size.width;
-    var screeWidthLeftYou = MediaQuery.of(context).size.width;
-    var wittyWidth;
 
-      if (screeWidth > 947) {
-        var d = "freeform";
-        wittyWidth = screeWidthLeftYou  - 200;
-      }
-      else if (screeWidth <= 947) {
-        var d = "Ipad Pro";
-        wittyWidth = screeWidthLeftYou + 200;
-      }
+//    var dd = MediaQuery.of(context).size;
+//    double screeWidth = size.width > size.height ? size.height : size.width;
+//    double screeWidth = sqrt((dd.width * dd.width) + (dd.height * dd.height));
+
+//    var screeWidthLeftYou = MediaQuery.of(context).size.width;
+//    var wittyWidth;
+//
+//      if (screeWidth > 947) {
+//        var d = "freeform";
+//        wittyWidth = screeWidthLeftYou  - 200;
+//      }
+//      else if (screeWidth <= 947) {
+//        var d = "Ipad Pro";
+//        wittyWidth = screeWidthLeftYou + 200;
+//      }
 //      else if (screeWidth < 750) {
 //        var d = "medium tablet";
 //        wittyWidth = screeWidth =  650;
@@ -167,7 +188,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           gradient: LinearGradient(
                               begin: Alignment.topRight,
                               end: Alignment.bottomLeft,
-                              colors: [Colors.indigo, Colors.cyan]
+                              colors: [gradientColor, gradientColorTwo]
                           )
                       ),
                       child: SingleChildScrollView(
@@ -183,27 +204,27 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                   opacity: 0.7,
                                   child: Container(
                                     child: Material(
-                                      color: Colors.transparent,
+                                      color: materialBackgroundColor,
                                       child: InkWell(
-                                        splashColor: Colors.brown,
+                                        splashColor: splashColor,
                                         onTap: () {},
                                         child: Align(
                                           alignment: Alignment(0, 0.9),
                                           child: ListTile(
                                             title: Shimmer.fromColors(
-                                              baseColor: Colors.white,
-                                              highlightColor: Colors.brown,
+                                              baseColor: shimmerBaseColor,
+                                              highlightColor: shimmerHighlightColor,
                                               period: Duration(seconds: 2),
                                               child: Text(
                                                 schoolName.toUpperCase(),
                                                 style: GoogleFonts.gorditas(
-                                                    color: Colors.white,
+                                                    color: textColor,
                                                     fontSize: 25,
                                                     fontWeight: FontWeight.w800,
                                                     shadows: <Shadow>[
                                                       Shadow(
                                                           blurRadius: 30,
-                                                          color: Colors.white,
+                                                          color: textShadowColor,
                                                           offset: Offset.fromDirection(100, 12)
                                                       )
                                                     ]
@@ -213,7 +234,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                             subtitle: Text(
                                               subtitle,
                                               style: GoogleFonts.varela(
-                                                color: Colors.brown[200],
+                                                color: textColorTwo,
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 20,
                                               ),
@@ -233,13 +254,13 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       gradient: LinearGradient(
                                         begin: Alignment.topLeft,
                                         end: Alignment.bottomRight,
-                                        colors: [Colors.blue, Colors.lightBlueAccent.withAlpha(50)],
+                                        colors: [linearGradientColor, linearGradientColorTwo.withAlpha(50)],
                                         stops: [0.3, 1],
 
                                       ),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.blueAccent,
+                                          color: boxShadowColor,
                                           blurRadius: 12,
                                           offset: Offset(3, 12),
                                         )
@@ -255,14 +276,14 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             Divider(
                               height: 30,
                               thickness: 0.5,
-                              color: Colors.white.withOpacity(0.3),
+                              color: dividerColor.withOpacity(0.3),
                               indent: 32,
                               endIndent: 32,
                             ),
                             Material(
-                              color: _currentNAVSelected == 0 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 0 ? gradientColorTwo.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(0);
                                   onIconPressed();
@@ -279,9 +300,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 1 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 1 ? gradientColorTwo.withOpacity(0.3)   : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(1);
                                   onIconPressed();
@@ -297,9 +318,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 2 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 2 ? gradientColorTwo.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(2);
                                   onIconPressed();
@@ -315,9 +336,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 3 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 3 ? gradientColorTwo.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(3);
                                   onIconPressed();
@@ -333,9 +354,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 4 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 4 ? gradientColorTwo.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(4);
                                   onIconPressed();
@@ -351,9 +372,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 5 ? Colors.cyan.withOpacity(0.3) : Colors.transparent,
+                              color: _currentNAVSelected == 5 ? gradientColorTwo.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
-                                splashColor: Colors.white,
+                                splashColor: splashColorThree,
                                 onTap: () {
                                   _onSelected(5);
                                   onIconPressed();
@@ -371,16 +392,16 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                             Divider(
                               height: 64,
                               thickness: 0.5,
-                              color: Colors.white.withOpacity(0.3),
+                              color: dividerColor.withOpacity(0.3),
                               indent: 32,
                               endIndent: 32,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 50, top: 10),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Colors.white,
+                                  splashColor: splashColorThree,
                                   onTap: () {
                                     _onWillPop();
                                     onIconPressed();
@@ -416,12 +437,12 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       child: Container(
                         width: 35,
                         height: 110,
-                        color: Colors.indigo,
+                        color: containerBackgroundColor,
                         alignment: Alignment.centerLeft,
                         child: AnimatedIcon(
                           progress: _animationController.view,
                           icon: AnimatedIcons.menu_close,
-                          color: Color(0xFF1BB5FD),
+                          color: containerIconColor,
                           size: 25,
                         ),
                       ),
@@ -466,15 +487,15 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
           borderRadius: BorderRadius.all(Radius.circular(8)),
 
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: dialogBackgroundColor,
         title: Text(exitAppTitle,
           style: TextStyle(
-              color: Colors.white
+              color: dialogTextColor
           ),
         ),
         content: Text(exitAppSubtitle,
           style: TextStyle(
-              color: Colors.white
+              color: dialogTextColor
           ),
         ),
         actions: <Widget>[
@@ -482,7 +503,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(exitAppNo,
               style: TextStyle(
-                  color: Colors.white
+                  color: dialogTextColor
               ),
             ),
           ),
@@ -491,7 +512,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
             /*Navigator.of(context).pop(true)*/
             child: Text(exitAppYes,
               style: TextStyle(
-                  color: Colors.white
+                  color: dialogTextColor
               ),
             ),
           ),
@@ -507,7 +528,7 @@ class CustomMenuClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Paint paint = Paint();
-    paint.color = Colors.transparent;
+    paint.color = materialBackgroundColor;
 
     final width = size.width;
     final height = size.height;

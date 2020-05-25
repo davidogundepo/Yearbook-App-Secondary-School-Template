@@ -34,6 +34,24 @@ String aboutApp = "About App";
 
 String imgAsset = "assets/images/hallel_12.jpg";
 
+Color backgroundColor = Color.fromRGBO(194, 178, 128, 1);
+Color appBarTextColor = Colors.white;
+Color appBarBackgroundColor = Color.fromRGBO(155, 134, 99, 1);
+Color appBarIconColor = Colors.white;
+Color modalColor = Colors.transparent;
+Color modalBackgroundColor = Color.fromRGBO(194, 178, 128, 1);
+Color materialBackgroundColor = Colors.transparent;
+Color cardBackgroundColor = Colors.white;
+Color splashColor = Color.fromRGBO(237, 209, 166, 1);
+Color splashColorTwo = Colors.black87;
+Color iconColor = Colors.white;
+Color textColor = Colors.white;
+Color textColorTwo = Colors.white70;
+Color dialogBackgroundColor = Color.fromRGBO(194, 178, 128, 1);
+Color borderColor = Colors.black;
+Color paintColor = Colors.indigo;
+Color paintColorTwo = Colors.indigoAccent;
+
 
 class MySocialPage extends StatefulWidget with NavigationStates{
   MySocialPage({Key key, this.title}) : super(key: key);
@@ -60,13 +78,13 @@ class _MySocialPage extends State<MySocialPage> {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),color: Colors.black.withAlpha(50),
+            borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
         ),
 
         child: Material(
-          color: Colors.transparent,
+          color: materialBackgroundColor,
           child: InkWell(
-          splashColor: Color.fromRGBO(237, 209, 166, 1),
+          splashColor: splashColor,
             onTap: () {
               socialClassNotifier.currentSocialClass = socialClassNotifier.socialClassList[index];
               navigateToSocialDetailsPage(context);
@@ -103,7 +121,7 @@ class _MySocialPage extends State<MySocialPage> {
                                 Text(
                                     socialClassNotifier.socialClassList[index].name,
                                     style: GoogleFonts.tenorSans(
-                                        color: Colors.white,
+                                        color: textColor,
                                         fontSize: 17,
                                         fontWeight: FontWeight.w600
                                     )
@@ -116,7 +134,7 @@ class _MySocialPage extends State<MySocialPage> {
                                           SizedBox(width: 10),
                                           Icon (
                                             MdiIcons.shieldCheck,
-                                            color: Colors.white,
+                                            color: iconColor,
                                           ),
                                         ],
                                       );
@@ -125,7 +143,7 @@ class _MySocialPage extends State<MySocialPage> {
                                       visible: !_isVisible,
                                       child: Icon (
                                         MdiIcons.shieldCheck,
-                                        color: Colors.white,
+                                        color: iconColor,
                                       ),
                                     );
                                   }
@@ -142,7 +160,7 @@ class _MySocialPage extends State<MySocialPage> {
                                   child: Text(
                                       socialClassNotifier.socialClassList[index].twitter == socialClassNotifier.socialClassList[index].twitter ? '@'+socialClassNotifier.socialClassList[index].twitter : socialClassNotifier.socialClassList[index].twitter,
                                       style: GoogleFonts.varela(
-                                          color: Colors.white70,
+                                          color: textColorTwo,
                                           fontStyle: FontStyle.italic
                                       )
                                   ),
@@ -154,7 +172,7 @@ class _MySocialPage extends State<MySocialPage> {
                                   child: Text(
                                       socialClassNotifier.socialClassList[index].twitter,
                                       style: GoogleFonts.varela(
-                                          color: Colors.white70,
+                                          color: textColorTwo,
                                           fontStyle: FontStyle.italic
                                       )
                                   ),
@@ -168,7 +186,7 @@ class _MySocialPage extends State<MySocialPage> {
                                   child: Text(
                                       socialClassNotifier.socialClassList[index].twitter,
                                       style: GoogleFonts.varela(
-                                          color: Colors.white70,
+                                          color: textColorTwo,
                                           fontStyle: FontStyle.italic
                                       )
                                   ),
@@ -199,15 +217,15 @@ class _MySocialPage extends State<MySocialPage> {
               borderRadius: BorderRadius.all(Radius.circular(8)),
 
             ),
-            backgroundColor: Color.fromRGBO(194, 178, 128, 1),
+            backgroundColor: dialogBackgroundColor,
             title: Text(exitAppTitle,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
             content: Text(exitAppSubtitle,
               style: TextStyle(
-                  color: Colors.white
+                  color: textColor
               ),
             ),
             actions: <Widget>[
@@ -215,7 +233,7 @@ class _MySocialPage extends State<MySocialPage> {
                 onPressed: () => Navigator.of(context).pop(false),
                 child: Text(exitAppNo,
                   style: TextStyle(
-                      color: Colors.white
+                      color: textColor
                   ),
                 ),
               ),
@@ -224,7 +242,7 @@ class _MySocialPage extends State<MySocialPage> {
                 /*Navigator.of(context).pop(true)*/
                 child: Text(exitAppYes,
                   style: TextStyle(
-                      color: Colors.white
+                      color: textColor
                   ),
                 ),
               ),
@@ -266,7 +284,7 @@ class _MySocialPage extends State<MySocialPage> {
       onWillPop: _onWillPop,
       child: Scaffold(
         body: Container(
-          color: Color.fromRGBO(194, 178, 128, 1),
+          color: backgroundColor,
 
           child: NestedScrollView(
             headerSliverBuilder: (BuildContext context,
@@ -275,58 +293,58 @@ class _MySocialPage extends State<MySocialPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: Colors.white,),
+                      icon: Icon(MdiIcons.bandage, color: iconColor),
                       onPressed: () {
                         showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
+                            backgroundColor: modalColor,
                             context: context,
                             builder: (context) => Container(
                               height: 250,
                               decoration: BoxDecoration(
-                                color: Color.fromRGBO(194, 178, 128, 1),
+                                color: modalBackgroundColor,
                                 borderRadius: BorderRadius.all(Radius.circular(15)),
                               ),
                               child: Material(
-                                color: Colors.transparent,
+                                color: materialBackgroundColor,
                                 child: InkWell(
-                                  splashColor: Colors.black87,
+                                  splashColor: splashColorTwo,
                                   child: Wrap(
                                     children: <Widget>[
                                       ListTile(
-                                          leading: new Icon(MdiIcons.atom, color: Colors.white),
+                                          leading: new Icon(MdiIcons.atom, color: iconColor),
                                           title: new Text(whoWeAre,
                                             style: GoogleFonts.zillaSlab(
-                                                color: Colors.white
+                                                color: textColor
                                             ),),
                                           onTap: () {
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.chessQueen, color: Colors.white),
+                                        leading: new Icon(MdiIcons.chessQueen, color: iconColor),
                                         title: new Text(aboutSchool,
                                         style: GoogleFonts.zillaSlab(
-                                          color: Colors.white
+                                          color: textColor
                                         ),),
                                         onTap: () {
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
                                       ListTile(
-                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: Colors.white),
+                                          leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
                                           title: new Text(acronymMeanings,
                                             style: GoogleFonts.zillaSlab(
-                                                color: Colors.white
+                                                color: textColor
                                             ),),
                                           onTap: () {
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
                                       ListTile(
-                                        leading: new Icon(MdiIcons.opacity, color: Colors.white),
+                                        leading: new Icon(MdiIcons.opacity, color: iconColor),
                                         title: new Text(aboutApp,
                                           style: GoogleFonts.zillaSlab(
-                                              color: Colors.white,
+                                              color: textColor,
                                           ),),
                                         onTap: () {
                                           navigateToAboutAppDetailsPage(context);
@@ -341,7 +359,7 @@ class _MySocialPage extends State<MySocialPage> {
                       },
                     ),
                   ],
-                  backgroundColor: Color.fromRGBO(155, 134, 99, 1),
+                  backgroundColor: appBarBackgroundColor,
                   expandedHeight: 200.0,
                   floating: false,
                   pinned: true,
@@ -349,7 +367,7 @@ class _MySocialPage extends State<MySocialPage> {
                       centerTitle: true,
                       title: Text(thrownName,
                           style: GoogleFonts.amaticSC(
-                            color: Colors.white,
+                            color: textColor,
                             fontSize: 26.0,
                             fontWeight: FontWeight.bold
                           )
@@ -386,12 +404,12 @@ class BackGround extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
   Paint paint = new Paint();
-  paint.color = Colors.indigo;
+  paint.color = paintColor;
   paint.strokeWidth = 100;
   paint.isAntiAlias = true;
 
   Paint paint2 = new Paint();
-  paint2.color = Colors.indigoAccent;
+  paint2.color = paintColorTwo;
   paint2.strokeWidth = 100;
   paint2.isAntiAlias = true;
 
