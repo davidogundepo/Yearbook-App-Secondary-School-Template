@@ -1174,4 +1174,3 @@ List<Color> studentColorList = [
   firstStudentChartColor,
   secondStudentChartColor,
 ];
-

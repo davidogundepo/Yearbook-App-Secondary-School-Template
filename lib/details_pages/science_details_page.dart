@@ -224,40 +224,44 @@ class _SubPageState extends State<SubPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            scienceClassNotifier.currentScienceClass.name.toUpperCase(),
-                            style: GoogleFonts.blinker(
-                                color: shapeDecorationTextColor,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w500
+
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(
+                              scienceClassNotifier.currentScienceClass.name.toUpperCase(),
+                              style: GoogleFonts.blinker(
+                                  color: shapeDecorationTextColor,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500
+                              ),
                             ),
-                          ),
-                          (() {
-                            if (scienceClassNotifier.currentScienceClass.prefect == "Yes") {
-                              return
-                                Row(
-                                  children: <Widget>[
-                                    SizedBox(width: 10),
-                                    Icon (
-                                      MdiIcons.shieldCheck,
-                                      color: shapeDecorationIconColor,
-                                    ),
-                                  ],
+                            (() {
+                              if (scienceClassNotifier.currentScienceClass.prefect == "Yes") {
+                                return
+                                  Row(
+                                    children: <Widget>[
+                                      SizedBox(width: 10),
+                                      Icon (
+                                        MdiIcons.shieldCheck,
+                                        color: shapeDecorationIconColor,
+                                      ),
+                                    ],
+                                  );
+                              } else {
+                                return Visibility(
+                                  visible: !_isVisible,
+                                  child: Icon (
+                                    MdiIcons.shieldCheck,
+                                    color: shapeDecorationIconColor,
+                                  ),
                                 );
-                            } else {
-                              return Visibility(
-                                visible: !_isVisible,
-                                child: Icon (
-                                  MdiIcons.shieldCheck,
-                                  color: shapeDecorationIconColor,
-                                ),
-                              );
-                            }
-                          }()),
-                        ],
+                              }
+                            }()),
+                          ],
+                        ),
                       ),
                     ),
                   ),

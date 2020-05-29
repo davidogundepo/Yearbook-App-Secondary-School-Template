@@ -145,22 +145,25 @@ class _ClassPrefectDetailsPage extends State<ClassPrefectDetailsPage>{
                           right: 16.0,
                           bottom: 16.0),
 
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(classPrefectsNotifier.currentClassPrefects.name.toUpperCase(),
-                            style: GoogleFonts.blinker(
-                                color: textColor,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w500
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(classPrefectsNotifier.currentClassPrefects.name.toUpperCase(),
+                              style: GoogleFonts.blinker(
+                                  color: textColor,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 10),
-                          Icon (
-                            MdiIcons.shieldCheck,
-                            color: iconColor,
-                          ),
-                        ],
+                            SizedBox(width: 10),
+                            Icon (
+                              MdiIcons.shieldCheck,
+                              color: iconColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

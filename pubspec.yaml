@@ -30,9 +30,9 @@ dependencies:
   google_fonts: ^0.3.9
   shared_preferences: ^0.5.7
   flutter_bloc: ^3.2.0
-  firebase_core: ^0.4.3+3
+  firebase_core: 0.4.4
   cloud_firestore: ^0.13.2+1
-  firebase_auth: ^0.15.4
+  firebase_auth: 0.15.4
   provider: ^4.0.4
   flutter_swiper: ^1.1.6
   pie_chart: ^3.1.1
@@ -42,6 +42,13 @@ dependencies:
   firebase_analytics: ^5.0.11
   flutter_launcher_icons: ^0.7.5
   flutter_launcher_name: ^0.0.1
+  device_preview: ^0.4.5
+
+flutter_native_splash:
+  image: assets/images/david.png
+  color: "666666"
+  android: false
+
 
 flutter_launcher_name:
   name: "Secondary Sch ALMANAC Template"
@@ -53,9 +60,12 @@ flutter_icons:
 
 
 dev_dependencies:
+  flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
 
+dependency_overrides:
+  firebase_core: 0.4.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

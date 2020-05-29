@@ -220,40 +220,44 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            socialClassNotifier.currentSocialClass.name.toUpperCase(),
-                            style: GoogleFonts.blinker(
-                                color: shapeDecorationTextColor,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w500
+
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text(
+                              socialClassNotifier.currentSocialClass.name.toUpperCase(),
+                              style: GoogleFonts.blinker(
+                                  color: shapeDecorationTextColor,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500
+                              ),
                             ),
-                          ),
-                          (() {
-                            if (socialClassNotifier.currentSocialClass.prefect == "Yes") {
-                              return
-                                Row(
-                                  children: <Widget>[
-                                    SizedBox(width: 10),
-                                    Icon (
-                                      MdiIcons.shieldCheck,
-                                      color: shapeDecorationIconColor,
-                                    ),
-                                  ],
+                            (() {
+                              if (socialClassNotifier.currentSocialClass.prefect == "Yes") {
+                                return
+                                  Row(
+                                    children: <Widget>[
+                                      SizedBox(width: 10),
+                                      Icon (
+                                        MdiIcons.shieldCheck,
+                                        color: shapeDecorationIconColor,
+                                      ),
+                                    ],
+                                  );
+                              } else {
+                                return Visibility(
+                                  visible: !_isVisible,
+                                  child: Icon (
+                                    MdiIcons.shieldCheck,
+                                    color: shapeDecorationIconColor,
+                                  ),
                                 );
-                            } else {
-                              return Visibility(
-                                visible: !_isVisible,
-                                child: Icon (
-                                  MdiIcons.shieldCheck,
-                                  color: shapeDecorationIconColor,
-                                ),
-                              );
-                            }
-                          }()),
-                        ],
+                              }
+                            }()),
+                          ],
+                        ),
                       ),
                     ),
                   ),
