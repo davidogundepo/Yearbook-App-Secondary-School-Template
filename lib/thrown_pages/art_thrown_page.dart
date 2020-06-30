@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/thrown_searches/art_thrown_search.dart';
 import '../about_menu_details_pages/about_app.dart';
 import '../about_menu_details_pages/about_school.dart';
 import '../about_menu_details_pages/acronyms_meanings.dart';
@@ -72,7 +73,8 @@ class _MyArtPage extends State<MyArtPage> {
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),color: borderColor.withAlpha(50),
+          borderRadius: BorderRadius.circular(10),
+          color: borderColor.withAlpha(50),
         ),
 
         child: Material(
@@ -286,7 +288,7 @@ class _MyArtPage extends State<MyArtPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage,
+                      icon: Icon(MdiIcons.formatFloatLeft,
                       color: appBarIconColor),
                       onPressed: () async {
                         showModalBottomSheet(
@@ -296,7 +298,7 @@ class _MyArtPage extends State<MyArtPage> {
                               height: 250,
                               decoration: BoxDecoration(
                                 color: appBarBackgroundColor,
-                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                               ),
                               child: Material(
                                 color: materialBackgroundColor,
@@ -351,6 +353,18 @@ class _MyArtPage extends State<MyArtPage> {
                               ),
                             ));
                       },
+                    ),
+                    IconButton(
+                      icon: Icon(MdiIcons.magnify, color: iconColor),
+                      onPressed: artClassNotifier.artClassList == null
+                          ? null
+                          : (){
+                        showSearch(
+                          context: context,
+                          delegate: MyArtSearch(all: artClassNotifier.artClassList),
+                        );
+                      },
+                      tooltip: "Search",
                     ),
                     ],
                   backgroundColor: appBarBackgroundColor,

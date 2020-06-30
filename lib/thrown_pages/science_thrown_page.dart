@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/thrown_searches/science_thrown_search.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../about_menu_details_pages/about_app.dart';
 import '../about_menu_details_pages/about_school.dart';
@@ -345,7 +346,7 @@ class _MySciencePage extends State<MySciencePage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: iconColor
+                      icon: Icon(MdiIcons.formatFloatLeft, color: iconColor
                       ),
                       onPressed: () {
                         showModalBottomSheet(
@@ -355,8 +356,7 @@ class _MySciencePage extends State<MySciencePage> {
                               height: 250,
                               decoration: BoxDecoration(
                                 color: modalBackgroundColor,
-                                borderRadius: BorderRadius.all(Radius.circular(15)
-                                ),
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                               ),
                               child: Material(
                                 color: materialBackgroundColor,
@@ -413,6 +413,18 @@ class _MySciencePage extends State<MySciencePage> {
                               ),
                             ));
                       },
+                    ),
+                    IconButton(
+                      icon: Icon(MdiIcons.magnify, color: iconColor),
+                      onPressed: scienceClassNotifier.scienceClassList == null
+                          ? null
+                          : (){
+                        showSearch(
+                          context: context,
+                          delegate: MyScienceSearch(all: scienceClassNotifier.scienceClassList),
+                        );
+                      },
+                      tooltip: "Search",
                     ),
                   ],
                   backgroundColor: appBarBackgroundColor,

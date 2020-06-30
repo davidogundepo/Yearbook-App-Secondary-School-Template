@@ -5,7 +5,7 @@ import '../notifier/class_prefects_notifier.dart';
 getClassPrefects(ClassPrefectsNotifier classPrefectsNotifier) async {
   QuerySnapshot snapshot = await Firestore.instance
       .collection('ClassPrefects')
-      .orderBy('name')
+      .orderBy('id')
       .getDocuments();
 
   List<ClassPrefects> _classPrefectsList = [];

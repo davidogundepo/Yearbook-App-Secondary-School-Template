@@ -5,7 +5,7 @@ import '../notifier/management_body_notifier.dart';
 getManagementBody(ManagementBodyNotifier managementBodyNotifier) async {
   QuerySnapshot snapshot = await Firestore.instance
       .collection('ManagementBody')
-      .orderBy('name')
+      .orderBy('id')
       .getDocuments();
 
   List<ManagementBody> _managementBodyList = [];

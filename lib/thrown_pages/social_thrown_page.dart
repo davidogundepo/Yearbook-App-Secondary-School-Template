@@ -9,6 +9,7 @@ import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/about_school.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/acronyms_meanings.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/who_we_are.dart';
+import 'package:second_lfutter_project/thrown_searches/social_thrown_search.dart';
 import '../api/social_class_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../notifier/social_class_notifier.dart';
@@ -293,7 +294,7 @@ class _MySocialPage extends State<MySocialPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: iconColor),
+                      icon: Icon(MdiIcons.formatFloatLeft, color: iconColor),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: modalColor,
@@ -302,7 +303,7 @@ class _MySocialPage extends State<MySocialPage> {
                               height: 250,
                               decoration: BoxDecoration(
                                 color: modalBackgroundColor,
-                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                               ),
                               child: Material(
                                 color: materialBackgroundColor,
@@ -357,6 +358,18 @@ class _MySocialPage extends State<MySocialPage> {
                               ),
                             ));
                       },
+                    ),
+                    IconButton(
+                      icon: Icon(MdiIcons.magnify, color: iconColor),
+                      onPressed: socialClassNotifier.socialClassList == null
+                          ? null
+                          : (){
+                        showSearch(
+                          context: context,
+                          delegate: MySocialSearch(all: socialClassNotifier.socialClassList),
+                        );
+                      },
+                      tooltip: "Search",
                     ),
                   ],
                   backgroundColor: appBarBackgroundColor,

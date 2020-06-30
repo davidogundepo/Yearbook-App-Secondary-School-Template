@@ -10,6 +10,7 @@ import 'package:second_lfutter_project/about_menu_details_pages/about_app.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/about_school.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/acronyms_meanings.dart';
 import 'package:second_lfutter_project/about_menu_details_pages/who_we_are.dart';
+import 'package:second_lfutter_project/thrown_searches/prefects_thrown_search.dart';
 import '../api/class_prefects_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/class_prefects_details_page.dart';
@@ -35,7 +36,6 @@ String aboutApp = "About App";
 String imgAsset = "assets/images/hallel_18.jpg";
 
 Color backgroundColor = Color.fromRGBO(242, 243, 244, 1);
-Color backgroundColorTwo = Colors.blueAccent;
 Color appBarTextColor = Colors.white;
 Color appBarBackgroundColor = Color.fromRGBO(254, 250, 239, 1);
 Color appBarIconColor = Colors.white;
@@ -235,7 +235,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.bandage, color: iconColorTwo,),
+                      icon: Icon(MdiIcons.formatFloatLeft, color: iconColorTwo),
                       onPressed: () {
                         showModalBottomSheet(
                             backgroundColor: modalColor,
@@ -244,7 +244,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                               height: 250,
                               decoration: BoxDecoration(
                                 color: modalBackgroundColor,
-                                borderRadius: BorderRadius.all(Radius.circular(15)),
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
                               ),
                               child: Material(
                                 color: materialBackgroundColor,
@@ -311,6 +311,18 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                               ),
                             ));
                       },
+                    ),
+                    IconButton(
+                      icon: Icon(MdiIcons.magnify, color: iconColorTwo),
+                      onPressed: classPrefectsNotifier.classPrefectsList == null
+                          ? null
+                          : (){
+                        showSearch(
+                          context: context,
+                          delegate: MyClassPrefectsSearch(all: classPrefectsNotifier.classPrefectsList),
+                        );
+                      },
+                      tooltip: "Search",
                     ),
                   ],
                   backgroundColor: appBarBackgroundColor,

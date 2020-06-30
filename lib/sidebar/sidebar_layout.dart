@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:second_lfutter_project/notifier/sidebar_notifier.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 
 import 'sidebar.dart';
@@ -7,15 +9,19 @@ import 'sidebar.dart';
 class SideBarLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SideBarNotifier sideBarNotifier = Provider.of<SideBarNotifier>(context);
     return Scaffold(
       body: BlocProvider <NavigationBloc>(
         create: (context) => NavigationBloc(),
         child: Stack(
           children: <Widget>[
-            BlocBuilder<NavigationBloc, NavigationStates>(
-              builder: (context, navigationState) {
-                return navigationState as Widget;
-              },
+            IgnorePointer(
+              ignoring: sideBarNotifier.isOpened,
+              child: BlocBuilder<NavigationBloc, NavigationStates>(
+                builder: (context, navigationState) {
+                  return navigationState as Widget;
+                },
+              ),
             ),
             SideBar()
           ],

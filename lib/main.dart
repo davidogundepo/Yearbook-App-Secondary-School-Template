@@ -11,6 +11,7 @@ import './notifier/social_class_notifier.dart';
 import './notifier/science_class_notifier.dart';
 
 import './sidebar/sidebar_layout.dart';
+import 'notifier/sidebar_notifier.dart';
 
 void main() {
   runApp(
@@ -39,6 +40,9 @@ void main() {
                 ),
                 ChangeNotifierProvider(
                   create: (context) => AchievementsNotifier(),
+                ),
+                ChangeNotifierProvider(
+                  create: (context) => SideBarNotifier(),
                 ),
               ],
               child: MyApp()

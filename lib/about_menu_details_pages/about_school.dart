@@ -16,6 +16,7 @@ import 'package:pie_chart/pie_chart.dart';
 String schoolName = "ABC College";
 String aboutSchool = "About $schoolName";
 
+String visionSwipe = "Swipe left on 'OUR VISION STATEMENT'  >>>";
 String visionTitle = "OUR VISION STATEMENT";
 String visionStatement = "Raising the total youth through comprehensive education.";
 String missionTitle = "OUR MISSION STATEMENT";
@@ -36,6 +37,7 @@ String studentBody = "Student Body\n\n";
 String studentBodyStatement = "We currently have 1,526 students in $schoolName, 871 male students and 655 female students. 3,486 students have graduated from $schoolName.";
 String studentPopulationChart = "$schoolName Students Population Chart";
 
+String orientationCampSwipe = "Swipe up for all Subjects offered";
 String subjectsOffered = "Subjects offered in $schoolName";
 String subjectsOfferedInJSS = "Junior Secondary School (JSS) Subjects\n\n";
 String subjectsOfferedInJSSStatement1 = "1. English Language\n";
@@ -83,7 +85,9 @@ String extraCurricularActsStatement6 = "6. Swimming Competitions\n";
 String extraCurricularActsStatement7 = "7. Fashion Designing Competitions\n";
 String extraCurricularActsStatement8 = "8. National Spelling Bee Competition\n";
 
+String schoolArialViewsSwipe = "Swipe left or right for more photos";
 String schoolArialViews = "Some Arial views of $schoolName";
+String schoolAchievementsSwipe = "Swipe left or right for more photos";
 String schoolAchievements = "Some of our achievements";
 String moreInfoAboutSchool = "For more information about $schoolName please trust and click me";
 String moreInfoAboutSchoolURL = "https://hallelcollege.com/";
@@ -96,6 +100,8 @@ double nonTeachingStaffPopulation = 32;
 
 Color backgroundColor = Colors.blueGrey[900];
 Color cardBackgroundColor = Colors.black38;
+Color appBarIconColor = Colors.blueGrey;
+Color appBarTextColor = Colors.blueGrey;
 Color appBarBackgroundColor = Colors.blueGrey[800];
 Color cardTextColor = Colors.blueGrey;
 Color boxDecorationColor = Colors.blueGrey;
@@ -159,7 +165,17 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(aboutSchool),
+        title: Text(aboutSchool,
+          style: TextStyle(
+            color: appBarIconColor
+          )
+        ),
+        leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios, color: appBarIconColor),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
         elevation: 10,
         backgroundColor: appBarBackgroundColor,
       ),
@@ -167,6 +183,36 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: Container(
+                child: Material (
+                  color: materialColor,
+                  child: InkWell(
+                    splashColor: cardTextColor,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Text(visionSwipe,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: cardTextColor,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: boxDecorationColor.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(5)
+                ),
+              ),
+            ),
             Container(
               height: 500,
               child: PageView(
@@ -597,6 +643,36 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               ),
             ),
             Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+              child: Container(
+                child: Material (
+                  color: materialColor,
+                  child: InkWell(
+                    splashColor: cardTextColor,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Text(orientationCampSwipe,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: cardTextColor,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: boxDecorationColor.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(5)
+                ),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 height: 300,
@@ -992,6 +1068,36 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
               ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+              child: Container(
+                child: Material (
+                  color: materialColor,
+                  child: InkWell(
+                    splashColor: cardTextColor,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Text(schoolArialViewsSwipe,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: cardTextColor,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: boxDecorationColor.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(5)
+                ),
+              ),
+            ),
             Container(
               height: 340,
               child: Swiper(
@@ -1046,6 +1152,36 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                 color: cardTextColor,
                 fontWeight: FontWeight.w500
               ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+              child: Container(
+                child: Material (
+                  color: materialColor,
+                  child: InkWell(
+                    splashColor: cardTextColor,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Text(schoolArialViewsSwipe,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: cardTextColor,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: boxDecorationColor.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(5)
+                ),
               ),
             ),
             Container(
