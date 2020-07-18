@@ -373,12 +373,15 @@ class _MyArtPage extends State<MyArtPage> {
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
-                      title: Text(thrownName,
-                          style: GoogleFonts.amaticSC(
-                            color: appBarTextColor,
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.bold
-                          )
+                      title: Center(
+                        heightFactor: 0.6,
+                        child: Text(thrownName,
+                            style: GoogleFonts.amaticSC(
+                              color: appBarTextColor,
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold
+                            )
+                        ),
                       ),
                     background: Image.asset(imgAsset,
                       fit: BoxFit.cover,

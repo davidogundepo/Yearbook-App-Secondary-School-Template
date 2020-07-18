@@ -83,6 +83,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                 top: 15, bottom: 15, left: 30, right: 30),
                             child: Text(
                               acronymTitle,
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,
@@ -160,7 +161,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ssd,
+                                  text: ssd + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardTextColor,

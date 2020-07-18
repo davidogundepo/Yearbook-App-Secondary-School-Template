@@ -6,23 +6,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 import '../notifier/management_body_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-String dave = "David";
-String whatsApp = "+2348070920625";
 
 String callFIRST = "tel:+234";
 String smsFIRST = "sms:+234";
+String whatsAppFIRST = "https://api.whatsapp.com/send?phone=+234";
+String whatsAppSECOND = "&text=Hello%20";
+String whatsAppTHIRD = ",%20How%20are%20you%20doing%20today?";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
-String urlFacebook = "https://fb.com/";
+String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
+String whatsAppButton = "Send a WhatsApp Message";
 String emailButton = "Send an Email";
 String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
@@ -32,6 +35,13 @@ String autobiographyTitle = "Autobiography\n";
 String staffPositionTitle = "Staff Position\n";
 String qualificationTitle = "Qualification(s)\n";
 String yearOfInceptionTitle = "Year of Inception\n";
+
+String facebookProfileSharedPreferencesTitle = "Manual Website Search";
+String facebookProfileSharedPreferencesContentOne= "Apparently, you'd need to search manually for ";
+String facebookProfileSharedPreferencesContentTwo = ", on Facebook.com";
+String facebookProfileSharedPreferencesButton = "Go to Facebook";
+String facebookProfileSharedPreferencesButtonTwo = "Lol, No";
+
 
 Color backgroundColor = Colors.lightBlue;
 Color appBarTextColor = Colors.white;
@@ -329,7 +339,13 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           )
                       ),
                       onPressed: () {
-                        launchURL(callFIRST+_phone);
+                        if (_phone.toString().startsWith('0')) {
+                          var most = _phone.toString().substring(1);
+                          launchURL(callFIRST +most);
+                        }
+                        else {
+                          launchURL(callFIRST + _phone);
+                        }
                       },
                     ),
                   ),
@@ -386,7 +402,78 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           )
                       ),
                       onPressed: () {
-                        launchURL(smsFIRST+_phone);
+                        if (_phone.toString().startsWith('0')) {
+                          var most = _phone.toString().substring(1);
+                          launchURL(smsFIRST +most);
+                        }
+                        else {
+                          launchURL(smsFIRST + _phone);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.message, color: iconTextColor),
+                        label: Text(messageButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          launchURL(smsFIRST+_phone);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_phone.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.whatsapp, color: iconTextColor),
+                      label: Text(whatsAppButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        if (_phone.toString().startsWith('0')) {
+                          var most = _phone.toString().substring(1);
+                          var firstName = _name.toString().substring(0, _name.toString().indexOf(" "));
+                          launchURL(whatsAppFIRST + most + whatsAppSECOND + firstName + whatsAppTHIRD);
+                        }
+                        else {
+                          var firstName = _name.toString().substring(0, _name.toString().indexOf(" "));
+                          launchURL(whatsAppFIRST + _phone + whatsAppSECOND + firstName + whatsAppTHIRD);
+                        }
                       },
                     ),
                   ),
@@ -611,11 +698,12 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         style: GoogleFonts.abel(
                             color: iconTextColor,
                             fontSize: 18,
-                            fontWeight: FontWeight.w300
-                        ),
+                            decoration: TextDecoration.underline,
+                            decorationStyle: TextDecorationStyle.dashed,
+                            fontWeight: FontWeight.w300),
                       ),
                       onPressed: () {
-                        launchURL(urlFacebook+_facebook);
+                        facebookLink();
                       },
                     ),
                   ),
@@ -832,6 +920,63 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
   }
 
   int sharedValue = 0;
+
+  facebookLink() async {
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: backgroundColor,
+        title: Text(
+          facebookProfileSharedPreferencesTitle,
+          style: TextStyle(
+              color: cardBackgroundColor
+          ),
+        ),
+        content: Text(
+          facebookProfileSharedPreferencesContentOne + _facebook + facebookProfileSharedPreferencesContentTwo,
+          textAlign: TextAlign.justify,
+          style: TextStyle(
+              color: cardBackgroundColor
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              launchURL(urlFacebook);
+              Toast.show("Loading up Facebook.com",
+                  context, duration:
+                  Toast.LENGTH_LONG,
+                  gravity:  Toast.BOTTOM,
+                  textColor: cardBackgroundColor,
+                  backgroundColor: backgroundColor,
+                  backgroundRadius: 10
+              );
+            },
+            child: Text(facebookProfileSharedPreferencesButton,
+              style: TextStyle(
+                  color: cardBackgroundColor
+              ),
+            ),
+          ),
+          FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(facebookProfileSharedPreferencesButtonTwo,
+              style: TextStyle(
+                  color: cardBackgroundColor
+              ),
+            ),
+          ),
+
+        ],
+      ),
+    );
+//    }
+  }
 
 
   @override

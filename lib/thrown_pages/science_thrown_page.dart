@@ -18,10 +18,12 @@ import '../notifier/science_class_notifier.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/science_details_page.dart';
 
-String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
-
 
 String schoolName = "ABC College";
+String communityName = "Trans-Woji";
+String lgaName = "Obia/Akpor LGA";
+String stateName = "Rivers State";
+String countryName = "Nigeria";
 String thrownName = "Science Class Graduates";
 
 String exitAppStatement = "Exit from App";
@@ -39,6 +41,14 @@ String networkSharedPreferencesKey = "first_time";
 String networkSharedPreferencesTitle = "Network";
 String networkSharedPreferencesContent = "The internet connection is required for the first time launch, please leave on for few seconds :)";
 String networkSharedPreferencesButton = "Okies";
+
+
+String appOverviewSharedPreferencesKey = "overview_time";
+String appOverviewSharedPreferencesTitle = "APP OVERVIEW";
+String appOverviewSharedPreferencesContentOne = "This Yearbook App was developed for $schoolName, a Secondary School in $communityName, $lgaName, $stateName. $countryName.\n";
+String appOverviewSharedPreferencesContentTwo = "Our vision is to raise the total youth through comprehensive education.\n";
+String appOverviewSharedPreferencesContentThree = "Welcome to our inventory, do read through and know more!";
+String appOverviewSharedPreferencesButton = "Awesome";
 
 String imgAsset = "assets/images/hallel_5.jpg";
 
@@ -318,12 +328,82 @@ class _MySciencePage extends State<MySciencePage> {
     }
   }
 
+  aboutAppWelcomeDialog() async {
+    SharedPreferences appOverviewPrefs = await SharedPreferences.getInstance();
+    bool appOverviewChecked = appOverviewPrefs.getBool('overview_time');
+
+    if (appOverviewChecked != null && !appOverviewChecked) {
+      // Not first time
+    }
+    else {
+      // First time
+    appOverviewPrefs.setBool(appOverviewSharedPreferencesKey, false);
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: dialogBackgroundColor,
+        title: Text(
+          appOverviewSharedPreferencesTitle,
+          style: TextStyle(
+              color: textColor
+          ),
+        ),
+        content: Container(
+          height: 220,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  appOverviewSharedPreferencesContentOne,
+                  style: TextStyle(
+                      color: textColor
+                  ),
+                ),
+                Text(
+                  appOverviewSharedPreferencesContentTwo,
+                  style: TextStyle(
+                      color: textColor
+                  ),
+                ),
+                Text(
+                  appOverviewSharedPreferencesContentThree,
+                  style: TextStyle(
+                      color: textColor
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(appOverviewSharedPreferencesButton,
+              style: TextStyle(
+                  color: textColor
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+    }
+  }
+
   @override
   void initState() {
     ScienceClassNotifier scienceClassNotifier = Provider.of<ScienceClassNotifier>(context, listen: false);
     getScienceClass(scienceClassNotifier);
 
     startTime();
+
+    aboutAppWelcomeDialog();
+
 
     super.initState();
   }
@@ -433,13 +513,16 @@ class _MySciencePage extends State<MySciencePage> {
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                       centerTitle: true,
-                      title: Text(thrownName,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.amaticSC(
-                            color: textColor,
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.bold
-                          )
+                      title: Center(
+                        heightFactor: 0.6,
+                        child: Text(thrownName,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.amaticSC(
+                              color: textColor,
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold
+                            )
+                        ),
                       ),
                     background: Image.asset(imgAsset,
                       fit: BoxFit.cover,

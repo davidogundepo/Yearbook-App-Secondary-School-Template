@@ -93,10 +93,11 @@ class _WhoWeAreState extends State<WhoWeAre> {
                                   top: 15, bottom: 15, left: 30, right: 30),
                               child: Text(
                                 whoWeAre,
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontSize: 25,
-                                    color: headingCardTextColor,
-                                    fontWeight: FontWeight.w300
+                                  fontSize: 25,
+                                  color: headingCardTextColor,
+                                  fontWeight: FontWeight.w300
                                 ),
                               ),
                             ),
@@ -177,6 +178,7 @@ class _WhoWeAreState extends State<WhoWeAre> {
                                 top: 15, bottom: 15, left: 30, right: 30),
                             child: Text(
                               graduateSetTheme,
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 25,
                                   fontStyle: FontStyle.italic,
