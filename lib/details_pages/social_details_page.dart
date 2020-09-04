@@ -44,7 +44,7 @@ String dreamUniversityCourseTitle = "Dream University Course\n";
 String dobTitle = "Date of Birth\n";
 String prefectPositionTitle = "Position Held as a Prefect\n";
 String stateOfOriginTitle = "State of Origin\n";
-String currentLivingStateTitle = "State of Living\n";
+String currentResidenceStateTitle = "State of Residence\n";
 String hobbiesTitle = "Hobbies\n";
 String philosophyTitle = "Philosophy about Life\n";
 String droplineTitle = "Dropline to My Junior $schoolName Colleagues\n";
@@ -1595,7 +1595,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                           TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                  text: currentLivingStateTitle,
+                                  text: currentResidenceStateTitle,
                                   style: GoogleFonts.aBeeZee(
                                     color: textColor,
                                     fontSize: 19,
@@ -1637,7 +1637,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                               TextSpan(
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: currentLivingStateTitle,
+                                      text: currentResidenceStateTitle,
                                       style: GoogleFonts.aBeeZee(
                                         color: textColor,
                                         fontSize: 19,

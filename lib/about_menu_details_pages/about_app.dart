@@ -23,7 +23,7 @@ String gmailPolicyWebsite = "https://firebase.google.com/support/privacy/";
 String mailFIRST = "mailto:";
 String mailSECOND = "?subject=Hello ";
 
-String aboutApp = "This Almanac Software was engineered and developed by 'ICDAT DANS LE MONDE LIMITED, Nigeria' Company with the RC Number of 3032487.";
+String aboutApp = "PLEASE READ CAREFULLY.\n\nThis Almanac Software was engineered and developed by 'ICDAT DANS LE MONDE LIMITED, Nigeria' Company with the RC Number of 3032487.";
 String blemish = '"Do not be concerned about the blemishes and imperfections you may notice on the software, it is those blemishes that prove that the yearbook is authentic. :)"';
 String copyrightTerms = "This software is subject to copyright of ICDAT dans le monde limited. Hence should not be developed or replicated without due permission by any company or individual.";
 String termsEtConditions = "The following are the terms and conditions attached to usage of this software;";
