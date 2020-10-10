@@ -10,7 +10,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:second_lfutter_project/notifier/sidebar_notifier.dart';
+import '../notifier/sidebar_notifier.dart';
 import 'package:shimmer/shimmer.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';

@@ -43,7 +43,7 @@ String autobiographyTitle = "Autobiography\n";
 String staffPositionTitle = "Staff Position\n";
 String courseTeachingTitle = "Course Teaching\n";
 String qualificationTitle = "Qualification(s)\n";
-String yearOfInceptionTitle = "Year of Inception\n";
+String yearOfInceptionTitle = "Year of Appointment\n";
 
 String facebookProfileSharedPreferencesTitle = "Manual Website Search";
 String facebookProfileSharedPreferencesContentOne= "Apparently, you'd need to search manually for ";
