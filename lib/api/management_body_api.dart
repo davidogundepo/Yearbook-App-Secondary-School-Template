@@ -11,7 +11,7 @@ getManagementBody(ManagementBodyNotifier managementBodyNotifier) async {
   List<ManagementBody> _managementBodyList = [];
 
   snapshot.documents.forEach((document) {
-    ManagementBody managementBody = ManagementBody.fromMap(document.data);
+    ManagementBody managementBody = ManagementBody.fromMap(document.data());
     _managementBodyList.add(managementBody);
   });
 

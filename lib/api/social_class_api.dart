@@ -11,7 +11,7 @@ getSocialClass(SocialClassNotifier socialClassNotifier) async {
   List<SocialClass> _socialClassList = [];
 
   snapshot.documents.forEach((document) {
-    SocialClass socialClass = SocialClass.fromMap(document.data);
+    SocialClass socialClass = SocialClass.fromMap(document.data());
     _socialClassList.add(socialClass);
   });
 

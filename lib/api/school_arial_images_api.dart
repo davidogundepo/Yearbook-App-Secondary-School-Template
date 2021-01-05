@@ -9,7 +9,7 @@ getSchoolArial(SchoolArialNotifier schoolArialNotifier) async{
   List<SchoolArial> _schoolArialList = [];
 
   snapshot.documents.forEach((document) {
-    SchoolArial schoolArial = SchoolArial.fromMap(document.data);
+    SchoolArial schoolArial = SchoolArial.fromMap(document.data());
     _schoolArialList.add(schoolArial);
   });
 

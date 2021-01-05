@@ -11,7 +11,7 @@ getClassPrefects(ClassPrefectsNotifier classPrefectsNotifier) async {
   List<ClassPrefects> _classPrefectsList = [];
 
   snapshot.documents.forEach((document) {
-    ClassPrefects classPrefects = ClassPrefects.fromMap(document.data);
+    ClassPrefects classPrefects = ClassPrefects.fromMap(document.data());
     _classPrefectsList.add(classPrefects);
   });
 

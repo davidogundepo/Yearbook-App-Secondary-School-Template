@@ -11,7 +11,7 @@ getScienceClass(ScienceClassNotifier scienceClassNotifier) async {
   List<ScienceClass> _scienceClassList = [];
 
   snapshot.documents.forEach((document) {
-    ScienceClass scienceClass = ScienceClass.fromMap(document.data);
+    ScienceClass scienceClass = ScienceClass.fromMap(document.data());
     _scienceClassList.add(scienceClass);
   });
 

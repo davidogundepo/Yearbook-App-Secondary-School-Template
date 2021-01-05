@@ -1,5 +1,7 @@
 
 import 'package:bloc/bloc.dart';
+import 'package:second_lfutter_project/sidebar/sidebar.dart';
+import 'package:second_lfutter_project/sidebar/sidebar_layout.dart';
 import '../thrown_pages/management_thrown_page.dart';
 import '../thrown_pages/teachers_thrown_page.dart';
 import '../thrown_pages/science_thrown_page.dart';
@@ -19,7 +21,12 @@ enum NavigationEvents {
 abstract class NavigationStates {}
 
 class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
-  @override
+
+  MySciencePage sideBar;
+
+  NavigationBloc({NavigationStates initialState, this.sideBar}) : super (initialState);
+
+  // @override
   NavigationStates get initialState => MySciencePage();
 
   @override

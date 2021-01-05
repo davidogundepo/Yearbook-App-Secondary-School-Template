@@ -13,7 +13,7 @@ getGraduatesClassTeachers(
 
   snapshot.documents.forEach((document) {
     GraduatesClassTeachers graduatesClassTeachers =
-        GraduatesClassTeachers.fromMap(document.data);
+        GraduatesClassTeachers.fromMap(document.data());
     _graduatesClassTeachersList.add(graduatesClassTeachers);
   });
 

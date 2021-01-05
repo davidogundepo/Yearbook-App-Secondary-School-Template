@@ -9,7 +9,7 @@ getAchievements(AchievementsNotifier achievementsNotifier) async{
   List<Achievements> _achievementsList = [];
 
   snapshot.documents.forEach((document) {
-    Achievements achievements = Achievements.fromMap(document.data);
+    Achievements achievements = Achievements.fromMap(document.data());
     _achievementsList.add(achievements);
   });
 

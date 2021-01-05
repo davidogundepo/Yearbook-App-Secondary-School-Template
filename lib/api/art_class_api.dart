@@ -11,7 +11,7 @@ getArtClass(ArtClassNotifier artClassNotifier) async {
   List<ArtClass> _artClassList = [];
 
   snapshot.documents.forEach((document) {
-    ArtClass artClass = ArtClass.fromMap(document.data);
+    ArtClass artClass = ArtClass.fromMap(document.data());
     _artClassList.add(artClass);
   });
 
