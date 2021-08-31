@@ -75,7 +75,7 @@ String subjectsOfferedInSSSScienceDeptStatement4 = "4. Physics\n";
 String subjectsOfferedInSSSScienceDeptStatement5 = "5. Biology\n";
 String subjectsOfferedInSSSScienceDeptStatement6 = "6. Chemistry\n\n";
 
-String extraCurricularActs = "Extra-curricullar Activities offered in $schoolName\n\n";
+String extraCurricularActs = "Extra-curricular Activities offered in $schoolName\n\n";
 String extraCurricularActsStatement1 = "1. Inter-House Sports\n";
 String extraCurricularActsStatement2 = "2. Mathematics Competitions\n";
 String extraCurricularActsStatement3 = "3. Essay Competitions\n";

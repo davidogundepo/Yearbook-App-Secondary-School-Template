@@ -17,7 +17,7 @@ import '../sidebar/menu_item.dart';
 
 
 String schoolName = "ABC College";
-String subtitle = "Graduating Class (Elite Set 2020)";
+String subtitle = "Graduating Class (Elite Set 2021)";
 
 String scienceClassTitle = "Science Class Graduates";
 String socialScienceClassTitle = "Social Science Class Graduates";

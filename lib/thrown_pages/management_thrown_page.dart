@@ -21,7 +21,7 @@ String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.j
 
 
 String schoolName = "ABC College";
-String thrownName = "Mangement";
+String thrownName = "Management";
 
 String exitAppStatement = "Exit from App";
 String exitAppTitle = "Come on!";

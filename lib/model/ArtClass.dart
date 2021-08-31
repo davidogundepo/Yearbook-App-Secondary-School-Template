@@ -19,6 +19,14 @@ class ArtClass {
   String positionEnforced;
   String stateLiving;
   String originState;
+  String snapchat;
+  String tikTok;
+  String favSubject;
+  String favSchoolActivity;
+  String favSport;
+  String favClassmate;
+  String favPlaceInCampus;
+  String favWatchedMovie;
   String twitter;
   String worstMoment;
 
@@ -37,6 +45,14 @@ class ArtClass {
     positionEnforced = data['position_enforced'];
     originState = data['origin_state'];
     stateLiving = data['state_living'];
+    snapchat = data['snapchat'];
+    tikTok = data['tiktok'];
+    favSubject = data['fav_subjects'];
+    favSchoolActivity = data['fav_school_activity'];
+    favClassmate = data['fav_classmate'];
+    favPlaceInCampus = data['fav_place_in_campus'];
+    favSport = data['fav_sport_in_campus'];
+    favWatchedMovie = data['fav_watched_movie'];
     twitter = data['twitter'];
     dob = data['d_o_b'];
     dreamUniversity = data['dream_university'];

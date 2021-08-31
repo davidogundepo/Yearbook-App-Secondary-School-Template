@@ -4,11 +4,11 @@ import '../model/Achievements.dart';
 import '../notifier/achievement_images_notifier.dart';
 
 getAchievements(AchievementsNotifier achievementsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance.collection('AchievementImages').getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('AchievementImages').get();
 
   List<Achievements> _achievementsList = [];
 
-  snapshot.documents.forEach((document) {
+  snapshot.docs.forEach((document) {
     Achievements achievements = Achievements.fromMap(document.data());
     _achievementsList.add(achievements);
   });

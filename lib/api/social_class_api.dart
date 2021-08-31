@@ -3,14 +3,14 @@ import '../model/SocialClass.dart';
 import '../notifier/social_class_notifier.dart';
 
 getSocialClass(SocialClassNotifier socialClassNotifier) async {
-  QuerySnapshot snapshot = await Firestore.instance
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
       .collection('SocialClassStudents')
       .orderBy('name')
-      .getDocuments();
+      .get();
 
   List<SocialClass> _socialClassList = [];
 
-  snapshot.documents.forEach((document) {
+  snapshot.docs.forEach((document) {
     SocialClass socialClass = SocialClass.fromMap(document.data());
     _socialClassList.add(socialClass);
   });

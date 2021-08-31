@@ -16,8 +16,6 @@ import '../notifier/social_class_notifier.dart';
 import 'package:provider/provider.dart';
 import '../details_pages/social_details_page.dart';
 
-String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
-
 
 String schoolName = "ABC College";
 String thrownName = "Social Science Class Graduates";

@@ -29,12 +29,11 @@ dependencies:
   cached_network_image: ^2.0.0
   google_fonts: ^0.3.9
   shared_preferences: ^0.5.7
-  bloc: ^6.1.1
-  flutter_bloc: ^6.1.1
-  firebase_core: 0.5.3
-  cloud_firestore: 0.14.4
-  firebase_auth: ^0.18.4+1
-  provider: 4.3.2+3
+  flutter_bloc: ^3.2.0
+  firebase_core: ^0.5.3
+  cloud_firestore: ^0.14.4
+  firebase_auth: 0.18.4+1
+  provider: ^4.3.2+3
   flutter_swiper: ^1.1.6
   pie_chart: ^3.1.1
   shimmer: ^1.1.1
@@ -46,10 +45,11 @@ dependencies:
   device_preview: ^0.4.5
   toast: ^0.1.5
   characters: ^1.0.0
+  font_awesome_flutter: ^8.8.1
 
 flutter_native_splash:
-  image: assets/images/david.png
-  color: "666666"
+  image: assets/images/about_app_sp.png
+  color: "c46c8e"
   android: false
 
 
@@ -59,7 +59,7 @@ flutter_launcher_name:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/ic_launcher.png"
+  image_path: "assets/images/hallel_logo.png"
 
 
 dev_dependencies:
@@ -67,8 +67,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-#dependency_overrides:
-#  firebase_core: 0.5.3
+dependency_overrides:
+  firebase_core: 0.5.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -3,14 +3,14 @@ import '../model/ArtClass.dart';
 import '../notifier/art_class_notifier.dart';
 
 getArtClass(ArtClassNotifier artClassNotifier) async {
-  QuerySnapshot snapshot = await Firestore.instance
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
       .collection('ArtClassStudents')
       .orderBy('name')
-      .getDocuments();
+      .get();
 
   List<ArtClass> _artClassList = [];
 
-  snapshot.documents.forEach((document) {
+  snapshot.docs.forEach((document) {
     ArtClass artClass = ArtClass.fromMap(document.data());
     _artClassList.add(artClass);
   });

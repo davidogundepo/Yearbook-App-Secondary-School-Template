@@ -7,7 +7,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/hallel_logo" />
+            android:src="@drawable/about_app_sp" />
     </item>
 
 </layer-list>

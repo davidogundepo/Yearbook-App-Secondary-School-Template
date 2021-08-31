@@ -16,8 +16,6 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/graduates_class_teachers_details.page.dart';
 import '../notifier/graduates_class_teachers_notifier.dart';
 
-String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
-
 
 String schoolName = "ABC College";
 String thrownName = "Class Teachers";

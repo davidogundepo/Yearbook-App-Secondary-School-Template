@@ -1,3 +1,7 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +17,12 @@ import './notifier/science_class_notifier.dart';
 import './sidebar/sidebar_layout.dart';
 import 'notifier/sidebar_notifier.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(
           MultiProvider(
               providers: [
@@ -52,7 +61,6 @@ void main() {
 
 class MyApp extends StatefulWidget {
 
-
   @override
   State<StatefulWidget> createState() {
     return MyAppState();
@@ -64,17 +72,25 @@ class MyApp extends StatefulWidget {
     @override
     void initState() {
       super.initState();
+      Firebase.initializeApp().whenComplete(() {
+        print("completed");
+        setState(() {});
+      });
     }
 
       @override
     Widget build(BuildContext context) {
+      FirebaseAnalytics analytics = FirebaseAnalytics();
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
-        home: SideBarLayout()
+        home: SideBarLayout(),
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: analytics),
+        ],
       );
     }
 

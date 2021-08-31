@@ -3,14 +3,14 @@ import '../model/ClassPrefects.dart';
 import '../notifier/class_prefects_notifier.dart';
 
 getClassPrefects(ClassPrefectsNotifier classPrefectsNotifier) async {
-  QuerySnapshot snapshot = await Firestore.instance
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
       .collection('ClassPrefects')
       .orderBy('id')
-      .getDocuments();
+      .get();
 
   List<ClassPrefects> _classPrefectsList = [];
 
-  snapshot.documents.forEach((document) {
+  snapshot.docs.forEach((document) {
     ClassPrefects classPrefects = ClassPrefects.fromMap(document.data());
     _classPrefectsList.add(classPrefects);
   });

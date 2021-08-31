@@ -22,6 +22,7 @@ String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
+String urlLinkedIn = "https://www.linkedin.com/";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
@@ -30,11 +31,21 @@ String emailButton = "Send an Email";
 String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
 String facebookButton = "My Facebook";
+String linkedInButton = "My LinkedIn";
 
 String autobiographyTitle = "Autobiography\n";
 String staffPositionTitle = "Staff Position\n";
 String qualificationTitle = "Qualification(s)\n";
 String yearOfInceptionTitle = "Year of Appointment\n";
+String stateOfOriginTitle = "State of Origin\n";
+String hobbiesTitle = "Hobbies\n";
+String philosophyTitle = "Philosophy about Life\n";
+
+String linkedInProfileSharedPreferencesTitle = "Manual Website Search";
+String linkedInProfileSharedPreferencesContentOne= "Apparently, you'd need to search manually for ";
+String linkedInProfileSharedPreferencesContentTwo = ", on LinkedIn.com";
+String linkedInProfileSharedPreferencesButton = "Go to LinkedIn";
+String linkedInProfileSharedPreferencesButtonTwo = "Lol, No";
 
 String facebookProfileSharedPreferencesTitle = "Manual Website Search";
 String facebookProfileSharedPreferencesContentOne= "Apparently, you'd need to search manually for ";
@@ -81,8 +92,12 @@ var _autoBio;
 var _staffPosition;
 var _qualification;
 var _yearOfInception;
+var _hobbies;
+var _philosophy;
+var _originState;
 var _email;
 var _facebook;
+var _linkedIn;
 var _instagram;
 var _name;
 var _phone;
@@ -301,8 +316,12 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
     _autoBio = managementBodyNotifier.currentManagementBody.autoBio;
     _staffPosition = managementBodyNotifier.currentManagementBody.staffPosition;
     _yearOfInception = managementBodyNotifier.currentManagementBody.yearOfInception;
+    _hobbies = managementBodyNotifier.currentManagementBody.hobbies;
+    _philosophy = managementBodyNotifier.currentManagementBody.philosophy;
+    _originState = managementBodyNotifier.currentManagementBody.originState;
     _email = managementBodyNotifier.currentManagementBody.email;
     _facebook = managementBodyNotifier.currentManagementBody.facebook;
+    _linkedIn = managementBodyNotifier.currentManagementBody.linkedIn;
     _instagram = managementBodyNotifier.currentManagementBody.instagram;
     _name = managementBodyNotifier.currentManagementBody.name;
     _qualification = managementBodyNotifier.currentManagementBody.qualification;
@@ -566,7 +585,6 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
               }
             }()),
 
-
             (() {
               if (_twitter.toString().isNotEmpty) {
                 return Padding(
@@ -588,7 +606,13 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           )
                       ),
                       onPressed: () {
-                        launchURL(urlTwitter+_twitter);
+                        if (_twitter.toString().startsWith('@')) {
+                          var most = _twitter.toString().substring(1);
+                          launchURL(urlTwitter + most);
+                        }
+                        else {
+                          launchURL(urlTwitter + _twitter);
+                        }
                       },
                     ),
                   ),
@@ -645,7 +669,13 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                           )
                       ),
                       onPressed: () {
-                        launchURL(urlInstagram+_instagram);
+                        if (_instagram.toString().startsWith('@')) {
+                          var most = _instagram.toString().substring(1);
+                          launchURL(urlInstagram + most);
+                        }
+                        else {
+                          launchURL(urlInstagram + _instagram);
+                        }
                       },
                     ),
                   ),
@@ -673,6 +703,63 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
                         ),
                         onPressed: () {
                           launchURL(urlInstagram+_instagram);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_linkedIn.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
+                      label: Text(linkedInButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300
+                          )
+                      ),
+                      onPressed: () {
+                        linkedInLink();
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
+                        label: Text(linkedInButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300
+                            )
+                        ),
+                        onPressed: () {
+                          linkedInLink();
                         },
                       ),
                     ),
@@ -748,171 +835,552 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Container(
-            child: Material(
-              color: materialBackgroundColor,
-              child: InkWell(
-                splashColor: splashColorThree,
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                  child: Text.rich(
-                    TextSpan(
-                      children: <TextSpan>[
+
+          (() {
+            if (_autoBio.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
                         TextSpan(
-                            text: autobiographyTitle,
-                            style: GoogleFonts.aBeeZee(
-                              color: textColor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                            )
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: autobiographyTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _autoBio,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
                         ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: autobiographyTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _autoBio,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
+
+          (() {
+            if (_staffPosition.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
                         TextSpan(
-                            text: ' '+_autoBio,
-                            style: GoogleFonts.trykker(
-                              color: textColor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w300,
-                            )
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: staffPositionTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _staffPosition,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            decoration: BoxDecoration(
-                color: shapeDecorationColorTwo.withAlpha(50),
-                borderRadius: new BorderRadius.circular(10)
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              child: Material(
-                color: materialBackgroundColor,
-                child: InkWell(
-                  splashColor: splashColorThree,
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                    child: Text.rich(
-                      TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: staffPositionTitle,
-                              style: GoogleFonts.aBeeZee(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              )
-                          ),
-                          TextSpan(
-                              text: ' '+_staffPosition,
-                              style: GoogleFonts.trykker(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.w300,
-                              )
-                          ),
-                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: staffPositionTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _staffPosition,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
 
-              decoration: BoxDecoration(
-                  color: shapeDecorationColorTwo.withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              child: Material(
-                color: materialBackgroundColor,
-                child: InkWell(
-                  splashColor: splashColorThree,
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                    child: Text.rich(
-                      TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: qualificationTitle,
-                              style: GoogleFonts.aBeeZee(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              )
-                          ),
-                          TextSpan(
-                              text: ' '+_qualification,
-                              style: GoogleFonts.trykker(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.w300,
-                              )
-                          ),
-                        ],
+          (() {
+            if (_qualification.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: qualificationTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _qualification,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: qualificationTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _qualification,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
 
-              decoration: BoxDecoration(
-                  color: shapeDecorationColorTwo.withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              child: Material(
-                color: materialBackgroundColor,
-                child: InkWell(
-                  splashColor: splashColorThree,
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                    child: Text.rich(
-                      TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: yearOfInceptionTitle,
-                              style: GoogleFonts.aBeeZee(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              )
-                          ),
-                          TextSpan(
-                              text: ' '+_yearOfInception,
-                              style: GoogleFonts.aBeeZee(
-                                color: textColor,
-                                fontSize: 19,
-                                fontWeight: FontWeight.w300,
-                              )
-                          ),
-                        ],
+          (() {
+            if (_yearOfInception.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: yearOfInceptionTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _yearOfInception,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: yearOfInceptionTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _yearOfInception,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
 
-              decoration: BoxDecoration(
-                  color: shapeDecorationColorTwo.withAlpha(50),
-                  borderRadius: new BorderRadius.circular(10)
-              ),
-            ),
-          ),
+          (() {
+            if (_originState.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: stateOfOriginTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _originState,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: stateOfOriginTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _originState,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
+
+          (() {
+            if (_hobbies.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: hobbiesTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _hobbies,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: hobbiesTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _hobbies,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
+
+          (() {
+            if (_philosophy.toString().isNotEmpty) {
+              return Container(
+                child: Material(
+                  color: materialBackgroundColor,
+                  child: InkWell(
+                    splashColor: splashColorThree,
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                      child: Text.rich(
+                        TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: philosophyTitle,
+                                style: GoogleFonts.aBeeZee(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: ' ' + _philosophy,
+                                style: GoogleFonts.trykker(
+                                  color: textColor,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w300,
+                                )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    color: shapeDecorationColorTwo.withAlpha(50),
+                    borderRadius: new BorderRadius.circular(10)),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Container(
+                    child: Material(
+                      color: materialBackgroundColor,
+                      child: InkWell(
+                        splashColor: splashColorThree,
+                        onTap: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                          child: Text.rich(
+                            TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: philosophyTitle,
+                                    style: GoogleFonts.aBeeZee(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                TextSpan(
+                                    text: ' ' + _philosophy,
+                                    style: GoogleFonts.trykker(
+                                      color: textColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w300,
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: shapeDecorationColorTwo.withAlpha(50),
+                        borderRadius: new BorderRadius.circular(10)),
+                  ));
+            }
+          }()),
         ],
       ),
     };
@@ -966,6 +1434,63 @@ class _ManagementBodyDetailsPage extends State<ManagementBodyDetailsPage>{
           FlatButton(
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(facebookProfileSharedPreferencesButtonTwo,
+              style: TextStyle(
+                  color: cardBackgroundColor
+              ),
+            ),
+          ),
+
+        ],
+      ),
+    );
+//    }
+  }
+
+  linkedInLink() async {
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+
+        ),
+        backgroundColor: backgroundColor,
+        title: Text(
+          linkedInProfileSharedPreferencesTitle,
+          style: TextStyle(
+              color: cardBackgroundColor
+          ),
+        ),
+        content: Text(
+          linkedInProfileSharedPreferencesContentOne + _linkedIn + linkedInProfileSharedPreferencesContentTwo,
+          textAlign: TextAlign.justify,
+          style: TextStyle(
+              color: cardBackgroundColor
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              launchURL(urlLinkedIn);
+              Toast.show("Loading up LinkedIn.com",
+                  context, duration:
+                  Toast.LENGTH_LONG,
+                  gravity:  Toast.BOTTOM,
+                  textColor: cardBackgroundColor,
+                  backgroundColor: backgroundColor,
+                  backgroundRadius: 10
+              );
+            },
+            child: Text(linkedInProfileSharedPreferencesButton,
+              style: TextStyle(
+                  color: cardBackgroundColor
+              ),
+            ),
+          ),
+          FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(linkedInProfileSharedPreferencesButtonTwo,
               style: TextStyle(
                   color: cardBackgroundColor
               ),
