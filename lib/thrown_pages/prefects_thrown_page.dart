@@ -17,7 +17,7 @@ import '../details_pages/class_prefects_details_page.dart';
 import '../notifier/class_prefects_notifier.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String thrownName = "School Prefects";
 
 String exitAppStatement = "Exit from App";
@@ -260,6 +260,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                           ),
                                           ),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -273,6 +274,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                           ),
                                         ),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
@@ -286,6 +288,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                             ),
                                           ),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -299,6 +302,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                                           ),
                                         ),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -332,7 +336,7 @@ class _MyClassPrefectsPage extends State<MyClassPrefectsPage> {
                       title: Center(
                         heightFactor: 0.6,
                         child: Text(thrownName,
-                            style:  GoogleFonts.amaticSC(
+                            style:  GoogleFonts.abel(
                               color: textColor,
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold

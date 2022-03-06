@@ -13,7 +13,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String aboutSchool = "About $schoolName";
 
 String visionSwipe = "Swipe left on 'OUR VISION STATEMENT'  >>>";
@@ -499,27 +499,34 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 )),
                           ),
                           PieChart(
-                            legendStyle: TextStyle(
-                              color: cardTextColor,
-                            ),
                             dataMap: schoolMap,
-                            animationDuration: Duration(seconds: 10),
-                            chartLegendSpacing: 42.0,
+                            animationDuration: Duration(milliseconds: 8000),
+                            chartLegendSpacing: 42,
                             chartRadius: MediaQuery.of(context).size.width / 2.7,
-                            showChartValuesInPercentage: false,
-                            showChartValues: true,
-                            showChartValuesOutside: false,
-                            chartValueBackgroundColor: chartBackgroundColor,
                             colorList: schoolColorList,
-                            showLegends: true,
-                            legendPosition: LegendPosition.right,
-                            decimalPlaces: 0,
-                            showChartValueLabel: true,
-                            initialAngle: 0,
-                            chartValueStyle: defaultChartValueStyle.copyWith(
-                              color: textColor.withOpacity(0.9),
-                            ),
+                            initialAngleInDegree: 0,
                             chartType: ChartType.disc,
+                            legendOptions: LegendOptions(
+                              showLegendsInRow: false,
+                              legendPosition: LegendPosition.right,
+                              showLegends: true,
+                              legendShape: BoxShape.circle,
+                              legendTextStyle: TextStyle(
+                                color: cardTextColor,
+                              ),
+                            ),
+                            chartValuesOptions: ChartValuesOptions(
+                              showChartValueBackground: true,
+                              showChartValues: true,
+                              // showChartValueLabel: true,
+                              chartValueStyle: defaultChartValueStyle.copyWith(
+                                color: textColor.withOpacity(0.9),
+                              ),
+                              showChartValuesInPercentage: false,
+                              showChartValuesOutside: false,
+                              decimalPlaces: 0,
+                              chartValueBackgroundColor: chartBackgroundColor,
+                            ),
                           ),
                         ],
                       ),
@@ -603,27 +610,34 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                                 )),
                           ),
                           PieChart(
-                            legendStyle: TextStyle(
-                              color: cardTextColor,
-                            ),
                             dataMap: studentMap,
-                            animationDuration: Duration(seconds: 10),
-                            chartLegendSpacing: 42.0,
+                            animationDuration: Duration(milliseconds: 10),
+                            chartLegendSpacing: 42,
                             chartRadius: MediaQuery.of(context).size.width / 2.7,
-                            showChartValuesInPercentage: false,
-                            showChartValues: true,
-                            showChartValuesOutside: false,
-                            chartValueBackgroundColor: chartBackgroundColor,
                             colorList: studentColorList,
-                            showLegends: true,
-                            legendPosition: LegendPosition.right,
-                            decimalPlaces: 0,
-                            showChartValueLabel: true,
-                            initialAngle: 0,
-                            chartValueStyle: defaultChartValueStyle.copyWith(
-                              color: textColor.withOpacity(0.9),
-                            ),
+                            initialAngleInDegree: 0,
                             chartType: ChartType.ring,
+                            legendOptions: LegendOptions(
+                              showLegendsInRow: false,
+                              legendPosition: LegendPosition.right,
+                              showLegends: true,
+                              legendShape: BoxShape.circle,
+                              legendTextStyle: TextStyle(
+                                color: cardTextColor,
+                              ),
+                            ),
+                            chartValuesOptions: ChartValuesOptions(
+                              showChartValueBackground: true,
+                              showChartValues: true,
+                              // showChartValueLabel: true,
+                              chartValueStyle: defaultChartValueStyle.copyWith(
+                                color: textColor.withOpacity(0.9),
+                              ),
+                              showChartValuesInPercentage: false,
+                              showChartValuesOutside: false,
+                              decimalPlaces: 0,
+                              chartValueBackgroundColor: chartBackgroundColor,
+                            ),
                           ),
                         ],
                       ),

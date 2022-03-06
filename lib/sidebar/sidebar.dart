@@ -16,7 +16,7 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String subtitle = "Graduating Class (Elite Set 2021)";
 
 String scienceClassTitle = "Science Class Graduates";

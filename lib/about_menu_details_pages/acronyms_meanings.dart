@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String acronymTitle = "Acronym Meanings";
 String acronym = "The following acronyms are used in the apps and their meanings are detailed.";
 String abc = "ABC - $schoolName";

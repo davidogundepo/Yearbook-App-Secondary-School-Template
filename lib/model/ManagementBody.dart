@@ -29,7 +29,7 @@ class ManagementBody {
     staffPosition = data['staff_position'];
     qualification = data['qualification'];
     yearOfInception = data['year_of_inception'];
-    originState = data['origin_state'];
+    originState = data['state_of_origin'];
     hobbies = data['hobbies'];
     philosophy = data['philosophy'];
     linkedIn = data['linkedin'];

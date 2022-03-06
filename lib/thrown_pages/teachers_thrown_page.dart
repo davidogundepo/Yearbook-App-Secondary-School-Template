@@ -17,7 +17,7 @@ import '../details_pages/graduates_class_teachers_details.page.dart';
 import '../notifier/graduates_class_teachers_notifier.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String thrownName = "Class Teachers";
 
 String exitAppStatement = "Exit from App";
@@ -260,6 +260,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                             color: textColor
                                           ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -271,6 +272,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                               color: textColor
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
@@ -282,6 +284,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                                 color: textColor
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -293,6 +296,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                                               color: textColor
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -326,7 +330,7 @@ class _MyGraduatesClassTeachersPage extends State<MyGraduatesClassTeachersPage> 
                       title: Center(
                         heightFactor: 0.6,
                         child: Text(thrownName,
-                            style: GoogleFonts.amaticSC(
+                            style: GoogleFonts.abel(
                               color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

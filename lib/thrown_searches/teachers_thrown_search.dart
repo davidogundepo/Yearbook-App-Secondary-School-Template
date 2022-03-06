@@ -41,7 +41,7 @@ class MyGraduatesClassTeachersSearch extends SearchDelegate {
         primaryColor: appBarBackgroundColor,
         primaryIconTheme: IconThemeData(color: appBarIconColor),
         primaryColorBrightness: Brightness.light,
-        textTheme: TextTheme(title: TextStyle(color: appBarTextColor, fontSize: 25)),
+        textTheme: TextTheme(subtitle1: TextStyle(color: appBarTextColor, fontSize: 25)),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: appBarTextColor.withAlpha(60)),
         ),
@@ -223,7 +223,7 @@ class MyGraduatesClassTeachersSearch extends SearchDelegate {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 10),
                                       child: Text(
-                                          search[position].staffPosition,
+                                          search[position].courseTeaching,
                                           style: GoogleFonts.tenorSans(
                                               color: textColor,
                                               fontSize: 16,

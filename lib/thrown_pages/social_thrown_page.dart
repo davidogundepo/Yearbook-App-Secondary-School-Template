@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 import '../details_pages/social_details_page.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String thrownName = "Social Science Class Graduates";
 
 String exitAppStatement = "Exit from App";
@@ -316,6 +316,7 @@ class _MySocialPage extends State<MySocialPage> {
                                                 color: textColor
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -326,6 +327,7 @@ class _MySocialPage extends State<MySocialPage> {
                                           color: textColor
                                         ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
@@ -336,6 +338,7 @@ class _MySocialPage extends State<MySocialPage> {
                                                 color: textColor
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -346,6 +349,7 @@ class _MySocialPage extends State<MySocialPage> {
                                               color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -379,7 +383,7 @@ class _MySocialPage extends State<MySocialPage> {
                       title: Center(
                         heightFactor: 0.6,
                         child: Text(thrownName,
-                            style: GoogleFonts.amaticSC(
+                            style: GoogleFonts.abel(
                               color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

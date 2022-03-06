@@ -16,11 +16,8 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/management_details_page.dart';
 import '../notifier/management_body_notifier.dart';
 
-String imageURL = 'https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350';
 
-
-
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String thrownName = "Management";
 
 String exitAppStatement = "Exit from App";
@@ -261,6 +258,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                             color: textColor
                                           ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -272,6 +270,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                               color: textColor
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
@@ -283,6 +282,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                                 color: textColor
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -294,6 +294,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                                               color: textColor
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -327,7 +328,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
                       title: Center(
                         heightFactor: 0.6,
                         child: Text(thrownName,
-                            style: GoogleFonts.amaticSC(
+                            style: GoogleFonts.abel(
                               color: textColor,
                                 fontSize: 26.0,
                                 fontWeight: FontWeight.bold

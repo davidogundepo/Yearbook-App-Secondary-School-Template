@@ -11,7 +11,7 @@ import '../notifier/social_class_notifier.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 
 
 String callFIRST = "tel:+234";
@@ -154,7 +154,8 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      print("Can't Launch $url");
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: new Text("The required App not installed")));
     }
   }
 
@@ -656,7 +657,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.twitterCircle,
+                        MdiIcons.twitter,
                         color: iconTextColor,
                       ),
                       label: Text(twitterButton,
@@ -689,7 +690,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.twitterCircle,
+                          MdiIcons.twitter,
                           color: iconTextColor,
                         ),
                         label: Text(twitterButton,
@@ -796,8 +797,6 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         else {
                           launchURL(urlSnapchat + _snapchat);
                         }
-
-                        launchURL(urlSnapchat + _snapchat);
                       },
                     ),
                   ),
@@ -860,8 +859,6 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
                         else {
                           launchURL(urlTikTok + _tikTok);
                         }
-
-                        launchURL(urlTikTok + _tikTok);
                       },
                     ),
                   ),

@@ -16,7 +16,7 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/art_details_page.dart';
 import '../notifier/art_class_notifier.dart';
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String thrownName = "Art Class Graduates";
 
 String exitAppStatement = "Exit from App";
@@ -376,7 +376,7 @@ class _MyArtPage extends State<MyArtPage> {
                       title: Center(
                         heightFactor: 0.6,
                         child: Text(thrownName,
-                            style: GoogleFonts.amaticSC(
+                            style: GoogleFonts.abel(
                               color: appBarTextColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

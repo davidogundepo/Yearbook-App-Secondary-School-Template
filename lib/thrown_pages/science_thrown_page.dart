@@ -19,7 +19,7 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../details_pages/science_details_page.dart';
 
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 String communityName = "Trans-Woji";
 String lgaName = "Obia/Akpor LGA";
 String stateName = "Rivers State";
@@ -453,6 +453,7 @@ class _MySciencePage extends State<MySciencePage> {
                                               color: textColor,
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -463,6 +464,7 @@ class _MySciencePage extends State<MySciencePage> {
                                             color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutSchoolDetailsPage(context);
                                         },
                                       ),
@@ -473,6 +475,7 @@ class _MySciencePage extends State<MySciencePage> {
                                               color: textColor,
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -483,6 +486,7 @@ class _MySciencePage extends State<MySciencePage> {
                                             color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -517,7 +521,7 @@ class _MySciencePage extends State<MySciencePage> {
                         heightFactor: 0.6,
                         child: Text(thrownName,
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.amaticSC(
+                            style: GoogleFonts.abel(
                               color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

@@ -29,7 +29,7 @@ class GraduatesClassTeachers {
     qualification = data['qualification'];
     courseTeaching = data['course_teaching'];
     yearOfInception = data['year_of_inception'];
-    originState = data['origin_state'];
+    originState = data['state_of_origin'];
     hobbies = data['hobbies'];
     philosophy = data['philosophy'];
     linkedIn = data['linkedin'];

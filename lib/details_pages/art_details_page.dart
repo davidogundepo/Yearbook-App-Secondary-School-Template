@@ -22,16 +22,17 @@ String mailSECOND = "?subject=Hello ";
 String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
-String urlSnapchat = "https://www.snapchat.com/";
-String urlTikTok = "https://www.tiktok.com/";
+String urlSnapchat = "https://www.snapchat.com/add/";
+String urlTikTok = "https://www.tiktok.com/@";
 
-String schoolName = "ABC College";
+String schoolName = "ABC Secondary School";
 
 String reachDetails = "Contacts";
 String autoBioDetails = "AutoBiography";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
+String whatsAppButton = "Send a WhatsApp Message";
 String emailButton = "Send an Email";
 String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
@@ -92,7 +93,7 @@ Color confettiColorTen = Colors.teal;
 Color confettiColorEleven = Colors.indigoAccent;
 Color confettiColorTwelve = Colors.cyan;
 
-//ss
+
 
 ArtClassNotifier artClassNotifier;
 
@@ -151,7 +152,8 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      print("Can't Launch $url");
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: new Text("The required App not installed")));
     }
   }
 
@@ -537,7 +539,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                         MdiIcons.message,
                         color: iconTextColor,
                       ),
-                      label: Text(messageButton,
+                      label: Text(whatsAppButton,
                           style: GoogleFonts.abel(
                               color: iconTextColor,
                               fontSize: 18,
@@ -572,7 +574,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                           MdiIcons.message,
                           color: iconTextColor,
                         ),
-                        label: Text(messageButton,
+                        label: Text(whatsAppButton,
                             style: GoogleFonts.abel(
                                 color: iconTextColor,
                                 fontSize: 18,
@@ -654,7 +656,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.twitterCircle,
+                        MdiIcons.twitter,
                         color: iconTextColor,
                       ),
                       label: Text(twitterButton,
@@ -687,7 +689,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.twitterCircle,
+                          MdiIcons.twitter,
                           color: iconTextColor,
                         ),
                         label: Text(twitterButton,
@@ -709,7 +711,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: InkWell(
-                    splashColor: splashColor,
+                    splashColor: splashColorTwo,
                     child: RaisedButton.icon(
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
@@ -742,7 +744,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: InkWell(
-                      splashColor: splashColor,
+                      splashColor: splashColorTwo,
                       child: RaisedButton.icon(
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
@@ -794,8 +796,6 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                         else {
                           launchURL(urlSnapchat + _snapchat);
                         }
-
-                        launchURL(urlSnapchat + _snapchat);
                       },
                     ),
                   ),
@@ -858,8 +858,6 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                         else {
                           launchURL(urlTikTok + _tikTok);
                         }
-
-                        launchURL(urlTikTok + _tikTok);
                       },
                     ),
                   ),
