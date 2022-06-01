@@ -380,7 +380,7 @@ class _SocialDetailsPage extends State<SocialDetailsPage> {
     _originState = socialClassNotifier.currentSocialClass.originState;
     _snapchat = socialClassNotifier.currentSocialClass.snapchat;
     _tikTok = socialClassNotifier.currentSocialClass.tikTok;
-    _favSubjects = socialClassNotifier.currentSocialClass.favSchoolActivity;
+    _favSubjects = socialClassNotifier.currentSocialClass.favSubject;
     _favClassmate = socialClassNotifier.currentSocialClass.favClassmate;
     _favPlaceInCampus = socialClassNotifier.currentSocialClass.favPlaceInCampus;
     _favSchoolActivity = socialClassNotifier.currentSocialClass.favSchoolActivity;

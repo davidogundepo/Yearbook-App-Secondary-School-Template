@@ -472,7 +472,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 250,
+                height: 390,
                 decoration: BoxDecoration(
                     color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
@@ -501,14 +501,14 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                           PieChart(
                             dataMap: schoolMap,
                             animationDuration: Duration(milliseconds: 8000),
-                            chartLegendSpacing: 42,
+                            chartLegendSpacing: 22,
                             chartRadius: MediaQuery.of(context).size.width / 2.7,
                             colorList: schoolColorList,
                             initialAngleInDegree: 0,
                             chartType: ChartType.disc,
                             legendOptions: LegendOptions(
                               showLegendsInRow: false,
-                              legendPosition: LegendPosition.right,
+                              legendPosition: LegendPosition.bottom,
                               showLegends: true,
                               legendShape: BoxShape.circle,
                               legendTextStyle: TextStyle(
@@ -583,7 +583,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 270,
+                height: 380,
                 decoration: BoxDecoration(
                     color: boxDecorationColor.withAlpha(50),
                     borderRadius: new BorderRadius.circular(10)
@@ -619,7 +619,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
                             chartType: ChartType.ring,
                             legendOptions: LegendOptions(
                               showLegendsInRow: false,
-                              legendPosition: LegendPosition.right,
+                              legendPosition: LegendPosition.bottom,
                               showLegends: true,
                               legendShape: BoxShape.circle,
                               legendTextStyle: TextStyle(
@@ -1115,6 +1115,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: schoolArialNotifier.schoolArialList.length,
@@ -1201,6 +1202,7 @@ class _AboutSchoolDetailsState extends State<AboutSchoolDetails> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: achievementsNotifier.achievementsList.length,

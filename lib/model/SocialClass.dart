@@ -47,7 +47,7 @@ class SocialClass {
     stateLiving = data['state_living'];
     snapchat = data['snapchat'];
     tikTok = data['tiktok'];
-    favSubject = data['fav_subjects'];
+    favSubject = data['fav_subject'];
     favSchoolActivity = data['fav_school_activity'];
     favClassmate = data['fav_classmate'];
     favPlaceInCampus = data['fav_place_in_campus'];

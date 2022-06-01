@@ -343,6 +343,7 @@ class _MyArtPage extends State<MyArtPage> {
                                               color: textColor
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),

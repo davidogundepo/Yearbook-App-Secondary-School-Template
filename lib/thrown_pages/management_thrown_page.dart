@@ -194,7 +194,6 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
   Future navigateToManagementBodyDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => ManagementBodyDetailsPage()));
   }
-
   Future navigateToAboutAppDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
   }
@@ -207,6 +206,7 @@ class _MyManagementBodyPage extends State<MyManagementBodyPage> {
   Future navigateToWhoWeArePage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
+
 
   @override
   void initState() {

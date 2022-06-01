@@ -381,7 +381,7 @@ class _SubPageState extends State<SubPage> {
     _twitter = scienceClassNotifier.currentScienceClass.twitter;
     _snapchat = scienceClassNotifier.currentScienceClass.snapchat;
     _tikTok = scienceClassNotifier.currentScienceClass.tikTok;
-    _favSubjects = scienceClassNotifier.currentScienceClass.favSchoolActivity;
+    _favSubjects = scienceClassNotifier.currentScienceClass.favSubject;
     _favClassmate = scienceClassNotifier.currentScienceClass.favClassmate;
     _favPlaceInCampus = scienceClassNotifier.currentScienceClass.favPlaceInCampus;
     _favSchoolActivity = scienceClassNotifier.currentScienceClass.favSchoolActivity;

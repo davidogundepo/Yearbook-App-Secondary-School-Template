@@ -3,4 +3,6 @@
 <!--    <item>-->
 <!--        <bitmap android:gravity="fill" android:src="@drawable/background"/>-->
 <!--    </item>-->
+
+    <item android:drawable="@color/background" />
 </layer-list>

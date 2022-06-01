@@ -385,7 +385,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
     _originState = artClassNotifier.currentArtClass.originState;
     _snapchat = artClassNotifier.currentArtClass.snapchat;
     _tikTok = artClassNotifier.currentArtClass.tikTok;
-    _favSubjects = artClassNotifier.currentArtClass.favSchoolActivity;
+    _favSubjects = artClassNotifier.currentArtClass.favSubject;
     _favClassmate = artClassNotifier.currentArtClass.favClassmate;
     _favPlaceInCampus = artClassNotifier.currentArtClass.favPlaceInCampus;
     _favSchoolActivity = artClassNotifier.currentArtClass.favSchoolActivity;
@@ -536,7 +536,7 @@ class _ArtDetailsPage extends State<ArtDetailsPage> {
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.message,
+                        MdiIcons.whatsapp,
                         color: iconTextColor,
                       ),
                       label: Text(whatsAppButton,
