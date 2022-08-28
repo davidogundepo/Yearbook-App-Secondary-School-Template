@@ -27,7 +27,7 @@
     </queries>
 
     <application
-        android:label="NG Sec Sch"
+        android:label="NG Secondary School"
         android:icon="@mipmap/ic_launcher"
         android:extractNativeLibs="true"
         android:name="${applicationName}"

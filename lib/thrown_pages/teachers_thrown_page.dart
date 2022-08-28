@@ -13,7 +13,7 @@ import 'package:second_lfutter_project/about_menu_details_pages/who_we_are.dart'
 import 'package:second_lfutter_project/thrown_searches/teachers_thrown_search.dart';
 import '../api/graduates_class_teachers_api.dart';
 import '../bloc_navigation_bloc/navigation_bloc.dart';
-import '../details_pages/graduates_class_teachers_details.page.dart';
+import '../details_pages/graduates_class_teachers_details_page.dart';
 import '../notifier/graduates_class_teachers_notifier.dart';
 
 
